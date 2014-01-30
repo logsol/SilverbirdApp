@@ -90,10 +90,11 @@ public:
     private:
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainWindow)
     };
-
+    
 private:
     ScopedPointer<MainWindow> mainWindow;
 };
+
 
 //==============================================================================
 // This macro generates the main() routine that launches the app.

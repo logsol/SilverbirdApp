@@ -5,7 +5,15 @@
               jucerVersion="3.1.0">
   <MAINGROUP id="P1u1H7" name="SilverbirdApp">
     <GROUP id="{40B58F17-2A50-FCFC-AC96-EA61BE3F32E2}" name="Source">
+      <FILE id="qxzFuh" name="SynthAudioSource.cpp" compile="1" resource="0"
+            file="Source/SynthAudioSource.cpp"/>
+      <FILE id="KjTDsI" name="SynthAudioSource.h" compile="0" resource="0"
+            file="Source/SynthAudioSource.h"/>
       <GROUP id="{ED3D9729-17B3-221F-DA8E-B7C677696983}" name="Resources">
+        <GROUP id="{D187FC60-5D9C-999B-BCE3-87C72521A455}" name="Sounds">
+          <FILE id="Jx5iIL" name="909norm.wav" compile="0" resource="1" file="../../../Music Making/Samples/Drums/Kick/909norm.wav"/>
+          <FILE id="TiGa1l" name="Frecker.aif" compile="0" resource="1" file="../../../Music Making/Samples/Zelbstgemacht/Drums/Claps/Frecker.aif"/>
+        </GROUP>
         <FILE id="xc80lB" name="Background.png" compile="0" resource="1" file="../../../../Pictures/Photo Booth Library/Pictures/Background.png"/>
       </GROUP>
       <FILE id="huJqqE" name="MainComponent.cpp" compile="1" resource="0"

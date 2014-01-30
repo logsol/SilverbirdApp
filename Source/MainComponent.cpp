@@ -19,16 +19,34 @@ MainContentComponent::MainContentComponent()
     background->setBounds(0, 0, 1079, 639);
     addAndMakeVisible (background);
     
-    button1 = new TextButton ("Button 1");
-    button1->setBounds (20, 70, 260, 20);
+    button1 = new TextButton ("Kickdrum!");
+    button1->setBounds (70, 70, 100, 30);
+    button1->addListener(this);
     addAndMakeVisible (button1);
+    
+    audioDeviceManager = new AudioDeviceManager();
+    audioDeviceManager->initialise (2, 2, 0, true, String::empty, 0);
+    
+    audioSourcePlayer = new AudioSourcePlayer();
+    synthAudioSource = new SynthAudioSource(keyboardState);
+    
+    synthAudioSource->setUsingSampledSound();
+    audioSourcePlayer->setSource(synthAudioSource);
+    
+    audioDeviceManager->addAudioCallback(audioSourcePlayer);
+    
+    std::cout << "hello";
 }
 
 
 MainContentComponent::~MainContentComponent()
 {
     deleteAllChildren();
-
+    audioSourcePlayer->setSource (nullptr);
+    audioDeviceManager->removeAudioCallback(audioSourcePlayer);
+    delete audioDeviceManager;
+    delete synthAudioSource;
+    delete audioSourcePlayer;
 }
 
 void MainContentComponent::paint (Graphics& g)
@@ -46,3 +64,9 @@ void MainContentComponent::resized()
     // If you add any child components, this is where you should
     // update their positions.
 }
+
+void MainContentComponent::buttonClicked (Button* button)
+{
+    synthAudioSource->synth.noteOn(1, 69, 127.0);
+}
+
