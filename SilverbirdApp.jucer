@@ -5,16 +5,23 @@
               jucerVersion="3.1.0">
   <MAINGROUP id="P1u1H7" name="SilverbirdApp">
     <GROUP id="{40B58F17-2A50-FCFC-AC96-EA61BE3F32E2}" name="Source">
+      <FILE id="yX5x8g" name="Knob.cpp" compile="1" resource="0" file="Source/Knob.cpp"/>
+      <FILE id="eQaVnz" name="Knob.h" compile="0" resource="0" file="Source/Knob.h"/>
       <FILE id="qxzFuh" name="SynthAudioSource.cpp" compile="1" resource="0"
             file="Source/SynthAudioSource.cpp"/>
       <FILE id="KjTDsI" name="SynthAudioSource.h" compile="0" resource="0"
             file="Source/SynthAudioSource.h"/>
       <GROUP id="{ED3D9729-17B3-221F-DA8E-B7C677696983}" name="Resources">
+        <GROUP id="{E78935BB-0CA4-7AA9-2126-75060B4DF2BB}" name="Images">
+          <FILE id="nyeBa4" name="Knob.png" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Images/Knob.png"/>
+          <FILE id="b5gehu" name="Bird.png" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Images/Bird.png"/>
+          <FILE id="fJGTOs" name="SB.png" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Images/SB.png"/>
+          <FILE id="u5OsKR" name="Background.png" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Images/Background.png"/>
+        </GROUP>
         <GROUP id="{D187FC60-5D9C-999B-BCE3-87C72521A455}" name="Sounds">
           <FILE id="Jx5iIL" name="909norm.wav" compile="0" resource="1" file="../../../Music Making/Samples/Drums/Kick/909norm.wav"/>
           <FILE id="TiGa1l" name="Frecker.aif" compile="0" resource="1" file="../../../Music Making/Samples/Zelbstgemacht/Drums/Claps/Frecker.aif"/>
         </GROUP>
-        <FILE id="xc80lB" name="Background.png" compile="0" resource="1" file="../../../../Pictures/Photo Booth Library/Pictures/Background.png"/>
       </GROUP>
       <FILE id="huJqqE" name="MainComponent.cpp" compile="1" resource="0"
             file="Source/MainComponent.cpp"/>
@@ -23,7 +30,7 @@
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
-    <XCODE_MAC targetFolder="Builds/MacOSX">
+    <XCODE_MAC targetFolder="Builds/MacOSX" bigIcon="b5gehu" smallIcon="fJGTOs">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" osxSDK="default" osxCompatibility="default" osxArchitecture="64BitUniversal"
                        isDebug="1" optimisation="1" targetName="SilverbirdApp"/>

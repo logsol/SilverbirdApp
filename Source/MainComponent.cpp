@@ -24,6 +24,12 @@ MainContentComponent::MainContentComponent()
     button1->addListener(this);
     addAndMakeVisible (button1);
     
+    knob = new Knob("myknob", 45, 40);
+    knob->setBounds (100, 120, 45, 40);
+    knob->setDoubleClickReturnValue (true, 50.0); // double-clicking this slider will set it to 50.0
+    addAndMakeVisible (knob);
+    
+    
     audioDeviceManager = new AudioDeviceManager();
     audioDeviceManager->initialise (2, 2, 0, true, String::empty, 0);
     
@@ -35,7 +41,7 @@ MainContentComponent::MainContentComponent()
     
     audioDeviceManager->addAudioCallback(audioSourcePlayer);
     
-    std::cout << "hello";
+    std::cout << "yo run";
 }
 
 

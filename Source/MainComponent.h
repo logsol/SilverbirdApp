@@ -11,6 +11,8 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "SynthAudioSource.h"
+#include "Knob.h"
+
 
 
 
@@ -34,6 +36,7 @@ public:
 private:
     ImageComponent* background;
     TextButton* button1;
+    Knob* knob;
     MidiKeyboardState keyboardState;
     AudioSourcePlayer* audioSourcePlayer;
     SynthAudioSource* synthAudioSource;
