@@ -1,10 +1,10 @@
 /*
-  ==============================================================================
-
-    This file was auto-generated!
-
-  ==============================================================================
-*/
+ ==============================================================================
+ 
+ This file was auto-generated!
+ 
+ ==============================================================================
+ */
 
 #include "MainComponent.h"
 
@@ -24,9 +24,18 @@ MainContentComponent::MainContentComponent()
     button1->addListener(this);
     addAndMakeVisible (button1);
     
-    knob = new Knob("myknob", 45, 40);
+    knob = new Slider("Master"/*, 45, 40*/);
     knob->setBounds (100, 120, 45, 40);
     knob->setDoubleClickReturnValue (true, 50.0); // double-clicking this slider will set it to 50.0
+    knob->setSkewFactor(0.25);
+    knob->addListener(this);
+    knob->setSliderStyle (Slider::RotaryVerticalDrag);
+    knob->setTextBoxStyle (Slider::TextBoxBelow, false, 40, 20);
+    knob->setSize(50, 70);
+    knob->setRange (0.0, 100.0, 0.1);
+    knob->setScrollWheelEnabled(false);
+    knob->setPopupMenuEnabled (false);
+    knob->setValue(3);
     addAndMakeVisible (knob);
     
     
@@ -36,12 +45,9 @@ MainContentComponent::MainContentComponent()
     audioSourcePlayer = new AudioSourcePlayer();
     synthAudioSource = new SynthAudioSource(keyboardState);
     
-    synthAudioSource->setUsingSampledSound();
     audioSourcePlayer->setSource(synthAudioSource);
     
     audioDeviceManager->addAudioCallback(audioSourcePlayer);
-    
-    std::cout << "yo run";
 }
 
 
@@ -61,7 +67,7 @@ void MainContentComponent::paint (Graphics& g)
     g.setFont (Font (16.0f));
     g.setColour (Colours::black);
     g.drawText ("Hello World!", getLocalBounds(), Justification::centred, true);
-     
+    
 }
 
 void MainContentComponent::resized()
@@ -76,3 +82,6 @@ void MainContentComponent::buttonClicked (Button* button)
     synthAudioSource->synth.noteOn(1, 69, 127.0);
 }
 
+void MainContentComponent::sliderValueChanged(Slider* slider) {
+    synthAudioSource->setGain(slider->getValue() / 100);
+ }

@@ -1,42 +1,46 @@
 /*
-  ==============================================================================
-
-    SynthAudioSource.cpp
-    Created: 30 Jan 2014 2:31:23am
-    Author:  Pannek Karl
-
-  ==============================================================================
-*/
+ ==============================================================================
+ 
+ SynthAudioSource.cpp
+ Created: 30 Jan 2014 2:31:23am
+ Author:  Pannek Karl
+ 
+ ==============================================================================
+ */
 
 #include "SynthAudioSource.h"
-/*
 
-SynthAudioSource::SynthAudioSource (MidiKeyboardState& keyState)  : keyboardState (keyState)
+
+SynthAudioSource::SynthAudioSource (MidiKeyboardState& keyState)
+: keyboardState (keyState)
 {
     // Add some voices to our synth, to play the sounds..
-    for (int i = 4; --i >= 0;)
+    for (int i = 6; --i >= 0;)
     {
-        synth.addVoice (new SamplerVoice());    // and these ones play the sampled sounds
+        SilverSamplerVoice* sv = new SilverSamplerVoice();
+        synth.addVoice (sv);    // and these ones play the sampled sounds
     }
     
-    // ..and add a sound for them to play...
     setUsingSampledSound();
+    
 }
 
 void SynthAudioSource::setUsingSampledSound()
 {
     WavAudioFormat wavFormat;
     
-    ScopedPointer<AudioFormatReader> audioReader (wavFormat.createReaderFor (new MemoryInputStream (BinaryData::_909norm_wav,
-                                                                                                    BinaryData::_909norm_wavSize,
-                                                                                                    false),
-                                                                             true));
+    ScopedPointer<AudioFormatReader> audioReader (
+        wavFormat.createReaderFor (
+            new MemoryInputStream (BinaryData::_909norm_wav, BinaryData::_909norm_wavSize, false),
+            true
+        )
+    );
     
     BigInteger allNotes;
     allNotes.setRange (0, 128, true);
     
     synth.clearSounds();
-    synth.addSound (new SamplerSound ("demo sound",
+    synth.addSound (new SilverSamplerSound ("demo sound",
                                       *audioReader,
                                       allNotes,
                                       74,   // root midi note
@@ -46,17 +50,19 @@ void SynthAudioSource::setUsingSampledSound()
                                       ));
 }
 
-void SynthAudioSource::prepareToPlay(int samplesPerBlockExpected, double sampleRate)
+void SynthAudioSource::prepareToPlay (int samplesPerBlockExpected, double sampleRate)
 {
-    //midiCollector.reset (sampleRate);
+    midiCollector.reset (sampleRate);
     
     synth.setCurrentPlaybackSampleRate (sampleRate);
 }
 
+void SynthAudioSource::releaseResources()
+{
+}
 
-void SynthAudioSource::releaseResources() {};
-
-void SynthAudioSource::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill) {
+void SynthAudioSource::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
+{
     // the synth always adds its output to the audio buffer, so we have to clear it
     // first..
     bufferToFill.clearActiveBufferRegion();
@@ -73,5 +79,11 @@ void SynthAudioSource::getNextAudioBlock (const AudioSourceChannelInfo& bufferTo
     
     // and now get the synth to process the midi events and generate its output.
     synth.renderNextBlock (*bufferToFill.buffer, incomingMidi, 0, bufferToFill.numSamples);
-};
-*/
+
+    bufferToFill.buffer->applyGain(gain);
+}
+
+void SynthAudioSource::setGain (float value) {
+    gain = value;
+}
+
