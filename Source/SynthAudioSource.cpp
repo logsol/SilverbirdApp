@@ -14,40 +14,6 @@
 SynthAudioSource::SynthAudioSource (MidiKeyboardState& keyState)
 : keyboardState (keyState)
 {
-    // Add some voices to our synth, to play the sounds..
-    for (int i = 6; --i >= 0;)
-    {
-        SilverSamplerVoice* sv = new SilverSamplerVoice();
-        synth.addVoice (sv);    // and these ones play the sampled sounds
-    }
-    
-    setUsingSampledSound();
-    
-}
-
-void SynthAudioSource::setUsingSampledSound()
-{
-    WavAudioFormat wavFormat;
-    
-    ScopedPointer<AudioFormatReader> audioReader (
-        wavFormat.createReaderFor (
-            new MemoryInputStream (BinaryData::_909norm_wav, BinaryData::_909norm_wavSize, false),
-            true
-        )
-    );
-    
-    BigInteger allNotes;
-    allNotes.setRange (0, 128, true);
-    
-    synth.clearSounds();
-    synth.addSound (new SilverSamplerSound ("demo sound",
-                                      *audioReader,
-                                      allNotes,
-                                      74,   // root midi note
-                                      0.1,  // attack time
-                                      0.1,  // release time
-                                      10.0  // maximum sample length
-                                      ));
 }
 
 void SynthAudioSource::prepareToPlay (int samplesPerBlockExpected, double sampleRate)

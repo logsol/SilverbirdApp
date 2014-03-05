@@ -36,16 +36,18 @@
  */
 
 SilverSamplerSound::SilverSamplerSound (const String& soundName,
-                                        AudioFormatReader& source,
-                                        const BigInteger& notes,
                                         const int midiNoteForNormalPitch,
-                                        const double attackTimeSecs,
-                                        const double releaseTimeSecs,
-                                        const double maxSampleLengthSeconds)
+                                        const int soundSelection,
+                                        AudioFormatReader& source)
 : name (soundName),
-midiNotes (notes),
-midiRootNote (midiNoteForNormalPitch)
+midiRootNote (midiNoteForNormalPitch),
+selection (soundSelection)
 {
+    midiNotes.setBit(midiNoteForNormalPitch);
+    double attackTimeSecs = 0.01;
+    double releaseTimeSecs = 0.01;
+    double maxSampleLengthSeconds = 10;
+    
     sourceSampleRate = source.sampleRate;
     
     if (sourceSampleRate <= 0 || source.lengthInSamples <= 0)
@@ -66,6 +68,7 @@ midiRootNote (midiNoteForNormalPitch)
         attackSamples = roundToInt (attackTimeSecs * sourceSampleRate);
         releaseSamples = roundToInt (releaseTimeSecs * sourceSampleRate);
     }
+    
 }
 
 SilverSamplerSound::~SilverSamplerSound()
@@ -82,3 +85,6 @@ bool SilverSamplerSound::appliesToChannel (const int /*midiChannel*/)
     return true;
 }
 
+bool SilverSamplerSound::appliesToSelection (int askedSelection) {
+    return askedSelection == selection;
+}

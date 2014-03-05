@@ -107,6 +107,7 @@ void Synthesiser::addSound (const SynthesiserSound::Ptr& newSound)
 {
     const ScopedLock sl (lock);
     sounds.add (newSound);
+    
 }
 
 void Synthesiser::removeSound (const int index)

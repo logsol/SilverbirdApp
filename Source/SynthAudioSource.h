@@ -13,6 +13,7 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "SilverSamplerVoice.h"
+#include "SilverSynthesizer.h"
 
 
 
@@ -22,7 +23,6 @@ public:
     SynthAudioSource(MidiKeyboardState& keyState);
     //~SynthAudioSource();
     
-    void setUsingSampledSound();
     void prepareToPlay(int samplesPerBlockExpected, double sampleRate);
     void releaseResources();
     void getNextAudioBlock(const AudioSourceChannelInfo& bufferToFill);
@@ -38,7 +38,7 @@ public:
     MidiKeyboardState& keyboardState;
     
     // the synth itself!
-    Synthesiser synth;
+    SilverSynthesizer synth;
     
 private:
     

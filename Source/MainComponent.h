@@ -38,6 +38,8 @@ public:
 private:
     ImageComponent* background;
     TextButton* button1;
+    TextButton* button2;
+    TextButton* button3;
     Slider* knob;
     MidiKeyboardState keyboardState;
     AudioSourcePlayer* audioSourcePlayer;

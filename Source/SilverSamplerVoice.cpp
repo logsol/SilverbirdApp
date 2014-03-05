@@ -36,10 +36,11 @@ void SilverSamplerVoice::startNote (const int midiNoteNumber,
                                     SynthesiserSound* s,
                                     const int /*currentPitchWheelPosition*/)
 {
+    
     if (const SilverSamplerSound* const sound = dynamic_cast <const SilverSamplerSound*> (s))
     {
-        pitchRatio = pow (2.0, (midiNoteNumber - sound->midiRootNote) / 12.0)
-        * sound->sourceSampleRate / getSampleRate();
+        //pitchRatio = pow (2.0, (midiNoteNumber - sound->midiRootNote) / 12.0) * sound->sourceSampleRate / getSampleRate();
+        pitchRatio = 1;
         
         sourceSamplePosition = 0.0;
         lgain = velocity;

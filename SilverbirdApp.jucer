@@ -5,6 +5,10 @@
               jucerVersion="3.1.0">
   <MAINGROUP id="P1u1H7" name="SilverbirdApp">
     <GROUP id="{40B58F17-2A50-FCFC-AC96-EA61BE3F32E2}" name="Source">
+      <FILE id="YlJVqE" name="SilverSynthesizer.cpp" compile="1" resource="0"
+            file="Source/SilverSynthesizer.cpp"/>
+      <FILE id="E9XpMC" name="SilverSynthesizer.h" compile="0" resource="0"
+            file="Source/SilverSynthesizer.h"/>
       <FILE id="JG1IBl" name="SilverSamplerVoice.cpp" compile="1" resource="0"
             file="Source/SilverSamplerVoice.cpp"/>
       <FILE id="suSZHp" name="SilverSamplerVoice.h" compile="0" resource="0"
@@ -27,8 +31,21 @@
           <FILE id="u5OsKR" name="Background.png" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Images/Background.png"/>
         </GROUP>
         <GROUP id="{D187FC60-5D9C-999B-BCE3-87C72521A455}" name="Sounds">
-          <FILE id="Jx5iIL" name="909norm.wav" compile="0" resource="1" file="../../../Music Making/Samples/Drums/Kick/909norm.wav"/>
-          <FILE id="TiGa1l" name="Frecker.aif" compile="0" resource="1" file="../../../Music Making/Samples/Zelbstgemacht/Drums/Claps/Frecker.aif"/>
+          <FILE id="sVXGyX" name="hihat1.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat1.aif"/>
+          <FILE id="Q6j2Rv" name="hihat2.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat2.aif"/>
+          <FILE id="aZMfJm" name="hihat3.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat3.aif"/>
+          <FILE id="C1Nxoo" name="hihat4.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat4.aif"/>
+          <FILE id="FdbKfY" name="hihat5.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat5.aif"/>
+          <FILE id="Im2yzP" name="kick1.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick1.aif"/>
+          <FILE id="kaG32O" name="kick2.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick2.aif"/>
+          <FILE id="L0nDv5" name="kick3.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick3.aif"/>
+          <FILE id="UvaDCH" name="kick4.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick4.aif"/>
+          <FILE id="DFMilp" name="kick5.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick5.aif"/>
+          <FILE id="V9QtOQ" name="snare1.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare1.aif"/>
+          <FILE id="MCmFbZ" name="snare2.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare2.aif"/>
+          <FILE id="CXiCIZ" name="snare3.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare3.aif"/>
+          <FILE id="r6sdsE" name="snare4.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare4.aif"/>
+          <FILE id="xaWA84" name="snare5.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare5.aif"/>
         </GROUP>
       </GROUP>
       <FILE id="huJqqE" name="MainComponent.cpp" compile="1" resource="0"

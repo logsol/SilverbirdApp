@@ -20,12 +20,25 @@ MainContentComponent::MainContentComponent()
     addAndMakeVisible (background);
     
     button1 = new TextButton ("Kickdrum!");
-    button1->setBounds (70, 70, 100, 30);
+    button1->setBounds (70, 70, 100, 20);
     button1->addListener(this);
+    button1->setTriggeredOnMouseDown(true);
     addAndMakeVisible (button1);
     
+    button2 = new TextButton ("Snare!");
+    button2->setBounds (70, 100, 100, 20);
+    button2->addListener(this);
+    button2->setTriggeredOnMouseDown(true);
+    addAndMakeVisible (button2);
+    
+    button3 = new TextButton ("Hihat!");
+    button3->setBounds (70, 130, 100, 20);
+    button3->addListener(this);
+    button3->setTriggeredOnMouseDown(true);
+    addAndMakeVisible (button3);
+    
     knob = new Slider("Master"/*, 45, 40*/);
-    knob->setBounds (100, 120, 45, 40);
+    knob->setBounds (100, 220, 45, 40);
     knob->setDoubleClickReturnValue (true, 50.0); // double-clicking this slider will set it to 50.0
     knob->setSkewFactor(0.25);
     knob->addListener(this);
@@ -79,7 +92,13 @@ void MainContentComponent::resized()
 
 void MainContentComponent::buttonClicked (Button* button)
 {
-    synthAudioSource->synth.noteOn(1, 69, 127.0);
+    if(button == button1) {
+        synthAudioSource->synth.noteOn(1, 36, 127.0);
+    } else if (button == button2) {
+        synthAudioSource->synth.noteOn(1, 38, 127.0);
+    } else if (button == button3) {
+        synthAudioSource->synth.noteOn(1, 42, 127.0);
+    }
 }
 
 void MainContentComponent::sliderValueChanged(Slider* slider) {

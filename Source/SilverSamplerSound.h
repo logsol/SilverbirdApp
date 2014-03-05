@@ -49,12 +49,9 @@ public:
      source, in seconds
      */
     SilverSamplerSound (const String& name,
-                        AudioFormatReader& source,
-                        const BigInteger& midiNotes,
                         int midiNoteForNormalPitch,
-                        double attackTimeSecs,
-                        double releaseTimeSecs,
-                        double maxSampleLengthSeconds);
+                        int selection,
+                        AudioFormatReader& source);
     
     /** Destructor. */
     ~SilverSamplerSound();
@@ -73,6 +70,8 @@ public:
     bool appliesToNote (const int midiNoteNumber) override;
     bool appliesToChannel (const int midiChannel) override;
     
+    bool appliesToSelection (int selection);
+    
     
 private:
     //==============================================================================
@@ -84,6 +83,7 @@ private:
     BigInteger midiNotes;
     int length, attackSamples, releaseSamples;
     int midiRootNote;
+    int selection;
     
     JUCE_LEAK_DETECTOR (SilverSamplerSound)
 };
