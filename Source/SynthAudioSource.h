@@ -12,8 +12,8 @@
 #define SYNTHAUDIOSOURCE_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "SilverSamplerVoice.h"
-#include "SilverSynthesizer.h"
+#include "Voice.h"
+#include "Synth.h"
 
 
 
@@ -38,7 +38,7 @@ public:
     MidiKeyboardState& keyboardState;
     
     // the synth itself!
-    SilverSynthesizer synth;
+    Synth synth;
     
 private:
     

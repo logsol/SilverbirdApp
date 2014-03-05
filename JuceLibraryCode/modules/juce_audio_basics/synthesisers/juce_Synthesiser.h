@@ -495,15 +495,14 @@ protected:
     /** Can be overridden to do custom handling of incoming midi events. */
     virtual void handleMidiEvent (const MidiMessage&);
 
-    void stopVoice (SynthesiserVoice*, bool allowTailOff);
-	bool shouldStealNotes;
-    
 private:
     //==============================================================================
     double sampleRate;
     uint32 lastNoteOnCounter;
+    bool shouldStealNotes;
     BigInteger sustainPedalsDown;
 
+    void stopVoice (SynthesiserVoice*, bool allowTailOff);
 
    #if JUCE_CATCH_DEPRECATED_CODE_MISUSE
     // Note the new parameters for this method.

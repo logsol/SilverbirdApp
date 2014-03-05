@@ -41,6 +41,7 @@ private:
     TextButton* button2;
     TextButton* button3;
     Slider* knob;
+    Slider* selectKnob;
     MidiKeyboardState keyboardState;
     AudioSourcePlayer* audioSourcePlayer;
     SynthAudioSource* synthAudioSource;

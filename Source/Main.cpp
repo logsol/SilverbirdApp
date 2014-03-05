@@ -10,6 +10,7 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "MainComponent.h"
+#include "Gui.h"
 
 
 //==============================================================================
@@ -65,7 +66,7 @@ public:
                                         Colours::lightgrey,
                                         DocumentWindow::allButtons)
         {
-            setContentOwned (new MainContentComponent(), true);
+            setContentOwned (new Gui(), true);
             
             centreWithSize (getWidth(), getHeight());
             setVisible (true);

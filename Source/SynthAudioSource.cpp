@@ -20,7 +20,7 @@ void SynthAudioSource::prepareToPlay (int samplesPerBlockExpected, double sample
 {
     midiCollector.reset (sampleRate);
     
-    synth.setCurrentPlaybackSampleRate (sampleRate);
+    synth.updateSampleRate(sampleRate);
 }
 
 void SynthAudioSource::releaseResources()

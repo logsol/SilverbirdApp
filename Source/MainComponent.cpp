@@ -40,16 +40,30 @@ MainContentComponent::MainContentComponent()
     knob = new Slider("Master"/*, 45, 40*/);
     knob->setBounds (100, 220, 45, 40);
     knob->setDoubleClickReturnValue (true, 50.0); // double-clicking this slider will set it to 50.0
-    knob->setSkewFactor(0.25);
+    knob->setSkewFactor(0.33);
     knob->addListener(this);
     knob->setSliderStyle (Slider::RotaryVerticalDrag);
     knob->setTextBoxStyle (Slider::TextBoxBelow, false, 40, 20);
     knob->setSize(50, 70);
-    knob->setRange (0.0, 100.0, 0.1);
+    knob->setRange (0.0, 1.0, 0.001);
     knob->setScrollWheelEnabled(false);
     knob->setPopupMenuEnabled (false);
     knob->setValue(3);
     addAndMakeVisible (knob);
+    
+    
+    selectKnob = new Slider("Select"/*, 45, 40*/);
+    selectKnob->setBounds (200, 220, 45, 40);
+    selectKnob->setDoubleClickReturnValue (true, 50.0); // double-clicking this slider will set it to 50.0
+    selectKnob->addListener(this);
+    selectKnob->setSliderStyle (Slider::RotaryVerticalDrag);
+    selectKnob->setTextBoxStyle (Slider::TextBoxBelow, false, 40, 20);
+    selectKnob->setSize(50, 70);
+    selectKnob->setRange (0.0, 4, 1);
+    selectKnob->setScrollWheelEnabled(false);
+    selectKnob->setPopupMenuEnabled (false);
+    selectKnob->setValue(3);
+    addAndMakeVisible (selectKnob);
     
     
     audioDeviceManager = new AudioDeviceManager();
@@ -102,5 +116,10 @@ void MainContentComponent::buttonClicked (Button* button)
 }
 
 void MainContentComponent::sliderValueChanged(Slider* slider) {
-    synthAudioSource->setGain(slider->getValue() / 100);
+    if(slider == knob) {
+        synthAudioSource->setGain(slider->getValue() / 100);
+    } else if (slider == selectKnob) {
+        synthAudioSource->synth.kickTrack.setSelection(slider->getValue());
+    }
+    
  }

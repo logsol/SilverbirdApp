@@ -5,18 +5,16 @@
               jucerVersion="3.1.0">
   <MAINGROUP id="P1u1H7" name="SilverbirdApp">
     <GROUP id="{40B58F17-2A50-FCFC-AC96-EA61BE3F32E2}" name="Source">
-      <FILE id="YlJVqE" name="SilverSynthesizer.cpp" compile="1" resource="0"
-            file="Source/SilverSynthesizer.cpp"/>
-      <FILE id="E9XpMC" name="SilverSynthesizer.h" compile="0" resource="0"
-            file="Source/SilverSynthesizer.h"/>
-      <FILE id="JG1IBl" name="SilverSamplerVoice.cpp" compile="1" resource="0"
-            file="Source/SilverSamplerVoice.cpp"/>
-      <FILE id="suSZHp" name="SilverSamplerVoice.h" compile="0" resource="0"
-            file="Source/SilverSamplerVoice.h"/>
-      <FILE id="HsA647" name="SilverSamplerSound.cpp" compile="1" resource="0"
-            file="Source/SilverSamplerSound.cpp"/>
-      <FILE id="WzwTSt" name="SilverSamplerSound.h" compile="0" resource="0"
-            file="Source/SilverSamplerSound.h"/>
+      <FILE id="gYIfyT" name="Gui.cpp" compile="1" resource="0" file="Source/Gui.cpp"/>
+      <FILE id="mkuCIT" name="Gui.h" compile="0" resource="0" file="Source/Gui.h"/>
+      <FILE id="kmqhZa" name="Track.cpp" compile="1" resource="0" file="Source/Track.cpp"/>
+      <FILE id="nEzaAV" name="Track.h" compile="0" resource="0" file="Source/Track.h"/>
+      <FILE id="YlJVqE" name="Synth.cpp" compile="1" resource="0" file="Source/Synth.cpp"/>
+      <FILE id="E9XpMC" name="Synth.h" compile="0" resource="0" file="Source/Synth.h"/>
+      <FILE id="JG1IBl" name="Voice.cpp" compile="1" resource="0" file="Source/Voice.cpp"/>
+      <FILE id="suSZHp" name="Voice.h" compile="0" resource="0" file="Source/Voice.h"/>
+      <FILE id="HsA647" name="Sound.cpp" compile="1" resource="0" file="Source/Sound.cpp"/>
+      <FILE id="WzwTSt" name="Sound.h" compile="0" resource="0" file="Source/Sound.h"/>
       <FILE id="yX5x8g" name="Knob.cpp" compile="1" resource="0" file="Source/Knob.cpp"/>
       <FILE id="eQaVnz" name="Knob.h" compile="0" resource="0" file="Source/Knob.h"/>
       <FILE id="qxzFuh" name="SynthAudioSource.cpp" compile="1" resource="0"
