@@ -28,11 +28,20 @@ public:
                           const MidiBuffer inputMidi,
                           int startSample,
                           int numSamples);
+    
     void noteOn (int midiChannel,
                          int midiNoteNumber,
                          float velocity);
     
+    void addTrack (int index,
+                  int note,
+                  int numSounds,
+                  MemoryInputStream* streams[],
+                  Track* track);
+    
     Track kickTrack;
+    Track snareTrack;
+    Track hihatTrack;
     
 protected:
     int selection = 0;

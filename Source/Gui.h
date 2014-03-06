@@ -21,7 +21,8 @@
 #define __JUCE_HEADER_1B7D314A9B5D26__
 
 //[Headers]     -- You can add your own extra header files here --
-#include "JuceHeader.h"
+#include "../JuceLibraryCode/JuceHeader.h"
+#include "SynthAudioSource.h"
 //[/Headers]
 
 
@@ -34,7 +35,9 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class Gui  : public Component
+class Gui  : public Component,
+             public SliderListener,
+             public ButtonListener
 {
 public:
     //==============================================================================
@@ -47,6 +50,8 @@ public:
 
     void paint (Graphics& g);
     void resized();
+    void sliderValueChanged (Slider* sliderThatWasMoved);
+    void buttonClicked (Button* buttonThatWasClicked);
 
     // Binary resources:
     static const char* background_png;
@@ -55,10 +60,27 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
+    MidiKeyboardState keyboardState;
+    AudioSourcePlayer* audioSourcePlayer;
+    SynthAudioSource* synthAudioSource;
+    AudioDeviceManager* audioDeviceManager;
     //[/UserVariables]
 
     //==============================================================================
     ScopedPointer<Label> label;
+    ScopedPointer<Slider> masterSlider;
+    ScopedPointer<Slider> selectSlider;
+    ScopedPointer<Label> label2;
+    ScopedPointer<Label> label3;
+    ScopedPointer<Slider> attackSlider;
+    ScopedPointer<Label> label4;
+    ScopedPointer<Slider> decaySlider;
+    ScopedPointer<Label> label5;
+    ScopedPointer<Slider> pitchSlider;
+    ScopedPointer<Label> label6;
+    ScopedPointer<TextButton> snareButton;
+    ScopedPointer<TextButton> kickButton;
+    ScopedPointer<TextButton> hihatButton;
     Image cachedImage_background_png;
 
 
