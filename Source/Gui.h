@@ -22,7 +22,7 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "SynthAudioSource.h"
+#include "Controller.h"
 //[/Headers]
 
 
@@ -41,7 +41,7 @@ class Gui  : public Component,
 {
 public:
     //==============================================================================
-    Gui ();
+    Gui (Controller* controller);
     ~Gui();
 
     //==============================================================================
@@ -60,10 +60,7 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-    MidiKeyboardState keyboardState;
-    AudioSourcePlayer* audioSourcePlayer;
-    SynthAudioSource* synthAudioSource;
-    AudioDeviceManager* audioDeviceManager;
+    Controller* controller;
     //[/UserVariables]
 
     //==============================================================================

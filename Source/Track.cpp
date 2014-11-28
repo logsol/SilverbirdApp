@@ -13,11 +13,11 @@
 
 Track::Track()
 {
-    for (int i = 6; --i >= 0;)
-    {
+    //for (int i = 1; --i >= 0;)
+    //{
         Voice* sv = new Voice();
         addVoice (sv);
-    }
+    //}
 }
 
 Track::~Track() {
@@ -59,6 +59,7 @@ void Track::noteOn (const int midiChannel,
                                 const int midiNoteNumber,
                                 const float velocity)
 {
+    
     const ScopedLock sl (lock);
     
     for (int i = sounds.size(); --i >= 0;)
@@ -71,18 +72,29 @@ void Track::noteOn (const int midiChannel,
         {
             // If hitting a note that's still ringing, stop it first (it could be
             // still playing because of the sustain or sostenuto pedal).
+            
             for (int j = voices.size(); --j >= 0;)
             {
                 SynthesiserVoice* const voice = voices.getUnchecked (j);
                 
                 if (voice->getCurrentlyPlayingNote() == midiNoteNumber
                     && voice->isPlayingChannel (midiChannel)) {
-                    //stopVoice (voice, true);
+                    stopVoice (voice, true);
                 }
             }
-            
-            startVoice (findFreeVoice (sound, true),
-                        sound, midiChannel, midiNoteNumber, velocity);
+             
+            startVoice (findFreeVoice (sound, true), sound, midiChannel, midiNoteNumber, velocity);
+            std::cout << " track-noteon-startvoice ";
         }
     }
+}
+
+void Track::stopVoice (SynthesiserVoice* voice, const bool allowTailOff)
+{
+    jassert (voice != nullptr);
+    
+    voice->stopNote (allowTailOff);
+    
+    // the subclass MUST call clearCurrentNote() if it's not tailing off! RTFM for stopNote()!
+    jassert (allowTailOff || (voice->getCurrentlyPlayingNote() < 0 && voice->getCurrentlyPlayingSound() == 0));
 }

@@ -44,8 +44,8 @@ midiRootNote (midiNoteForNormalPitch),
 selection (soundSelection)
 {
     midiNotes.setBit(midiNoteForNormalPitch);
-    double attackTimeSecs = 0.01;
-    double releaseTimeSecs = 0.01;
+    double attackTimeSecs = 0.001;
+    double releaseTimeSecs = 0.001;
     double maxSampleLengthSeconds = 10;
     
     sourceSampleRate = source.sampleRate;
@@ -77,7 +77,7 @@ Sound::~Sound()
 
 bool Sound::appliesToNote (const int midiNoteNumber)
 {
-    return midiNoteNumber == midiRootNote; // midiNotes [midiNoteNumber];
+    return midiNoteNumber == midiRootNote;
 }
 
 bool Sound::appliesToChannel (const int /*midiChannel*/)

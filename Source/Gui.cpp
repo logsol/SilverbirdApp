@@ -21,13 +21,14 @@
 //[/Headers]
 
 #include "Gui.h"
+#include "Controller.h"
 
 
 //[MiscUserDefs] You can add your own user definitions and misc code here...
 //[/MiscUserDefs]
 
 //==============================================================================
-Gui::Gui ()
+Gui::Gui (Controller* controller) : controller(controller)
 {
     setName ("Gui");
     addAndMakeVisible (label = new Label ("new label",
@@ -39,10 +40,11 @@ Gui::Gui ()
     label->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (masterSlider = new Slider ("Master"));
-    masterSlider->setRange (0, 10, 0);
+    masterSlider->setRange (0, 1, 0);
     masterSlider->setSliderStyle (Slider::RotaryVerticalDrag);
     masterSlider->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
     masterSlider->addListener (this);
+    masterSlider->setSkewFactor (0.33);
 
     addAndMakeVisible (selectSlider = new Slider ("Select"));
     selectSlider->setRange (1, 5, 1);
@@ -126,21 +128,10 @@ Gui::Gui ()
 
 
     //[Constructor] You can add your own custom stuff here..
-
-    // Default Values
     masterSlider->setValue(4);
-
-    // Routine Setup
-    audioDeviceManager = new AudioDeviceManager();
-    audioDeviceManager->initialise (2, 2, 0, true, String::empty, 0);
-
-    audioSourcePlayer = new AudioSourcePlayer();
-    synthAudioSource = new SynthAudioSource(keyboardState);
-
-    audioSourcePlayer->setSource(synthAudioSource);
-
-    audioDeviceManager->addAudioCallback(audioSourcePlayer);
-
+    kickButton->setTriggeredOnMouseDown(true);
+    snareButton->setTriggeredOnMouseDown(true);
+    hihatButton->setTriggeredOnMouseDown(true);
     //[/Constructor]
 }
 
@@ -167,11 +158,6 @@ Gui::~Gui()
 
     //[Destructor]. You can add your own custom destruction code here..
     deleteAllChildren();
-    audioSourcePlayer->setSource (nullptr);
-    audioDeviceManager->removeAudioCallback(audioSourcePlayer);
-    delete audioDeviceManager;
-    delete synthAudioSource;
-    delete audioSourcePlayer;
     //[/Destructor]
 }
 
@@ -220,20 +206,19 @@ void Gui::sliderValueChanged (Slider* sliderThatWasMoved)
     if (sliderThatWasMoved == masterSlider)
     {
         //[UserSliderCode_masterSlider] -- add your slider handling code here..
-        synthAudioSource->setGain(masterSlider->getValue() / 100);
+        controller->setMaster(masterSlider->getValue() / 100);
         //[/UserSliderCode_masterSlider]
     }
     else if (sliderThatWasMoved == selectSlider)
     {
         //[UserSliderCode_selectSlider] -- add your slider handling code here..
-        synthAudioSource->synth.kickTrack.setSelection(selectSlider->getValue() -1);
-        synthAudioSource->synth.snareTrack.setSelection(selectSlider->getValue() -1);
-        synthAudioSource->synth.hihatTrack.setSelection(selectSlider->getValue() -1);
+        controller->setTrackSample(selectSlider->getValue() -1);
         //[/UserSliderCode_selectSlider]
     }
     else if (sliderThatWasMoved == attackSlider)
     {
         //[UserSliderCode_attackSlider] -- add your slider handling code here..
+
         //[/UserSliderCode_attackSlider]
     }
     else if (sliderThatWasMoved == decaySlider)
@@ -259,19 +244,19 @@ void Gui::buttonClicked (Button* buttonThatWasClicked)
     if (buttonThatWasClicked == snareButton)
     {
         //[UserButtonCode_snareButton] -- add your button handler code here..
-        synthAudioSource->synth.noteOn(1, 38, 127.0);
+        controller->playNote(38);
         //[/UserButtonCode_snareButton]
     }
     else if (buttonThatWasClicked == kickButton)
     {
         //[UserButtonCode_kickButton] -- add your button handler code here..
-        synthAudioSource->synth.noteOn(1, 36, 127.0);
+        controller->playNote(36);
         //[/UserButtonCode_kickButton]
     }
     else if (buttonThatWasClicked == hihatButton)
     {
         //[UserButtonCode_hihatButton] -- add your button handler code here..
-        synthAudioSource->synth.noteOn(1, 42, 127.0);
+        controller->playNote(42);
         //[/UserButtonCode_hihatButton]
     }
 
@@ -295,9 +280,9 @@ void Gui::buttonClicked (Button* buttonThatWasClicked)
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="Gui" componentName="Gui"
-                 parentClasses="public Component" constructorParams="" variableInitialisers=""
-                 snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
-                 fixedSize="1" initialWidth="1076" initialHeight="611">
+                 parentClasses="public Component" constructorParams="Controller* controller"
+                 variableInitialisers="" snapPixels="8" snapActive="1" snapShown="1"
+                 overlayOpacity="0.330" fixedSize="1" initialWidth="1076" initialHeight="611">
   <BACKGROUND backgroundColour="ffffffff">
     <IMAGE pos="0 0 1079 639" resource="background_png" opacity="1" mode="0"/>
   </BACKGROUND>
@@ -308,8 +293,8 @@ BEGIN_JUCER_METADATA
          bold="0" italic="0" justification="36"/>
   <SLIDER name="Master" id="fd6791ae3c533bb4" memberName="masterSlider"
           virtualName="" explicitFocusOrder="0" pos="72 504 64 80" min="0"
-          max="10" int="0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
+          max="1" int="0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="0.33000000000000001554"/>
   <SLIDER name="Select" id="ae2904d9e602bae7" memberName="selectSlider"
           virtualName="" explicitFocusOrder="0" pos="64 112 64 80" min="1"
           max="5" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"

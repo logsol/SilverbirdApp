@@ -33,6 +33,7 @@ public:
     int getNumberOfSounds();
     
     void noteOn(const int midiChannel, const int midiNoteNumber, const float velocity);
+    void stopVoice (SynthesiserVoice* voice, const bool allowTailOff);
     
 protected:
     int trackIndex;

@@ -9,8 +9,9 @@
  */
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "MainComponent.h"
+#include "Controller.h"
 #include "Gui.h"
+
 
 
 //==============================================================================
@@ -28,7 +29,6 @@ public:
     void initialise (const String& commandLine)
     {
         // This method is where you should put your application's initialisation code..
-        
         mainWindow = new MainWindow();
     }
     
@@ -64,15 +64,16 @@ public:
     public:
         MainWindow()  : DocumentWindow ("Silverbird Live",
                                         Colours::lightgrey,
-                                        DocumentWindow::allButtons)
+                                        DocumentWindow::allButtons),
+                        gui(&controller)
         {
-            setContentOwned (new Gui(), true);
+			setContentNonOwned (&gui, true);
             
             centreWithSize (getWidth(), getHeight());
             setVisible (true);
             setUsingNativeTitleBar(true);
         }
-        
+
         void closeButtonPressed()
         {
             // This is called when the user tries to close this window. Here, we'll just
@@ -89,6 +90,8 @@ public:
          */
         
     private:
+        Controller controller;
+        Gui gui;
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainWindow)
     };
     
