@@ -99,7 +99,6 @@ void Source::renderNextBlock (AudioSampleBuffer outputAudio, const MidiBuffer in
 
 void Source::noteOn (int midiChannel, int midiNoteNumber, float velocity) {
     for(int i = 0; i < trackIndex::maxTracks; i++){
-        std::cout << " source-playnote ";
         tracks[i].noteOn(midiChannel, midiNoteNumber, velocity);
     }
 }

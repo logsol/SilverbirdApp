@@ -22,25 +22,17 @@ Controller::~Controller()
 
 void Controller::bootstrap()
 {
-    std::cout << "bootstrapping ";
-    
     audioDeviceManager.initialise (2, 2, 0, true, String::empty, 0);
     audioSourcePlayer.setSource(&source);
     audioDeviceManager.addAudioCallback(&audioSourcePlayer);
 }
 
 /*
-Gui* Controller::getGui()
-{
-    return gui;
-}
-
 int Controller::getSelectedTrack() {
     return selectedTrack;
 }
 */
 void Controller::playNote(int note) {
-    std::cout << " controller-playnote ";
     source.noteOn(1, note, 127.0);
 }
 

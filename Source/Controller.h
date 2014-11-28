@@ -28,7 +28,6 @@ public:
 protected:
     void bootstrap();
     
-
     Source source;
     MidiKeyboardState keyboardState;
     AudioSourcePlayer audioSourcePlayer;

@@ -84,7 +84,6 @@ void Track::noteOn (const int midiChannel,
             }
              
             startVoice (findFreeVoice (sound, true), sound, midiChannel, midiNoteNumber, velocity);
-            std::cout << " track-noteon-startvoice ";
         }
     }
 }
