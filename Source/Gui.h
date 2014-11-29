@@ -37,7 +37,8 @@
 */
 class Gui  : public Component,
              public SliderListener,
-             public ButtonListener
+             public ButtonListener,
+             public ComboBoxListener
 {
 public:
     //==============================================================================
@@ -52,6 +53,7 @@ public:
     void resized();
     void sliderValueChanged (Slider* sliderThatWasMoved);
     void buttonClicked (Button* buttonThatWasClicked);
+    void comboBoxChanged (ComboBox* comboBoxThatHasChanged);
 
     // Binary resources:
     static const char* background_png;
@@ -68,7 +70,6 @@ private:
     ScopedPointer<Slider> masterSlider;
     ScopedPointer<Slider> selectSlider;
     ScopedPointer<Label> label2;
-    ScopedPointer<Label> label3;
     ScopedPointer<Slider> attackSlider;
     ScopedPointer<Label> label4;
     ScopedPointer<Slider> decaySlider;
@@ -78,6 +79,8 @@ private:
     ScopedPointer<TextButton> snareButton;
     ScopedPointer<TextButton> kickButton;
     ScopedPointer<TextButton> hihatButton;
+    ScopedPointer<ComboBox> trackSelectBox;
+    ScopedPointer<Label> label3;
     Image cachedImage_background_png;
 
 
