@@ -14,8 +14,7 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Source.h"
 
-
-class Controller {
+class Controller  {
 public:
     Controller();
     ~Controller();
@@ -24,6 +23,8 @@ public:
     void playNote(int note);
     void setTrackSample(int selection);
     void setMaster(float value);
+
+        AudioDeviceManager audioDeviceManager;
     
 protected:
     void bootstrap();
@@ -31,7 +32,6 @@ protected:
     Source source;
     MidiKeyboardState keyboardState;
     AudioSourcePlayer audioSourcePlayer;
-    AudioDeviceManager audioDeviceManager;
     
     int selectedTrack = 0;
 };

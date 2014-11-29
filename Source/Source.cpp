@@ -53,8 +53,6 @@ Source::Source(MidiKeyboardState& keyState)
 Source::~Source() {
 }
 
-
-
 void Source::addTrack(int index, int note, int numSounds, MemoryInputStream* streams[]) {
     
     Track* track = &tracks[index];
@@ -73,7 +71,6 @@ void Source::addTrack(int index, int note, int numSounds, MemoryInputStream* str
     }
 }
 
-
 Track* Source::getTrackByIndex(int index) {
 
     if (index < 0 || index >= maxTracks) {
@@ -82,7 +79,6 @@ Track* Source::getTrackByIndex(int index) {
     
 	return &tracks[index];
 }
-
 
 void Source::updateSampleRate(int sampleRate) {
     for(int i = 0; i < trackIndex::maxTracks; i++){
@@ -95,12 +91,6 @@ void Source::renderNextBlock (AudioSampleBuffer outputAudio, const MidiBuffer in
         tracks[i].renderNextBlock(outputAudio, inputMidi, startSample, numSamples);
     }
     outputAudio.applyGain(gain);
-}
-
-void Source::noteOn (int midiChannel, int midiNoteNumber, float velocity) {
-    for(int i = 0; i < trackIndex::maxTracks; i++){
-        tracks[i].noteOn(midiChannel, midiNoteNumber, velocity);
-    }
 }
 
 void Source::prepareToPlay (int samplesPerBlockExpected, double sampleRate)
@@ -132,7 +122,6 @@ void Source::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
     // and now get the synth to process the midi events and generate its output.
     renderNextBlock (*bufferToFill.buffer, incomingMidi, 0, bufferToFill.numSamples);
 }
-
 
 void Source::setMaster (float value) {
     gain = value;

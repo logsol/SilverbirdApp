@@ -33,10 +33,6 @@ public:
                           int startSample,
                           int numSamples);
     
-    void noteOn (int midiChannel,
-                         int midiNoteNumber,
-                         float velocity);
-    
     void addTrack (int index,
                   int note,
                   int numSounds,

@@ -206,7 +206,7 @@ void Gui::sliderValueChanged (Slider* sliderThatWasMoved)
     if (sliderThatWasMoved == masterSlider)
     {
         //[UserSliderCode_masterSlider] -- add your slider handling code here..
-        controller->setMaster(masterSlider->getValue() / 100);
+        controller->setMaster(masterSlider->getValue());
         //[/UserSliderCode_masterSlider]
     }
     else if (sliderThatWasMoved == selectSlider)
