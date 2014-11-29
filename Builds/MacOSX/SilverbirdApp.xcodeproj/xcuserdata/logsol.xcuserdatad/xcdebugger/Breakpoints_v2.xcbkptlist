@@ -120,11 +120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../Source/Controller.cpp"
-            timestampString = "438962944.306369"
+            timestampString = "438972772.068166"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "Controller::playNote(int note)"
             landmarkType = "5">
          </BreakpointContent>
@@ -172,6 +172,22 @@
             startingLineNumber = "65"
             endingLineNumber = "65"
             landmarkName = "Track::noteOn (const int midiChannel, const int midiNoteNumber, const float velocity)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../Source/Gui.cpp"
+            timestampString = "438972655.624401"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "289"
+            endingLineNumber = "289"
+            landmarkName = "Gui::comboBoxChanged (ComboBox* comboBoxThatHasChanged)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -19,19 +19,20 @@ public:
     Controller();
     ~Controller();
     
-    //int getSelectedTrack();
+    int getSelectedTrack();
+    void setSelectedTrack(int trackId);
+    void editTrack(int sampleId);
+    
     void playNote(int note);
-    void setTrackSample(int selection);
     void setMaster(float value);
 
-        AudioDeviceManager audioDeviceManager;
-    
 protected:
     void bootstrap();
     
     Source source;
     MidiKeyboardState keyboardState;
     AudioSourcePlayer audioSourcePlayer;
+    AudioDeviceManager audioDeviceManager;
     
     int selectedTrack = 0;
 };

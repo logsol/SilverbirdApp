@@ -33,25 +33,26 @@ void Controller::bootstrap()
     audioDeviceManager.addMidiInputCallback (String::empty, &(source.midiCollector));
 }
 
-/*
 int Controller::getSelectedTrack() {
     return selectedTrack;
 }
-*/
+
+void Controller::setSelectedTrack(int trackId) {
+    selectedTrack = trackId;
+}
+
 void Controller::playNote(int note) {
     // params: channel, note, velocity 0-1
     keyboardState.noteOn(1, note, 1);
 }
 
-void Controller::setTrackSample(int selection){
+void Controller::editTrack(int sampleId){
     
-    //if(index == -1) {
-    //	index = getSelectedTrack();
-    //}
+    int trackId = getSelectedTrack();
     
-    Track* trackToApply;
-    trackToApply = source.getTrackByIndex(0);
-    trackToApply->setSelection(selection);
+    Track* track;
+    track = source.getTrackByIndex(trackId);
+    track->setSelection(sampleId);
 }
 
 void Controller::setMaster(float value) {

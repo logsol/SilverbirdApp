@@ -226,7 +226,7 @@ void Gui::sliderValueChanged (Slider* sliderThatWasMoved)
     else if (sliderThatWasMoved == selectSlider)
     {
         //[UserSliderCode_selectSlider] -- add your slider handling code here..
-        controller->setTrackSample(selectSlider->getValue() -1);
+        controller->editTrack(selectSlider->getValue() -1);
         //[/UserSliderCode_selectSlider]
     }
     else if (sliderThatWasMoved == attackSlider)
@@ -286,6 +286,7 @@ void Gui::comboBoxChanged (ComboBox* comboBoxThatHasChanged)
     if (comboBoxThatHasChanged == trackSelectBox)
     {
         //[UserComboBoxCode_trackSelectBox] -- add your combo box handling code here..
+        controller->setSelectedTrack(trackSelectBox->getSelectedId() -1);
         //[/UserComboBoxCode_trackSelectBox]
     }
 
