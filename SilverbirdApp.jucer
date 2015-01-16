@@ -12,8 +12,6 @@
         <FILE id="nEzaAV" name="Track.h" compile="0" resource="0" file="Source/Track.h"/>
         <FILE id="YlJVqE" name="Source.cpp" compile="1" resource="0" file="Source/Source.cpp"/>
         <FILE id="E9XpMC" name="Source.h" compile="0" resource="0" file="Source/Source.h"/>
-        <FILE id="JG1IBl" name="Voice.cpp" compile="1" resource="0" file="Source/Voice.cpp"/>
-        <FILE id="suSZHp" name="Voice.h" compile="0" resource="0" file="Source/Voice.h"/>
         <FILE id="HsA647" name="Sound.cpp" compile="1" resource="0" file="Source/Sound.cpp"/>
         <FILE id="WzwTSt" name="Sound.h" compile="0" resource="0" file="Source/Sound.h"/>
       </GROUP>

@@ -26,7 +26,7 @@
  
  @see SamplerVoice, Synthesiser, SynthesiserSound
  */
-class Sound : public SynthesiserSound
+class Sound : public SamplerSound
 {
 public:
     //==============================================================================

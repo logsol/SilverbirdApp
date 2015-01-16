@@ -9,14 +9,13 @@
 */
 
 #include "Track.h"
-#include "Voice.h"
 #include "../JuceLibraryCode/JuceHeader.h"
 
 Track::Track()
 {
     //for (int i = 1; --i >= 0;)
     //{
-        Voice* sv = new Voice();
+        SamplerVoice* sv = new SamplerVoice();
         addVoice (sv);
     //}
 }

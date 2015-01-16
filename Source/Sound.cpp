@@ -39,7 +39,14 @@ Sound::Sound (const String& soundName,
                                         const int midiNoteForNormalPitch,
                                         const int soundSelection,
                                         AudioFormatReader& source)
-: name (soundName),
+: juce::SamplerSound(soundName,
+                     source,
+                     127,
+                     midiNoteForNormalPitch,
+                     0,
+                     0,
+                     10),
+name (soundName),
 midiRootNote (midiNoteForNormalPitch),
 selection (soundSelection)
 {

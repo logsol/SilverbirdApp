@@ -14,7 +14,6 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Sound.h"
-#include "Voice.h"
 #include "Track.h"
 
 class Source : public AudioSource
