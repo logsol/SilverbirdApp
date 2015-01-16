@@ -1,7 +1,7 @@
 /*
   ==============================================================================
 
-    Track.cpp
+    Sampler.cpp
     Created: 5 Mar 2014 6:19:52pm
     Author:  Pannek Karl
 
@@ -9,14 +9,13 @@
 */
 
 #include "Sampler.h"
-#include "Voice.h"
 #include "../JuceLibraryCode/JuceHeader.h"
 
 Sampler::Sampler()
 {
     //for (int i = 1; --i >= 0;)
     //{
-        Voice* sv = new Voice();
+        SamplerVoice* sv = new SamplerVoice();
         addVoice (sv);
     //}
 }
@@ -96,7 +95,9 @@ void Sampler::noteOn (const int midiChannel,
                 }
             }
              
-            startVoice (findFreeVoice (sound, true), sound, midiChannel, midiNoteNumber, velocity);
+            //startVoice (findFreeVoice (sound, true), sound, midiChannel, midiNoteNumber, velocity);
+            startVoice (voices[0], sound, midiChannel, midiNoteNumber, velocity);
+
         }
     }
 }
@@ -105,7 +106,7 @@ void Sampler::stopVoice (SynthesiserVoice* voice, const bool allowTailOff)
 {
     jassert (voice != nullptr);
     
-    voice->stopNote (allowTailOff);
+    voice->stopNote (0, allowTailOff);
     
     // the subclass MUST call clearCurrentNote() if it's not tailing off! RTFM for stopNote()!
     jassert (allowTailOff || (voice->getCurrentlyPlayingNote() < 0 && voice->getCurrentlyPlayingSound() == 0));

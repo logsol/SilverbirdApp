@@ -14,7 +14,7 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Sound.h"
-#include "Track.h"
+#include "Sampler.h"
 
 class Source : public AudioSource
 {
@@ -37,7 +37,7 @@ public:
                   int numSounds,
                   MemoryInputStream* streams[]);
     
-    Track* getTrackByIndex(int index);
+    Sampler* getTrackByIndex(int index);
     void setMaster(float value);
     
     void setTrackVolume(float value, int trackIndex);
@@ -58,7 +58,7 @@ protected:
     int numTracks = 0;
     float gain;
     
-    Track tracks[trackIndex::maxTracks];
+    Sampler tracks[trackIndex::maxTracks];
 };
 
 

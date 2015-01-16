@@ -50,7 +50,7 @@ void Controller::editTrack(int sampleId){
     
     int trackId = getSelectedTrack();
     
-    Track* track;
+    Sampler* track;
     track = source.getTrackByIndex(trackId);
     track->setSelection(sampleId);
 }

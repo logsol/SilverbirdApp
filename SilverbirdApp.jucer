@@ -8,8 +8,8 @@
       <FILE id="WM42kq" name="Controller.cpp" compile="1" resource="0" file="Source/Controller.cpp"/>
       <FILE id="PheKqL" name="Controller.h" compile="0" resource="0" file="Source/Controller.h"/>
       <GROUP id="{65D2481D-E290-269E-E2CF-FBF627AAB06A}" name="Model">
-        <FILE id="kmqhZa" name="Track.cpp" compile="1" resource="0" file="Source/Track.cpp"/>
-        <FILE id="nEzaAV" name="Track.h" compile="0" resource="0" file="Source/Track.h"/>
+        <FILE id="kmqhZa" name="Sampler.cpp" compile="1" resource="0" file="Source/Sampler.cpp"/>
+        <FILE id="nEzaAV" name="Sampler.h" compile="0" resource="0" file="Source/Sampler.h"/>
         <FILE id="YlJVqE" name="Source.cpp" compile="1" resource="0" file="Source/Source.cpp"/>
         <FILE id="E9XpMC" name="Source.h" compile="0" resource="0" file="Source/Source.h"/>
         <FILE id="HsA647" name="Sound.cpp" compile="1" resource="0" file="Source/Sound.cpp"/>

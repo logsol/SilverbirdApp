@@ -55,7 +55,7 @@ Source::~Source() {
 
 void Source::addTrack(int index, int note, int numSounds, MemoryInputStream* streams[]) {
     
-    Track* track = &tracks[index];
+    Sampler* track = &tracks[index];
     
     track->setTrackIndex(index);
     track->setNote(note);
@@ -71,7 +71,7 @@ void Source::addTrack(int index, int note, int numSounds, MemoryInputStream* str
     }
 }
 
-Track* Source::getTrackByIndex(int index) {
+Sampler* Source::getTrackByIndex(int index) {
 
     if (index < 0 || index >= maxTracks) {
         return nullptr;
@@ -132,6 +132,6 @@ void Source::setMaster (float value) {
 }
 
 void Source::setTrackVolume(float value, int trackIndex) {
-    Track* track = &tracks[trackIndex];
+    Sampler* track = &tracks[trackIndex];
     track->setVolume(value);
 }
