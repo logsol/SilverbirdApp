@@ -25,6 +25,8 @@ public:
     
     void playNote(int note);
     void setMaster(float value);
+    
+    void setTrackVolume(float value, int trackIndex);
 
 protected:
     void bootstrap();

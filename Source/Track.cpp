@@ -10,6 +10,7 @@
 
 #include "Track.h"
 #include "Voice.h"
+#include "../JuceLibraryCode/JuceHeader.h"
 
 Track::Track()
 {
@@ -53,6 +54,18 @@ void Track::setNumberOfSounds(int numSounds) {
 
 int Track::getNumberOfSounds() {
 	return this->numberOfSounds;
+}
+
+void Track::setMute(bool active) {
+    this->mute = active;
+}
+
+void Track::setVolume(float value){
+    this->volume = value;
+}
+
+float Track::getVolume(){
+    return volume;
 }
 
 void Track::noteOn (const int midiChannel,

@@ -40,8 +40,17 @@ public:
     
     Track* getTrackByIndex(int index);
     void setMaster(float value);
+    
+    void setTrackVolume(float value, int trackIndex);
+    
     MidiMessageCollector midiCollector;
 
+    enum trackIndex {
+        kick,
+        snare,
+        hihat,
+        maxTracks
+    };
     
 protected:
     MidiKeyboardState& keyboardState;
@@ -49,13 +58,6 @@ protected:
     int selection = 0;
     int numTracks = 0;
     float gain;
-    
-    enum trackIndex {
-        kick,
-        snare,
-        hihat,
-        maxTracks
-    };
     
     Track tracks[trackIndex::maxTracks];
 };

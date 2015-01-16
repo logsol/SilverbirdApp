@@ -19,6 +19,7 @@
 
 //[Headers] You can add your own extra header files here...
 #include "Controller.h"
+#include "Source.h"
 //[/Headers]
 
 #include "Gui.h"
@@ -130,6 +131,85 @@ Gui::Gui (Controller* controller)
     label3->setColour (TextEditor::textColourId, Colours::black);
     label3->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
+    addAndMakeVisible (kickMuteButton = new ToggleButton ("kickMute"));
+    kickMuteButton->setButtonText (String::empty);
+    kickMuteButton->setConnectedEdges (Button::ConnectedOnBottom);
+    kickMuteButton->addListener (this);
+
+    addAndMakeVisible (snareMuteButton = new ToggleButton ("snareMute"));
+    snareMuteButton->setButtonText (String::empty);
+    snareMuteButton->setConnectedEdges (Button::ConnectedOnBottom);
+    snareMuteButton->addListener (this);
+
+    addAndMakeVisible (HihatMuteButton = new ToggleButton ("hihatMute"));
+    HihatMuteButton->setButtonText (String::empty);
+    HihatMuteButton->setConnectedEdges (Button::ConnectedOnBottom);
+    HihatMuteButton->addListener (this);
+
+    addAndMakeVisible (kickVolumeSlider = new Slider ("kickVolume"));
+    kickVolumeSlider->setRange (0, 1, 0);
+    kickVolumeSlider->setSliderStyle (Slider::LinearVertical);
+    kickVolumeSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
+    kickVolumeSlider->addListener (this);
+
+    addAndMakeVisible (snareVolumeSlider = new Slider ("snareVolume"));
+    snareVolumeSlider->setRange (0, 1, 0);
+    snareVolumeSlider->setSliderStyle (Slider::LinearVertical);
+    snareVolumeSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
+    snareVolumeSlider->addListener (this);
+
+    addAndMakeVisible (hihatVolumeSlider = new Slider ("hihatVolume"));
+    hihatVolumeSlider->setRange (0, 1, 0);
+    hihatVolumeSlider->setSliderStyle (Slider::LinearVertical);
+    hihatVolumeSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
+    hihatVolumeSlider->addListener (this);
+
+    addAndMakeVisible (label7 = new Label ("new label",
+                                           TRANS("Kick")));
+    label7->setFont (Font (15.00f, Font::plain));
+    label7->setJustificationType (Justification::centredLeft);
+    label7->setEditable (false, false, false);
+    label7->setColour (TextEditor::textColourId, Colours::black);
+    label7->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (label8 = new Label ("new label",
+                                           TRANS("Snare")));
+    label8->setFont (Font (15.00f, Font::plain));
+    label8->setJustificationType (Justification::centredLeft);
+    label8->setEditable (false, false, false);
+    label8->setColour (TextEditor::textColourId, Colours::black);
+    label8->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (label9 = new Label ("new label",
+                                           TRANS("Hihat")));
+    label9->setFont (Font (15.00f, Font::plain));
+    label9->setJustificationType (Justification::centredLeft);
+    label9->setEditable (false, false, false);
+    label9->setColour (TextEditor::textColourId, Colours::black);
+    label9->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (cutoffSlider = new Slider ("Pitch"));
+    cutoffSlider->setRange (0, 10, 0);
+    cutoffSlider->setSliderStyle (Slider::RotaryVerticalDrag);
+    cutoffSlider->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
+    cutoffSlider->addListener (this);
+
+    addAndMakeVisible (label10 = new Label ("new label",
+                                            TRANS("Cutoff")));
+    label10->setFont (Font (15.00f, Font::plain));
+    label10->setJustificationType (Justification::centred);
+    label10->setEditable (false, false, false);
+    label10->setColour (TextEditor::textColourId, Colours::black);
+    label10->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (label11 = new Label ("new label",
+                                            TRANS("Mute")));
+    label11->setFont (Font (15.00f, Font::plain));
+    label11->setJustificationType (Justification::centredLeft);
+    label11->setEditable (false, false, false);
+    label11->setColour (TextEditor::textColourId, Colours::black);
+    label11->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
     cachedImage_background_png = ImageCache::getFromMemory (background_png, background_pngSize);
 
     //[UserPreSize]
@@ -144,6 +224,10 @@ Gui::Gui (Controller* controller)
     snareButton->setTriggeredOnMouseDown(true);
     hihatButton->setTriggeredOnMouseDown(true);
     trackSelectBox->setSelectedId(1);
+
+    kickVolumeSlider->setValue(8);
+    snareVolumeSlider->setValue(8);
+    hihatVolumeSlider->setValue(8);
     //[/Constructor]
 }
 
@@ -167,6 +251,18 @@ Gui::~Gui()
     hihatButton = nullptr;
     trackSelectBox = nullptr;
     label3 = nullptr;
+    kickMuteButton = nullptr;
+    snareMuteButton = nullptr;
+    HihatMuteButton = nullptr;
+    kickVolumeSlider = nullptr;
+    snareVolumeSlider = nullptr;
+    hihatVolumeSlider = nullptr;
+    label7 = nullptr;
+    label8 = nullptr;
+    label9 = nullptr;
+    cutoffSlider = nullptr;
+    label10 = nullptr;
+    label11 = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -193,21 +289,33 @@ void Gui::paint (Graphics& g)
 
 void Gui::resized()
 {
-    label->setBounds (945, 53, 96, 24);
-    masterSlider->setBounds (960, 80, 64, 80);
-    selectSlider->setBounds (56, 80, 64, 80);
-    label2->setBounds (40, 53, 96, 24);
-    attackSlider->setBounds (136, 80, 64, 80);
-    label4->setBounds (120, 53, 96, 24);
-    decaySlider->setBounds (216, 80, 64, 80);
-    label5->setBounds (200, 53, 96, 24);
-    pitchSlider->setBounds (288, 80, 64, 80);
-    label6->setBounds (272, 53, 96, 24);
-    snareButton->setBounds (872, 528, 150, 24);
-    kickButton->setBounds (872, 496, 150, 24);
-    hihatButton->setBounds (872, 560, 150, 24);
-    trackSelectBox->setBounds (400, 80, 150, 24);
-    label3->setBounds (424, 56, 96, 24);
+    label->setBounds (504, 440, 96, 24);
+    masterSlider->setBounds (520, 464, 64, 80);
+    selectSlider->setBounds (53, 80, 64, 80);
+    label2->setBounds (37, 53, 96, 24);
+    attackSlider->setBounds (125, 80, 64, 80);
+    label4->setBounds (109, 53, 96, 24);
+    decaySlider->setBounds (197, 80, 64, 80);
+    label5->setBounds (181, 53, 96, 24);
+    pitchSlider->setBounds (269, 80, 64, 80);
+    label6->setBounds (253, 53, 96, 24);
+    snareButton->setBounds (792, 587, 72, 24);
+    kickButton->setBounds (712, 587, 72, 24);
+    hihatButton->setBounds (872, 587, 72, 24);
+    trackSelectBox->setBounds (415, 77, 82, 24);
+    label3->setBounds (407, 53, 98, 24);
+    kickMuteButton->setBounds (80, 543, 24, 24);
+    snareMuteButton->setBounds (128, 543, 24, 24);
+    HihatMuteButton->setBounds (176, 543, 24, 24);
+    kickVolumeSlider->setBounds (80, 432, 20, 104);
+    snareVolumeSlider->setBounds (128, 432, 20, 104);
+    hihatVolumeSlider->setBounds (176, 432, 20, 104);
+    label7->setBounds (73, 404, 40, 24);
+    label8->setBounds (117, 404, 48, 24);
+    label9->setBounds (164, 404, 48, 24);
+    cutoffSlider->setBounds (341, 80, 64, 80);
+    label10->setBounds (325, 53, 96, 24);
+    label11->setBounds (36, 542, 40, 24);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -245,6 +353,29 @@ void Gui::sliderValueChanged (Slider* sliderThatWasMoved)
         //[UserSliderCode_pitchSlider] -- add your slider handling code here..
         //[/UserSliderCode_pitchSlider]
     }
+    else if (sliderThatWasMoved == kickVolumeSlider)
+    {
+        //[UserSliderCode_kickVolumeSlider] -- add your slider handling code here..
+        controller->setTrackVolume(kickVolumeSlider->getValue(), Source::trackIndex::kick);
+        //[/UserSliderCode_kickVolumeSlider]
+    }
+    else if (sliderThatWasMoved == snareVolumeSlider)
+    {
+        //[UserSliderCode_snareVolumeSlider] -- add your slider handling code here..
+        controller->setTrackVolume(snareVolumeSlider->getValue(), Source::trackIndex::snare);
+        //[/UserSliderCode_snareVolumeSlider]
+    }
+    else if (sliderThatWasMoved == hihatVolumeSlider)
+    {
+        //[UserSliderCode_hihatVolumeSlider] -- add your slider handling code here..
+        controller->setTrackVolume(hihatVolumeSlider->getValue(), Source::trackIndex::hihat);
+        //[/UserSliderCode_hihatVolumeSlider]
+    }
+    else if (sliderThatWasMoved == cutoffSlider)
+    {
+        //[UserSliderCode_cutoffSlider] -- add your slider handling code here..
+        //[/UserSliderCode_cutoffSlider]
+    }
 
     //[UsersliderValueChanged_Post]
     //[/UsersliderValueChanged_Post]
@@ -272,6 +403,21 @@ void Gui::buttonClicked (Button* buttonThatWasClicked)
         //[UserButtonCode_hihatButton] -- add your button handler code here..
         controller->playNote(42);
         //[/UserButtonCode_hihatButton]
+    }
+    else if (buttonThatWasClicked == kickMuteButton)
+    {
+        //[UserButtonCode_kickMuteButton] -- add your button handler code here..
+        //[/UserButtonCode_kickMuteButton]
+    }
+    else if (buttonThatWasClicked == snareMuteButton)
+    {
+        //[UserButtonCode_snareMuteButton] -- add your button handler code here..
+        //[/UserButtonCode_snareMuteButton]
+    }
+    else if (buttonThatWasClicked == HihatMuteButton)
+    {
+        //[UserButtonCode_HihatMuteButton] -- add your button handler code here..
+        //[/UserButtonCode_HihatMuteButton]
     }
 
     //[UserbuttonClicked_Post]
@@ -318,68 +464,118 @@ BEGIN_JUCER_METADATA
     <IMAGE pos="0 0 1079 639" resource="background_png" opacity="1" mode="0"/>
   </BACKGROUND>
   <LABEL name="new label" id="7db995d0cc268da2" memberName="label" virtualName=""
-         explicitFocusOrder="0" pos="945 53 96 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="504 440 96 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Master" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
   <SLIDER name="Master" id="fd6791ae3c533bb4" memberName="masterSlider"
-          virtualName="" explicitFocusOrder="0" pos="960 80 64 80" min="0"
+          virtualName="" explicitFocusOrder="0" pos="520 464 64 80" min="0"
           max="1" int="0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="0.33000000000000001554"/>
   <SLIDER name="Select" id="ae2904d9e602bae7" memberName="selectSlider"
-          virtualName="" explicitFocusOrder="0" pos="56 80 64 80" min="1"
+          virtualName="" explicitFocusOrder="0" pos="53 80 64 80" min="1"
           max="5" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="9b95e80f4bba0ec3" memberName="label2" virtualName=""
-         explicitFocusOrder="0" pos="40 53 96 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="37 53 96 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Select" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
   <SLIDER name="Attack" id="dcf2dbaf52d14406" memberName="attackSlider"
-          virtualName="" explicitFocusOrder="0" pos="136 80 64 80" min="0"
+          virtualName="" explicitFocusOrder="0" pos="125 80 64 80" min="0"
           max="10" int="0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="600acbb5e03c4485" memberName="label4" virtualName=""
-         explicitFocusOrder="0" pos="120 53 96 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="109 53 96 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Attack&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15" bold="0" italic="0" justification="36"/>
   <SLIDER name="Decay" id="9c5da3b543af0acd" memberName="decaySlider" virtualName=""
-          explicitFocusOrder="0" pos="216 80 64 80" min="0" max="10" int="0"
+          explicitFocusOrder="0" pos="197 80 64 80" min="0" max="10" int="0"
           style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="6d80791f4a659e3" memberName="label5" virtualName=""
-         explicitFocusOrder="0" pos="200 53 96 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="181 53 96 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Decay" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
   <SLIDER name="Pitch" id="a0bcc16014a81d26" memberName="pitchSlider" virtualName=""
-          explicitFocusOrder="0" pos="288 80 64 80" min="0" max="10" int="0"
+          explicitFocusOrder="0" pos="269 80 64 80" min="0" max="10" int="0"
           style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="1f974eb41a59cc16" memberName="label6" virtualName=""
-         explicitFocusOrder="0" pos="272 53 96 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="253 53 96 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Pitch" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
   <TEXTBUTTON name="Snare" id="4a1aa32f7c793c9e" memberName="snareButton" virtualName=""
-              explicitFocusOrder="0" pos="872 528 150 24" buttonText="Snare"
+              explicitFocusOrder="0" pos="792 587 72 24" buttonText="Snare"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="Kick" id="efea0982f303e263" memberName="kickButton" virtualName=""
-              explicitFocusOrder="0" pos="872 496 150 24" buttonText="Kick"
+              explicitFocusOrder="0" pos="712 587 72 24" buttonText="Kick"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="Hihat" id="3db853b8d0063a28" memberName="hihatButton" virtualName=""
-              explicitFocusOrder="0" pos="872 560 150 24" buttonText="Hihat"
+              explicitFocusOrder="0" pos="872 587 72 24" buttonText="Hihat"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <COMBOBOX name="trackselectbox" id="f802b5c294865d5d" memberName="trackSelectBox"
-            virtualName="" explicitFocusOrder="0" pos="400 80 150 24" editable="0"
+            virtualName="" explicitFocusOrder="0" pos="415 77 82 24" editable="0"
             layout="33" items="Kick&#10;Snare&#10;Hihat" textWhenNonSelected=""
             textWhenNoItems="(no choices)"/>
   <LABEL name="new label" id="e8f39d88573f5095" memberName="label3" virtualName=""
-         explicitFocusOrder="0" pos="424 56 96 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="407 53 98 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Track Select" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15" bold="0" italic="0" justification="36"/>
+  <TOGGLEBUTTON name="kickMute" id="a54088c4b7b86a7c" memberName="kickMuteButton"
+                virtualName="" explicitFocusOrder="0" pos="80 543 24 24" buttonText=""
+                connectedEdges="8" needsCallback="1" radioGroupId="0" state="0"/>
+  <TOGGLEBUTTON name="snareMute" id="e89902473100fa31" memberName="snareMuteButton"
+                virtualName="" explicitFocusOrder="0" pos="128 543 24 24" buttonText=""
+                connectedEdges="8" needsCallback="1" radioGroupId="0" state="0"/>
+  <TOGGLEBUTTON name="hihatMute" id="f8c6023f10633d76" memberName="HihatMuteButton"
+                virtualName="" explicitFocusOrder="0" pos="176 543 24 24" buttonText=""
+                connectedEdges="8" needsCallback="1" radioGroupId="0" state="0"/>
+  <SLIDER name="kickVolume" id="ae31972216ca91d8" memberName="kickVolumeSlider"
+          virtualName="" explicitFocusOrder="0" pos="80 432 20 104" min="0"
+          max="1" int="0" style="LinearVertical" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
+  <SLIDER name="snareVolume" id="7473f902a9aba960" memberName="snareVolumeSlider"
+          virtualName="" explicitFocusOrder="0" pos="128 432 20 104" min="0"
+          max="1" int="0" style="LinearVertical" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
+  <SLIDER name="hihatVolume" id="8734ecc063a71519" memberName="hihatVolumeSlider"
+          virtualName="" explicitFocusOrder="0" pos="176 432 20 104" min="0"
+          max="1" int="0" style="LinearVertical" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
+  <LABEL name="new label" id="486b2beaa1324a51" memberName="label7" virtualName=""
+         explicitFocusOrder="0" pos="73 404 40 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Kick" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         bold="0" italic="0" justification="33"/>
+  <LABEL name="new label" id="681d168e20d88e68" memberName="label8" virtualName=""
+         explicitFocusOrder="0" pos="117 404 48 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Snare" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         bold="0" italic="0" justification="33"/>
+  <LABEL name="new label" id="fdffc56aa102332a" memberName="label9" virtualName=""
+         explicitFocusOrder="0" pos="164 404 48 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Hihat" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         bold="0" italic="0" justification="33"/>
+  <SLIDER name="Pitch" id="ec9ceab9e8f418ea" memberName="cutoffSlider"
+          virtualName="" explicitFocusOrder="0" pos="341 80 64 80" min="0"
+          max="10" int="0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
+  <LABEL name="new label" id="c2f8b942c21a3df3" memberName="label10" virtualName=""
+         explicitFocusOrder="0" pos="325 53 96 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Cutoff" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         bold="0" italic="0" justification="36"/>
+  <LABEL name="new label" id="f92fa637a94fb66e" memberName="label11" virtualName=""
+         explicitFocusOrder="0" pos="36 542 40 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Mute" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         bold="0" italic="0" justification="33"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

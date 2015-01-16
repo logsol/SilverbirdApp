@@ -59,3 +59,7 @@ void Controller::setMaster(float value) {
 	source.setMaster(value);
 }
 
+void Controller::setTrackVolume(float value, int trackIndex) {
+    source.setTrackVolume(value, trackIndex);
+}
+

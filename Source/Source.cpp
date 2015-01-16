@@ -86,13 +86,6 @@ void Source::updateSampleRate(int sampleRate) {
     }
 }
 
-void Source::renderNextBlock (AudioSampleBuffer outputAudio, const MidiBuffer inputMidi, int startSample, int numSamples) {
-    for(int i = 0; i < trackIndex::maxTracks; i++){
-        tracks[i].renderNextBlock(outputAudio, inputMidi, startSample, numSamples);
-    }
-    outputAudio.applyGain(gain);
-}
-
 void Source::prepareToPlay (int samplesPerBlockExpected, double sampleRate)
 {
     midiCollector.reset (sampleRate);
@@ -123,6 +116,22 @@ void Source::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
     renderNextBlock (*bufferToFill.buffer, incomingMidi, 0, bufferToFill.numSamples);
 }
 
+void Source::renderNextBlock (AudioSampleBuffer outputAudio, const MidiBuffer inputMidi, int startSample, int numSamples) {
+    
+    for(int i = 0; i < trackIndex::maxTracks; i++){
+        //AudioSampleBuffer trackAudio;
+        tracks[i].renderNextBlock(outputAudio, inputMidi, startSample, numSamples);
+        //trackAudio.applyGain(tracks[i].getVolume());
+    }
+    
+    outputAudio.applyGain(gain);
+}
+
 void Source::setMaster (float value) {
     gain = value;
+}
+
+void Source::setTrackVolume(float value, int trackIndex) {
+    Track* track = &tracks[trackIndex];
+    track->setVolume(value);
 }

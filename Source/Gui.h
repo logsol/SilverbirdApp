@@ -81,6 +81,18 @@ private:
     ScopedPointer<TextButton> hihatButton;
     ScopedPointer<ComboBox> trackSelectBox;
     ScopedPointer<Label> label3;
+    ScopedPointer<ToggleButton> kickMuteButton;
+    ScopedPointer<ToggleButton> snareMuteButton;
+    ScopedPointer<ToggleButton> HihatMuteButton;
+    ScopedPointer<Slider> kickVolumeSlider;
+    ScopedPointer<Slider> snareVolumeSlider;
+    ScopedPointer<Slider> hihatVolumeSlider;
+    ScopedPointer<Label> label7;
+    ScopedPointer<Label> label8;
+    ScopedPointer<Label> label9;
+    ScopedPointer<Slider> cutoffSlider;
+    ScopedPointer<Label> label10;
+    ScopedPointer<Label> label11;
     Image cachedImage_background_png;
 
 

@@ -32,6 +32,10 @@ public:
     void setNumberOfSounds(int numSounds);
     int getNumberOfSounds();
     
+    void setMute(bool active);
+    void setVolume(float value);
+    float getVolume();
+    
     void noteOn(const int midiChannel, const int midiNoteNumber, const float velocity);
     void stopVoice (SynthesiserVoice* voice, const bool allowTailOff);
     
@@ -40,6 +44,8 @@ protected:
     int note;
     int numberOfSounds;
     int selection = 0;
+    bool mute = false;
+    float volume = 0;
 };
 
 
