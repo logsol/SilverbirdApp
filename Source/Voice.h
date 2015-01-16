@@ -26,15 +26,45 @@ public:
     ~Voice();
     
     //==============================================================================
+    
+    /*
     bool canPlaySound (SynthesiserSound*) override;
     
     void startNote (int midiNoteNumber, float velocity, SynthesiserSound*, int pitchWheel) override;
-    void stopNote (bool allowTailOff) override;
+    int stopNote (bool allowTailOff) override;
     
     void pitchWheelMoved (int newValue);
     void controllerMoved (int controllerNumber, int newValue) override;
     
     void renderNextBlock (AudioSampleBuffer&, int startSample, int numSamples) override;
+    
+    */
+    
+    
+    
+    
+    
+    
+    
+    
+    //
+    
+    virtual bool canPlaySound (SynthesiserSound*);
+    
+    virtual void startNote (int midiNoteNumber,
+                            float velocity,
+                            SynthesiserSound* sound,
+                            int currentPitchWheelPosition);
+    
+    virtual void stopNote (float velocity, bool allowTailOff);
+    
+    virtual void pitchWheelMoved (int newPitchWheelValue);
+    
+    virtual void controllerMoved (int controllerNumber, int newControllerValue);
+    
+    virtual void renderNextBlock (AudioSampleBuffer& outputBuffer,
+                                  int startSample,
+                                  int numSamples);
     
     
 private:

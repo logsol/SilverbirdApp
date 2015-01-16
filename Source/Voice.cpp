@@ -71,7 +71,7 @@ void Voice::startNote (const int midiNoteNumber,
     }
 }
 
-void Voice::stopNote (const bool allowTailOff)
+void Voice::stopNote (float velocity, const bool allowTailOff)
 {
     if (allowTailOff)
     {
@@ -141,7 +141,7 @@ void Voice::renderNextBlock (AudioSampleBuffer& outputBuffer, int startSample, i
                 
                 if (attackReleaseLevel <= 0.0f)
                 {
-                    stopNote (false);
+                    stopNote (0, false);
                     break;
                 }
             }
@@ -160,7 +160,7 @@ void Voice::renderNextBlock (AudioSampleBuffer& outputBuffer, int startSample, i
             
             if (sourceSamplePosition > playingSound->length)
             {
-                stopNote (false);
+                stopNote (0, false);
                 break;
             }
         }

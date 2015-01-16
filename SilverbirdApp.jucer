@@ -2,7 +2,7 @@
 
 <JUCERPROJECT id="t5PU2z" name="SilverbirdApp" projectType="guiapp" version="1.0.0"
               bundleIdentifier="com.audiosalt.SilverbirdApp" includeBinaryInAppConfig="1"
-              jucerVersion="3.1.0">
+              jucerVersion="3.1.1">
   <MAINGROUP id="P1u1H7" name="SilverbirdApp">
     <GROUP id="{40B58F17-2A50-FCFC-AC96-EA61BE3F32E2}" name="Source">
       <FILE id="WM42kq" name="Controller.cpp" compile="1" resource="0" file="Source/Controller.cpp"/>

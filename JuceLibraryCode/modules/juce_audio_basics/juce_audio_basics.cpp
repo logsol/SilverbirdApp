@@ -57,11 +57,11 @@
 #endif
 
 #if (JUCE_MAC || JUCE_IOS) && JUCE_USE_VDSP_FRAMEWORK
-#define Point CarbonDummyPointName // (workaround to avoid definition of "Point" by old Carbon headers)
-#include <Accelerate/Accelerate.h>
-#undef Point
+ #define Point CarbonDummyPointName // (workaround to avoid definition of "Point" by old Carbon headers)
+ #include <Accelerate/Accelerate.h>
+ #undef Point
 #else
-#undef JUCE_USE_VDSP_FRAMEWORK
+ #undef JUCE_USE_VDSP_FRAMEWORK
 #endif
 
 #if __ARM_NEON__ && ! (JUCE_USE_VDSP_FRAMEWORK || defined (JUCE_USE_ARM_NEON))

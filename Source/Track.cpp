@@ -96,7 +96,9 @@ void Track::noteOn (const int midiChannel,
                 }
             }
              
-            startVoice (findFreeVoice (sound, true), sound, midiChannel, midiNoteNumber, velocity);
+            //startVoice (findFreeVoice (sound, true), sound, midiChannel, midiNoteNumber, velocity);
+            startVoice (voices[0], sound, midiChannel, midiNoteNumber, velocity);
+
         }
     }
 }
@@ -105,7 +107,7 @@ void Track::stopVoice (SynthesiserVoice* voice, const bool allowTailOff)
 {
     jassert (voice != nullptr);
     
-    voice->stopNote (allowTailOff);
+    voice->stopNote (0, allowTailOff);
     
     // the subclass MUST call clearCurrentNote() if it's not tailing off! RTFM for stopNote()!
     jassert (allowTailOff || (voice->getCurrentlyPlayingNote() < 0 && voice->getCurrentlyPlayingSound() == 0));
