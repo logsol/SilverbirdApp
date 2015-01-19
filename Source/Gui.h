@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Introjucer version: 3.1.0
+  Created with Introjucer version: 3.1.1
 
   ------------------------------------------------------------------------------
 
@@ -37,8 +37,7 @@
 */
 class Gui  : public Component,
              public SliderListener,
-             public ButtonListener,
-             public ComboBoxListener
+             public ButtonListener
 {
 public:
     //==============================================================================
@@ -53,7 +52,6 @@ public:
     void resized();
     void sliderValueChanged (Slider* sliderThatWasMoved);
     void buttonClicked (Button* buttonThatWasClicked);
-    void comboBoxChanged (ComboBox* comboBoxThatHasChanged);
 
     // Binary resources:
     static const char* background_png;
@@ -68,19 +66,9 @@ private:
     //==============================================================================
     ScopedPointer<Label> label;
     ScopedPointer<Slider> masterSlider;
-    ScopedPointer<Slider> selectSlider;
-    ScopedPointer<Label> label2;
-    ScopedPointer<Slider> attackSlider;
-    ScopedPointer<Label> label4;
-    ScopedPointer<Slider> decaySlider;
-    ScopedPointer<Label> label5;
-    ScopedPointer<Slider> pitchSlider;
-    ScopedPointer<Label> label6;
     ScopedPointer<TextButton> snareButton;
     ScopedPointer<TextButton> kickButton;
     ScopedPointer<TextButton> hihatButton;
-    ScopedPointer<ComboBox> trackSelectBox;
-    ScopedPointer<Label> label3;
     ScopedPointer<ToggleButton> kickMuteButton;
     ScopedPointer<ToggleButton> snareMuteButton;
     ScopedPointer<ToggleButton> HihatMuteButton;
@@ -90,9 +78,10 @@ private:
     ScopedPointer<Label> label7;
     ScopedPointer<Label> label8;
     ScopedPointer<Label> label9;
-    ScopedPointer<Slider> cutoffSlider;
-    ScopedPointer<Label> label10;
     ScopedPointer<Label> label11;
+    ScopedPointer<TabbedComponent> tabbedComponent;
+    ScopedPointer<Slider> masterSlider2;
+    ScopedPointer<Label> label2;
     Image cachedImage_background_png;
 
 

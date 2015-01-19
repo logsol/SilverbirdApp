@@ -19,6 +19,10 @@
       </GROUP>
       <GROUP id="{7910223D-4739-F887-8F7B-FD608B6F3A66}" name="View">
         <GROUP id="{05047D03-0942-0207-CD04-D6540CE92CE0}" name="Components">
+          <FILE id="xFeYs6" name="TrackParameters.cpp" compile="1" resource="0"
+                file="Source/TrackParameters.cpp"/>
+          <FILE id="AKJHZv" name="TrackParameters.h" compile="0" resource="0"
+                file="Source/TrackParameters.h"/>
           <FILE id="yX5x8g" name="Knob.cpp" compile="1" resource="0" file="Source/Knob.cpp"/>
           <FILE id="eQaVnz" name="Knob.h" compile="0" resource="0" file="Source/Knob.h"/>
         </GROUP>

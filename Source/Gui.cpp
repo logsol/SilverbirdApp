@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Introjucer version: 3.1.0
+  Created with Introjucer version: 3.1.1
 
   ------------------------------------------------------------------------------
 
@@ -20,6 +20,7 @@
 //[Headers] You can add your own extra header files here...
 #include "Controller.h"
 #include "Mixer.h"
+#include "TrackParameters.h"
 //[/Headers]
 
 #include "Gui.h"
@@ -48,62 +49,6 @@ Gui::Gui (Controller* controller)
     masterSlider->addListener (this);
     masterSlider->setSkewFactor (0.33);
 
-    addAndMakeVisible (selectSlider = new Slider ("Select"));
-    selectSlider->setRange (1, 5, 1);
-    selectSlider->setSliderStyle (Slider::RotaryVerticalDrag);
-    selectSlider->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
-    selectSlider->addListener (this);
-
-    addAndMakeVisible (label2 = new Label ("new label",
-                                           TRANS("Select")));
-    label2->setFont (Font (15.00f, Font::plain));
-    label2->setJustificationType (Justification::centred);
-    label2->setEditable (false, false, false);
-    label2->setColour (TextEditor::textColourId, Colours::black);
-    label2->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-
-    addAndMakeVisible (attackSlider = new Slider ("Attack"));
-    attackSlider->setRange (0, 10, 0);
-    attackSlider->setSliderStyle (Slider::RotaryVerticalDrag);
-    attackSlider->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
-    attackSlider->addListener (this);
-
-    addAndMakeVisible (label4 = new Label ("new label",
-                                           TRANS("Attack\n")));
-    label4->setFont (Font (15.00f, Font::plain));
-    label4->setJustificationType (Justification::centred);
-    label4->setEditable (false, false, false);
-    label4->setColour (TextEditor::textColourId, Colours::black);
-    label4->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-
-    addAndMakeVisible (decaySlider = new Slider ("Decay"));
-    decaySlider->setRange (0, 10, 0);
-    decaySlider->setSliderStyle (Slider::RotaryVerticalDrag);
-    decaySlider->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
-    decaySlider->addListener (this);
-
-    addAndMakeVisible (label5 = new Label ("new label",
-                                           TRANS("Decay")));
-    label5->setFont (Font (15.00f, Font::plain));
-    label5->setJustificationType (Justification::centred);
-    label5->setEditable (false, false, false);
-    label5->setColour (TextEditor::textColourId, Colours::black);
-    label5->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-
-    addAndMakeVisible (pitchSlider = new Slider ("Pitch"));
-    pitchSlider->setRange (0, 10, 0);
-    pitchSlider->setSliderStyle (Slider::RotaryVerticalDrag);
-    pitchSlider->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
-    pitchSlider->addListener (this);
-
-    addAndMakeVisible (label6 = new Label ("new label",
-                                           TRANS("Pitch")));
-    label6->setFont (Font (15.00f, Font::plain));
-    label6->setJustificationType (Justification::centred);
-    label6->setEditable (false, false, false);
-    label6->setColour (TextEditor::textColourId, Colours::black);
-    label6->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-
     addAndMakeVisible (snareButton = new TextButton ("Snare"));
     snareButton->addListener (this);
 
@@ -112,24 +57,6 @@ Gui::Gui (Controller* controller)
 
     addAndMakeVisible (hihatButton = new TextButton ("Hihat"));
     hihatButton->addListener (this);
-
-    addAndMakeVisible (trackSelectBox = new ComboBox ("trackselectbox"));
-    trackSelectBox->setEditableText (false);
-    trackSelectBox->setJustificationType (Justification::centredLeft);
-    trackSelectBox->setTextWhenNothingSelected (String::empty);
-    trackSelectBox->setTextWhenNoChoicesAvailable (TRANS("(no choices)"));
-    trackSelectBox->addItem (TRANS("Kick"), 1);
-    trackSelectBox->addItem (TRANS("Snare"), 2);
-    trackSelectBox->addItem (TRANS("Hihat"), 3);
-    trackSelectBox->addListener (this);
-
-    addAndMakeVisible (label3 = new Label ("new label",
-                                           TRANS("Track Select")));
-    label3->setFont (Font (15.00f, Font::plain));
-    label3->setJustificationType (Justification::centred);
-    label3->setEditable (false, false, false);
-    label3->setColour (TextEditor::textColourId, Colours::black);
-    label3->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (kickMuteButton = new ToggleButton ("kickMute"));
     kickMuteButton->setButtonText (String::empty);
@@ -188,20 +115,6 @@ Gui::Gui (Controller* controller)
     label9->setColour (TextEditor::textColourId, Colours::black);
     label9->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (cutoffSlider = new Slider ("Pitch"));
-    cutoffSlider->setRange (0, 10, 0);
-    cutoffSlider->setSliderStyle (Slider::RotaryVerticalDrag);
-    cutoffSlider->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
-    cutoffSlider->addListener (this);
-
-    addAndMakeVisible (label10 = new Label ("new label",
-                                            TRANS("Cutoff")));
-    label10->setFont (Font (15.00f, Font::plain));
-    label10->setJustificationType (Justification::centred);
-    label10->setEditable (false, false, false);
-    label10->setColour (TextEditor::textColourId, Colours::black);
-    label10->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-
     addAndMakeVisible (label11 = new Label ("new label",
                                             TRANS("Mute")));
     label11->setFont (Font (15.00f, Font::plain));
@@ -209,6 +122,27 @@ Gui::Gui (Controller* controller)
     label11->setEditable (false, false, false);
     label11->setColour (TextEditor::textColourId, Colours::black);
     label11->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (tabbedComponent = new TabbedComponent (TabbedButtonBar::TabsAtTop));
+    tabbedComponent->setTabBarDepth (30);
+    tabbedComponent->addTab (TRANS("Kick"), Colour (0xf1f1f1f1), new TrackParameters (controller), true);
+    tabbedComponent->addTab (TRANS("Snare"), Colour (0xf1f1f1f1), new TrackParameters (controller), true);
+    tabbedComponent->addTab (TRANS("Hihat"), Colour (0xf1f1f1f1), new TrackParameters (controller), true);
+    tabbedComponent->setCurrentTabIndex (0);
+
+    addAndMakeVisible (masterSlider2 = new Slider ("Master"));
+    masterSlider2->setRange (-10, 10, 1);
+    masterSlider2->setSliderStyle (Slider::RotaryVerticalDrag);
+    masterSlider2->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
+    masterSlider2->addListener (this);
+
+    addAndMakeVisible (label2 = new Label ("new label",
+                                           TRANS("Select All")));
+    label2->setFont (Font (15.00f, Font::plain));
+    label2->setJustificationType (Justification::centred);
+    label2->setEditable (false, false, false);
+    label2->setColour (TextEditor::textColourId, Colours::black);
+    label2->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     cachedImage_background_png = ImageCache::getFromMemory (background_png, background_pngSize);
 
@@ -223,7 +157,6 @@ Gui::Gui (Controller* controller)
     kickButton->setTriggeredOnMouseDown(true);
     snareButton->setTriggeredOnMouseDown(true);
     hihatButton->setTriggeredOnMouseDown(true);
-    trackSelectBox->setSelectedId(1);
 
     kickVolumeSlider->setValue(8);
     snareVolumeSlider->setValue(8);
@@ -238,19 +171,9 @@ Gui::~Gui()
 
     label = nullptr;
     masterSlider = nullptr;
-    selectSlider = nullptr;
-    label2 = nullptr;
-    attackSlider = nullptr;
-    label4 = nullptr;
-    decaySlider = nullptr;
-    label5 = nullptr;
-    pitchSlider = nullptr;
-    label6 = nullptr;
     snareButton = nullptr;
     kickButton = nullptr;
     hihatButton = nullptr;
-    trackSelectBox = nullptr;
-    label3 = nullptr;
     kickMuteButton = nullptr;
     snareMuteButton = nullptr;
     HihatMuteButton = nullptr;
@@ -260,9 +183,10 @@ Gui::~Gui()
     label7 = nullptr;
     label8 = nullptr;
     label9 = nullptr;
-    cutoffSlider = nullptr;
-    label10 = nullptr;
     label11 = nullptr;
+    tabbedComponent = nullptr;
+    masterSlider2 = nullptr;
+    label2 = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -289,21 +213,14 @@ void Gui::paint (Graphics& g)
 
 void Gui::resized()
 {
-    label->setBounds (504, 440, 96, 24);
-    masterSlider->setBounds (520, 464, 64, 80);
-    selectSlider->setBounds (53, 80, 64, 80);
-    label2->setBounds (37, 53, 96, 24);
-    attackSlider->setBounds (125, 80, 64, 80);
-    label4->setBounds (109, 53, 96, 24);
-    decaySlider->setBounds (197, 80, 64, 80);
-    label5->setBounds (181, 53, 96, 24);
-    pitchSlider->setBounds (269, 80, 64, 80);
-    label6->setBounds (253, 53, 96, 24);
+    //[UserPreResize] Add your own custom resize code here..
+    //[/UserPreResize]
+
+    label->setBounds (496, 472, 96, 24);
+    masterSlider->setBounds (520, 496, 48, 64);
     snareButton->setBounds (792, 587, 72, 24);
     kickButton->setBounds (712, 587, 72, 24);
     hihatButton->setBounds (872, 587, 72, 24);
-    trackSelectBox->setBounds (415, 77, 82, 24);
-    label3->setBounds (407, 53, 98, 24);
     kickMuteButton->setBounds (80, 543, 24, 24);
     snareMuteButton->setBounds (128, 543, 24, 24);
     HihatMuteButton->setBounds (176, 543, 24, 24);
@@ -313,9 +230,10 @@ void Gui::resized()
     label7->setBounds (73, 404, 40, 24);
     label8->setBounds (117, 404, 48, 24);
     label9->setBounds (164, 404, 48, 24);
-    cutoffSlider->setBounds (341, 80, 64, 80);
-    label10->setBounds (325, 53, 96, 24);
     label11->setBounds (36, 542, 40, 24);
+    tabbedComponent->setBounds (40, 48, 368, 136);
+    masterSlider2->setBounds (504, 80, 48, 64);
+    label2->setBounds (496, 56, 64, 16);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -330,28 +248,6 @@ void Gui::sliderValueChanged (Slider* sliderThatWasMoved)
         //[UserSliderCode_masterSlider] -- add your slider handling code here..
         controller->mixer.setMaster(masterSlider->getValue());
         //[/UserSliderCode_masterSlider]
-    }
-    else if (sliderThatWasMoved == selectSlider)
-    {
-        //[UserSliderCode_selectSlider] -- add your slider handling code here..
-        //controller->editTrack(selectSlider->getValue() -1);
-        //[/UserSliderCode_selectSlider]
-    }
-    else if (sliderThatWasMoved == attackSlider)
-    {
-        //[UserSliderCode_attackSlider] -- add your slider handling code here..
-
-        //[/UserSliderCode_attackSlider]
-    }
-    else if (sliderThatWasMoved == decaySlider)
-    {
-        //[UserSliderCode_decaySlider] -- add your slider handling code here..
-        //[/UserSliderCode_decaySlider]
-    }
-    else if (sliderThatWasMoved == pitchSlider)
-    {
-        //[UserSliderCode_pitchSlider] -- add your slider handling code here..
-        //[/UserSliderCode_pitchSlider]
     }
     else if (sliderThatWasMoved == kickVolumeSlider)
     {
@@ -371,10 +267,10 @@ void Gui::sliderValueChanged (Slider* sliderThatWasMoved)
         controller->mixer.setTrackLevel(hihatVolumeSlider->getValue(), Mixer::trackIndex::hihat);
         //[/UserSliderCode_hihatVolumeSlider]
     }
-    else if (sliderThatWasMoved == cutoffSlider)
+    else if (sliderThatWasMoved == masterSlider2)
     {
-        //[UserSliderCode_cutoffSlider] -- add your slider handling code here..
-        //[/UserSliderCode_cutoffSlider]
+        //[UserSliderCode_masterSlider2] -- add your slider handling code here..
+        //[/UserSliderCode_masterSlider2]
     }
 
     //[UsersliderValueChanged_Post]
@@ -427,22 +323,6 @@ void Gui::buttonClicked (Button* buttonThatWasClicked)
     //[/UserbuttonClicked_Post]
 }
 
-void Gui::comboBoxChanged (ComboBox* comboBoxThatHasChanged)
-{
-    //[UsercomboBoxChanged_Pre]
-    //[/UsercomboBoxChanged_Pre]
-
-    if (comboBoxThatHasChanged == trackSelectBox)
-    {
-        //[UserComboBoxCode_trackSelectBox] -- add your combo box handling code here..
-        controller->setSelectedTrack(trackSelectBox->getSelectedId() -1);
-        //[/UserComboBoxCode_trackSelectBox]
-    }
-
-    //[UsercomboBoxChanged_Post]
-    //[/UsercomboBoxChanged_Post]
-}
-
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
@@ -467,50 +347,14 @@ BEGIN_JUCER_METADATA
     <IMAGE pos="0 0 1079 639" resource="background_png" opacity="1" mode="0"/>
   </BACKGROUND>
   <LABEL name="new label" id="7db995d0cc268da2" memberName="label" virtualName=""
-         explicitFocusOrder="0" pos="504 440 96 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="496 472 96 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Master" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
   <SLIDER name="Master" id="fd6791ae3c533bb4" memberName="masterSlider"
-          virtualName="" explicitFocusOrder="0" pos="520 464 64 80" min="0"
+          virtualName="" explicitFocusOrder="0" pos="520 496 48 64" min="0"
           max="1" int="0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="0.33000000000000001554"/>
-  <SLIDER name="Select" id="ae2904d9e602bae7" memberName="selectSlider"
-          virtualName="" explicitFocusOrder="0" pos="53 80 64 80" min="1"
-          max="5" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
-  <LABEL name="new label" id="9b95e80f4bba0ec3" memberName="label2" virtualName=""
-         explicitFocusOrder="0" pos="37 53 96 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="Select" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
-         bold="0" italic="0" justification="36"/>
-  <SLIDER name="Attack" id="dcf2dbaf52d14406" memberName="attackSlider"
-          virtualName="" explicitFocusOrder="0" pos="125 80 64 80" min="0"
-          max="10" int="0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
-  <LABEL name="new label" id="600acbb5e03c4485" memberName="label4" virtualName=""
-         explicitFocusOrder="0" pos="109 53 96 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="Attack&#10;" editableSingleClick="0"
-         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15" bold="0" italic="0" justification="36"/>
-  <SLIDER name="Decay" id="9c5da3b543af0acd" memberName="decaySlider" virtualName=""
-          explicitFocusOrder="0" pos="197 80 64 80" min="0" max="10" int="0"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="1"
-          textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
-  <LABEL name="new label" id="6d80791f4a659e3" memberName="label5" virtualName=""
-         explicitFocusOrder="0" pos="181 53 96 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="Decay" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
-         bold="0" italic="0" justification="36"/>
-  <SLIDER name="Pitch" id="a0bcc16014a81d26" memberName="pitchSlider" virtualName=""
-          explicitFocusOrder="0" pos="269 80 64 80" min="0" max="10" int="0"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="1"
-          textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
-  <LABEL name="new label" id="1f974eb41a59cc16" memberName="label6" virtualName=""
-         explicitFocusOrder="0" pos="253 53 96 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="Pitch" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
-         bold="0" italic="0" justification="36"/>
   <TEXTBUTTON name="Snare" id="4a1aa32f7c793c9e" memberName="snareButton" virtualName=""
               explicitFocusOrder="0" pos="792 587 72 24" buttonText="Snare"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
@@ -520,15 +364,6 @@ BEGIN_JUCER_METADATA
   <TEXTBUTTON name="Hihat" id="3db853b8d0063a28" memberName="hihatButton" virtualName=""
               explicitFocusOrder="0" pos="872 587 72 24" buttonText="Hihat"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
-  <COMBOBOX name="trackselectbox" id="f802b5c294865d5d" memberName="trackSelectBox"
-            virtualName="" explicitFocusOrder="0" pos="415 77 82 24" editable="0"
-            layout="33" items="Kick&#10;Snare&#10;Hihat" textWhenNonSelected=""
-            textWhenNoItems="(no choices)"/>
-  <LABEL name="new label" id="e8f39d88573f5095" memberName="label3" virtualName=""
-         explicitFocusOrder="0" pos="407 53 98 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="Track Select" editableSingleClick="0"
-         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15" bold="0" italic="0" justification="36"/>
   <TOGGLEBUTTON name="kickMute" id="a54088c4b7b86a7c" memberName="kickMuteButton"
                 virtualName="" explicitFocusOrder="0" pos="80 543 24 24" buttonText=""
                 connectedEdges="8" needsCallback="1" radioGroupId="0" state="0"/>
@@ -565,20 +400,30 @@ BEGIN_JUCER_METADATA
          edBkgCol="0" labelText="Hihat" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
-  <SLIDER name="Pitch" id="ec9ceab9e8f418ea" memberName="cutoffSlider"
-          virtualName="" explicitFocusOrder="0" pos="341 80 64 80" min="0"
-          max="10" int="0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
-          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
-  <LABEL name="new label" id="c2f8b942c21a3df3" memberName="label10" virtualName=""
-         explicitFocusOrder="0" pos="325 53 96 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="Cutoff" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
-         bold="0" italic="0" justification="36"/>
   <LABEL name="new label" id="f92fa637a94fb66e" memberName="label11" virtualName=""
          explicitFocusOrder="0" pos="36 542 40 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Mute" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
+  <TABBEDCOMPONENT name="new tabbed component" id="299c842daf4e2362" memberName="tabbedComponent"
+                   virtualName="" explicitFocusOrder="0" pos="40 48 368 136" orientation="top"
+                   tabBarDepth="30" initialTab="0">
+    <TAB name="Kick" colour="f1f1f1f1" useJucerComp="0" contentClassName="TrackParameters"
+         constructorParams="controller" jucerComponentFile=""/>
+    <TAB name="Snare" colour="f1f1f1f1" useJucerComp="0" contentClassName="TrackParameters"
+         constructorParams="controller" jucerComponentFile=""/>
+    <TAB name="Hihat" colour="f1f1f1f1" useJucerComp="0" contentClassName="TrackParameters"
+         constructorParams="controller" jucerComponentFile=""/>
+  </TABBEDCOMPONENT>
+  <SLIDER name="Master" id="ee8c6f5ed858bc06" memberName="masterSlider2"
+          virtualName="" explicitFocusOrder="0" pos="504 80 48 64" min="-10"
+          max="10" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
+  <LABEL name="new label" id="464a5d28fca25a0c" memberName="label2" virtualName=""
+         explicitFocusOrder="0" pos="496 56 64 16" edTextCol="ff000000"
+         edBkgCol="0" labelText="Select All" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         bold="0" italic="0" justification="36"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

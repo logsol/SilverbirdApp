@@ -124,3 +124,8 @@ void Source::setMute(bool isMuted)
 {
     mute = isMuted;
 }
+
+void Source::setSample(int value)
+{
+    sampler.setSelection(value);
+}

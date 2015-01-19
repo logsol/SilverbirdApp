@@ -15,6 +15,15 @@
 #include "Source.h"
 #include <vector>
 
+struct paramList {
+    int sample;
+    float pitch;
+    float decay;
+    float distort;
+    float filter;
+    float shuffle;
+    float master;
+};
 
 class Mixer : public MixerAudioSource {
 public:
@@ -25,6 +34,7 @@ public:
     void setMaster(float value);
     void setTrackLevel(float value, int trackId);
     void setTrackMute(bool value, int trackId);
+    void setTrackSample(int value, int trackId);
     
     enum trackIndex {
         kick,
@@ -44,7 +54,8 @@ protected:
     Source* getTrackById(int trackId);
     
     MidiKeyboardState keyboardState;
-    float master;
+
+    paramList* globalParams = new paramList();
 };
 
 #endif  // MIXER_H_INCLUDED

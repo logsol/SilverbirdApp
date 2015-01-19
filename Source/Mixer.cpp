@@ -18,6 +18,7 @@ Mixer::Mixer()
 }
 
 Mixer::~Mixer() {
+    delete globalParams;
 }
 
 void Mixer::createAndAddTrack(int trackId, String name)
@@ -56,7 +57,7 @@ void Mixer::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
     
     MixerAudioSource::getNextAudioBlock(bufferToFill);
     
-    bufferToFill.buffer->applyGain(master);
+    bufferToFill.buffer->applyGain(globalParams->master);
 }
 
 void Mixer::playNote(int note)
@@ -66,7 +67,7 @@ void Mixer::playNote(int note)
 
 void Mixer::setMaster (float value)
 {
-    master = value;
+    globalParams->master = value;
 }
 
 void Mixer::setTrackLevel (float value, int trackId)
@@ -79,4 +80,11 @@ void Mixer::setTrackMute (bool value, int trackId)
 {
     Source* source = getTrackById(trackId);
     source->setMute(value);
+}
+
+void Mixer::setTrackSample(int value, int trackId)
+{
+    Source* source = getTrackById(trackId);
+    value = value - 1;
+    source->setSample(value);
 }

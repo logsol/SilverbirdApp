@@ -30,6 +30,7 @@ public:
     
     void setLevel(float value);
     void setMute(bool isMuted);
+    void setSample(int value);
     
     MidiMessageCollector& midiCollector;
     String name;
@@ -46,6 +47,7 @@ protected:
     
     float level;
     bool mute;
+    int sample;
 };
 
 
