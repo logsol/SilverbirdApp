@@ -41,10 +41,10 @@ protected:
     void createAndAddTrack(int trackId, String name);
     void getNextAudioBlock (const AudioSourceChannelInfo&) override;
     void prepareToPlay (int samplesPerBlockExpected, double sampleRate) override;
-    
     Source* getTrackById(int trackId);
     
     MidiKeyboardState keyboardState;
+    float master;
 };
 
 #endif  // MIXER_H_INCLUDED

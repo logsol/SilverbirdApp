@@ -55,6 +55,8 @@ void Mixer::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
     }
     
     MixerAudioSource::getNextAudioBlock(bufferToFill);
+    
+    bufferToFill.buffer->applyGain(master);
 }
 
 void Mixer::playNote(int note)
@@ -64,6 +66,7 @@ void Mixer::playNote(int note)
 
 void Mixer::setMaster (float value)
 {
+    master = value;
 }
 
 void Mixer::setTrackLevel (float value, int trackId)
