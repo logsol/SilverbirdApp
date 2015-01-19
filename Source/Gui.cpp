@@ -19,7 +19,7 @@
 
 //[Headers] You can add your own extra header files here...
 #include "Controller.h"
-#include "Source.h"
+#include "Mixer.h"
 //[/Headers]
 
 #include "Gui.h"
@@ -328,13 +328,13 @@ void Gui::sliderValueChanged (Slider* sliderThatWasMoved)
     if (sliderThatWasMoved == masterSlider)
     {
         //[UserSliderCode_masterSlider] -- add your slider handling code here..
-        controller->setMaster(masterSlider->getValue());
+        controller->mixer.setMaster(masterSlider->getValue());
         //[/UserSliderCode_masterSlider]
     }
     else if (sliderThatWasMoved == selectSlider)
     {
         //[UserSliderCode_selectSlider] -- add your slider handling code here..
-        controller->editTrack(selectSlider->getValue() -1);
+        //controller->editTrack(selectSlider->getValue() -1);
         //[/UserSliderCode_selectSlider]
     }
     else if (sliderThatWasMoved == attackSlider)
@@ -356,19 +356,19 @@ void Gui::sliderValueChanged (Slider* sliderThatWasMoved)
     else if (sliderThatWasMoved == kickVolumeSlider)
     {
         //[UserSliderCode_kickVolumeSlider] -- add your slider handling code here..
-        controller->setTrackVolume(kickVolumeSlider->getValue(), Source::trackIndex::kick);
+        controller->mixer.setTrackLevel(kickVolumeSlider->getValue(), Mixer::trackIndex::kick);
         //[/UserSliderCode_kickVolumeSlider]
     }
     else if (sliderThatWasMoved == snareVolumeSlider)
     {
         //[UserSliderCode_snareVolumeSlider] -- add your slider handling code here..
-        controller->setTrackVolume(snareVolumeSlider->getValue(), Source::trackIndex::snare);
+        controller->mixer.setTrackLevel(snareVolumeSlider->getValue(), Mixer::trackIndex::snare);
         //[/UserSliderCode_snareVolumeSlider]
     }
     else if (sliderThatWasMoved == hihatVolumeSlider)
     {
         //[UserSliderCode_hihatVolumeSlider] -- add your slider handling code here..
-        controller->setTrackVolume(hihatVolumeSlider->getValue(), Source::trackIndex::hihat);
+        controller->mixer.setTrackLevel(hihatVolumeSlider->getValue(), Mixer::trackIndex::hihat);
         //[/UserSliderCode_hihatVolumeSlider]
     }
     else if (sliderThatWasMoved == cutoffSlider)
@@ -389,34 +389,37 @@ void Gui::buttonClicked (Button* buttonThatWasClicked)
     if (buttonThatWasClicked == snareButton)
     {
         //[UserButtonCode_snareButton] -- add your button handler code here..
-        controller->playNote(38);
+        controller->mixer.playNote(38);
         //[/UserButtonCode_snareButton]
     }
     else if (buttonThatWasClicked == kickButton)
     {
         //[UserButtonCode_kickButton] -- add your button handler code here..
-        controller->playNote(36);
+        controller->mixer.playNote(36);
         //[/UserButtonCode_kickButton]
     }
     else if (buttonThatWasClicked == hihatButton)
     {
         //[UserButtonCode_hihatButton] -- add your button handler code here..
-        controller->playNote(42);
+        controller->mixer.playNote(42);
         //[/UserButtonCode_hihatButton]
     }
     else if (buttonThatWasClicked == kickMuteButton)
     {
         //[UserButtonCode_kickMuteButton] -- add your button handler code here..
+        controller->mixer.setTrackMute(kickMuteButton->getToggleState(), Mixer::trackIndex::kick);
         //[/UserButtonCode_kickMuteButton]
     }
     else if (buttonThatWasClicked == snareMuteButton)
     {
         //[UserButtonCode_snareMuteButton] -- add your button handler code here..
+        controller->mixer.setTrackMute(snareMuteButton->getToggleState(), Mixer::trackIndex::snare);
         //[/UserButtonCode_snareMuteButton]
     }
     else if (buttonThatWasClicked == HihatMuteButton)
     {
         //[UserButtonCode_HihatMuteButton] -- add your button handler code here..
+        controller->mixer.setTrackMute(HihatMuteButton->getToggleState(), Mixer::trackIndex::hihat);
         //[/UserButtonCode_HihatMuteButton]
     }
 

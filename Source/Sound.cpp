@@ -44,7 +44,7 @@ Sound::Sound (const String& soundName,
                      127,
                      midiNoteForNormalPitch,
                      0,
-                     0,
+                     10,
                      10),
 name (soundName),
 midiRootNote (midiNoteForNormalPitch),
@@ -52,7 +52,7 @@ selection (soundSelection)
 {
     midiNotes.setBit(midiNoteForNormalPitch);
     double attackTimeSecs = 0.001;
-    double releaseTimeSecs = 0.001;
+    double releaseTimeSecs = 10;
     double maxSampleLengthSeconds = 10;
     
     sourceSampleRate = source.sampleRate;
@@ -75,7 +75,6 @@ selection (soundSelection)
         attackSamples = roundToInt (attackTimeSecs * sourceSampleRate);
         releaseSamples = roundToInt (releaseTimeSecs * sourceSampleRate);
     }
-    
 }
 
 Sound::~Sound()

@@ -20,45 +20,32 @@ class Source : public AudioSource
 {
     
 public:
-    Source(MidiKeyboardState& keyState);
+    Source(int trackId, String name, MidiMessageCollector& midiCollector);
     ~Source();
     
     void updateSampleRate(int sampleRate);
     void prepareToPlay(int samplesPerBlockExpected, double sampleRate);
     void releaseResources();
     void getNextAudioBlock(const AudioSourceChannelInfo& bufferToFill);
-    void renderNextBlock (AudioSampleBuffer outputAudio,
-                          const MidiBuffer inputMidi,
-                          int startSample,
-                          int numSamples);
     
-    void addTrack (int index,
-                  int note,
-                  int numSounds,
-                  MemoryInputStream* streams[]);
+    void setLevel(float value);
+    void setMute(bool isMuted);
     
-    Sampler* getTrackByIndex(int index);
-    void setMaster(float value);
+    MidiMessageCollector& midiCollector;
+    String name;
+    int trackId;
     
-    void setTrackVolume(float value, int trackIndex);
-    
-    MidiMessageCollector midiCollector;
-
-    enum trackIndex {
-        kick,
-        snare,
-        hihat,
-        maxTracks
-    };
+    MidiBuffer incomingMidi;
     
 protected:
-    MidiKeyboardState& keyboardState;
     
-    int selection = 0;
-    int numTracks = 0;
-    float gain;
+    void configure(int trackId);
+    void setup(int index, int note, int numSounds, MemoryInputStream* streams[]);
     
-    Sampler tracks[trackIndex::maxTracks];
+    Sampler sampler;
+    
+    float level;
+    bool mute;
 };
 
 

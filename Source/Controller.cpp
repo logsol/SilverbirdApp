@@ -11,55 +11,27 @@
 #include "Controller.h"
 
 
-
-Controller::Controller() : source(keyboardState)
+Controller::Controller()
 {
     bootstrap();
-    
-    std::cout << "setting up midi device: " << MidiInput::getDevices()[0];
-    audioDeviceManager.setMidiInputEnabled (MidiInput::getDevices()[0], true);
 }
 
 Controller::~Controller()
 {
-
 }
 
 void Controller::bootstrap()
 {
     audioDeviceManager.initialise (2, 2, 0, true, String::empty, 0);
-    audioSourcePlayer.setSource(&source);
+    audioSourcePlayer.setSource(&mixer);
     audioDeviceManager.addAudioCallback(&audioSourcePlayer);
-    audioDeviceManager.addMidiInputCallback (String::empty, &(source.midiCollector));
+    
+    audioDeviceManager.addMidiInputCallback (String::empty, &(mixer.midiCollector));
 }
 
 int Controller::getSelectedTrack() {
-    return selectedTrack;
+    return 0;
 }
 
 void Controller::setSelectedTrack(int trackId) {
-    selectedTrack = trackId;
 }
-
-void Controller::playNote(int note) {
-    // params: channel, note, velocity 0-1
-    keyboardState.noteOn(1, note, 1);
-}
-
-void Controller::editTrack(int sampleId){
-    
-    int trackId = getSelectedTrack();
-    
-    Sampler* track;
-    track = source.getTrackByIndex(trackId);
-    track->setSelection(sampleId);
-}
-
-void Controller::setMaster(float value) {
-	source.setMaster(value);
-}
-
-void Controller::setTrackVolume(float value, int trackIndex) {
-    source.setTrackVolume(value, trackIndex);
-}
-

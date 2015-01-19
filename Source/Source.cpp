@@ -10,80 +10,89 @@
 
 #include "Source.h"
 #include "Sound.h"
+#include "Mixer.h"
 
-Source::Source(MidiKeyboardState& keyState)
-: keyboardState (keyState)
+
+
+Source::Source(int trackId, String name, MidiMessageCollector& midiCollector) :
+    midiCollector (midiCollector),
+    name (name),
+    trackId (trackId)
 {
-    
-    // KICK
-	const int numKicks = 5;
-    MemoryInputStream* kicks[numKicks] = {
-        new MemoryInputStream (BinaryData::kick1_aif, BinaryData::kick1_aifSize, false),
-        new MemoryInputStream (BinaryData::kick2_aif, BinaryData::kick2_aifSize, false),
-        new MemoryInputStream (BinaryData::kick3_aif, BinaryData::kick3_aifSize, false),
-        new MemoryInputStream (BinaryData::kick4_aif, BinaryData::kick4_aifSize, false),
-        new MemoryInputStream (BinaryData::kick5_aif, BinaryData::kick5_aifSize, false)
-    };
-    addTrack(trackIndex::kick, 36, numKicks, kicks);
-    
-    // SNARE
-	const int numSnares = 5;
-    MemoryInputStream* snares[numSnares] = {
-        new MemoryInputStream (BinaryData::snare1_aif, BinaryData::snare1_aifSize, false),
-        new MemoryInputStream (BinaryData::snare2_aif, BinaryData::snare2_aifSize, false),
-        new MemoryInputStream (BinaryData::snare3_aif, BinaryData::snare3_aifSize, false),
-        new MemoryInputStream (BinaryData::snare4_aif, BinaryData::snare4_aifSize, false),
-        new MemoryInputStream (BinaryData::snare5_aif, BinaryData::snare5_aifSize, false)
-    };
-    addTrack(trackIndex::snare, 38, numSnares, snares);
-    
-    // HI HAT
-	const int numHihats = 5;
-    MemoryInputStream* hihats[numHihats] = {
-        new MemoryInputStream (BinaryData::hihat1_aif, BinaryData::hihat1_aifSize, false),
-        new MemoryInputStream (BinaryData::hihat2_aif, BinaryData::hihat2_aifSize, false),
-        new MemoryInputStream (BinaryData::hihat3_aif, BinaryData::hihat3_aifSize, false),
-        new MemoryInputStream (BinaryData::hihat4_aif, BinaryData::hihat4_aifSize, false),
-        new MemoryInputStream (BinaryData::hihat5_aif, BinaryData::hihat5_aifSize, false)
-    };
-    addTrack(trackIndex::hihat, 42, numHihats, hihats);
-    
+    //std::cout << "configuring track: " << trackId << ". Name: " << name << std::endl;
+    configure(trackId);
 }
 
 Source::~Source() {
+
 }
 
-void Source::addTrack(int index, int note, int numSounds, MemoryInputStream* streams[]) {
+void Source::configure(int trackId)
+{
     
-    Sampler* track = &tracks[index];
-    
-    track->setTrackIndex(index);
-    track->setNote(note);
-    track->setNumberOfSounds(numSounds);
-    track->clearSounds();
+    switch (trackId) {
+        {
+        case Mixer::kick:
+            const int numKicks = 5;
+            MemoryInputStream* kicks[numKicks] = {
+                new MemoryInputStream (BinaryData::kick1_aif, BinaryData::kick1_aifSize, false),
+                new MemoryInputStream (BinaryData::kick2_aif, BinaryData::kick2_aifSize, false),
+                new MemoryInputStream (BinaryData::kick3_aif, BinaryData::kick3_aifSize, false),
+                new MemoryInputStream (BinaryData::kick4_aif, BinaryData::kick4_aifSize, false),
+                new MemoryInputStream (BinaryData::kick5_aif, BinaryData::kick5_aifSize, false)
+            };
+            setup(Mixer::trackIndex::kick, 36, numKicks, kicks);
+            break;
+        }
+        {
+        case Mixer::snare:
+            const int numSnares = 5;
+            MemoryInputStream* snares[numSnares] = {
+                new MemoryInputStream (BinaryData::snare1_aif, BinaryData::snare1_aifSize, false),
+                new MemoryInputStream (BinaryData::snare2_aif, BinaryData::snare2_aifSize, false),
+                new MemoryInputStream (BinaryData::snare3_aif, BinaryData::snare3_aifSize, false),
+                new MemoryInputStream (BinaryData::snare4_aif, BinaryData::snare4_aifSize, false),
+                new MemoryInputStream (BinaryData::snare5_aif, BinaryData::snare5_aifSize, false)
+            };
+            setup(Mixer::trackIndex::snare, 38, numSnares, snares);
+            break;
+        }
+        {
+        case Mixer::hihat:
+            const int numHihats = 5;
+            MemoryInputStream* hihats[numHihats] = {
+                new MemoryInputStream (BinaryData::hihat1_aif, BinaryData::hihat1_aifSize, false),
+                new MemoryInputStream (BinaryData::hihat2_aif, BinaryData::hihat2_aifSize, false),
+                new MemoryInputStream (BinaryData::hihat3_aif, BinaryData::hihat3_aifSize, false),
+                new MemoryInputStream (BinaryData::hihat4_aif, BinaryData::hihat4_aifSize, false),
+                new MemoryInputStream (BinaryData::hihat5_aif, BinaryData::hihat5_aifSize, false)
+            };
+            setup(Mixer::trackIndex::hihat, 42, numHihats, hihats);
+        }
+        {
+        default:
+            break;
+        }
+    }
+}
+
+void Source::setup(int index, int note, int numSounds, MemoryInputStream* streams[])
+{
+    sampler.setNote(note);
+    sampler.setNumberOfSounds(numSounds);
+    sampler.clearSounds();
     
     AiffAudioFormat aifFormat;
     ScopedPointer<AudioFormatReader> sampleReader;
     
     for(int i = 0; i < numSounds; i++) {
         sampleReader = aifFormat.createReaderFor (streams[i], true);
-        track->addSound(new Sound ("sound", note, i, *sampleReader));
+        sampler.addSound(new Sound ("sound", note, i, *sampleReader));
     }
-}
-
-Sampler* Source::getTrackByIndex(int index) {
-
-    if (index < 0 || index >= maxTracks) {
-        return nullptr;
-    }
-    
-	return &tracks[index];
 }
 
 void Source::updateSampleRate(int sampleRate) {
-    for(int i = 0; i < trackIndex::maxTracks; i++){
-    	tracks[i].setCurrentPlaybackSampleRate(sampleRate);
-    }
+    sampler.setCurrentPlaybackSampleRate(sampleRate);
 }
 
 void Source::prepareToPlay (int samplesPerBlockExpected, double sampleRate)
@@ -98,40 +107,20 @@ void Source::releaseResources()
 
 void Source::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
 {
-    // the synth always adds its output to the audio buffer, so we have to clear it
-    // first..
     bufferToFill.clearActiveBufferRegion();
     
-    // fill a midi buffer with incoming messages from the midi input.
-    MidiBuffer incomingMidi;
     midiCollector.removeNextBlockOfMessages (incomingMidi, bufferToFill.numSamples);
-    
-    // pass these messages to the keyboard state so that it can update the component
-    // to show on-screen which keys are being pressed on the physical midi keyboard.
-    // This call will also add midi messages to the buffer which were generated by
-    // the mouse-clicking on the on-screen keyboard.
-    keyboardState.processNextMidiBuffer (incomingMidi, 0, bufferToFill.numSamples, true);
-    
-    // and now get the synth to process the midi events and generate its output.
-    renderNextBlock (*bufferToFill.buffer, incomingMidi, 0, bufferToFill.numSamples);
+
+    sampler.renderNextBlock(*bufferToFill.buffer, incomingMidi, 0, bufferToFill.numSamples);
+    bufferToFill.buffer->applyGain(0, bufferToFill.numSamples, level * (!mute));
 }
 
-void Source::renderNextBlock (AudioSampleBuffer outputAudio, const MidiBuffer inputMidi, int startSample, int numSamples) {
-    
-    for(int i = 0; i < trackIndex::maxTracks; i++){
-        //AudioSampleBuffer trackAudio;
-        tracks[i].renderNextBlock(outputAudio, inputMidi, startSample, numSamples);
-        //trackAudio.applyGain(tracks[i].getVolume());
-    }
-    
-    outputAudio.applyGain(gain);
+void Source::setLevel(float value)
+{
+    level = value;
 }
 
-void Source::setMaster (float value) {
-    gain = value;
-}
-
-void Source::setTrackVolume(float value, int trackIndex) {
-    Sampler* track = &tracks[trackIndex];
-    track->setVolume(value);
+void Source::setMute(bool isMuted)
+{
+    mute = isMuted;
 }

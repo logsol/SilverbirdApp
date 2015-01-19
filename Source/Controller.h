@@ -13,6 +13,7 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Source.h"
+#include "Mixer.h"
 
 class Controller  {
 public:
@@ -21,18 +22,11 @@ public:
     
     int getSelectedTrack();
     void setSelectedTrack(int trackId);
-    void editTrack(int sampleId);
     
-    void playNote(int note);
-    void setMaster(float value);
-    
-    void setTrackVolume(float value, int trackIndex);
+    Mixer mixer;
 
 protected:
     void bootstrap();
-    
-    Source source;
-    MidiKeyboardState keyboardState;
     AudioSourcePlayer audioSourcePlayer;
     AudioDeviceManager audioDeviceManager;
     

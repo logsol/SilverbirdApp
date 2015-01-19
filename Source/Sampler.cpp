@@ -1,3 +1,4 @@
+
 /*
   ==============================================================================
 
@@ -13,11 +14,11 @@
 
 Sampler::Sampler()
 {
-    //for (int i = 1; --i >= 0;)
-    //{
+    for (int i = 6; --i >= 0;)
+    {
         SamplerVoice* sv = new SamplerVoice();
         addVoice (sv);
-    //}
+    }
 }
 
 Sampler::~Sampler() {
@@ -72,6 +73,7 @@ void Sampler::noteOn (const int midiChannel,
                                 const float velocity)
 {
     
+    
     const ScopedLock sl (lock);
     
     for (int i = sounds.size(); --i >= 0;)
@@ -97,7 +99,6 @@ void Sampler::noteOn (const int midiChannel,
              
             //startVoice (findFreeVoice (sound, true), sound, midiChannel, midiNoteNumber, velocity);
             startVoice (voices[0], sound, midiChannel, midiNoteNumber, velocity);
-
         }
     }
 }
