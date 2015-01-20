@@ -130,11 +130,11 @@ Gui::Gui (Controller* controller)
     tabbedComponent->addTab (TRANS("Hihat"), Colour (0xf1f1f1f1), new TrackParameters (controller), true);
     tabbedComponent->setCurrentTabIndex (0);
 
-    addAndMakeVisible (masterSlider2 = new Slider ("Master"));
-    masterSlider2->setRange (-10, 10, 1);
-    masterSlider2->setSliderStyle (Slider::RotaryVerticalDrag);
-    masterSlider2->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
-    masterSlider2->addListener (this);
+    addAndMakeVisible (sampleAllSlider = new Slider ("SampleAll"));
+    sampleAllSlider->setRange (-10, 10, 1);
+    sampleAllSlider->setSliderStyle (Slider::RotaryVerticalDrag);
+    sampleAllSlider->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
+    sampleAllSlider->addListener (this);
 
     addAndMakeVisible (label2 = new Label ("new label",
                                            TRANS("Select All")));
@@ -185,7 +185,7 @@ Gui::~Gui()
     label9 = nullptr;
     label11 = nullptr;
     tabbedComponent = nullptr;
-    masterSlider2 = nullptr;
+    sampleAllSlider = nullptr;
     label2 = nullptr;
 
 
@@ -216,8 +216,8 @@ void Gui::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    label->setBounds (496, 472, 96, 24);
-    masterSlider->setBounds (520, 496, 48, 64);
+    label->setBounds (512, 456, 64, 16);
+    masterSlider->setBounds (520, 480, 48, 64);
     snareButton->setBounds (792, 587, 72, 24);
     kickButton->setBounds (712, 587, 72, 24);
     hihatButton->setBounds (872, 587, 72, 24);
@@ -231,9 +231,9 @@ void Gui::resized()
     label8->setBounds (117, 404, 48, 24);
     label9->setBounds (164, 404, 48, 24);
     label11->setBounds (36, 542, 40, 24);
-    tabbedComponent->setBounds (40, 48, 368, 136);
-    masterSlider2->setBounds (504, 80, 48, 64);
-    label2->setBounds (496, 56, 64, 16);
+    tabbedComponent->setBounds (40, 40, 368, 136);
+    sampleAllSlider->setBounds (520, 80, 48, 64);
+    label2->setBounds (512, 56, 64, 16);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -267,10 +267,10 @@ void Gui::sliderValueChanged (Slider* sliderThatWasMoved)
         controller->mixer.setTrackLevel(hihatVolumeSlider->getValue(), Mixer::trackIndex::hihat);
         //[/UserSliderCode_hihatVolumeSlider]
     }
-    else if (sliderThatWasMoved == masterSlider2)
+    else if (sliderThatWasMoved == sampleAllSlider)
     {
-        //[UserSliderCode_masterSlider2] -- add your slider handling code here..
-        //[/UserSliderCode_masterSlider2]
+        //[UserSliderCode_sampleAllSlider] -- add your slider handling code here..
+        //[/UserSliderCode_sampleAllSlider]
     }
 
     //[UsersliderValueChanged_Post]
@@ -347,12 +347,12 @@ BEGIN_JUCER_METADATA
     <IMAGE pos="0 0 1079 639" resource="background_png" opacity="1" mode="0"/>
   </BACKGROUND>
   <LABEL name="new label" id="7db995d0cc268da2" memberName="label" virtualName=""
-         explicitFocusOrder="0" pos="496 472 96 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="512 456 64 16" edTextCol="ff000000"
          edBkgCol="0" labelText="Master" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
   <SLIDER name="Master" id="fd6791ae3c533bb4" memberName="masterSlider"
-          virtualName="" explicitFocusOrder="0" pos="520 496 48 64" min="0"
+          virtualName="" explicitFocusOrder="0" pos="520 480 48 64" min="0"
           max="1" int="0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="0.33000000000000001554"/>
   <TEXTBUTTON name="Snare" id="4a1aa32f7c793c9e" memberName="snareButton" virtualName=""
@@ -406,7 +406,7 @@ BEGIN_JUCER_METADATA
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
   <TABBEDCOMPONENT name="new tabbed component" id="299c842daf4e2362" memberName="tabbedComponent"
-                   virtualName="" explicitFocusOrder="0" pos="40 48 368 136" orientation="top"
+                   virtualName="" explicitFocusOrder="0" pos="40 40 368 136" orientation="top"
                    tabBarDepth="30" initialTab="0">
     <TAB name="Kick" colour="f1f1f1f1" useJucerComp="0" contentClassName="TrackParameters"
          constructorParams="controller" jucerComponentFile=""/>
@@ -415,12 +415,12 @@ BEGIN_JUCER_METADATA
     <TAB name="Hihat" colour="f1f1f1f1" useJucerComp="0" contentClassName="TrackParameters"
          constructorParams="controller" jucerComponentFile=""/>
   </TABBEDCOMPONENT>
-  <SLIDER name="Master" id="ee8c6f5ed858bc06" memberName="masterSlider2"
-          virtualName="" explicitFocusOrder="0" pos="504 80 48 64" min="-10"
+  <SLIDER name="SampleAll" id="ee8c6f5ed858bc06" memberName="sampleAllSlider"
+          virtualName="" explicitFocusOrder="0" pos="520 80 48 64" min="-10"
           max="10" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="464a5d28fca25a0c" memberName="label2" virtualName=""
-         explicitFocusOrder="0" pos="496 56 64 16" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="512 56 64 16" edTextCol="ff000000"
          edBkgCol="0" labelText="Select All" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>

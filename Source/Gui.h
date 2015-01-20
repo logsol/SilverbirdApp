@@ -80,7 +80,7 @@ private:
     ScopedPointer<Label> label9;
     ScopedPointer<Label> label11;
     ScopedPointer<TabbedComponent> tabbedComponent;
-    ScopedPointer<Slider> masterSlider2;
+    ScopedPointer<Slider> sampleAllSlider;
     ScopedPointer<Label> label2;
     Image cachedImage_background_png;
 

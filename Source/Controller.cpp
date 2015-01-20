@@ -27,6 +27,13 @@ void Controller::bootstrap()
     audioDeviceManager.addAudioCallback(&audioSourcePlayer);
     
     audioDeviceManager.addMidiInputCallback (String::empty, &(mixer.midiCollector));
+
+    const String input ((MidiInput::getDevices())[0]);
+    
+    if (! audioDeviceManager.isMidiInputEnabled (input)) {
+        audioDeviceManager.setMidiInputEnabled (input, true);
+    }
+    std::cout << "Midi Device: " << input << std::endl;
 }
 
 int Controller::getSelectedTrack() {

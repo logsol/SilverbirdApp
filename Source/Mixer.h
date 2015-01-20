@@ -32,6 +32,7 @@ public:
     
     void playNote(int note);
     void setMaster(float value);
+    void setSampleAll(int value);
     void setTrackLevel(float value, int trackId);
     void setTrackMute(bool value, int trackId);
     void setTrackSample(int value, int trackId);

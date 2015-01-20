@@ -70,6 +70,12 @@ void Mixer::setMaster (float value)
     globalParams->master = value;
 }
 
+void Mixer::setSampleAll (int value)
+{
+    globalParams->sample = value;
+    
+}
+
 void Mixer::setTrackLevel (float value, int trackId)
 {
     Source* source = getTrackById(trackId);
