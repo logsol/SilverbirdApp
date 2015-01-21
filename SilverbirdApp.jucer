@@ -8,6 +8,10 @@
       <FILE id="WM42kq" name="Controller.cpp" compile="1" resource="0" file="Source/Controller.cpp"/>
       <FILE id="PheKqL" name="Controller.h" compile="0" resource="0" file="Source/Controller.h"/>
       <GROUP id="{65D2481D-E290-269E-E2CF-FBF627AAB06A}" name="Model">
+        <FILE id="pI97GT" name="ADSR.cpp" compile="1" resource="0" file="Source/ADSR.cpp"/>
+        <FILE id="O3Izmm" name="ADSR.h" compile="0" resource="0" file="Source/ADSR.h"/>
+        <FILE id="HxAYT9" name="Voice.cpp" compile="1" resource="0" file="Source/Voice.cpp"/>
+        <FILE id="SSiIHJ" name="Voice.h" compile="0" resource="0" file="Source/Voice.h"/>
         <FILE id="kgUjP5" name="Mixer.cpp" compile="1" resource="0" file="Source/Mixer.cpp"/>
         <FILE id="flqkqU" name="Mixer.h" compile="0" resource="0" file="Source/Mixer.h"/>
         <FILE id="kmqhZa" name="Sampler.cpp" compile="1" resource="0" file="Source/Sampler.cpp"/>
@@ -37,6 +41,7 @@
           <FILE id="u5OsKR" name="Background.png" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Images/Background.png"/>
         </GROUP>
         <GROUP id="{D187FC60-5D9C-999B-BCE3-87C72521A455}" name="Sounds">
+          <FILE id="bMjtXu" name="sine.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/sine.aif"/>
           <FILE id="sVXGyX" name="hihat1.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat1.aif"/>
           <FILE id="Q6j2Rv" name="hihat2.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat2.aif"/>
           <FILE id="aZMfJm" name="hihat3.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat3.aif"/>

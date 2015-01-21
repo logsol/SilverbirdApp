@@ -63,6 +63,7 @@ void Mixer::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
 void Mixer::playNote(int note)
 {
     midiCollector.handleNoteOn(&keyboardState, 1, note, 1);
+//    midiCollector.handleNoteOff(&keyboardState, 1, note);
 }
 
 void Mixer::setMaster (float value)

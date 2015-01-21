@@ -38,6 +38,11 @@ public:
     
     void noteOn(const int midiChannel, const int midiNoteNumber, const float velocity);
     void stopVoice (SynthesiserVoice* voice, const bool allowTailOff);
+    virtual SynthesiserVoice* findFreeVoice (SynthesiserSound* soundToPlay,
+                                             int midiChannel,
+                                             int midiNoteNumber,
+                                             bool stealIfNoneAvailable) const;
+
     
 protected:
     int trackIndex;
@@ -45,7 +50,10 @@ protected:
     int numberOfSounds;
     int selection = 0;
     bool mute = false;
-    float volume = 0;
+    float volume = 0.0;
+    
+    float attack = 0.0;
+    float decay = 0.5;
 };
 
 

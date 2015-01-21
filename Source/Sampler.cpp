@@ -10,13 +10,14 @@
 */
 
 #include "Sampler.h"
+#include "Voice.h"
 #include "../JuceLibraryCode/JuceHeader.h"
 
 Sampler::Sampler()
 {
     for (int i = 6; --i >= 0;)
     {
-        SamplerVoice* sv = new SamplerVoice();
+        Voice* sv = new Voice();
         addVoice (sv);
     }
 }
@@ -84,31 +85,42 @@ void Sampler::noteOn (const int midiChannel,
             && sound->appliesToChannel (midiChannel)
             && sound->appliesToSelection(this->getSelection(midiNoteNumber)))
         {
-            // If hitting a note that's still ringing, stop it first (it could be
-            // still playing because of the sustain or sostenuto pedal).
-            
-            for (int j = voices.size(); --j >= 0;)
-            {
-                SynthesiserVoice* const voice = voices.getUnchecked (j);
-                
-                if (voice->getCurrentlyPlayingNote() == midiNoteNumber
-                    && voice->isPlayingChannel (midiChannel)) {
-                    stopVoice (voice, true);
-                }
-            }
-             
-            //startVoice (findFreeVoice (sound, true), sound, midiChannel, midiNoteNumber, velocity);
-            startVoice (voices[0], sound, midiChannel, midiNoteNumber, velocity);
+            startVoice (findFreeVoice (sound, 1, midiNoteNumber, true), sound, midiChannel, midiNoteNumber, velocity);
         }
-    }
+    } 
 }
 
 void Sampler::stopVoice (SynthesiserVoice* voice, const bool allowTailOff)
 {
+    
+    return;
+
+    /*
     jassert (voice != nullptr);
     
     voice->stopNote (0, allowTailOff);
     
     // the subclass MUST call clearCurrentNote() if it's not tailing off! RTFM for stopNote()!
     jassert (allowTailOff || (voice->getCurrentlyPlayingNote() < 0 && voice->getCurrentlyPlayingSound() == 0));
+     */
+}
+
+SynthesiserVoice* Sampler::findFreeVoice (SynthesiserSound* soundToPlay,
+                                              int midiChannel, int midiNoteNumber,
+                                              const bool stealIfNoneAvailable) const
+{
+    const ScopedLock sl (lock);
+    
+    for (int i = 0; i < voices.size(); ++i)
+    {
+        SynthesiserVoice* const voice = voices.getUnchecked (i);
+        
+        if ((! voice->isVoiceActive()) && voice->canPlaySound (soundToPlay))
+            return voice;
+    }
+    
+    if (stealIfNoneAvailable)
+        return findVoiceToSteal (soundToPlay, midiChannel, midiNoteNumber);
+    
+    return nullptr;
 }

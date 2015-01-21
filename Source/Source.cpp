@@ -35,11 +35,12 @@ void Source::configure(int trackId)
         case Mixer::kick:
             const int numKicks = 5;
             MemoryInputStream* kicks[numKicks] = {
+                new MemoryInputStream (BinaryData::sine_aif, BinaryData::sine_aifSize, false),
                 new MemoryInputStream (BinaryData::kick1_aif, BinaryData::kick1_aifSize, false),
                 new MemoryInputStream (BinaryData::kick2_aif, BinaryData::kick2_aifSize, false),
                 new MemoryInputStream (BinaryData::kick3_aif, BinaryData::kick3_aifSize, false),
                 new MemoryInputStream (BinaryData::kick4_aif, BinaryData::kick4_aifSize, false),
-                new MemoryInputStream (BinaryData::kick5_aif, BinaryData::kick5_aifSize, false)
+                //new MemoryInputStream (BinaryData::kick5_aif, BinaryData::kick5_aifSize, false)
             };
             setup(Mixer::trackIndex::kick, 36, numKicks, kicks);
             break;
@@ -87,7 +88,7 @@ void Source::setup(int index, int note, int numSounds, MemoryInputStream* stream
     
     for(int i = 0; i < numSounds; i++) {
         sampleReader = aifFormat.createReaderFor (streams[i], true);
-        sampler.addSound(new Sound ("sound", note, i, *sampleReader));
+        sampler.addSound(new Sound ("sound", note, i, *sampleReader, 0.9, 0.2));
     }
 }
 
@@ -129,3 +130,4 @@ void Source::setSample(int value)
 {
     sampler.setSelection(value);
 }
+

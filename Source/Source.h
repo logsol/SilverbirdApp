@@ -48,6 +48,8 @@ protected:
     float level;
     bool mute;
     int sample;
+    float attack;
+    float decay;
 };
 
 
