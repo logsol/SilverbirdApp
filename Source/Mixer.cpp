@@ -95,3 +95,17 @@ void Mixer::setTrackSample(int value, int trackId)
     value = value - 1;
     source->setSample(value);
 }
+
+void Mixer::setTrackAttack(float value, int trackId)
+{
+    Source* source = getTrackById(trackId);
+    value = value;
+    source->setAttack(value);
+}
+
+void Mixer::setTrackDecay(float value, int trackId)
+{
+    Source* source = getTrackById(trackId);
+    value = value;
+    source->setDecay(value);
+}

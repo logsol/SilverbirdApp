@@ -20,19 +20,21 @@ class Voice : public SamplerVoice
 public:
     //==============================================================================
     
-    Voice();
+    Voice(int id);
     ~Voice();
     
     void renderNextBlock (AudioSampleBuffer& outputBuffer, int startSample, int numSamples) override;
     void startNote (int midiNoteNumber, float velocity, SynthesiserSound*, int pitchWheel) override;
+    void setEnvelopeParameters(float attack, float decay);
 
 protected:
     ADSR env;
-    double sourceSampleRate;
     int lastEnvState = ADSR::env_idle;
+    int id;
     
 private:
-    JUCE_LEAK_DETECTOR (Voice);
+    int posi;
+//    JUCE_LEAK_DETECTOR (Voice);
 };
 
 

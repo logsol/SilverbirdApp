@@ -613,6 +613,7 @@
 		A8029E38D5F44DCB1E1EAB5A /* juce_MemoryInputStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_MemoryInputStream.h; path = ../../JuceLibraryCode/modules/juce_core/streams/juce_MemoryInputStream.h; sourceTree = SOURCE_ROOT; };
 		A8385606D168A31BAF5192DB /* juce_WavAudioFormat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_WavAudioFormat.h; path = ../../JuceLibraryCode/modules/juce_audio_formats/codecs/juce_WavAudioFormat.h; sourceTree = SOURCE_ROOT; };
 		A8B8E6F34F5FB3E35D854460 /* juce_Array.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_Array.h; path = ../../JuceLibraryCode/modules/juce_core/containers/juce_Array.h; sourceTree = SOURCE_ROOT; };
+		A9DD64A624645E5894889022 /* TrackParamList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TrackParamList.h; path = ../../Source/TrackParamList.h; sourceTree = SOURCE_ROOT; };
 		A9F0EA665E077036BC645938 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		AA076CA41033777D7E485D09 /* juce_InterProcessLock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_InterProcessLock.h; path = ../../JuceLibraryCode/modules/juce_core/threads/juce_InterProcessLock.h; sourceTree = SOURCE_ROOT; };
 		AA7A9FD316D4F5C04DF4C3C8 /* juce_EdgeTable.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_EdgeTable.cpp; path = ../../JuceLibraryCode/modules/juce_graphics/geometry/juce_EdgeTable.cpp; sourceTree = SOURCE_ROOT; };
@@ -967,6 +968,14 @@
 				B903DABF4378B863D9A662AB /* juce_win32_Windowing.cpp */,
 			);
 			name = native;
+			sourceTree = "<group>";
+		};
+		069C138BA2BB2BE55F631DAD /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				A9DD64A624645E5894889022 /* TrackParamList.h */,
+			);
+			name = Structs;
 			sourceTree = "<group>";
 		};
 		08057566B77031B13667C811 /* Sounds */ = {
@@ -1687,6 +1696,7 @@
 				3E6CE0B76079DF4AFBAA4B7C /* Model */,
 				1B5CB0FE80BECF2DAC10BA7D /* View */,
 				1198A8D71EFA9AC950157883 /* Resources */,
+				069C138BA2BB2BE55F631DAD /* Structs */,
 				0C6D22B0EDAB005048EDCF2A /* Main.cpp */,
 			);
 			name = Source;

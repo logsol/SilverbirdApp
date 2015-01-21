@@ -15,6 +15,7 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Sound.h"
 #include "Sampler.h"
+#include "TrackParamList.h"
 
 class Source : public AudioSource
 {
@@ -31,6 +32,10 @@ public:
     void setLevel(float value);
     void setMute(bool isMuted);
     void setSample(int value);
+    void setAttack(float value);
+    void setDecay(float value);
+    
+    int getSample();
     
     MidiMessageCollector& midiCollector;
     String name;
@@ -43,13 +48,8 @@ protected:
     void configure(int trackId);
     void setup(int index, int note, int numSounds, MemoryInputStream* streams[]);
     
+    trackParamList* trackParams = new trackParamList();
     Sampler sampler;
-    
-    float level;
-    bool mute;
-    int sample;
-    float attack;
-    float decay;
 };
 
 

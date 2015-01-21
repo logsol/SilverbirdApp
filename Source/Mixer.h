@@ -15,7 +15,7 @@
 #include "Source.h"
 #include <vector>
 
-struct paramList {
+struct globalParamList {
     int sample;
     float pitch;
     float decay;
@@ -36,6 +36,8 @@ public:
     void setTrackLevel(float value, int trackId);
     void setTrackMute(bool value, int trackId);
     void setTrackSample(int value, int trackId);
+    void setTrackAttack(float value, int trackId);
+    void setTrackDecay(float value, int trackId);
     
     enum trackIndex {
         kick,
@@ -56,7 +58,7 @@ protected:
     
     MidiKeyboardState keyboardState;
 
-    paramList* globalParams = new paramList();
+    globalParamList* globalParams = new globalParamList();
 };
 
 #endif  // MIXER_H_INCLUDED

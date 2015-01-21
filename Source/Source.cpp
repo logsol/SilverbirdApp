@@ -12,19 +12,17 @@
 #include "Sound.h"
 #include "Mixer.h"
 
-
-
 Source::Source(int trackId, String name, MidiMessageCollector& midiCollector) :
     midiCollector (midiCollector),
     name (name),
-    trackId (trackId)
+    trackId (trackId),
+    sampler(trackParams)
 {
-    //std::cout << "configuring track: " << trackId << ". Name: " << name << std::endl;
     configure(trackId);
 }
 
 Source::~Source() {
-
+    delete trackParams;
 }
 
 void Source::configure(int trackId)
@@ -35,12 +33,12 @@ void Source::configure(int trackId)
         case Mixer::kick:
             const int numKicks = 5;
             MemoryInputStream* kicks[numKicks] = {
-                new MemoryInputStream (BinaryData::sine_aif, BinaryData::sine_aifSize, false),
+                //new MemoryInputStream (BinaryData::sine_aif, BinaryData::sine_aifSize, false),
                 new MemoryInputStream (BinaryData::kick1_aif, BinaryData::kick1_aifSize, false),
                 new MemoryInputStream (BinaryData::kick2_aif, BinaryData::kick2_aifSize, false),
                 new MemoryInputStream (BinaryData::kick3_aif, BinaryData::kick3_aifSize, false),
                 new MemoryInputStream (BinaryData::kick4_aif, BinaryData::kick4_aifSize, false),
-                //new MemoryInputStream (BinaryData::kick5_aif, BinaryData::kick5_aifSize, false)
+                new MemoryInputStream (BinaryData::kick5_aif, BinaryData::kick5_aifSize, false)
             };
             setup(Mixer::trackIndex::kick, 36, numKicks, kicks);
             break;
@@ -79,8 +77,6 @@ void Source::configure(int trackId)
 
 void Source::setup(int index, int note, int numSounds, MemoryInputStream* streams[])
 {
-    sampler.setNote(note);
-    sampler.setNumberOfSounds(numSounds);
     sampler.clearSounds();
     
     AiffAudioFormat aifFormat;
@@ -113,21 +109,30 @@ void Source::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
     midiCollector.removeNextBlockOfMessages (incomingMidi, bufferToFill.numSamples);
 
     sampler.renderNextBlock(*bufferToFill.buffer, incomingMidi, 0, bufferToFill.numSamples);
-    bufferToFill.buffer->applyGain(0, bufferToFill.numSamples, level * (!mute));
+    bufferToFill.buffer->applyGain(0, bufferToFill.numSamples, trackParams->level * (!trackParams->mute));
 }
 
 void Source::setLevel(float value)
 {
-    level = value;
+    trackParams->level = value;
 }
 
 void Source::setMute(bool isMuted)
 {
-    mute = isMuted;
+    trackParams->mute = isMuted;
 }
 
 void Source::setSample(int value)
 {
-    sampler.setSelection(value);
+    trackParams->sample = value;
 }
 
+void Source::setAttack(float value)
+{
+    trackParams->attack = value;
+}
+
+void Source::setDecay(float value)
+{
+    trackParams->decay = value;
+}

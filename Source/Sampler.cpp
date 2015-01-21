@@ -13,11 +13,11 @@
 #include "Voice.h"
 #include "../JuceLibraryCode/JuceHeader.h"
 
-Sampler::Sampler()
+Sampler::Sampler(struct trackParamList* trackParams) : trackParams(trackParams)
 {
-    for (int i = 6; --i >= 0;)
+    for (int i = 0; i < 16; i++)
     {
-        Voice* sv = new Voice();
+        Voice* sv = new Voice(i);
         addVoice (sv);
     }
 }
@@ -25,49 +25,6 @@ Sampler::Sampler()
 Sampler::~Sampler() {
 }
 
-void Sampler::setSelection (int selection) {
-    this->selection = selection;
-}
-
-int Sampler::getSelection(int note) {
-    return this->selection;
-}
-
-void Sampler::setTrackIndex(int index) {
-    this->trackIndex = index;
-}
-
-int Sampler::getTrackIndex() {
-	return this->trackIndex;
-}
-
-void Sampler::setNote(int note) {
-    this->note = note;
-}
-
-int Sampler::getNote() {
-	return this->note;
-}
-
-void Sampler::setNumberOfSounds(int numSounds) {
-    this->numberOfSounds = numSounds;
-}
-
-int Sampler::getNumberOfSounds() {
-	return this->numberOfSounds;
-}
-
-void Sampler::setMute(bool active) {
-    this->mute = active;
-}
-
-void Sampler::setVolume(float value){
-    this->volume = value;
-}
-
-float Sampler::getVolume(){
-    return volume;
-}
 
 void Sampler::noteOn (const int midiChannel,
                                 const int midiNoteNumber,
@@ -83,16 +40,18 @@ void Sampler::noteOn (const int midiChannel,
         
         if (sound->appliesToNote (midiNoteNumber)
             && sound->appliesToChannel (midiChannel)
-            && sound->appliesToSelection(this->getSelection(midiNoteNumber)))
+            && sound->appliesToSelection(trackParams->sample))
         {
-            startVoice (findFreeVoice (sound, 1, midiNoteNumber, true), sound, midiChannel, midiNoteNumber, velocity);
+            Voice* voice = (Voice*) findFreeVoice (sound, 1, midiNoteNumber, true);
+            voice->setEnvelopeParameters(trackParams->attack, trackParams->decay);
+            startVoice (voice, sound, midiChannel, midiNoteNumber, velocity);
         }
     } 
 }
 
 void Sampler::stopVoice (SynthesiserVoice* voice, const bool allowTailOff)
 {
-    
+    // voice is not stopped manually. only by finishing the sample or envelope reaching sustain env state.
     return;
 
     /*

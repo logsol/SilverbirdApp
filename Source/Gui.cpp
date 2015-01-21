@@ -161,6 +161,7 @@ Gui::Gui (Controller* controller)
     kickVolumeSlider->setValue(8);
     snareVolumeSlider->setValue(8);
     hihatVolumeSlider->setValue(8);
+
     //[/Constructor]
 }
 

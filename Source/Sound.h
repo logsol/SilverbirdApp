@@ -44,6 +44,10 @@ public:
     bool appliesToNote (const int midiNoteNumber) override;
     bool appliesToSelection (int selection);
     
+protected:
+    ScopedPointer<AudioSampleBuffer> data;
+    int length, attackSamples, releaseSamples;
+    
 private:
     
     friend class Voice;

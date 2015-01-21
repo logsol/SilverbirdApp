@@ -46,7 +46,7 @@ TrackParameters::TrackParameters (Controller* controller)
     label2->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (attackSlider = new Slider ("Attack"));
-    attackSlider->setRange (0, 10, 0);
+    attackSlider->setRange (0, 1, 0);
     attackSlider->setSliderStyle (Slider::RotaryVerticalDrag);
     attackSlider->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
     attackSlider->addListener (this);
@@ -60,7 +60,7 @@ TrackParameters::TrackParameters (Controller* controller)
     label4->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (decaySlider = new Slider ("Decay"));
-    decaySlider->setRange (0, 10, 0);
+    decaySlider->setRange (0, 1, 0);
     decaySlider->setSliderStyle (Slider::RotaryVerticalDrag);
     decaySlider->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
     decaySlider->addListener (this);
@@ -109,6 +109,8 @@ TrackParameters::TrackParameters (Controller* controller)
 
 
     //[Constructor] You can add your own custom stuff here..
+    selectSlider->setValue(3, dontSendNotification);
+    decaySlider->setValue(1, dontSendNotification);
     //[/Constructor]
 }
 
@@ -177,11 +179,13 @@ void TrackParameters::sliderValueChanged (Slider* sliderThatWasMoved)
     else if (sliderThatWasMoved == attackSlider)
     {
         //[UserSliderCode_attackSlider] -- add your slider handling code here..
+        controller->mixer.setTrackAttack(attackSlider->getValue(), trackId);
         //[/UserSliderCode_attackSlider]
     }
     else if (sliderThatWasMoved == decaySlider)
     {
         //[UserSliderCode_decaySlider] -- add your slider handling code here..
+        controller->mixer.setTrackDecay(decaySlider->getValue(), trackId);
         //[/UserSliderCode_decaySlider]
     }
     else if (sliderThatWasMoved == pitchSlider)
@@ -231,7 +235,7 @@ BEGIN_JUCER_METADATA
          bold="0" italic="0" justification="36"/>
   <SLIDER name="Attack" id="dcf2dbaf52d14406" memberName="attackSlider"
           virtualName="" explicitFocusOrder="0" pos="77 24 64 80" min="0"
-          max="10" int="0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          max="1" int="0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="600acbb5e03c4485" memberName="label4" virtualName=""
          explicitFocusOrder="0" pos="61 -3 96 24" edTextCol="ff000000"
@@ -239,7 +243,7 @@ BEGIN_JUCER_METADATA
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15" bold="0" italic="0" justification="36"/>
   <SLIDER name="Decay" id="9c5da3b543af0acd" memberName="decaySlider" virtualName=""
-          explicitFocusOrder="0" pos="149 24 64 80" min="0" max="10" int="0"
+          explicitFocusOrder="0" pos="149 24 64 80" min="0" max="1" int="0"
           style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="6d80791f4a659e3" memberName="label5" virtualName=""

@@ -59,6 +59,10 @@
           <FILE id="xaWA84" name="snare5.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare5.aif"/>
         </GROUP>
       </GROUP>
+      <GROUP id="{3300D092-9234-681D-F537-BF112E1F6849}" name="Structs">
+        <FILE id="P26RcM" name="TrackParamList.h" compile="0" resource="0"
+              file="Source/TrackParamList.h"/>
+      </GROUP>
       <FILE id="DidWNp" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
     </GROUP>
   </MAINGROUP>
