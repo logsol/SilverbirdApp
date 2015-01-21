@@ -43,7 +43,7 @@ void Sampler::noteOn (const int midiChannel,
             && sound->appliesToSelection(trackParams->sample))
         {
             Voice* voice = (Voice*) findFreeVoice (sound, 1, midiNoteNumber, true);
-            voice->setEnvelopeParameters(trackParams->attack, trackParams->decay);
+            voice->setVoiceParameters(trackParams->attack, trackParams->decay, trackParams->pitch);
             startVoice (voice, sound, midiChannel, midiNoteNumber, velocity);
         }
     } 

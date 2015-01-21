@@ -34,6 +34,7 @@ public:
     void setSample(int value);
     void setAttack(float value);
     void setDecay(float value);
+    void setPitch(float value);
     
     int getSample();
     

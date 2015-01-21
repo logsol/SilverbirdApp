@@ -109,3 +109,10 @@ void Mixer::setTrackDecay(float value, int trackId)
     value = value;
     source->setDecay(value);
 }
+
+void Mixer::setTrackPitch(float value, int trackId)
+{
+    Source* source = getTrackById(trackId);
+    value = value;
+    source->setPitch(value);
+}

@@ -25,15 +25,19 @@ public:
     
     void renderNextBlock (AudioSampleBuffer& outputBuffer, int startSample, int numSamples) override;
     void startNote (int midiNoteNumber, float velocity, SynthesiserSound*, int pitchWheel) override;
-    void setEnvelopeParameters(float attack, float decay);
+    void setVoiceParameters(float attack, float decay, float pitch);
 
 protected:
+    
+    float translatePitchValue(float pitch);
+    
     ADSR env;
     int lastEnvState = ADSR::env_idle;
     int id;
+    float pitch;
     
 private:
-    int posi;
+    float posi;
 //    JUCE_LEAK_DETECTOR (Voice);
 };
 

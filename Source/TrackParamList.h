@@ -18,6 +18,7 @@ struct trackParamList {
     int sample = 3;
     float attack = 0;
     float decay = 1;
+    float pitch = 0;
 };
 
 

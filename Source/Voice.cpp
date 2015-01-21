@@ -51,7 +51,7 @@ void Voice::renderNextBlock (AudioSampleBuffer& outputBuffer, int startSample, i
             *outL++ += inL[(int) posi] * env.getOutput();
             *outR++ += inR[(int) posi] * env.getOutput();
             
-            posi++;
+            posi += pitch;
             
             if (posi > data->getNumSamples())
             {
@@ -62,6 +62,7 @@ void Voice::renderNextBlock (AudioSampleBuffer& outputBuffer, int startSample, i
         }
         
         if(env.getState() == env.env_sustain) {
+            posi = 0;
             env.reset();
             stopNote(0, false);
         }
@@ -80,8 +81,27 @@ void Voice::startNote (const int midiNoteNumber,
     env.gate(1);
 }
 
-void Voice::setEnvelopeParameters(float attack, float decay)
+void Voice::setVoiceParameters(float attack, float decay, float pitch)
 {
     env.setAttackRate(attack * (float) getSampleRate());
     env.setDecayRate(decay * (float) getSampleRate());
+    
+    this->pitch = translatePitchValue(pitch);
+}
+
+float Voice::translatePitchValue(float pitch)
+{
+    // convert pitch to ratio
+    // 0 = 1
+    // 1 = 2
+    //-1 = 0.5
+    float newpitch;
+    
+    if(pitch >= 0) {
+        newpitch = pitch +1;
+    } else {
+        newpitch = std::abs(1 / (pitch -1));
+    }
+    
+    return newpitch;
 }

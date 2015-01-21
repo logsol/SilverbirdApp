@@ -74,7 +74,7 @@ TrackParameters::TrackParameters (Controller* controller)
     label5->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (pitchSlider = new Slider ("Pitch"));
-    pitchSlider->setRange (0, 10, 0);
+    pitchSlider->setRange (-2, 2, 0);
     pitchSlider->setSliderStyle (Slider::RotaryVerticalDrag);
     pitchSlider->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
     pitchSlider->addListener (this);
@@ -111,6 +111,7 @@ TrackParameters::TrackParameters (Controller* controller)
     //[Constructor] You can add your own custom stuff here..
     selectSlider->setValue(3, dontSendNotification);
     decaySlider->setValue(1, dontSendNotification);
+    pitchSlider->setValue(0, dontSendNotification);
     //[/Constructor]
 }
 
@@ -191,6 +192,7 @@ void TrackParameters::sliderValueChanged (Slider* sliderThatWasMoved)
     else if (sliderThatWasMoved == pitchSlider)
     {
         //[UserSliderCode_pitchSlider] -- add your slider handling code here..
+        controller->mixer.setTrackPitch(pitchSlider->getValue(), trackId);
         //[/UserSliderCode_pitchSlider]
     }
     else if (sliderThatWasMoved == cutoffSlider)
@@ -252,7 +254,7 @@ BEGIN_JUCER_METADATA
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
   <SLIDER name="Pitch" id="a0bcc16014a81d26" memberName="pitchSlider" virtualName=""
-          explicitFocusOrder="0" pos="221 24 64 80" min="0" max="10" int="0"
+          explicitFocusOrder="0" pos="221 24 64 80" min="-2" max="2" int="0"
           style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="1f974eb41a59cc16" memberName="label6" virtualName=""

@@ -136,3 +136,8 @@ void Source::setDecay(float value)
 {
     trackParams->decay = value;
 }
+
+void Source::setPitch(float value)
+{
+    trackParams->pitch = value;
+}

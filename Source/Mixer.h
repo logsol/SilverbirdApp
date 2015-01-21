@@ -38,6 +38,7 @@ public:
     void setTrackSample(int value, int trackId);
     void setTrackAttack(float value, int trackId);
     void setTrackDecay(float value, int trackId);
+    void setTrackPitch(float value, int trackId);
     
     enum trackIndex {
         kick,
