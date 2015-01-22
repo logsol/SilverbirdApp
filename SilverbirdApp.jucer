@@ -60,6 +60,8 @@
         </GROUP>
       </GROUP>
       <GROUP id="{3300D092-9234-681D-F537-BF112E1F6849}" name="Structs">
+        <FILE id="ueGtu2" name="GlobalParamList.h" compile="0" resource="0"
+              file="Source/GlobalParamList.h"/>
         <FILE id="P26RcM" name="TrackParamList.h" compile="0" resource="0"
               file="Source/TrackParamList.h"/>
       </GROUP>
@@ -67,7 +69,7 @@
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
-    <XCODE_MAC targetFolder="Builds/MacOSX">
+    <XCODE_MAC targetFolder="Builds/MacOSX" smallIcon="fJGTOs" bigIcon="b5gehu">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
                        isDebug="1" optimisation="1" targetName="SilverbirdApp"/>

@@ -82,6 +82,16 @@ private:
     ScopedPointer<TabbedComponent> tabbedComponent;
     ScopedPointer<Slider> sampleAllSlider;
     ScopedPointer<Label> label2;
+    ScopedPointer<Slider> pitchSlider;
+    ScopedPointer<Label> label3;
+    ScopedPointer<Slider> decaySlider;
+    ScopedPointer<Label> label4;
+    ScopedPointer<Slider> distortSlider;
+    ScopedPointer<Label> label5;
+    ScopedPointer<Slider> cutoffSlider;
+    ScopedPointer<Label> label6;
+    ScopedPointer<Slider> shuffleSlider;
+    ScopedPointer<Label> label10;
     Image cachedImage_background_png;
 
 

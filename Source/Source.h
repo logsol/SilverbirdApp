@@ -16,12 +16,13 @@
 #include "Sound.h"
 #include "Sampler.h"
 #include "TrackParamList.h"
+#include "GlobalParamList.h"
 
 class Source : public AudioSource
 {
     
 public:
-    Source(int trackId, String name, MidiMessageCollector& midiCollector);
+    Source(int trackId, String name, MidiMessageCollector& midiCollector, globalParamList* globalParams);
     ~Source();
     
     void updateSampleRate(int sampleRate);
@@ -35,8 +36,10 @@ public:
     void setAttack(float value);
     void setDecay(float value);
     void setPitch(float value);
+    void setDistort(float value);
+    void setCutoff(float value);
     
-    int getSample();
+    float foldback(float in, float threshold);
     
     MidiMessageCollector& midiCollector;
     String name;
@@ -49,8 +52,13 @@ protected:
     void configure(int trackId);
     void setup(int index, int note, int numSounds, MemoryInputStream* streams[]);
     
+    IIRFilter filterL;
+    IIRFilter filterR;
+
     trackParamList* trackParams = new trackParamList();
     Sampler sampler;
+    double sampleRate;
+    globalParamList* globalParams;
 };
 
 

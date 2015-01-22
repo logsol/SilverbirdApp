@@ -24,7 +24,7 @@ Mixer::~Mixer() {
 void Mixer::createAndAddTrack(int trackId, String name)
 {
     
-    Source* source = new Source(trackId, name, midiCollector);
+    Source* source = new Source(trackId, name, midiCollector, globalParams);
     
     addInputSource(source, false);
     
@@ -66,15 +66,39 @@ void Mixer::playNote(int note)
 //    midiCollector.handleNoteOff(&keyboardState, 1, note);
 }
 
-void Mixer::setMaster (float value)
-{
-    globalParams->master = value;
-}
-
 void Mixer::setSampleAll (int value)
 {
     globalParams->sample = value;
-    
+}
+
+void Mixer::setPitch(float value)
+{
+    globalParams->pitch = value;
+}
+
+void Mixer::setDecay(float value)
+{
+    globalParams->decay = value;
+}
+
+void Mixer::setDistort(float value)
+{
+    globalParams->distort = value;
+}
+
+void Mixer::setCutoff(float value)
+{
+    globalParams->cutoff = value;
+}
+
+void Mixer::setShuffle(float value)
+{
+    globalParams->shuffle = value;
+}
+
+void Mixer::setMaster (float value)
+{
+    globalParams->master = value;
 }
 
 void Mixer::setTrackLevel (float value, int trackId)
@@ -92,27 +116,35 @@ void Mixer::setTrackMute (bool value, int trackId)
 void Mixer::setTrackSample(int value, int trackId)
 {
     Source* source = getTrackById(trackId);
-    value = value - 1;
     source->setSample(value);
 }
 
 void Mixer::setTrackAttack(float value, int trackId)
 {
     Source* source = getTrackById(trackId);
-    value = value;
     source->setAttack(value);
 }
 
 void Mixer::setTrackDecay(float value, int trackId)
 {
     Source* source = getTrackById(trackId);
-    value = value;
     source->setDecay(value);
 }
 
 void Mixer::setTrackPitch(float value, int trackId)
 {
     Source* source = getTrackById(trackId);
-    value = value;
     source->setPitch(value);
+}
+
+void Mixer::setTrackDistort(float value, int trackId)
+{
+    Source* source = getTrackById(trackId);
+    source->setDistort(value);
+}
+
+void Mixer::setTrackCutoff(float value, int trackId)
+{
+    Source* source = getTrackById(trackId);
+    source->setCutoff(value);
 }

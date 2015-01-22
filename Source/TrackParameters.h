@@ -69,6 +69,8 @@ private:
     ScopedPointer<Label> label6;
     ScopedPointer<Slider> cutoffSlider;
     ScopedPointer<Label> label10;
+    ScopedPointer<Slider> distortSlider;
+    ScopedPointer<Label> label3;
 
 
     //==============================================================================

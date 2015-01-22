@@ -13,7 +13,9 @@
 #include "Voice.h"
 #include "../JuceLibraryCode/JuceHeader.h"
 
-Sampler::Sampler(struct trackParamList* trackParams) : trackParams(trackParams)
+Sampler::Sampler(struct trackParamList* trackParams, struct globalParamList* globalParams)
+    : trackParams(trackParams),
+    globalParams(globalParams)
 {
     for (int i = 0; i < 16; i++)
     {
@@ -26,11 +28,12 @@ Sampler::~Sampler() {
 }
 
 
-void Sampler::noteOn (const int midiChannel,
-                                const int midiNoteNumber,
-                                const float velocity)
+void Sampler::noteOn (const int midiChannel, const int midiNoteNumber, const float velocity)
 {
-    
+    // +1000 -1 to safely shift far into positive range but keep first sample
+    int sample = (trackParams->sample + globalParams->sample +999)  % sounds.size();
+    float pitch = trackParams->pitch + globalParams->pitch;
+    float decay = fmax(0, fmin(1, trackParams->decay + globalParams->decay));
     
     const ScopedLock sl (lock);
     
@@ -40,10 +43,10 @@ void Sampler::noteOn (const int midiChannel,
         
         if (sound->appliesToNote (midiNoteNumber)
             && sound->appliesToChannel (midiChannel)
-            && sound->appliesToSelection(trackParams->sample))
+            && sound->appliesToSelection(sample))
         {
             Voice* voice = (Voice*) findFreeVoice (sound, 1, midiNoteNumber, true);
-            voice->setVoiceParameters(trackParams->attack, trackParams->decay, trackParams->pitch);
+            voice->setVoiceParameters(trackParams->attack, decay, pitch);
             startVoice (voice, sound, midiChannel, midiNoteNumber, velocity);
         }
     } 
@@ -53,15 +56,6 @@ void Sampler::stopVoice (SynthesiserVoice* voice, const bool allowTailOff)
 {
     // voice is not stopped manually. only by finishing the sample or envelope reaching sustain env state.
     return;
-
-    /*
-    jassert (voice != nullptr);
-    
-    voice->stopNote (0, allowTailOff);
-    
-    // the subclass MUST call clearCurrentNote() if it's not tailing off! RTFM for stopNote()!
-    jassert (allowTailOff || (voice->getCurrentlyPlayingNote() < 0 && voice->getCurrentlyPlayingSound() == 0));
-     */
 }
 
 SynthesiserVoice* Sampler::findFreeVoice (SynthesiserSound* soundToPlay,

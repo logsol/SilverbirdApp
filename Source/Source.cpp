@@ -12,11 +12,12 @@
 #include "Sound.h"
 #include "Mixer.h"
 
-Source::Source(int trackId, String name, MidiMessageCollector& midiCollector) :
+Source::Source(int trackId, String name, MidiMessageCollector& midiCollector, globalParamList* globalParams) :
     midiCollector (midiCollector),
     name (name),
     trackId (trackId),
-    sampler(trackParams)
+    sampler(trackParams, globalParams),
+    globalParams(globalParams)
 {
     configure(trackId);
 }
@@ -96,20 +97,46 @@ void Source::prepareToPlay (int samplesPerBlockExpected, double sampleRate)
 {
     midiCollector.reset (sampleRate);
     updateSampleRate(sampleRate);
+    this->sampleRate = sampleRate;
 }
 
 void Source::releaseResources()
 {
 }
 
+
+
 void Source::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
 {
-    bufferToFill.clearActiveBufferRegion();
+    // calculations
+    float cutoff = fmax(0, fmin(1, trackParams->cutoff + globalParams->cutoff));
+    float distort = 1 - fmax(0, fmin(0.93, trackParams->distort + globalParams->distort));
+    float level = trackParams->level * (!trackParams->mute);
     
+    // setup
+    bufferToFill.clearActiveBufferRegion();
     midiCollector.removeNextBlockOfMessages (incomingMidi, bufferToFill.numSamples);
 
+    // render sampler
     sampler.renderNextBlock(*bufferToFill.buffer, incomingMidi, 0, bufferToFill.numSamples);
-    bufferToFill.buffer->applyGain(0, bufferToFill.numSamples, trackParams->level * (!trackParams->mute));
+    
+    // dsp: distortion
+    float* outL = bufferToFill.buffer->getWritePointer (0, 0);
+    float* outR = bufferToFill.buffer->getWritePointer (1, 0);
+
+    for (int i=bufferToFill.numSamples; i>=0; --i) {
+        outL[i] = foldback(outL[i], distort);
+        outR[i] = foldback(outR[i], distort);
+    }
+
+    // dsp: filter
+    filterL.setCoefficients(IIRCoefficients::makeLowPass(sampleRate, MidiMessage::getMidiNoteInHertz(cutoff * 128)));
+    filterR.setCoefficients(IIRCoefficients::makeLowPass(sampleRate, MidiMessage::getMidiNoteInHertz(cutoff * 128)));
+    filterL.processSamples(bufferToFill.buffer->getWritePointer(0), bufferToFill.buffer->getNumSamples());
+    filterR.processSamples(bufferToFill.buffer->getWritePointer(1), bufferToFill.buffer->getNumSamples());
+                               
+    // dsp: level
+    bufferToFill.buffer->applyGain(0, bufferToFill.numSamples, level);
 }
 
 void Source::setLevel(float value)
@@ -140,4 +167,31 @@ void Source::setDecay(float value)
 void Source::setPitch(float value)
 {
     trackParams->pitch = value;
+}
+
+void Source::setDistort(float value)
+{
+    trackParams->distort = value;
+}
+
+void Source::setCutoff(float value)
+{
+    trackParams->cutoff = value;
+}
+
+/*
+ * fold back distortion
+ *
+ * Type : distortion
+ * References : Posted by hellfire[AT]upb[DOT]de
+ *
+ * http://musicdsp.org/archive.php?classid=4#203
+ */
+float Source::foldback(float in, float threshold)
+{
+    if (in>threshold || in<-threshold)
+    {
+        in= fabs(fabs(fmod(in - threshold, threshold*4)) - threshold*2) - threshold;
+    }
+    return in;
 }

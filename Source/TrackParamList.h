@@ -19,6 +19,8 @@ struct trackParamList {
     float attack = 0;
     float decay = 1;
     float pitch = 0;
+    float distort = 0;
+    float cutoff = 1;
 };
 
 

@@ -45,7 +45,7 @@ Gui::Gui (Controller* controller)
     addAndMakeVisible (masterSlider = new Slider ("Master"));
     masterSlider->setRange (0, 1, 0);
     masterSlider->setSliderStyle (Slider::RotaryVerticalDrag);
-    masterSlider->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
+    masterSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
     masterSlider->addListener (this);
     masterSlider->setSkewFactor (0.33);
 
@@ -133,7 +133,7 @@ Gui::Gui (Controller* controller)
     addAndMakeVisible (sampleAllSlider = new Slider ("SampleAll"));
     sampleAllSlider->setRange (-10, 10, 1);
     sampleAllSlider->setSliderStyle (Slider::RotaryVerticalDrag);
-    sampleAllSlider->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
+    sampleAllSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
     sampleAllSlider->addListener (this);
 
     addAndMakeVisible (label2 = new Label ("new label",
@@ -143,6 +143,76 @@ Gui::Gui (Controller* controller)
     label2->setEditable (false, false, false);
     label2->setColour (TextEditor::textColourId, Colours::black);
     label2->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (pitchSlider = new Slider ("Pitch"));
+    pitchSlider->setRange (-1, 1, 0);
+    pitchSlider->setSliderStyle (Slider::RotaryVerticalDrag);
+    pitchSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
+    pitchSlider->addListener (this);
+
+    addAndMakeVisible (label3 = new Label ("new label",
+                                           TRANS("Pitch")));
+    label3->setFont (Font (15.00f, Font::plain));
+    label3->setJustificationType (Justification::centred);
+    label3->setEditable (false, false, false);
+    label3->setColour (TextEditor::textColourId, Colours::black);
+    label3->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (decaySlider = new Slider ("Decay"));
+    decaySlider->setRange (-1, 1, 0);
+    decaySlider->setSliderStyle (Slider::RotaryVerticalDrag);
+    decaySlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
+    decaySlider->addListener (this);
+
+    addAndMakeVisible (label4 = new Label ("new label",
+                                           TRANS("Decay")));
+    label4->setFont (Font (15.00f, Font::plain));
+    label4->setJustificationType (Justification::centred);
+    label4->setEditable (false, false, false);
+    label4->setColour (TextEditor::textColourId, Colours::black);
+    label4->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (distortSlider = new Slider ("Distort"));
+    distortSlider->setRange (-1, 1, 0);
+    distortSlider->setSliderStyle (Slider::RotaryVerticalDrag);
+    distortSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
+    distortSlider->addListener (this);
+
+    addAndMakeVisible (label5 = new Label ("new label",
+                                           TRANS("Distort")));
+    label5->setFont (Font (15.00f, Font::plain));
+    label5->setJustificationType (Justification::centred);
+    label5->setEditable (false, false, false);
+    label5->setColour (TextEditor::textColourId, Colours::black);
+    label5->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (cutoffSlider = new Slider ("Cutoff"));
+    cutoffSlider->setRange (-1, 1, 0);
+    cutoffSlider->setSliderStyle (Slider::RotaryVerticalDrag);
+    cutoffSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
+    cutoffSlider->addListener (this);
+
+    addAndMakeVisible (label6 = new Label ("new label",
+                                           TRANS("Cutoff")));
+    label6->setFont (Font (15.00f, Font::plain));
+    label6->setJustificationType (Justification::centred);
+    label6->setEditable (false, false, false);
+    label6->setColour (TextEditor::textColourId, Colours::black);
+    label6->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (shuffleSlider = new Slider ("Shuffle"));
+    shuffleSlider->setRange (0, 1, 0);
+    shuffleSlider->setSliderStyle (Slider::RotaryVerticalDrag);
+    shuffleSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
+    shuffleSlider->addListener (this);
+
+    addAndMakeVisible (label10 = new Label ("new label",
+                                            TRANS("Shuffle")));
+    label10->setFont (Font (15.00f, Font::plain));
+    label10->setJustificationType (Justification::centred);
+    label10->setEditable (false, false, false);
+    label10->setColour (TextEditor::textColourId, Colours::black);
+    label10->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     cachedImage_background_png = ImageCache::getFromMemory (background_png, background_pngSize);
 
@@ -188,6 +258,16 @@ Gui::~Gui()
     tabbedComponent = nullptr;
     sampleAllSlider = nullptr;
     label2 = nullptr;
+    pitchSlider = nullptr;
+    label3 = nullptr;
+    decaySlider = nullptr;
+    label4 = nullptr;
+    distortSlider = nullptr;
+    label5 = nullptr;
+    cutoffSlider = nullptr;
+    label6 = nullptr;
+    shuffleSlider = nullptr;
+    label10 = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -217,8 +297,8 @@ void Gui::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    label->setBounds (512, 456, 64, 16);
-    masterSlider->setBounds (520, 480, 48, 64);
+    label->setBounds (512, 488, 64, 16);
+    masterSlider->setBounds (512, 504, 64, 64);
     snareButton->setBounds (792, 587, 72, 24);
     kickButton->setBounds (712, 587, 72, 24);
     hihatButton->setBounds (872, 587, 72, 24);
@@ -232,9 +312,19 @@ void Gui::resized()
     label8->setBounds (117, 404, 48, 24);
     label9->setBounds (164, 404, 48, 24);
     label11->setBounds (36, 542, 40, 24);
-    tabbedComponent->setBounds (40, 40, 368, 136);
-    sampleAllSlider->setBounds (520, 80, 48, 64);
+    tabbedComponent->setBounds (40, 40, 408, 152);
+    sampleAllSlider->setBounds (520, 72, 48, 48);
     label2->setBounds (512, 56, 64, 16);
+    pitchSlider->setBounds (520, 144, 48, 48);
+    label3->setBounds (512, 128, 64, 16);
+    decaySlider->setBounds (520, 216, 48, 48);
+    label4->setBounds (512, 200, 64, 16);
+    distortSlider->setBounds (520, 288, 48, 48);
+    label5->setBounds (512, 272, 64, 16);
+    cutoffSlider->setBounds (520, 360, 48, 48);
+    label6->setBounds (512, 344, 64, 16);
+    shuffleSlider->setBounds (520, 432, 48, 48);
+    label10->setBounds (512, 416, 64, 16);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -271,7 +361,38 @@ void Gui::sliderValueChanged (Slider* sliderThatWasMoved)
     else if (sliderThatWasMoved == sampleAllSlider)
     {
         //[UserSliderCode_sampleAllSlider] -- add your slider handling code here..
+        controller->mixer.setSampleAll(sampleAllSlider->getValue());
         //[/UserSliderCode_sampleAllSlider]
+    }
+    else if (sliderThatWasMoved == pitchSlider)
+    {
+        //[UserSliderCode_pitchSlider] -- add your slider handling code here..
+        controller->mixer.setPitch(pitchSlider->getValue());
+        //[/UserSliderCode_pitchSlider]
+    }
+    else if (sliderThatWasMoved == decaySlider)
+    {
+        //[UserSliderCode_decaySlider] -- add your slider handling code here..
+        controller->mixer.setDecay(decaySlider->getValue());
+        //[/UserSliderCode_decaySlider]
+    }
+    else if (sliderThatWasMoved == distortSlider)
+    {
+        //[UserSliderCode_distortSlider] -- add your slider handling code here..
+        controller->mixer.setDistort(distortSlider->getValue());
+        //[/UserSliderCode_distortSlider]
+    }
+    else if (sliderThatWasMoved == cutoffSlider)
+    {
+        //[UserSliderCode_cutoffSlider] -- add your slider handling code here..
+        controller->mixer.setCutoff(cutoffSlider->getValue());
+        //[/UserSliderCode_cutoffSlider]
+    }
+    else if (sliderThatWasMoved == shuffleSlider)
+    {
+        //[UserSliderCode_shuffleSlider] -- add your slider handling code here..
+        controller->mixer.setShuffle(shuffleSlider->getValue());
+        //[/UserSliderCode_shuffleSlider]
     }
 
     //[UsersliderValueChanged_Post]
@@ -348,13 +469,13 @@ BEGIN_JUCER_METADATA
     <IMAGE pos="0 0 1079 639" resource="background_png" opacity="1" mode="0"/>
   </BACKGROUND>
   <LABEL name="new label" id="7db995d0cc268da2" memberName="label" virtualName=""
-         explicitFocusOrder="0" pos="512 456 64 16" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="512 488 64 16" edTextCol="ff000000"
          edBkgCol="0" labelText="Master" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
   <SLIDER name="Master" id="fd6791ae3c533bb4" memberName="masterSlider"
-          virtualName="" explicitFocusOrder="0" pos="520 480 48 64" min="0"
-          max="1" int="0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          virtualName="" explicitFocusOrder="0" pos="512 504 64 64" min="0"
+          max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="0.33000000000000001554"/>
   <TEXTBUTTON name="Snare" id="4a1aa32f7c793c9e" memberName="snareButton" virtualName=""
               explicitFocusOrder="0" pos="792 587 72 24" buttonText="Snare"
@@ -407,7 +528,7 @@ BEGIN_JUCER_METADATA
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
   <TABBEDCOMPONENT name="new tabbed component" id="299c842daf4e2362" memberName="tabbedComponent"
-                   virtualName="" explicitFocusOrder="0" pos="40 40 368 136" orientation="top"
+                   virtualName="" explicitFocusOrder="0" pos="40 40 408 152" orientation="top"
                    tabBarDepth="30" initialTab="0">
     <TAB name="Kick" colour="f1f1f1f1" useJucerComp="0" contentClassName="TrackParameters"
          constructorParams="controller" jucerComponentFile=""/>
@@ -417,12 +538,57 @@ BEGIN_JUCER_METADATA
          constructorParams="controller" jucerComponentFile=""/>
   </TABBEDCOMPONENT>
   <SLIDER name="SampleAll" id="ee8c6f5ed858bc06" memberName="sampleAllSlider"
-          virtualName="" explicitFocusOrder="0" pos="520 80 48 64" min="-10"
-          max="10" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          virtualName="" explicitFocusOrder="0" pos="520 72 48 48" min="-10"
+          max="10" int="1" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="464a5d28fca25a0c" memberName="label2" virtualName=""
          explicitFocusOrder="0" pos="512 56 64 16" edTextCol="ff000000"
          edBkgCol="0" labelText="Select All" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         bold="0" italic="0" justification="36"/>
+  <SLIDER name="Pitch" id="e7d610330ae7eaca" memberName="pitchSlider" virtualName=""
+          explicitFocusOrder="0" pos="520 144 48 48" min="-1" max="1" int="0"
+          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
+          textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
+  <LABEL name="new label" id="593f1bb74248fc8e" memberName="label3" virtualName=""
+         explicitFocusOrder="0" pos="512 128 64 16" edTextCol="ff000000"
+         edBkgCol="0" labelText="Pitch" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         bold="0" italic="0" justification="36"/>
+  <SLIDER name="Decay" id="d1d1220e691f4548" memberName="decaySlider" virtualName=""
+          explicitFocusOrder="0" pos="520 216 48 48" min="-1" max="1" int="0"
+          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
+          textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
+  <LABEL name="new label" id="6dfb3c910fd7b3e8" memberName="label4" virtualName=""
+         explicitFocusOrder="0" pos="512 200 64 16" edTextCol="ff000000"
+         edBkgCol="0" labelText="Decay" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         bold="0" italic="0" justification="36"/>
+  <SLIDER name="Distort" id="ac3fc5b27347700" memberName="distortSlider"
+          virtualName="" explicitFocusOrder="0" pos="520 288 48 48" min="-1"
+          max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
+  <LABEL name="new label" id="cf04cb747d287869" memberName="label5" virtualName=""
+         explicitFocusOrder="0" pos="512 272 64 16" edTextCol="ff000000"
+         edBkgCol="0" labelText="Distort" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         bold="0" italic="0" justification="36"/>
+  <SLIDER name="Cutoff" id="b67410e0785de65c" memberName="cutoffSlider"
+          virtualName="" explicitFocusOrder="0" pos="520 360 48 48" min="-1"
+          max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
+  <LABEL name="new label" id="7d7b6cd7315776a8" memberName="label6" virtualName=""
+         explicitFocusOrder="0" pos="512 344 64 16" edTextCol="ff000000"
+         edBkgCol="0" labelText="Cutoff" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         bold="0" italic="0" justification="36"/>
+  <SLIDER name="Shuffle" id="f2d61c4a72ddf897" memberName="shuffleSlider"
+          virtualName="" explicitFocusOrder="0" pos="520 432 48 48" min="0"
+          max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
+  <LABEL name="new label" id="cfbf1f6cb7801bfe" memberName="label10" virtualName=""
+         explicitFocusOrder="0" pos="512 416 64 16" edTextCol="ff000000"
+         edBkgCol="0" labelText="Shuffle" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
 </JUCER_COMPONENT>

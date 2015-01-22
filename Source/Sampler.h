@@ -14,17 +14,18 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Sound.h"
 #include "TrackParamList.h"
+#include "GlobalParamList.h"
 
 class Sampler : public Synthesiser {
 public:
     
-    Sampler(trackParamList* trackParams);
+    Sampler(trackParamList* trackParams, globalParamList* globalParams);
     ~Sampler();
     
     void setSelection(int selection);
     int getSelection();
     
-    void noteOn(const int midiChannel, const int midiNoteNumber, const float velocity);
+    void noteOn(const int midiChannel, const int midiNoteNumber, const float velocity) override;
     void stopVoice (SynthesiserVoice* voice, const bool allowTailOff);
     virtual SynthesiserVoice* findFreeVoice (SynthesiserSound* soundToPlay,
                                              int midiChannel,
@@ -34,6 +35,7 @@ public:
 protected:
     
     trackParamList* trackParams;
+    globalParamList* globalParams;
 };
 
 

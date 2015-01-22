@@ -13,17 +13,8 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Source.h"
+#include "GlobalParamList.h"
 #include <vector>
-
-struct globalParamList {
-    int sample;
-    float pitch;
-    float decay;
-    float distort;
-    float filter;
-    float shuffle;
-    float master;
-};
 
 class Mixer : public MixerAudioSource {
 public:
@@ -31,14 +22,23 @@ public:
     ~Mixer();
     
     void playNote(int note);
-    void setMaster(float value);
+    
     void setSampleAll(int value);
+    void setPitch(float value);
+    void setDecay(float value);
+    void setDistort(float value);
+    void setCutoff(float value);
+    void setShuffle(float value);
+    void setMaster(float value);
+    
     void setTrackLevel(float value, int trackId);
     void setTrackMute(bool value, int trackId);
     void setTrackSample(int value, int trackId);
     void setTrackAttack(float value, int trackId);
     void setTrackDecay(float value, int trackId);
     void setTrackPitch(float value, int trackId);
+    void setTrackDistort(float value, int trackId);
+    void setTrackCutoff(float value, int trackId);
     
     enum trackIndex {
         kick,

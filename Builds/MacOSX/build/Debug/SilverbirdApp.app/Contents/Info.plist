@@ -6,6 +6,8 @@
 	<string>13F34</string>
 	<key>CFBundleExecutable</key>
 	<string>SilverbirdApp</string>
+	<key>CFBundleIconFile</key>
+	<string>Icon.icns</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.audiosalt.SilverbirdApp</string>
 	<key>CFBundleName</key>
