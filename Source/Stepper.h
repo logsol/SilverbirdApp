@@ -17,15 +17,14 @@
   ==============================================================================
 */
 
-#ifndef __JUCE_HEADER_1B7D314A9B5D26__
-#define __JUCE_HEADER_1B7D314A9B5D26__
+#ifndef __JUCE_HEADER_78C8D5E3CE4B77EA__
+#define __JUCE_HEADER_78C8D5E3CE4B77EA__
 
 //[Headers]     -- You can add your own extra header files here --
-#include "../JuceLibraryCode/JuceHeader.h"
+#include "JuceHeader.h"
 #include "Controller.h"
 //[/Headers]
 
-#include "Stepper.h"
 
 
 //==============================================================================
@@ -36,74 +35,42 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class Gui  : public Component,
-             public SliderListener,
-             public ButtonListener
+class Stepper  : public Component,
+                 public ClockListener
 {
 public:
     //==============================================================================
-    Gui (Controller* controller);
-    ~Gui();
+    Stepper (Controller* controller);
+    ~Stepper();
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
+    void clockStep(int cursor) override;
     //[/UserMethods]
 
     void paint (Graphics& g);
     void resized();
-    void sliderValueChanged (Slider* sliderThatWasMoved);
-    void buttonClicked (Button* buttonThatWasClicked);
+    void mouseDown (const MouseEvent& e);
+    void mouseDrag (const MouseEvent& e);
 
-    // Binary resources:
-    static const char* background_png;
-    static const int background_pngSize;
 
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
     Controller* controller;
+
+    int cursor = 0;
     //[/UserVariables]
 
     //==============================================================================
     ScopedPointer<Label> label;
-    ScopedPointer<Slider> masterSlider;
-    ScopedPointer<TextButton> snareButton;
-    ScopedPointer<TextButton> kickButton;
-    ScopedPointer<TextButton> hihatButton;
-    ScopedPointer<ToggleButton> kickMuteButton;
-    ScopedPointer<ToggleButton> snareMuteButton;
-    ScopedPointer<ToggleButton> HihatMuteButton;
-    ScopedPointer<Slider> kickVolumeSlider;
-    ScopedPointer<Slider> snareVolumeSlider;
-    ScopedPointer<Slider> hihatVolumeSlider;
-    ScopedPointer<Label> label7;
-    ScopedPointer<Label> label8;
-    ScopedPointer<Label> label9;
-    ScopedPointer<Label> label11;
-    ScopedPointer<TabbedComponent> tabbedComponent;
-    ScopedPointer<Slider> sampleAllSlider;
-    ScopedPointer<Label> label2;
-    ScopedPointer<Slider> pitchSlider;
-    ScopedPointer<Label> label3;
-    ScopedPointer<Slider> decaySlider;
-    ScopedPointer<Label> label4;
-    ScopedPointer<Slider> distortSlider;
-    ScopedPointer<Label> label5;
-    ScopedPointer<Slider> cutoffSlider;
-    ScopedPointer<Label> label6;
-    ScopedPointer<Slider> shuffleSlider;
-    ScopedPointer<Label> label10;
-    ScopedPointer<Stepper> kickStepper;
-    ScopedPointer<Stepper> snareStepper;
-    ScopedPointer<Stepper> hihatStepper;
-    Image cachedImage_background_png;
 
 
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Gui)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Stepper)
 };
 
 //[EndFile] You can add extra defines here...
 //[/EndFile]
 
-#endif   // __JUCE_HEADER_1B7D314A9B5D26__
+#endif   // __JUCE_HEADER_78C8D5E3CE4B77EA__

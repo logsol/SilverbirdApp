@@ -214,6 +214,9 @@ Gui::Gui (Controller* controller)
     label10->setColour (TextEditor::textColourId, Colours::black);
     label10->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
+    addAndMakeVisible (kickStepper = new Stepper (controller));
+    addAndMakeVisible (snareStepper = new Stepper (controller));
+    addAndMakeVisible (hihatStepper = new Stepper (controller));
     cachedImage_background_png = ImageCache::getFromMemory (background_png, background_pngSize);
 
     //[UserPreSize]
@@ -231,6 +234,10 @@ Gui::Gui (Controller* controller)
     kickVolumeSlider->setValue(8);
     snareVolumeSlider->setValue(8);
     hihatVolumeSlider->setValue(8);
+    
+    kickStepper->setComponentID("kick");
+    snareStepper->setComponentID("snare");
+    hihatStepper->setComponentID("hihat");
 
     //[/Constructor]
 }
@@ -268,6 +275,9 @@ Gui::~Gui()
     label6 = nullptr;
     shuffleSlider = nullptr;
     label10 = nullptr;
+    kickStepper = nullptr;
+    snareStepper = nullptr;
+    hihatStepper = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -325,6 +335,9 @@ void Gui::resized()
     label6->setBounds (512, 344, 64, 16);
     shuffleSlider->setBounds (520, 432, 48, 48);
     label10->setBounds (512, 416, 64, 16);
+    kickStepper->setBounds (608, 64, 400, 60);
+    snareStepper->setBounds (608, 136, 400, 60);
+    hihatStepper->setBounds (608, 208, 400, 60);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -591,6 +604,15 @@ BEGIN_JUCER_METADATA
          edBkgCol="0" labelText="Shuffle" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
+  <JUCERCOMP name="kick" id="5bc3cd7fa00d9ca1" memberName="kickStepper" virtualName="Stepper.cpp"
+             explicitFocusOrder="0" pos="608 64 400 60" sourceFile="Stepper.cpp"
+             constructorParams="controller"/>
+  <JUCERCOMP name="snare" id="72bd21588eb207f2" memberName="snareStepper"
+             virtualName="" explicitFocusOrder="0" pos="608 136 400 60" sourceFile="Stepper.cpp"
+             constructorParams="controller"/>
+  <JUCERCOMP name="hihat" id="8c1afe06277148f2" memberName="hihatStepper"
+             virtualName="" explicitFocusOrder="0" pos="608 208 400 60" sourceFile="Stepper.cpp"
+             constructorParams="controller"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

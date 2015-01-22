@@ -21,6 +21,8 @@ public:
     Mixer();
     ~Mixer();
     
+    int getTrackByName(String name);
+    
     void playNote(int note);
     
     void setSampleAll(int value);

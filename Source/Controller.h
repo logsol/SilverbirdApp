@@ -14,6 +14,9 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Source.h"
 #include "Mixer.h"
+#include "Clock.h"
+#include "ClockListener.h"
+#include "Sequencer.h"
 
 class Controller  {
 public:
@@ -22,7 +25,11 @@ public:
     
     int getSelectedTrack();
     void setSelectedTrack(int trackId);
-    
+    void addClockListener(ClockListener* listener);
+    void removeClockListener(ClockListener* listener);
+
+    ScopedPointer<Sequencer> sequencer;
+    ScopedPointer<Clock> clock;
     Mixer mixer;
 
 protected:
@@ -32,7 +39,5 @@ protected:
     
     int selectedTrack = 0;
 };
-
-
 
 #endif  // CONTROLLER_H_INCLUDED

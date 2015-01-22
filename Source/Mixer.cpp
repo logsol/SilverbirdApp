@@ -21,6 +21,23 @@ Mixer::~Mixer() {
     delete globalParams;
 }
 
+int Mixer::getTrackByName(String name)
+{
+    if (name == "kick") {
+        return Mixer::kick;
+    }
+    if (name == "snare") {
+        return Mixer::snare;
+    }
+    if (name == "hihat") {
+        return Mixer::hihat;
+    }
+    
+    std::cout << "Got Wrong Track: " << name << std::endl;
+    exit(0);
+    return -1;
+}
+
 void Mixer::createAndAddTrack(int trackId, String name)
 {
     

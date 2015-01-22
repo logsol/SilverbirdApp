@@ -193,37 +193,37 @@ void TrackParameters::sliderValueChanged (Slider* sliderThatWasMoved)
     if (sliderThatWasMoved == selectSlider)
     {
         //[UserSliderCode_selectSlider] -- add your slider handling code here..
-        controller->mixer.setTrackSample(selectSlider->getValue(), trackId);
+        controller->mixer->setTrackSample(selectSlider->getValue(), trackId);
         //[/UserSliderCode_selectSlider]
     }
     else if (sliderThatWasMoved == attackSlider)
     {
         //[UserSliderCode_attackSlider] -- add your slider handling code here..
-        controller->mixer.setTrackAttack(attackSlider->getValue(), trackId);
+        controller->mixer->setTrackAttack(attackSlider->getValue(), trackId);
         //[/UserSliderCode_attackSlider]
     }
     else if (sliderThatWasMoved == decaySlider)
     {
         //[UserSliderCode_decaySlider] -- add your slider handling code here..
-        controller->mixer.setTrackDecay(decaySlider->getValue(), trackId);
+        controller->mixer->setTrackDecay(decaySlider->getValue(), trackId);
         //[/UserSliderCode_decaySlider]
     }
     else if (sliderThatWasMoved == pitchSlider)
     {
         //[UserSliderCode_pitchSlider] -- add your slider handling code here..
-        controller->mixer.setTrackPitch(pitchSlider->getValue(), trackId);
+        controller->mixer->setTrackPitch(pitchSlider->getValue(), trackId);
         //[/UserSliderCode_pitchSlider]
     }
     else if (sliderThatWasMoved == cutoffSlider)
     {
         //[UserSliderCode_cutoffSlider] -- add your slider handling code here..
-        controller->mixer.setTrackCutoff(cutoffSlider->getValue(), trackId);
+        controller->mixer->setTrackCutoff(cutoffSlider->getValue(), trackId);
         //[/UserSliderCode_cutoffSlider]
     }
     else if (sliderThatWasMoved == distortSlider)
     {
         //[UserSliderCode_distortSlider] -- add your slider handling code here..
-        controller->mixer.setTrackDistort(distortSlider->getValue(), trackId);
+        controller->mixer->setTrackDistort(distortSlider->getValue(), trackId);
         //[/UserSliderCode_distortSlider]
     }
 
