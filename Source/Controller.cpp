@@ -11,7 +11,7 @@
 #include "Controller.h"
 
 
-Controller::Controller()
+Controller::Controller() : sequencer(mixer)
 {
     bootstrap();
 }
@@ -35,29 +35,17 @@ void Controller::bootstrap()
     }
     std::cout << "Midi Device: " << input << std::endl;
     
-    
-    // not using automatic contructors here for readability
-    // and because clock's owned array breaks on shutdown.
-    
-    sequencer = new Sequencer(mixer.midiCollector);
-    clock = new Clock();
-    
-    clock->addListener(sequencer);
+    clock.addListener(&sequencer);
 }
 
-int Controller::getSelectedTrack() {
-    return 0;
-}
 
-void Controller::setSelectedTrack(int trackId) {
-}
 
 void Controller::addClockListener(ClockListener* listener)
 {
-    clock->addListener(listener);
+    clock.addListener(listener);
 }
 
 void Controller::removeClockListener(ClockListener* listener)
 {
-    clock->removeListener(listener);
+    clock.removeListener(listener);
 }

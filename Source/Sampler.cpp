@@ -13,7 +13,7 @@
 #include "Voice.h"
 #include "../JuceLibraryCode/JuceHeader.h"
 
-Sampler::Sampler(struct trackParamList* trackParams, struct globalParamList* globalParams)
+Sampler::Sampler(trackParamList* trackParams, globalParamList* globalParams)
     : trackParams(trackParams),
     globalParams(globalParams)
 {
@@ -30,13 +30,20 @@ Sampler::~Sampler() {
 
 void Sampler::noteOn (const int midiChannel, const int midiNoteNumber, const float velocity)
 {
-    // +1000 -1 to safely shift far into positive range but keep first sample
-    int sample = (trackParams->sample + globalParams->sample +999)  % sounds.size();
-    float pitch = trackParams->pitch + globalParams->pitch;
-    float decay = fmax(0, fmin(1, trackParams->decay + globalParams->decay));
+    int sample = 0;
+    float pitch = 0;
+    float attack = 0;
+    float decay = 1;
+    
+    if (true) {
+        // +1000 -1 to safely shift far into positive range but keep first sample
+        sample = (trackParams->sample + globalParams->sample +999)  % sounds.size();
+        pitch = trackParams->pitch + globalParams->pitch;
+        attack = trackParams->attack;
+        decay = fmax(0, fmin(1, trackParams->decay + globalParams->decay));
+    }
     
     const ScopedLock sl (lock);
-    
     for (int i = sounds.size(); --i >= 0;)
     {
         Sound* const sound = (ReferenceCountedObjectPtr<Sound>) sounds.getUnchecked(i);
@@ -46,7 +53,7 @@ void Sampler::noteOn (const int midiChannel, const int midiNoteNumber, const flo
             && sound->appliesToSelection(sample))
         {
             Voice* voice = (Voice*) findFreeVoice (sound, 1, midiNoteNumber, true);
-            voice->setVoiceParameters(trackParams->attack, decay, pitch);
+            voice->setVoiceParameters(attack, decay, pitch);
             startVoice (voice, sound, midiChannel, midiNoteNumber, velocity);
         }
     } 

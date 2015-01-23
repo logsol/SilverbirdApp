@@ -13,7 +13,7 @@
 
 
 struct trackParamList {
-    float level = 0;
+    float level = 1;
     bool mute = 0;
     int sample = 3;
     float attack = 0;

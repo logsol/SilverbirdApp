@@ -49,15 +49,6 @@ Gui::Gui (Controller* controller)
     masterSlider->addListener (this);
     masterSlider->setSkewFactor (0.33);
 
-    addAndMakeVisible (snareButton = new TextButton ("Snare"));
-    snareButton->addListener (this);
-
-    addAndMakeVisible (kickButton = new TextButton ("Kick"));
-    kickButton->addListener (this);
-
-    addAndMakeVisible (hihatButton = new TextButton ("Hihat"));
-    hihatButton->addListener (this);
-
     addAndMakeVisible (kickMuteButton = new ToggleButton ("kickMute"));
     kickMuteButton->setButtonText (String::empty);
     kickMuteButton->setConnectedEdges (Button::ConnectedOnBottom);
@@ -75,19 +66,19 @@ Gui::Gui (Controller* controller)
 
     addAndMakeVisible (kickVolumeSlider = new Slider ("kickVolume"));
     kickVolumeSlider->setRange (0, 1, 0);
-    kickVolumeSlider->setSliderStyle (Slider::LinearVertical);
+    kickVolumeSlider->setSliderStyle (Slider::LinearBar);
     kickVolumeSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
     kickVolumeSlider->addListener (this);
 
     addAndMakeVisible (snareVolumeSlider = new Slider ("snareVolume"));
     snareVolumeSlider->setRange (0, 1, 0);
-    snareVolumeSlider->setSliderStyle (Slider::LinearVertical);
+    snareVolumeSlider->setSliderStyle (Slider::LinearBar);
     snareVolumeSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
     snareVolumeSlider->addListener (this);
 
     addAndMakeVisible (hihatVolumeSlider = new Slider ("hihatVolume"));
     hihatVolumeSlider->setRange (0, 1, 0);
-    hihatVolumeSlider->setSliderStyle (Slider::LinearVertical);
+    hihatVolumeSlider->setSliderStyle (Slider::LinearBar);
     hihatVolumeSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
     hihatVolumeSlider->addListener (this);
 
@@ -227,14 +218,15 @@ Gui::Gui (Controller* controller)
 
     //[Constructor] You can add your own custom stuff here..
     masterSlider->setValue(4);
-    kickButton->setTriggeredOnMouseDown(true);
-    snareButton->setTriggeredOnMouseDown(true);
-    hihatButton->setTriggeredOnMouseDown(true);
 
     kickVolumeSlider->setValue(8);
     snareVolumeSlider->setValue(8);
     hihatVolumeSlider->setValue(8);
-    
+
+    kickVolumeSlider->setSliderStyle(Slider::LinearBarVertical);
+    snareVolumeSlider->setSliderStyle(Slider::LinearBarVertical);
+    hihatVolumeSlider->setSliderStyle(Slider::LinearBarVertical);
+
     kickStepper->setComponentID("kick");
     snareStepper->setComponentID("snare");
     hihatStepper->setComponentID("hihat");
@@ -249,9 +241,6 @@ Gui::~Gui()
 
     label = nullptr;
     masterSlider = nullptr;
-    snareButton = nullptr;
-    kickButton = nullptr;
-    hihatButton = nullptr;
     kickMuteButton = nullptr;
     snareMuteButton = nullptr;
     HihatMuteButton = nullptr;
@@ -309,9 +298,6 @@ void Gui::resized()
 
     label->setBounds (512, 488, 64, 16);
     masterSlider->setBounds (512, 504, 64, 64);
-    snareButton->setBounds (792, 587, 72, 24);
-    kickButton->setBounds (712, 587, 72, 24);
-    hihatButton->setBounds (872, 587, 72, 24);
     kickMuteButton->setBounds (80, 543, 24, 24);
     snareMuteButton->setBounds (128, 543, 24, 24);
     HihatMuteButton->setBounds (176, 543, 24, 24);
@@ -335,9 +321,9 @@ void Gui::resized()
     label6->setBounds (512, 344, 64, 16);
     shuffleSlider->setBounds (520, 432, 48, 48);
     label10->setBounds (512, 416, 64, 16);
-    kickStepper->setBounds (608, 64, 400, 60);
-    snareStepper->setBounds (608, 136, 400, 60);
-    hihatStepper->setBounds (608, 208, 400, 60);
+    kickStepper->setBounds (608, 72, 400, 60);
+    snareStepper->setBounds (608, 144, 400, 60);
+    hihatStepper->setBounds (608, 216, 400, 60);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -350,61 +336,61 @@ void Gui::sliderValueChanged (Slider* sliderThatWasMoved)
     if (sliderThatWasMoved == masterSlider)
     {
         //[UserSliderCode_masterSlider] -- add your slider handling code here..
-        controller->mixer.setMaster(masterSlider->getValue());
+        controller->mixer.globalParams.master = masterSlider->getValue();
         //[/UserSliderCode_masterSlider]
     }
     else if (sliderThatWasMoved == kickVolumeSlider)
     {
         //[UserSliderCode_kickVolumeSlider] -- add your slider handling code here..
-        controller->mixer.setTrackLevel(kickVolumeSlider->getValue(), Mixer::trackIndex::kick);
+        controller->mixer.sources[Mixer::trackIndex::kick]->trackParams.level = kickVolumeSlider->getValue();
         //[/UserSliderCode_kickVolumeSlider]
     }
     else if (sliderThatWasMoved == snareVolumeSlider)
     {
         //[UserSliderCode_snareVolumeSlider] -- add your slider handling code here..
-        controller->mixer.setTrackLevel(snareVolumeSlider->getValue(), Mixer::trackIndex::snare);
+        controller->mixer.sources[Mixer::trackIndex::snare]->trackParams.level = snareVolumeSlider->getValue();
         //[/UserSliderCode_snareVolumeSlider]
     }
     else if (sliderThatWasMoved == hihatVolumeSlider)
     {
         //[UserSliderCode_hihatVolumeSlider] -- add your slider handling code here..
-        controller->mixer.setTrackLevel(hihatVolumeSlider->getValue(), Mixer::trackIndex::hihat);
+        controller->mixer.sources[Mixer::trackIndex::hihat]->trackParams.level = hihatVolumeSlider->getValue();
         //[/UserSliderCode_hihatVolumeSlider]
     }
     else if (sliderThatWasMoved == sampleAllSlider)
     {
         //[UserSliderCode_sampleAllSlider] -- add your slider handling code here..
-        controller->mixer.setSampleAll(sampleAllSlider->getValue());
+        controller->mixer.globalParams.sample = sampleAllSlider->getValue();
         //[/UserSliderCode_sampleAllSlider]
     }
     else if (sliderThatWasMoved == pitchSlider)
     {
         //[UserSliderCode_pitchSlider] -- add your slider handling code here..
-        controller->mixer.setPitch(pitchSlider->getValue());
+        controller->mixer.globalParams.pitch = pitchSlider->getValue();
         //[/UserSliderCode_pitchSlider]
     }
     else if (sliderThatWasMoved == decaySlider)
     {
         //[UserSliderCode_decaySlider] -- add your slider handling code here..
-        controller->mixer.setDecay(decaySlider->getValue());
+        controller->mixer.globalParams.decay = decaySlider->getValue();
         //[/UserSliderCode_decaySlider]
     }
     else if (sliderThatWasMoved == distortSlider)
     {
         //[UserSliderCode_distortSlider] -- add your slider handling code here..
-        controller->mixer.setDistort(distortSlider->getValue());
+        controller->mixer.globalParams.distort = distortSlider->getValue();
         //[/UserSliderCode_distortSlider]
     }
     else if (sliderThatWasMoved == cutoffSlider)
     {
         //[UserSliderCode_cutoffSlider] -- add your slider handling code here..
-        controller->mixer.setCutoff(cutoffSlider->getValue());
+        controller->mixer.globalParams.cutoff = cutoffSlider->getValue();
         //[/UserSliderCode_cutoffSlider]
     }
     else if (sliderThatWasMoved == shuffleSlider)
     {
         //[UserSliderCode_shuffleSlider] -- add your slider handling code here..
-        controller->mixer.setShuffle(shuffleSlider->getValue());
+        controller->mixer.globalParams.shuffle = shuffleSlider->getValue();
         //[/UserSliderCode_shuffleSlider]
     }
 
@@ -417,40 +403,22 @@ void Gui::buttonClicked (Button* buttonThatWasClicked)
     //[UserbuttonClicked_Pre]
     //[/UserbuttonClicked_Pre]
 
-    if (buttonThatWasClicked == snareButton)
-    {
-        //[UserButtonCode_snareButton] -- add your button handler code here..
-        controller->mixer.playNote(38);
-        //[/UserButtonCode_snareButton]
-    }
-    else if (buttonThatWasClicked == kickButton)
-    {
-        //[UserButtonCode_kickButton] -- add your button handler code here..
-        controller->mixer.playNote(36);
-        //[/UserButtonCode_kickButton]
-    }
-    else if (buttonThatWasClicked == hihatButton)
-    {
-        //[UserButtonCode_hihatButton] -- add your button handler code here..
-        controller->mixer.playNote(42);
-        //[/UserButtonCode_hihatButton]
-    }
-    else if (buttonThatWasClicked == kickMuteButton)
+    if (buttonThatWasClicked == kickMuteButton)
     {
         //[UserButtonCode_kickMuteButton] -- add your button handler code here..
-        controller->mixer.setTrackMute(kickMuteButton->getToggleState(), Mixer::trackIndex::kick);
+        controller->mixer.sources[Mixer::trackIndex::kick]->trackParams.mute = kickMuteButton->getToggleState();
         //[/UserButtonCode_kickMuteButton]
     }
     else if (buttonThatWasClicked == snareMuteButton)
     {
         //[UserButtonCode_snareMuteButton] -- add your button handler code here..
-        controller->mixer.setTrackMute(snareMuteButton->getToggleState(), Mixer::trackIndex::snare);
+        controller->mixer.sources[Mixer::trackIndex::snare]->trackParams.mute = snareMuteButton->getToggleState();
         //[/UserButtonCode_snareMuteButton]
     }
     else if (buttonThatWasClicked == HihatMuteButton)
     {
         //[UserButtonCode_HihatMuteButton] -- add your button handler code here..
-        controller->mixer.setTrackMute(HihatMuteButton->getToggleState(), Mixer::trackIndex::hihat);
+        controller->mixer.sources[Mixer::trackIndex::hihat]->trackParams.mute = HihatMuteButton->getToggleState();
         //[/UserButtonCode_HihatMuteButton]
     }
 
@@ -490,15 +458,6 @@ BEGIN_JUCER_METADATA
           virtualName="" explicitFocusOrder="0" pos="512 504 64 64" min="0"
           max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="0.33000000000000001554"/>
-  <TEXTBUTTON name="Snare" id="4a1aa32f7c793c9e" memberName="snareButton" virtualName=""
-              explicitFocusOrder="0" pos="792 587 72 24" buttonText="Snare"
-              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
-  <TEXTBUTTON name="Kick" id="efea0982f303e263" memberName="kickButton" virtualName=""
-              explicitFocusOrder="0" pos="712 587 72 24" buttonText="Kick"
-              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
-  <TEXTBUTTON name="Hihat" id="3db853b8d0063a28" memberName="hihatButton" virtualName=""
-              explicitFocusOrder="0" pos="872 587 72 24" buttonText="Hihat"
-              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <TOGGLEBUTTON name="kickMute" id="a54088c4b7b86a7c" memberName="kickMuteButton"
                 virtualName="" explicitFocusOrder="0" pos="80 543 24 24" buttonText=""
                 connectedEdges="8" needsCallback="1" radioGroupId="0" state="0"/>
@@ -510,16 +469,16 @@ BEGIN_JUCER_METADATA
                 connectedEdges="8" needsCallback="1" radioGroupId="0" state="0"/>
   <SLIDER name="kickVolume" id="ae31972216ca91d8" memberName="kickVolumeSlider"
           virtualName="" explicitFocusOrder="0" pos="80 432 20 104" min="0"
-          max="1" int="0" style="LinearVertical" textBoxPos="NoTextBox"
-          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
+          max="1" int="0" style="LinearBar" textBoxPos="NoTextBox" textBoxEditable="1"
+          textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <SLIDER name="snareVolume" id="7473f902a9aba960" memberName="snareVolumeSlider"
           virtualName="" explicitFocusOrder="0" pos="128 432 20 104" min="0"
-          max="1" int="0" style="LinearVertical" textBoxPos="NoTextBox"
-          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
+          max="1" int="0" style="LinearBar" textBoxPos="NoTextBox" textBoxEditable="1"
+          textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <SLIDER name="hihatVolume" id="8734ecc063a71519" memberName="hihatVolumeSlider"
           virtualName="" explicitFocusOrder="0" pos="176 432 20 104" min="0"
-          max="1" int="0" style="LinearVertical" textBoxPos="NoTextBox"
-          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
+          max="1" int="0" style="LinearBar" textBoxPos="NoTextBox" textBoxEditable="1"
+          textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="486b2beaa1324a51" memberName="label7" virtualName=""
          explicitFocusOrder="0" pos="73 404 40 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Kick" editableSingleClick="0" editableDoubleClick="0"
@@ -604,14 +563,14 @@ BEGIN_JUCER_METADATA
          edBkgCol="0" labelText="Shuffle" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
-  <JUCERCOMP name="kick" id="5bc3cd7fa00d9ca1" memberName="kickStepper" virtualName="Stepper.cpp"
-             explicitFocusOrder="0" pos="608 64 400 60" sourceFile="Stepper.cpp"
+  <JUCERCOMP name="kick" id="d3558cec6b0505db" memberName="kickStepper" virtualName=""
+             explicitFocusOrder="0" pos="608 72 400 60" sourceFile="Stepper.cpp"
              constructorParams="controller"/>
-  <JUCERCOMP name="snare" id="72bd21588eb207f2" memberName="snareStepper"
-             virtualName="" explicitFocusOrder="0" pos="608 136 400 60" sourceFile="Stepper.cpp"
+  <JUCERCOMP name="snare" id="ce8e2fe038f9a041" memberName="snareStepper"
+             virtualName="" explicitFocusOrder="0" pos="608 144 400 60" sourceFile="Stepper.cpp"
              constructorParams="controller"/>
-  <JUCERCOMP name="hihat" id="8c1afe06277148f2" memberName="hihatStepper"
-             virtualName="" explicitFocusOrder="0" pos="608 208 400 60" sourceFile="Stepper.cpp"
+  <JUCERCOMP name="kick" id="c34ad782f2a5f719" memberName="hihatStepper" virtualName=""
+             explicitFocusOrder="0" pos="608 216 400 60" sourceFile="Stepper.cpp"
              constructorParams="controller"/>
 </JUCER_COMPONENT>
 

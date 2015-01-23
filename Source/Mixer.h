@@ -23,7 +23,7 @@ public:
     
     int getTrackByName(String name);
     
-    void playNote(int note);
+    void playNote(int note, float velocity);
     
     void setSampleAll(int value);
     void setPitch(float value);
@@ -51,6 +51,7 @@ public:
     
     OwnedArray<Source> sources;
     MidiMessageCollector midiCollector;
+    globalParamList globalParams;
     
 protected:
     
@@ -60,8 +61,6 @@ protected:
     Source* getTrackById(int trackId);
     
     MidiKeyboardState keyboardState;
-
-    globalParamList* globalParams = new globalParamList();
 };
 
 #endif  // MIXER_H_INCLUDED

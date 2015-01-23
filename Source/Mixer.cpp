@@ -18,7 +18,6 @@ Mixer::Mixer()
 }
 
 Mixer::~Mixer() {
-    delete globalParams;
 }
 
 int Mixer::getTrackByName(String name)
@@ -41,7 +40,8 @@ int Mixer::getTrackByName(String name)
 void Mixer::createAndAddTrack(int trackId, String name)
 {
     
-    Source* source = new Source(trackId, name, midiCollector, globalParams);
+    Source* source = new Source(trackId, name, midiCollector, &globalParams);
+//    ScopedPointer<Source>
     
     addInputSource(source, false);
     
@@ -74,48 +74,48 @@ void Mixer::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
     
     MixerAudioSource::getNextAudioBlock(bufferToFill);
     
-    bufferToFill.buffer->applyGain(globalParams->master);
+    bufferToFill.buffer->applyGain(globalParams.master);
 }
 
-void Mixer::playNote(int note)
+void Mixer::playNote(int note, float velocity)
 {
-    midiCollector.handleNoteOn(&keyboardState, 1, note, 1);
+    midiCollector.handleNoteOn(&keyboardState, 1, note, velocity);
 //    midiCollector.handleNoteOff(&keyboardState, 1, note);
 }
 
 void Mixer::setSampleAll (int value)
 {
-    globalParams->sample = value;
+    globalParams.sample = value;
 }
 
 void Mixer::setPitch(float value)
 {
-    globalParams->pitch = value;
+    globalParams.pitch = value;
 }
 
 void Mixer::setDecay(float value)
 {
-    globalParams->decay = value;
+    globalParams.decay = value;
 }
 
 void Mixer::setDistort(float value)
 {
-    globalParams->distort = value;
+    globalParams.distort = value;
 }
 
 void Mixer::setCutoff(float value)
 {
-    globalParams->cutoff = value;
+    globalParams.cutoff = value;
 }
 
 void Mixer::setShuffle(float value)
 {
-    globalParams->shuffle = value;
+    globalParams.shuffle = value;
 }
 
 void Mixer::setMaster (float value)
 {
-    globalParams->master = value;
+    globalParams.master = value;
 }
 
 void Mixer::setTrackLevel (float value, int trackId)

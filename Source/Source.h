@@ -47,6 +47,8 @@ public:
     
     MidiBuffer incomingMidi;
     
+    trackParamList trackParams; // automatic creation
+    
 protected:
     
     void configure(int trackId);
@@ -55,10 +57,12 @@ protected:
     IIRFilter filterL;
     IIRFilter filterR;
 
-    trackParamList* trackParams = new trackParamList();
-    Sampler sampler;
     double sampleRate;
-    globalParamList* globalParams;
+    
+    globalParamList* globalParams; // getting from outside
+
+    Sampler sampler;
+
 };
 
 

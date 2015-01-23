@@ -72,11 +72,11 @@ void Stepper::paint (Graphics& g)
     g.fillAll (Colour (0xe5000000));
 
     //[UserPaint] Add your own custom painting code here..
-    
+
     int trackId = controller->mixer.getTrackByName(getComponentID());
-    int numCells = controller->sequencer->getNumCells();
-    
-    Array<float> cells = controller->sequencer->getCells(trackId);
+    int numCells = controller->sequencer.getNumCells();
+
+    Array<float> cells = controller->sequencer.getCells(trackId);
 
     float cellWidth = (float) getWidth() / (float) numCells;
 
@@ -84,11 +84,11 @@ void Stepper::paint (Graphics& g)
 
         // default value color
         g.setColour (Colour (0xffffeb86));
-        
+
         if (cursor == i) {
             // active background colour
             g.setColour (Colour (0xe5333333));
-            
+
             // painting active background
             g.fillRect(
                        (float) i * cellWidth,
@@ -96,11 +96,11 @@ void Stepper::paint (Graphics& g)
                        (float) cellWidth,
                        (float) getHeight()
                        );
-            
+
             // active value colour
             g.setColour (Colour (0xffbfab46));
         }
-        
+
         g.fillRect(
            (float) i * cellWidth,
            (float) getHeight() - cells.getUnchecked(i) * getHeight(),
@@ -132,17 +132,25 @@ void Stepper::resized()
 void Stepper::mouseDown (const MouseEvent& e)
 {
     //[UserCode_mouseDown] -- Add your code here...
-    
-    int numCells = controller->sequencer->getNumCells();
+
+
+
+
+
+    int numCells = controller->sequencer.getNumCells();
 
     float cellWidth = getWidth() / numCells;
     int cellId = fmax(0, fmin(numCells, floor(e.getPosition().getX() / cellWidth)));
 
     float value = fmin(1, fmax(0, ((float) getHeight() - (float) e.getPosition().getY()) / (float) getHeight()));
-    
-    controller->sequencer->setCell(controller->mixer.getTrackByName(getComponentID()), cellId, value);
+
+    controller->sequencer.setCell(controller->mixer.getTrackByName(getComponentID()), cellId, value);
+
+    // FIXME: it might be better to use some sort of ValueListener here similar to ButtonListener as its a component change
 
     repaint();
+
+
 
     //[/UserCode_mouseDown]
 }

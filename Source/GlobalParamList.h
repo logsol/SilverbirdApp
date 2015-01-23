@@ -12,13 +12,13 @@
 #define GLOBALPARAMLIST_H_INCLUDED
 
 struct globalParamList {
-    int sample;
-    float pitch;
-    float decay;
-    float distort;
-    float cutoff;
-    float shuffle;
-    float master;
+    int sample = 0;
+    float pitch = 0;
+    float decay = 1;
+    float distort = 0;
+    float cutoff = 1;
+    float shuffle = 0;
+    float master = 1;
 };
 
 #endif  // GLOBALPARAMLIST_H_INCLUDED

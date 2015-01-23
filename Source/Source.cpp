@@ -16,14 +16,13 @@ Source::Source(int trackId, String name, MidiMessageCollector& midiCollector, gl
     midiCollector (midiCollector),
     name (name),
     trackId (trackId),
-    sampler(trackParams, globalParams),
-    globalParams(globalParams)
+    globalParams(globalParams),
+    sampler(&trackParams, this->globalParams)
 {
     configure(trackId);
 }
 
 Source::~Source() {
-    delete trackParams;
 }
 
 void Source::configure(int trackId)
@@ -109,9 +108,9 @@ void Source::releaseResources()
 void Source::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
 {
     // calculations
-    float cutoff = fmax(0, fmin(1, trackParams->cutoff + globalParams->cutoff));
-    float distort = 1 - fmax(0, fmin(0.93, trackParams->distort + globalParams->distort));
-    float level = trackParams->level * (!trackParams->mute);
+    float cutoff = fmax(0, fmin(1, trackParams.cutoff + globalParams->cutoff));
+    float distort = 1 - fmax(0, fmin(0.93, trackParams.distort + globalParams->distort));
+    float level = trackParams.level * (!trackParams.mute);
     
     // setup
     bufferToFill.clearActiveBufferRegion();
@@ -141,42 +140,43 @@ void Source::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
 
 void Source::setLevel(float value)
 {
-    trackParams->level = value;
+    trackParams.level = value;
 }
 
 void Source::setMute(bool isMuted)
 {
-    trackParams->mute = isMuted;
+    trackParams.mute = isMuted;
 }
 
 void Source::setSample(int value)
 {
-    trackParams->sample = value;
+    
+    trackParams.sample = value;
 }
 
 void Source::setAttack(float value)
 {
-    trackParams->attack = value;
+    trackParams.attack = value;
 }
 
 void Source::setDecay(float value)
 {
-    trackParams->decay = value;
+    trackParams.decay = value;
 }
 
 void Source::setPitch(float value)
 {
-    trackParams->pitch = value;
+    trackParams.pitch = value;
 }
 
 void Source::setDistort(float value)
 {
-    trackParams->distort = value;
+    trackParams.distort = value;
 }
 
 void Source::setCutoff(float value)
 {
-    trackParams->cutoff = value;
+    trackParams.cutoff = value;
 }
 
 /*

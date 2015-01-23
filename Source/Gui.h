@@ -67,9 +67,6 @@ private:
     //==============================================================================
     ScopedPointer<Label> label;
     ScopedPointer<Slider> masterSlider;
-    ScopedPointer<TextButton> snareButton;
-    ScopedPointer<TextButton> kickButton;
-    ScopedPointer<TextButton> hihatButton;
     ScopedPointer<ToggleButton> kickMuteButton;
     ScopedPointer<ToggleButton> snareMuteButton;
     ScopedPointer<ToggleButton> HihatMuteButton;

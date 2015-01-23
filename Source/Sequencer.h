@@ -14,11 +14,12 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Mixer.h"
 #include "ClockListener.h"
+#include "SequencerMessage.h"
 
-class Sequencer : public ClockListener
+class Sequencer : public ClockListener, public MessageListener
 {
 public:
-    Sequencer(MidiMessageCollector& midiCollector);
+    Sequencer(Mixer& mixer);
     ~Sequencer();
     
     int getNumCells();
@@ -26,13 +27,15 @@ public:
     void setCell(int trackId, int cellId, float value);
     void clockStep(int counter);
     
+    void handleMessage (const Message& message);
+    
 protected:
-    MidiMessageCollector& midiCollector;
-    MidiKeyboardState keyboardState;
+    Mixer& mixer;
     int numCells = 16;
     OwnedArray<Array<float>> matrix;
     
     int notes[3] = {36, 38, 42};
+    SequencerMessage* sequencerMessage; // gotta be on the heap.
 };
 
 

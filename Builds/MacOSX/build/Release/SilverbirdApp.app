@@ -1,0 +1,1 @@
+/Users/logsol/Library/Developer/Xcode/DerivedData/SilverbirdApp-eneappryokirdpancortjaggjhzm/Build/Intermediates/ArchiveIntermediates/SilverbirdApp/InstallationBuildProductsLocation/Users/logsol/Applications/SilverbirdApp.app

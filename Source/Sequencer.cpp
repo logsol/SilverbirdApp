@@ -10,7 +10,8 @@
 
 #include "Sequencer.h"
 
-Sequencer::Sequencer(MidiMessageCollector& midiCollector) : midiCollector(midiCollector)
+
+Sequencer::Sequencer(Mixer& mixer) : mixer(mixer)
 {
     // setting up matrix
     
@@ -43,11 +44,23 @@ void Sequencer::setCell(int trackId, int cellId, float value)
     matrix.getUnchecked(trackId)->set(cellId, value);
 }
 
-void Sequencer::clockStep(int counter)
+void Sequencer::clockStep(int cursorPosition)
 {
-    for (int i = 0; i < matrix.size(); i++) {
-        if (matrix.getUnchecked(i)->getUnchecked(counter)) {
-            midiCollector.handleNoteOn(&keyboardState, 1, notes[i], matrix.getUnchecked(i)->getUnchecked(counter));
+    for (int trackId = 0; trackId < matrix.size(); trackId++) {
+        if (matrix.getUnchecked(trackId)->getUnchecked(cursorPosition)) {
+            sequencerMessage = new SequencerMessage();
+            sequencerMessage->type = SequencerMessage::type_note;
+            sequencerMessage->trackId = trackId;
+            sequencerMessage->cellId = cursorPosition;
+            postMessage(sequencerMessage);
         }
     }
+}
+
+void Sequencer::handleMessage (const Message& message)
+{
+    SequencerMessage* sequencerMessage = (SequencerMessage*) &message;
+    float value = matrix.getUnchecked(sequencerMessage->trackId)->getUnchecked(sequencerMessage->cellId);
+    
+    mixer.playNote(notes[sequencerMessage->trackId], value);
 }

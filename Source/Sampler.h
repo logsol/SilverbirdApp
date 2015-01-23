@@ -33,7 +33,6 @@ public:
                                              bool stealIfNoneAvailable) const;
     
 protected:
-    
     trackParamList* trackParams;
     globalParamList* globalParams;
 };

@@ -23,21 +23,20 @@ public:
     Controller();
     ~Controller();
     
-    int getSelectedTrack();
-    void setSelectedTrack(int trackId);
     void addClockListener(ClockListener* listener);
     void removeClockListener(ClockListener* listener);
 
-    ScopedPointer<Sequencer> sequencer;
-    ScopedPointer<Clock> clock;
+    Sequencer sequencer;
+    Clock clock;
     Mixer mixer;
+    int dead = 1234;
 
 protected:
     void bootstrap();
     AudioSourcePlayer audioSourcePlayer;
     AudioDeviceManager audioDeviceManager;
     
-    int selectedTrack = 0;
+
 };
 
 #endif  // CONTROLLER_H_INCLUDED

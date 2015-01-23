@@ -193,37 +193,37 @@ void TrackParameters::sliderValueChanged (Slider* sliderThatWasMoved)
     if (sliderThatWasMoved == selectSlider)
     {
         //[UserSliderCode_selectSlider] -- add your slider handling code here..
-        controller->mixer->setTrackSample(selectSlider->getValue(), trackId);
+        controller->mixer.sources[trackId]->trackParams.sample = selectSlider->getValue();
         //[/UserSliderCode_selectSlider]
     }
     else if (sliderThatWasMoved == attackSlider)
     {
         //[UserSliderCode_attackSlider] -- add your slider handling code here..
-        controller->mixer->setTrackAttack(attackSlider->getValue(), trackId);
+        controller->mixer.sources[trackId]->trackParams.attack = attackSlider->getValue();
         //[/UserSliderCode_attackSlider]
     }
     else if (sliderThatWasMoved == decaySlider)
     {
         //[UserSliderCode_decaySlider] -- add your slider handling code here..
-        controller->mixer->setTrackDecay(decaySlider->getValue(), trackId);
+        controller->mixer.sources[trackId]->trackParams.decay = decaySlider->getValue();
         //[/UserSliderCode_decaySlider]
     }
     else if (sliderThatWasMoved == pitchSlider)
     {
         //[UserSliderCode_pitchSlider] -- add your slider handling code here..
-        controller->mixer->setTrackPitch(pitchSlider->getValue(), trackId);
+        controller->mixer.sources[trackId]->trackParams.pitch = pitchSlider->getValue();
         //[/UserSliderCode_pitchSlider]
     }
     else if (sliderThatWasMoved == cutoffSlider)
     {
         //[UserSliderCode_cutoffSlider] -- add your slider handling code here..
-        controller->mixer->setTrackCutoff(cutoffSlider->getValue(), trackId);
+        controller->mixer.sources[trackId]->trackParams.cutoff = cutoffSlider->getValue();
         //[/UserSliderCode_cutoffSlider]
     }
     else if (sliderThatWasMoved == distortSlider)
     {
         //[UserSliderCode_distortSlider] -- add your slider handling code here..
-        controller->mixer->setTrackDistort(distortSlider->getValue(), trackId);
+        controller->mixer.sources[trackId]->trackParams.distort = distortSlider->getValue();
         //[/UserSliderCode_distortSlider]
     }
 

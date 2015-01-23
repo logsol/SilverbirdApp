@@ -48,8 +48,8 @@ void Voice::renderNextBlock (AudioSampleBuffer& outputBuffer, int startSample, i
             
             env.process();
             
-            *outL++ += inL[(int) posi] * env.getOutput();
-            *outR++ += inR[(int) posi] * env.getOutput();
+            *outL++ += inL[(int) posi] * env.getOutput() * velocity;
+            *outR++ += inR[(int) posi] * env.getOutput() * velocity;
             
             posi += pitch;
             
@@ -75,7 +75,7 @@ void Voice::startNote (const int midiNoteNumber,
                              const int pitchWheel)
 {
     //std::cout << "playing voice nr: " << id << std::endl;
-    
+    this->velocity = velocity;
     SamplerVoice::startNote(midiNoteNumber, velocity, s, pitchWheel);
     env.reset();
     env.gate(1);

@@ -35,6 +35,7 @@ protected:
     int lastEnvState = ADSR::env_idle;
     int id;
     float pitch;
+    float velocity;
     
 private:
     float posi;
