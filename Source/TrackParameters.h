@@ -59,17 +59,17 @@ private:
     //[/UserVariables]
 
     //==============================================================================
-    ScopedPointer<Slider> selectSlider;
+    ScopedPointer<Knob> selectSlider;
     ScopedPointer<Label> label2;
-    ScopedPointer<Slider> attackSlider;
+    ScopedPointer<Knob> attackSlider;
     ScopedPointer<Label> label4;
-    ScopedPointer<Slider> decaySlider;
+    ScopedPointer<Knob> decaySlider;
     ScopedPointer<Label> label5;
-    ScopedPointer<Slider> pitchSlider;
+    ScopedPointer<Knob> pitchSlider;
     ScopedPointer<Label> label6;
-    ScopedPointer<Slider> cutoffSlider;
+    ScopedPointer<Knob> cutoffSlider;
     ScopedPointer<Label> label10;
-    ScopedPointer<Slider> distortSlider;
+    ScopedPointer<Knob> distortSlider;
     ScopedPointer<Label> label3;
 
 

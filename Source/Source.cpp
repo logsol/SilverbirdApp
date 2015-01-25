@@ -31,42 +31,208 @@ void Source::configure(int trackId)
     switch (trackId) {
         {
         case Mixer::kick:
-            const int numKicks = 5;
+            const int numKicks = 23;
             MemoryInputStream* kicks[numKicks] = {
                 //new MemoryInputStream (BinaryData::sine_aif, BinaryData::sine_aifSize, false),
-                new MemoryInputStream (BinaryData::kick1_aif, BinaryData::kick1_aifSize, false),
-                new MemoryInputStream (BinaryData::kick2_aif, BinaryData::kick2_aifSize, false),
-                new MemoryInputStream (BinaryData::kick3_aif, BinaryData::kick3_aifSize, false),
-                new MemoryInputStream (BinaryData::kick4_aif, BinaryData::kick4_aifSize, false),
-                new MemoryInputStream (BinaryData::kick5_aif, BinaryData::kick5_aifSize, false)
+                new MemoryInputStream (BinaryData::kick_01_aif, BinaryData::kick_01_aifSize, false),
+                new MemoryInputStream (BinaryData::kick_02_aif, BinaryData::kick_02_aifSize, false),
+                new MemoryInputStream (BinaryData::kick_03_aif, BinaryData::kick_03_aifSize, false),
+                new MemoryInputStream (BinaryData::kick_04_aif, BinaryData::kick_04_aifSize, false),
+                new MemoryInputStream (BinaryData::kick_05_aif, BinaryData::kick_05_aifSize, false),
+                new MemoryInputStream (BinaryData::kick_06_aif, BinaryData::kick_06_aifSize, false),
+                new MemoryInputStream (BinaryData::kick_07_aif, BinaryData::kick_07_aifSize, false),
+                new MemoryInputStream (BinaryData::kick_08_aif, BinaryData::kick_08_aifSize, false),
+                new MemoryInputStream (BinaryData::kick_09_aif, BinaryData::kick_09_aifSize, false),
+                new MemoryInputStream (BinaryData::kick_10_aif, BinaryData::kick_10_aifSize, false),
+                new MemoryInputStream (BinaryData::kick_11_aif, BinaryData::kick_11_aifSize, false),
+                new MemoryInputStream (BinaryData::kick_12_aif, BinaryData::kick_12_aifSize, false),
+                new MemoryInputStream (BinaryData::kick_13_aif, BinaryData::kick_13_aifSize, false),
+                new MemoryInputStream (BinaryData::kick_14_aif, BinaryData::kick_14_aifSize, false),
+                new MemoryInputStream (BinaryData::kick_15_aif, BinaryData::kick_15_aifSize, false),
+                new MemoryInputStream (BinaryData::kick_16_aif, BinaryData::kick_16_aifSize, false),
+                new MemoryInputStream (BinaryData::kick_17_aif, BinaryData::kick_17_aifSize, false),
+                new MemoryInputStream (BinaryData::kick_18_aif, BinaryData::kick_18_aifSize, false),
+                new MemoryInputStream (BinaryData::kick_19_aif, BinaryData::kick_19_aifSize, false),
+                new MemoryInputStream (BinaryData::kick_20_aif, BinaryData::kick_10_aifSize, false),
+                new MemoryInputStream (BinaryData::kick_21_aif, BinaryData::kick_21_aifSize, false),
+                new MemoryInputStream (BinaryData::kick_22_aif, BinaryData::kick_22_aifSize, false),
+                new MemoryInputStream (BinaryData::kick_23_aif, BinaryData::kick_23_aifSize, false)
             };
             setup(Mixer::trackIndex::kick, 36, numKicks, kicks);
             break;
         }
         {
         case Mixer::snare:
-            const int numSnares = 5;
+            const int numSnares = 24;
             MemoryInputStream* snares[numSnares] = {
-                new MemoryInputStream (BinaryData::snare1_aif, BinaryData::snare1_aifSize, false),
-                new MemoryInputStream (BinaryData::snare2_aif, BinaryData::snare2_aifSize, false),
-                new MemoryInputStream (BinaryData::snare3_aif, BinaryData::snare3_aifSize, false),
-                new MemoryInputStream (BinaryData::snare4_aif, BinaryData::snare4_aifSize, false),
-                new MemoryInputStream (BinaryData::snare5_aif, BinaryData::snare5_aifSize, false)
+                new MemoryInputStream (BinaryData::snare_01_aif, BinaryData::snare_01_aifSize, false),
+                new MemoryInputStream (BinaryData::snare_02_aif, BinaryData::snare_02_aifSize, false),
+                new MemoryInputStream (BinaryData::snare_03_aif, BinaryData::snare_03_aifSize, false),
+                new MemoryInputStream (BinaryData::snare_04_aif, BinaryData::snare_04_aifSize, false),
+                new MemoryInputStream (BinaryData::snare_05_aif, BinaryData::snare_05_aifSize, false),
+                new MemoryInputStream (BinaryData::snare_06_aif, BinaryData::snare_06_aifSize, false),
+                new MemoryInputStream (BinaryData::snare_07_aif, BinaryData::snare_07_aifSize, false),
+                new MemoryInputStream (BinaryData::snare_08_aif, BinaryData::snare_08_aifSize, false),
+                new MemoryInputStream (BinaryData::snare_09_aif, BinaryData::snare_09_aifSize, false),
+                new MemoryInputStream (BinaryData::snare_10_aif, BinaryData::snare_10_aifSize, false),
+                new MemoryInputStream (BinaryData::snare_11_aif, BinaryData::snare_11_aifSize, false),
+                new MemoryInputStream (BinaryData::snare_12_aif, BinaryData::snare_12_aifSize, false),
+                new MemoryInputStream (BinaryData::snare_13_aif, BinaryData::snare_13_aifSize, false),
+                new MemoryInputStream (BinaryData::snare_14_aif, BinaryData::snare_14_aifSize, false),
+                new MemoryInputStream (BinaryData::snare_15_aif, BinaryData::snare_15_aifSize, false),
+                new MemoryInputStream (BinaryData::snare_16_aif, BinaryData::snare_16_aifSize, false),
+                new MemoryInputStream (BinaryData::snare_17_aif, BinaryData::snare_17_aifSize, false),
+                new MemoryInputStream (BinaryData::snare_18_aif, BinaryData::snare_18_aifSize, false),
+                new MemoryInputStream (BinaryData::snare_19_aif, BinaryData::snare_19_aifSize, false),
+                new MemoryInputStream (BinaryData::snare_20_aif, BinaryData::snare_20_aifSize, false),
+                new MemoryInputStream (BinaryData::snare_21_aif, BinaryData::snare_21_aifSize, false),
+                new MemoryInputStream (BinaryData::snare_22_aif, BinaryData::snare_22_aifSize, false),
+                new MemoryInputStream (BinaryData::snare_23_aif, BinaryData::snare_23_aifSize, false),
+                new MemoryInputStream (BinaryData::snare_24_aif, BinaryData::snare_24_aifSize, false)
             };
             setup(Mixer::trackIndex::snare, 38, numSnares, snares);
             break;
         }
         {
         case Mixer::hihat:
-            const int numHihats = 5;
+            const int numHihats = 23;
             MemoryInputStream* hihats[numHihats] = {
-                new MemoryInputStream (BinaryData::hihat1_aif, BinaryData::hihat1_aifSize, false),
-                new MemoryInputStream (BinaryData::hihat2_aif, BinaryData::hihat2_aifSize, false),
-                new MemoryInputStream (BinaryData::hihat3_aif, BinaryData::hihat3_aifSize, false),
-                new MemoryInputStream (BinaryData::hihat4_aif, BinaryData::hihat4_aifSize, false),
-                new MemoryInputStream (BinaryData::hihat5_aif, BinaryData::hihat5_aifSize, false)
+                new MemoryInputStream (BinaryData::hihat_01_aif, BinaryData::hihat_01_aifSize, false),
+                new MemoryInputStream (BinaryData::hihat_02_aif, BinaryData::hihat_02_aifSize, false),
+                new MemoryInputStream (BinaryData::hihat_03_aif, BinaryData::hihat_03_aifSize, false),
+                new MemoryInputStream (BinaryData::hihat_04_aif, BinaryData::hihat_04_aifSize, false),
+                new MemoryInputStream (BinaryData::hihat_05_aif, BinaryData::hihat_05_aifSize, false),
+                new MemoryInputStream (BinaryData::hihat_06_aif, BinaryData::hihat_06_aifSize, false),
+                new MemoryInputStream (BinaryData::hihat_07_aif, BinaryData::hihat_07_aifSize, false),
+                new MemoryInputStream (BinaryData::hihat_08_aif, BinaryData::hihat_08_aifSize, false),
+                new MemoryInputStream (BinaryData::hihat_09_aif, BinaryData::hihat_09_aifSize, false),
+                new MemoryInputStream (BinaryData::hihat_10_aif, BinaryData::hihat_10_aifSize, false),
+                new MemoryInputStream (BinaryData::hihat_11_aif, BinaryData::hihat_11_aifSize, false),
+                new MemoryInputStream (BinaryData::hihat_12_aif, BinaryData::hihat_12_aifSize, false),
+                new MemoryInputStream (BinaryData::hihat_13_aif, BinaryData::hihat_13_aifSize, false),
+                new MemoryInputStream (BinaryData::hihat_14_aif, BinaryData::hihat_14_aifSize, false),
+                new MemoryInputStream (BinaryData::hihat_15_aif, BinaryData::hihat_15_aifSize, false),
+                new MemoryInputStream (BinaryData::hihat_16_aif, BinaryData::hihat_16_aifSize, false),
+                new MemoryInputStream (BinaryData::hihat_17_aif, BinaryData::hihat_17_aifSize, false),
+                new MemoryInputStream (BinaryData::hihat_18_aif, BinaryData::hihat_18_aifSize, false),
+                new MemoryInputStream (BinaryData::hihat_19_aif, BinaryData::hihat_19_aifSize, false),
+                new MemoryInputStream (BinaryData::hihat_20_aif, BinaryData::hihat_20_aifSize, false),
+                new MemoryInputStream (BinaryData::hihat_21_aif, BinaryData::hihat_21_aifSize, false),
+                new MemoryInputStream (BinaryData::hihat_22_aif, BinaryData::hihat_22_aifSize, false),
+                new MemoryInputStream (BinaryData::hihat_23_aif, BinaryData::hihat_23_aifSize, false)
+                
             };
             setup(Mixer::trackIndex::hihat, 42, numHihats, hihats);
+            break;
+        }
+        {
+        case Mixer::perc1:
+            const int numPerc1s = 26;
+            MemoryInputStream* perc1s[numPerc1s] = {
+                new MemoryInputStream (BinaryData::perc1_01_aif, BinaryData::perc1_01_aifSize, false),
+                new MemoryInputStream (BinaryData::perc1_02_aif, BinaryData::perc1_02_aifSize, false),
+                new MemoryInputStream (BinaryData::perc1_03_aif, BinaryData::perc1_03_aifSize, false),
+                new MemoryInputStream (BinaryData::perc1_04_aif, BinaryData::perc1_04_aifSize, false),
+                new MemoryInputStream (BinaryData::perc1_05_aif, BinaryData::perc1_05_aifSize, false),
+                new MemoryInputStream (BinaryData::perc1_06_aif, BinaryData::perc1_06_aifSize, false),
+                new MemoryInputStream (BinaryData::perc1_07_aif, BinaryData::perc1_07_aifSize, false),
+                new MemoryInputStream (BinaryData::perc1_08_aif, BinaryData::perc1_08_aifSize, false),
+                new MemoryInputStream (BinaryData::perc1_09_aif, BinaryData::perc1_09_aifSize, false),
+                new MemoryInputStream (BinaryData::perc1_10_aif, BinaryData::perc1_10_aifSize, false),
+                new MemoryInputStream (BinaryData::perc1_11_aif, BinaryData::perc1_11_aifSize, false),
+                new MemoryInputStream (BinaryData::perc1_12_aif, BinaryData::perc1_12_aifSize, false),
+                new MemoryInputStream (BinaryData::perc1_13_aif, BinaryData::perc1_13_aifSize, false),
+                new MemoryInputStream (BinaryData::perc1_14_aif, BinaryData::perc1_14_aifSize, false),
+                new MemoryInputStream (BinaryData::perc1_15_aif, BinaryData::perc1_15_aifSize, false),
+                new MemoryInputStream (BinaryData::perc1_16_aif, BinaryData::perc1_16_aifSize, false),
+                new MemoryInputStream (BinaryData::perc1_17_aif, BinaryData::perc1_17_aifSize, false),
+                new MemoryInputStream (BinaryData::perc1_18_aif, BinaryData::perc1_18_aifSize, false),
+                new MemoryInputStream (BinaryData::perc1_19_aif, BinaryData::perc1_19_aifSize, false),
+                new MemoryInputStream (BinaryData::perc1_20_aif, BinaryData::perc1_20_aifSize, false),
+                new MemoryInputStream (BinaryData::perc1_21_aif, BinaryData::perc1_21_aifSize, false),
+                new MemoryInputStream (BinaryData::perc1_22_aif, BinaryData::perc1_22_aifSize, false),
+                new MemoryInputStream (BinaryData::perc1_23_aif, BinaryData::perc1_23_aifSize, false),
+                new MemoryInputStream (BinaryData::perc1_24_aif, BinaryData::perc1_24_aifSize, false),
+                new MemoryInputStream (BinaryData::perc1_25_aif, BinaryData::perc1_25_aifSize, false),
+                new MemoryInputStream (BinaryData::perc1_26_aif, BinaryData::perc1_26_aifSize, false)
+            };
+            setup(Mixer::trackIndex::perc1, 45, numPerc1s, perc1s);
+            break;
+        }
+        {
+        case Mixer::perc2:
+            const int numPerc2s = 29;
+            MemoryInputStream* perc2s[numPerc2s] = {
+                new MemoryInputStream (BinaryData::perc2_01_aif, BinaryData::perc2_01_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_02_aif, BinaryData::perc2_02_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_03_aif, BinaryData::perc2_03_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_04_aif, BinaryData::perc2_04_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_05_aif, BinaryData::perc2_05_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_06_aif, BinaryData::perc2_06_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_07_aif, BinaryData::perc2_07_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_08_aif, BinaryData::perc2_08_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_09_aif, BinaryData::perc2_09_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_10_aif, BinaryData::perc2_10_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_11_aif, BinaryData::perc2_11_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_12_aif, BinaryData::perc2_12_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_13_aif, BinaryData::perc2_13_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_14_aif, BinaryData::perc2_14_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_15_aif, BinaryData::perc2_15_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_16_aif, BinaryData::perc2_16_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_17_aif, BinaryData::perc2_17_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_18_aif, BinaryData::perc2_18_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_19_aif, BinaryData::perc2_19_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_20_aif, BinaryData::perc2_20_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_21_aif, BinaryData::perc2_21_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_22_aif, BinaryData::perc2_22_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_23_aif, BinaryData::perc2_23_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_24_aif, BinaryData::perc2_24_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_25_aif, BinaryData::perc2_25_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_26_aif, BinaryData::perc2_26_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_27_aif, BinaryData::perc2_27_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_28_aif, BinaryData::perc2_28_aifSize, false),
+                new MemoryInputStream (BinaryData::perc2_29_aif, BinaryData::perc2_29_aifSize, false)
+            };
+            setup(Mixer::trackIndex::perc2, 48, numPerc2s, perc2s);
+            break;
+        }
+        {
+        case Mixer::tones:
+            const int numTones = 30;
+            MemoryInputStream* tones[numTones] = {
+                new MemoryInputStream (BinaryData::tones_01_aif, BinaryData::tones_01_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_02_aif, BinaryData::tones_02_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_03_aif, BinaryData::tones_03_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_04_aif, BinaryData::tones_04_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_05_aif, BinaryData::tones_05_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_06_aif, BinaryData::tones_06_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_07_aif, BinaryData::tones_07_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_08_aif, BinaryData::tones_08_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_09_aif, BinaryData::tones_09_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_10_aif, BinaryData::tones_10_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_11_aif, BinaryData::tones_11_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_12_aif, BinaryData::tones_12_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_13_aif, BinaryData::tones_13_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_14_aif, BinaryData::tones_14_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_15_aif, BinaryData::tones_15_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_16_aif, BinaryData::tones_16_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_17_aif, BinaryData::tones_17_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_18_aif, BinaryData::tones_18_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_19_aif, BinaryData::tones_19_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_20_aif, BinaryData::tones_20_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_21_aif, BinaryData::tones_21_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_22_aif, BinaryData::tones_22_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_23_aif, BinaryData::tones_23_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_24_aif, BinaryData::tones_24_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_25_aif, BinaryData::tones_25_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_26_aif, BinaryData::tones_26_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_27_aif, BinaryData::tones_27_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_28_aif, BinaryData::tones_28_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_29_aif, BinaryData::tones_29_aifSize, false),
+                new MemoryInputStream (BinaryData::tones_30_aif, BinaryData::tones_30_aifSize, false)
+            };
+            setup(Mixer::trackIndex::tones, 52, numTones, tones);
+            break;
         }
         {
         default:

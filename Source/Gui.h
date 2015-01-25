@@ -23,6 +23,7 @@
 //[Headers]     -- You can add your own extra header files here --
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Controller.h"
+#include "Knob.h"
 //[/Headers]
 
 #include "Stepper.h"
@@ -66,7 +67,7 @@ private:
 
     //==============================================================================
     ScopedPointer<Label> label;
-    ScopedPointer<Slider> masterSlider;
+    ScopedPointer<Knob> masterSlider;
     ScopedPointer<ToggleButton> kickMuteButton;
     ScopedPointer<ToggleButton> snareMuteButton;
     ScopedPointer<ToggleButton> HihatMuteButton;
@@ -78,21 +79,33 @@ private:
     ScopedPointer<Label> label9;
     ScopedPointer<Label> label11;
     ScopedPointer<TabbedComponent> tabbedComponent;
-    ScopedPointer<Slider> sampleAllSlider;
+    ScopedPointer<Knob> sampleAllSlider;
     ScopedPointer<Label> label2;
-    ScopedPointer<Slider> pitchSlider;
+    ScopedPointer<Knob> pitchSlider;
     ScopedPointer<Label> label3;
-    ScopedPointer<Slider> decaySlider;
+    ScopedPointer<Knob> decaySlider;
     ScopedPointer<Label> label4;
-    ScopedPointer<Slider> distortSlider;
+    ScopedPointer<Knob> distortSlider;
     ScopedPointer<Label> label5;
-    ScopedPointer<Slider> cutoffSlider;
+    ScopedPointer<Knob> cutoffSlider;
     ScopedPointer<Label> label6;
-    ScopedPointer<Slider> shuffleSlider;
+    ScopedPointer<Knob> shuffleSlider;
     ScopedPointer<Label> label10;
     ScopedPointer<Stepper> kickStepper;
     ScopedPointer<Stepper> snareStepper;
     ScopedPointer<Stepper> hihatStepper;
+    ScopedPointer<Stepper> perc1Stepper;
+    ScopedPointer<Stepper> perc2Stepper;
+    ScopedPointer<Stepper> tonesStepper;
+    ScopedPointer<ToggleButton> perc1MuteButton;
+    ScopedPointer<ToggleButton> perc2MuteButton;
+    ScopedPointer<ToggleButton> tonesMuteButton;
+    ScopedPointer<Slider> perc1VolumeSlider;
+    ScopedPointer<Slider> perc2VolumeSlider;
+    ScopedPointer<Slider> tonesVolumeSlider;
+    ScopedPointer<Label> label12;
+    ScopedPointer<Label> label13;
+    ScopedPointer<Label> label14;
     Image cachedImage_background_png;
 
 

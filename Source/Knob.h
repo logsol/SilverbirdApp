@@ -19,7 +19,7 @@ class Knob
 {
 public:
     //==============================================================================
-    Knob(const String &name, const int &_singleImageWidth, const int &_singleImageHeight);
+    Knob(const String &name);
     ~Knob();
     
     void paint(Graphics& g) override;

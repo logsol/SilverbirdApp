@@ -24,6 +24,7 @@
 //[/Headers]
 
 #include "Gui.h"
+#include "TrackParameters.h"
 
 
 //[MiscUserDefs] You can add your own user definitions and misc code here...
@@ -42,10 +43,13 @@ Gui::Gui (Controller* controller)
     label->setColour (TextEditor::textColourId, Colours::black);
     label->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (masterSlider = new Slider ("Master"));
+    addAndMakeVisible (masterSlider = new Knob ("Master"));
     masterSlider->setRange (0, 1, 0);
     masterSlider->setSliderStyle (Slider::RotaryVerticalDrag);
     masterSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
+    masterSlider->setColour (Slider::trackColourId, Colour (0x7fffffff));
+    masterSlider->setColour (Slider::rotarySliderFillColourId, Colour (0x7f0000ff));
+    masterSlider->setColour (Slider::rotarySliderOutlineColourId, Colour (0x66000000));
     masterSlider->addListener (this);
     masterSlider->setSkewFactor (0.33);
 
@@ -68,18 +72,22 @@ Gui::Gui (Controller* controller)
     kickVolumeSlider->setRange (0, 1, 0);
     kickVolumeSlider->setSliderStyle (Slider::LinearBar);
     kickVolumeSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
+    kickVolumeSlider->setColour (Slider::thumbColourId, Colour (0xffffeb86));
     kickVolumeSlider->addListener (this);
 
     addAndMakeVisible (snareVolumeSlider = new Slider ("snareVolume"));
     snareVolumeSlider->setRange (0, 1, 0);
     snareVolumeSlider->setSliderStyle (Slider::LinearBar);
     snareVolumeSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
+    snareVolumeSlider->setColour (Slider::thumbColourId, Colour (0xffffeb86));
     snareVolumeSlider->addListener (this);
 
     addAndMakeVisible (hihatVolumeSlider = new Slider ("hihatVolume"));
     hihatVolumeSlider->setRange (0, 1, 0);
     hihatVolumeSlider->setSliderStyle (Slider::LinearBar);
     hihatVolumeSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
+    hihatVolumeSlider->setColour (Slider::thumbColourId, Colour (0xffffeb86));
+    hihatVolumeSlider->setColour (Slider::rotarySliderFillColourId, Colour (0x7f0000ff));
     hihatVolumeSlider->addListener (this);
 
     addAndMakeVisible (label7 = new Label ("new label",
@@ -115,13 +123,16 @@ Gui::Gui (Controller* controller)
     label11->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (tabbedComponent = new TabbedComponent (TabbedButtonBar::TabsAtTop));
-    tabbedComponent->setTabBarDepth (30);
+    tabbedComponent->setTabBarDepth (26);
     tabbedComponent->addTab (TRANS("Kick"), Colour (0xf1f1f1f1), new TrackParameters (controller), true);
     tabbedComponent->addTab (TRANS("Snare"), Colour (0xf1f1f1f1), new TrackParameters (controller), true);
     tabbedComponent->addTab (TRANS("Hihat"), Colour (0xf1f1f1f1), new TrackParameters (controller), true);
+    tabbedComponent->addTab (TRANS("Perc1"), Colour (0xf1f1f1f1), new TrackParameters (controller), true);
+    tabbedComponent->addTab (TRANS("Perc2"), Colour (0xf1f1f1f1), new TrackParameters (controller), true);
+    tabbedComponent->addTab (TRANS("Tones"), Colour (0xf1f1f1f1), new TrackParameters (controller), true);
     tabbedComponent->setCurrentTabIndex (0);
 
-    addAndMakeVisible (sampleAllSlider = new Slider ("SampleAll"));
+    addAndMakeVisible (sampleAllSlider = new Knob ("SampleAll"));
     sampleAllSlider->setRange (-10, 10, 1);
     sampleAllSlider->setSliderStyle (Slider::RotaryVerticalDrag);
     sampleAllSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
@@ -135,8 +146,8 @@ Gui::Gui (Controller* controller)
     label2->setColour (TextEditor::textColourId, Colours::black);
     label2->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (pitchSlider = new Slider ("Pitch"));
-    pitchSlider->setRange (-1, 1, 0);
+    addAndMakeVisible (pitchSlider = new Knob ("Pitch"));
+    pitchSlider->setRange (-1, 1, 0.0833333);
     pitchSlider->setSliderStyle (Slider::RotaryVerticalDrag);
     pitchSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
     pitchSlider->addListener (this);
@@ -149,7 +160,7 @@ Gui::Gui (Controller* controller)
     label3->setColour (TextEditor::textColourId, Colours::black);
     label3->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (decaySlider = new Slider ("Decay"));
+    addAndMakeVisible (decaySlider = new Knob ("Decay"));
     decaySlider->setRange (-1, 1, 0);
     decaySlider->setSliderStyle (Slider::RotaryVerticalDrag);
     decaySlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
@@ -163,7 +174,7 @@ Gui::Gui (Controller* controller)
     label4->setColour (TextEditor::textColourId, Colours::black);
     label4->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (distortSlider = new Slider ("Distort"));
+    addAndMakeVisible (distortSlider = new Knob ("Distort"));
     distortSlider->setRange (-1, 1, 0);
     distortSlider->setSliderStyle (Slider::RotaryVerticalDrag);
     distortSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
@@ -177,7 +188,7 @@ Gui::Gui (Controller* controller)
     label5->setColour (TextEditor::textColourId, Colours::black);
     label5->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (cutoffSlider = new Slider ("Cutoff"));
+    addAndMakeVisible (cutoffSlider = new Knob ("Cutoff"));
     cutoffSlider->setRange (-1, 1, 0);
     cutoffSlider->setSliderStyle (Slider::RotaryVerticalDrag);
     cutoffSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
@@ -191,8 +202,8 @@ Gui::Gui (Controller* controller)
     label6->setColour (TextEditor::textColourId, Colours::black);
     label6->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (shuffleSlider = new Slider ("Shuffle"));
-    shuffleSlider->setRange (0, 1, 0);
+    addAndMakeVisible (shuffleSlider = new Knob ("Shuffle"));
+    shuffleSlider->setRange (0, 1, 1);
     shuffleSlider->setSliderStyle (Slider::RotaryVerticalDrag);
     shuffleSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
     shuffleSlider->addListener (this);
@@ -208,6 +219,69 @@ Gui::Gui (Controller* controller)
     addAndMakeVisible (kickStepper = new Stepper (controller));
     addAndMakeVisible (snareStepper = new Stepper (controller));
     addAndMakeVisible (hihatStepper = new Stepper (controller));
+    addAndMakeVisible (perc1Stepper = new Stepper (controller));
+    addAndMakeVisible (perc2Stepper = new Stepper (controller));
+    addAndMakeVisible (tonesStepper = new Stepper (controller));
+    addAndMakeVisible (perc1MuteButton = new ToggleButton ("perc1Mute"));
+    perc1MuteButton->setButtonText (String::empty);
+    perc1MuteButton->setConnectedEdges (Button::ConnectedOnBottom);
+    perc1MuteButton->addListener (this);
+
+    addAndMakeVisible (perc2MuteButton = new ToggleButton ("perc2Mute"));
+    perc2MuteButton->setButtonText (String::empty);
+    perc2MuteButton->setConnectedEdges (Button::ConnectedOnBottom);
+    perc2MuteButton->addListener (this);
+
+    addAndMakeVisible (tonesMuteButton = new ToggleButton ("tonesMute"));
+    tonesMuteButton->setButtonText (String::empty);
+    tonesMuteButton->setConnectedEdges (Button::ConnectedOnBottom);
+    tonesMuteButton->addListener (this);
+
+    addAndMakeVisible (perc1VolumeSlider = new Slider ("perc1Volume"));
+    perc1VolumeSlider->setRange (0, 1, 0);
+    perc1VolumeSlider->setSliderStyle (Slider::LinearBar);
+    perc1VolumeSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
+    perc1VolumeSlider->setColour (Slider::thumbColourId, Colour (0xffffeb86));
+    perc1VolumeSlider->addListener (this);
+
+    addAndMakeVisible (perc2VolumeSlider = new Slider ("perc2Volume"));
+    perc2VolumeSlider->setRange (0, 1, 0);
+    perc2VolumeSlider->setSliderStyle (Slider::LinearBar);
+    perc2VolumeSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
+    perc2VolumeSlider->setColour (Slider::thumbColourId, Colour (0xffffeb86));
+    perc2VolumeSlider->addListener (this);
+
+    addAndMakeVisible (tonesVolumeSlider = new Slider ("tonesVolume"));
+    tonesVolumeSlider->setRange (0, 1, 0);
+    tonesVolumeSlider->setSliderStyle (Slider::LinearBar);
+    tonesVolumeSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
+    tonesVolumeSlider->setColour (Slider::thumbColourId, Colour (0xffffeb86));
+    tonesVolumeSlider->addListener (this);
+
+    addAndMakeVisible (label12 = new Label ("new label",
+                                            TRANS("Perc1")));
+    label12->setFont (Font (15.00f, Font::plain));
+    label12->setJustificationType (Justification::centredLeft);
+    label12->setEditable (false, false, false);
+    label12->setColour (TextEditor::textColourId, Colours::black);
+    label12->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (label13 = new Label ("new label",
+                                            TRANS("Perc2")));
+    label13->setFont (Font (15.00f, Font::plain));
+    label13->setJustificationType (Justification::centredLeft);
+    label13->setEditable (false, false, false);
+    label13->setColour (TextEditor::textColourId, Colours::black);
+    label13->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (label14 = new Label ("new label",
+                                            TRANS("Tones")));
+    label14->setFont (Font (15.00f, Font::plain));
+    label14->setJustificationType (Justification::centredLeft);
+    label14->setEditable (false, false, false);
+    label14->setColour (TextEditor::textColourId, Colours::black);
+    label14->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
     cachedImage_background_png = ImageCache::getFromMemory (background_png, background_pngSize);
 
     //[UserPreSize]
@@ -217,19 +291,32 @@ Gui::Gui (Controller* controller)
 
 
     //[Constructor] You can add your own custom stuff here..
-    masterSlider->setValue(4);
+     masterSlider->setValue(4);
 
-    kickVolumeSlider->setValue(8);
-    snareVolumeSlider->setValue(8);
-    hihatVolumeSlider->setValue(8);
+     Slider* volumeSliders [Mixer::maxTracks] = {
+         kickVolumeSlider,
+         snareVolumeSlider,
+         hihatVolumeSlider,
+         perc1VolumeSlider,
+         perc2VolumeSlider,
+         tonesVolumeSlider
+     };
 
-    kickVolumeSlider->setSliderStyle(Slider::LinearBarVertical);
-    snareVolumeSlider->setSliderStyle(Slider::LinearBarVertical);
-    hihatVolumeSlider->setSliderStyle(Slider::LinearBarVertical);
+    Stepper* steppers [Mixer::maxTracks] = {
+        kickStepper,
+        snareStepper,
+        hihatStepper,
+        perc1Stepper,
+        perc2Stepper,
+        tonesStepper
+    };
 
-    kickStepper->setComponentID("kick");
-    snareStepper->setComponentID("snare");
-    hihatStepper->setComponentID("hihat");
+    for (int i = 0; i < Mixer::maxTracks; i++) {
+        volumeSliders[i]->setValue(8);
+        volumeSliders[i]->setSliderStyle(Slider::LinearBarVertical);
+
+        steppers[i]->setComponentID(controller->mixer.getNameByTrackId(i));
+    }
 
     //[/Constructor]
 }
@@ -267,6 +354,18 @@ Gui::~Gui()
     kickStepper = nullptr;
     snareStepper = nullptr;
     hihatStepper = nullptr;
+    perc1Stepper = nullptr;
+    perc2Stepper = nullptr;
+    tonesStepper = nullptr;
+    perc1MuteButton = nullptr;
+    perc2MuteButton = nullptr;
+    tonesMuteButton = nullptr;
+    perc1VolumeSlider = nullptr;
+    perc2VolumeSlider = nullptr;
+    tonesVolumeSlider = nullptr;
+    label12 = nullptr;
+    label13 = nullptr;
+    label14 = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -296,8 +395,8 @@ void Gui::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    label->setBounds (512, 488, 64, 16);
-    masterSlider->setBounds (512, 504, 64, 64);
+    label->setBounds (496, 488, 64, 16);
+    masterSlider->setBounds (507, 510, 40, 40);
     kickMuteButton->setBounds (80, 543, 24, 24);
     snareMuteButton->setBounds (128, 543, 24, 24);
     HihatMuteButton->setBounds (176, 543, 24, 24);
@@ -308,22 +407,34 @@ void Gui::resized()
     label8->setBounds (117, 404, 48, 24);
     label9->setBounds (164, 404, 48, 24);
     label11->setBounds (36, 542, 40, 24);
-    tabbedComponent->setBounds (40, 40, 408, 152);
-    sampleAllSlider->setBounds (520, 72, 48, 48);
-    label2->setBounds (512, 56, 64, 16);
-    pitchSlider->setBounds (520, 144, 48, 48);
-    label3->setBounds (512, 128, 64, 16);
-    decaySlider->setBounds (520, 216, 48, 48);
-    label4->setBounds (512, 200, 64, 16);
-    distortSlider->setBounds (520, 288, 48, 48);
-    label5->setBounds (512, 272, 64, 16);
-    cutoffSlider->setBounds (520, 360, 48, 48);
-    label6->setBounds (512, 344, 64, 16);
-    shuffleSlider->setBounds (520, 432, 48, 48);
-    label10->setBounds (512, 416, 64, 16);
+    tabbedComponent->setBounds (40, 40, 400, 128);
+    sampleAllSlider->setBounds (512, 80, 32, 32);
+    label2->setBounds (496, 56, 64, 16);
+    pitchSlider->setBounds (512, 152, 32, 32);
+    label3->setBounds (496, 128, 64, 16);
+    decaySlider->setBounds (512, 224, 32, 32);
+    label4->setBounds (496, 200, 64, 16);
+    distortSlider->setBounds (512, 296, 32, 32);
+    label5->setBounds (496, 272, 64, 16);
+    cutoffSlider->setBounds (512, 368, 32, 32);
+    label6->setBounds (496, 344, 64, 16);
+    shuffleSlider->setBounds (507, 438, 40, 40);
+    label10->setBounds (496, 416, 64, 16);
     kickStepper->setBounds (608, 72, 400, 60);
     snareStepper->setBounds (608, 144, 400, 60);
     hihatStepper->setBounds (608, 216, 400, 60);
+    perc1Stepper->setBounds (608, 288, 400, 60);
+    perc2Stepper->setBounds (608, 360, 400, 60);
+    tonesStepper->setBounds (608, 432, 400, 60);
+    perc1MuteButton->setBounds (224, 543, 24, 24);
+    perc2MuteButton->setBounds (272, 543, 24, 24);
+    tonesMuteButton->setBounds (320, 543, 24, 24);
+    perc1VolumeSlider->setBounds (224, 432, 20, 104);
+    perc2VolumeSlider->setBounds (272, 432, 20, 104);
+    tonesVolumeSlider->setBounds (320, 432, 20, 104);
+    label12->setBounds (217, 404, 40, 24);
+    label13->setBounds (261, 404, 48, 24);
+    label14->setBounds (308, 404, 48, 24);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -393,6 +504,24 @@ void Gui::sliderValueChanged (Slider* sliderThatWasMoved)
         controller->mixer.globalParams.shuffle = shuffleSlider->getValue();
         //[/UserSliderCode_shuffleSlider]
     }
+    else if (sliderThatWasMoved == perc1VolumeSlider)
+    {
+        //[UserSliderCode_perc1VolumeSlider] -- add your slider handling code here..
+        controller->mixer.sources[Mixer::trackIndex::perc1]->trackParams.level = perc1VolumeSlider->getValue();
+        //[/UserSliderCode_perc1VolumeSlider]
+    }
+    else if (sliderThatWasMoved == perc2VolumeSlider)
+    {
+        //[UserSliderCode_perc2VolumeSlider] -- add your slider handling code here..
+        controller->mixer.sources[Mixer::trackIndex::perc2]->trackParams.level = perc2VolumeSlider->getValue();
+        //[/UserSliderCode_perc2VolumeSlider]
+    }
+    else if (sliderThatWasMoved == tonesVolumeSlider)
+    {
+        //[UserSliderCode_tonesVolumeSlider] -- add your slider handling code here..
+        controller->mixer.sources[Mixer::trackIndex::tones]->trackParams.level = tonesVolumeSlider->getValue();
+        //[/UserSliderCode_tonesVolumeSlider]
+    }
 
     //[UsersliderValueChanged_Post]
     //[/UsersliderValueChanged_Post]
@@ -420,6 +549,24 @@ void Gui::buttonClicked (Button* buttonThatWasClicked)
         //[UserButtonCode_HihatMuteButton] -- add your button handler code here..
         controller->mixer.sources[Mixer::trackIndex::hihat]->trackParams.mute = HihatMuteButton->getToggleState();
         //[/UserButtonCode_HihatMuteButton]
+    }
+    else if (buttonThatWasClicked == perc1MuteButton)
+    {
+        //[UserButtonCode_perc1MuteButton] -- add your button handler code here..
+        controller->mixer.sources[Mixer::trackIndex::perc1]->trackParams.mute = perc1MuteButton->getToggleState();
+        //[/UserButtonCode_perc1MuteButton]
+    }
+    else if (buttonThatWasClicked == perc2MuteButton)
+    {
+        //[UserButtonCode_perc2MuteButton] -- add your button handler code here..
+        controller->mixer.sources[Mixer::trackIndex::perc2]->trackParams.mute = perc2MuteButton->getToggleState();
+        //[/UserButtonCode_perc2MuteButton]
+    }
+    else if (buttonThatWasClicked == tonesMuteButton)
+    {
+        //[UserButtonCode_tonesMuteButton] -- add your button handler code here..
+        controller->mixer.sources[Mixer::trackIndex::tones]->trackParams.mute = tonesMuteButton->getToggleState();
+        //[/UserButtonCode_tonesMuteButton]
     }
 
     //[UserbuttonClicked_Post]
@@ -450,13 +597,14 @@ BEGIN_JUCER_METADATA
     <IMAGE pos="0 0 1079 639" resource="background_png" opacity="1" mode="0"/>
   </BACKGROUND>
   <LABEL name="new label" id="7db995d0cc268da2" memberName="label" virtualName=""
-         explicitFocusOrder="0" pos="512 488 64 16" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="496 488 64 16" edTextCol="ff000000"
          edBkgCol="0" labelText="Master" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
   <SLIDER name="Master" id="fd6791ae3c533bb4" memberName="masterSlider"
-          virtualName="" explicitFocusOrder="0" pos="512 504 64 64" min="0"
-          max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          virtualName="Knob" explicitFocusOrder="0" pos="507 510 40 40"
+          trackcol="7fffffff" rotarysliderfill="7f0000ff" rotaryslideroutline="66000000"
+          min="0" max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="0.33000000000000001554"/>
   <TOGGLEBUTTON name="kickMute" id="a54088c4b7b86a7c" memberName="kickMuteButton"
                 virtualName="" explicitFocusOrder="0" pos="80 543 24 24" buttonText=""
@@ -468,17 +616,18 @@ BEGIN_JUCER_METADATA
                 virtualName="" explicitFocusOrder="0" pos="176 543 24 24" buttonText=""
                 connectedEdges="8" needsCallback="1" radioGroupId="0" state="0"/>
   <SLIDER name="kickVolume" id="ae31972216ca91d8" memberName="kickVolumeSlider"
-          virtualName="" explicitFocusOrder="0" pos="80 432 20 104" min="0"
-          max="1" int="0" style="LinearBar" textBoxPos="NoTextBox" textBoxEditable="1"
-          textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
+          virtualName="" explicitFocusOrder="0" pos="80 432 20 104" thumbcol="ffffeb86"
+          min="0" max="1" int="0" style="LinearBar" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <SLIDER name="snareVolume" id="7473f902a9aba960" memberName="snareVolumeSlider"
-          virtualName="" explicitFocusOrder="0" pos="128 432 20 104" min="0"
-          max="1" int="0" style="LinearBar" textBoxPos="NoTextBox" textBoxEditable="1"
-          textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
+          virtualName="" explicitFocusOrder="0" pos="128 432 20 104" thumbcol="ffffeb86"
+          min="0" max="1" int="0" style="LinearBar" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <SLIDER name="hihatVolume" id="8734ecc063a71519" memberName="hihatVolumeSlider"
-          virtualName="" explicitFocusOrder="0" pos="176 432 20 104" min="0"
-          max="1" int="0" style="LinearBar" textBoxPos="NoTextBox" textBoxEditable="1"
-          textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
+          virtualName="" explicitFocusOrder="0" pos="176 432 20 104" thumbcol="ffffeb86"
+          rotarysliderfill="7f0000ff" min="0" max="1" int="0" style="LinearBar"
+          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
+          textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="486b2beaa1324a51" memberName="label7" virtualName=""
          explicitFocusOrder="0" pos="73 404 40 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Kick" editableSingleClick="0" editableDoubleClick="0"
@@ -500,66 +649,72 @@ BEGIN_JUCER_METADATA
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
   <TABBEDCOMPONENT name="new tabbed component" id="299c842daf4e2362" memberName="tabbedComponent"
-                   virtualName="" explicitFocusOrder="0" pos="40 40 408 152" orientation="top"
-                   tabBarDepth="30" initialTab="0">
-    <TAB name="Kick" colour="f1f1f1f1" useJucerComp="0" contentClassName="TrackParameters"
-         constructorParams="controller" jucerComponentFile=""/>
-    <TAB name="Snare" colour="f1f1f1f1" useJucerComp="0" contentClassName="TrackParameters"
-         constructorParams="controller" jucerComponentFile=""/>
-    <TAB name="Hihat" colour="f1f1f1f1" useJucerComp="0" contentClassName="TrackParameters"
-         constructorParams="controller" jucerComponentFile=""/>
+                   virtualName="" explicitFocusOrder="0" pos="40 40 400 128" orientation="top"
+                   tabBarDepth="26" initialTab="0">
+    <TAB name="Kick" colour="f1f1f1f1" useJucerComp="1" contentClassName="TrackParameters"
+         constructorParams="controller" jucerComponentFile="TrackParameters.cpp"/>
+    <TAB name="Snare" colour="f1f1f1f1" useJucerComp="1" contentClassName="TrackParameters"
+         constructorParams="controller" jucerComponentFile="TrackParameters.cpp"/>
+    <TAB name="Hihat" colour="f1f1f1f1" useJucerComp="1" contentClassName="TrackParameters"
+         constructorParams="controller" jucerComponentFile="TrackParameters.cpp"/>
+    <TAB name="Perc1" colour="f1f1f1f1" useJucerComp="1" contentClassName=""
+         constructorParams="controller" jucerComponentFile="TrackParameters.cpp"/>
+    <TAB name="Perc2" colour="f1f1f1f1" useJucerComp="1" contentClassName=""
+         constructorParams="controller" jucerComponentFile="TrackParameters.cpp"/>
+    <TAB name="Tones" colour="f1f1f1f1" useJucerComp="1" contentClassName=""
+         constructorParams="controller" jucerComponentFile="TrackParameters.cpp"/>
   </TABBEDCOMPONENT>
   <SLIDER name="SampleAll" id="ee8c6f5ed858bc06" memberName="sampleAllSlider"
-          virtualName="" explicitFocusOrder="0" pos="520 72 48 48" min="-10"
-          max="10" int="1" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          virtualName="Knob" explicitFocusOrder="0" pos="512 80 32 32"
+          min="-10" max="10" int="1" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="464a5d28fca25a0c" memberName="label2" virtualName=""
-         explicitFocusOrder="0" pos="512 56 64 16" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="496 56 64 16" edTextCol="ff000000"
          edBkgCol="0" labelText="Select All" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
-  <SLIDER name="Pitch" id="e7d610330ae7eaca" memberName="pitchSlider" virtualName=""
-          explicitFocusOrder="0" pos="520 144 48 48" min="-1" max="1" int="0"
+  <SLIDER name="Pitch" id="e7d610330ae7eaca" memberName="pitchSlider" virtualName="Knob"
+          explicitFocusOrder="0" pos="512 152 32 32" min="-1" max="1" int="0.083333333333299994261"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="593f1bb74248fc8e" memberName="label3" virtualName=""
-         explicitFocusOrder="0" pos="512 128 64 16" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="496 128 64 16" edTextCol="ff000000"
          edBkgCol="0" labelText="Pitch" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
-  <SLIDER name="Decay" id="d1d1220e691f4548" memberName="decaySlider" virtualName=""
-          explicitFocusOrder="0" pos="520 216 48 48" min="-1" max="1" int="0"
+  <SLIDER name="Decay" id="d1d1220e691f4548" memberName="decaySlider" virtualName="Knob"
+          explicitFocusOrder="0" pos="512 224 32 32" min="-1" max="1" int="0"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="6dfb3c910fd7b3e8" memberName="label4" virtualName=""
-         explicitFocusOrder="0" pos="512 200 64 16" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="496 200 64 16" edTextCol="ff000000"
          edBkgCol="0" labelText="Decay" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
   <SLIDER name="Distort" id="ac3fc5b27347700" memberName="distortSlider"
-          virtualName="" explicitFocusOrder="0" pos="520 288 48 48" min="-1"
-          max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          virtualName="Knob" explicitFocusOrder="0" pos="512 296 32 32"
+          min="-1" max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="cf04cb747d287869" memberName="label5" virtualName=""
-         explicitFocusOrder="0" pos="512 272 64 16" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="496 272 64 16" edTextCol="ff000000"
          edBkgCol="0" labelText="Distort" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
   <SLIDER name="Cutoff" id="b67410e0785de65c" memberName="cutoffSlider"
-          virtualName="" explicitFocusOrder="0" pos="520 360 48 48" min="-1"
-          max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          virtualName="Knob" explicitFocusOrder="0" pos="512 368 32 32"
+          min="-1" max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="7d7b6cd7315776a8" memberName="label6" virtualName=""
-         explicitFocusOrder="0" pos="512 344 64 16" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="496 344 64 16" edTextCol="ff000000"
          edBkgCol="0" labelText="Cutoff" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
   <SLIDER name="Shuffle" id="f2d61c4a72ddf897" memberName="shuffleSlider"
-          virtualName="" explicitFocusOrder="0" pos="520 432 48 48" min="0"
-          max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          virtualName="Knob" explicitFocusOrder="0" pos="507 438 40 40"
+          min="0" max="1" int="1" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="cfbf1f6cb7801bfe" memberName="label10" virtualName=""
-         explicitFocusOrder="0" pos="512 416 64 16" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="496 416 64 16" edTextCol="ff000000"
          edBkgCol="0" labelText="Shuffle" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
@@ -572,6 +727,51 @@ BEGIN_JUCER_METADATA
   <JUCERCOMP name="kick" id="c34ad782f2a5f719" memberName="hihatStepper" virtualName=""
              explicitFocusOrder="0" pos="608 216 400 60" sourceFile="Stepper.cpp"
              constructorParams="controller"/>
+  <JUCERCOMP name="perc1" id="f899291c5652d18a" memberName="perc1Stepper"
+             virtualName="" explicitFocusOrder="0" pos="608 288 400 60" sourceFile="Stepper.cpp"
+             constructorParams="controller"/>
+  <JUCERCOMP name="perc2" id="7e3f2afb02bd829e" memberName="perc2Stepper"
+             virtualName="" explicitFocusOrder="0" pos="608 360 400 60" sourceFile="Stepper.cpp"
+             constructorParams="controller"/>
+  <JUCERCOMP name="tones" id="2356b855f087cee0" memberName="tonesStepper"
+             virtualName="" explicitFocusOrder="0" pos="608 432 400 60" sourceFile="Stepper.cpp"
+             constructorParams="controller"/>
+  <TOGGLEBUTTON name="perc1Mute" id="480dde763c553381" memberName="perc1MuteButton"
+                virtualName="" explicitFocusOrder="0" pos="224 543 24 24" buttonText=""
+                connectedEdges="8" needsCallback="1" radioGroupId="0" state="0"/>
+  <TOGGLEBUTTON name="perc2Mute" id="263376113ad469b7" memberName="perc2MuteButton"
+                virtualName="" explicitFocusOrder="0" pos="272 543 24 24" buttonText=""
+                connectedEdges="8" needsCallback="1" radioGroupId="0" state="0"/>
+  <TOGGLEBUTTON name="tonesMute" id="2fbad6fae8f0a531" memberName="tonesMuteButton"
+                virtualName="" explicitFocusOrder="0" pos="320 543 24 24" buttonText=""
+                connectedEdges="8" needsCallback="1" radioGroupId="0" state="0"/>
+  <SLIDER name="perc1Volume" id="931a095c7e36a9ad" memberName="perc1VolumeSlider"
+          virtualName="" explicitFocusOrder="0" pos="224 432 20 104" thumbcol="ffffeb86"
+          min="0" max="1" int="0" style="LinearBar" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
+  <SLIDER name="perc2Volume" id="add5fec410a35fb1" memberName="perc2VolumeSlider"
+          virtualName="" explicitFocusOrder="0" pos="272 432 20 104" thumbcol="ffffeb86"
+          min="0" max="1" int="0" style="LinearBar" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
+  <SLIDER name="tonesVolume" id="4518cd8aea8e1fba" memberName="tonesVolumeSlider"
+          virtualName="" explicitFocusOrder="0" pos="320 432 20 104" thumbcol="ffffeb86"
+          min="0" max="1" int="0" style="LinearBar" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
+  <LABEL name="new label" id="eb7df0e8715d3628" memberName="label12" virtualName=""
+         explicitFocusOrder="0" pos="217 404 40 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Perc1" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         bold="0" italic="0" justification="33"/>
+  <LABEL name="new label" id="e795b2fc234361fa" memberName="label13" virtualName=""
+         explicitFocusOrder="0" pos="261 404 48 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Perc2" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         bold="0" italic="0" justification="33"/>
+  <LABEL name="new label" id="f58b8e0d925833a5" memberName="label14" virtualName=""
+         explicitFocusOrder="0" pos="308 404 48 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Tones" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         bold="0" italic="0" justification="33"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

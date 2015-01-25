@@ -31,10 +31,10 @@
 TrackParameters::TrackParameters (Controller* controller)
     : controller(controller)
 {
-    addAndMakeVisible (selectSlider = new Slider ("Select"));
-    selectSlider->setRange (1, 5, 1);
+    addAndMakeVisible (selectSlider = new Knob ("Select"));
+    selectSlider->setRange (0, 20, 1);
     selectSlider->setSliderStyle (Slider::RotaryVerticalDrag);
-    selectSlider->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
+    selectSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
     selectSlider->addListener (this);
 
     addAndMakeVisible (label2 = new Label ("new label",
@@ -45,10 +45,10 @@ TrackParameters::TrackParameters (Controller* controller)
     label2->setColour (TextEditor::textColourId, Colours::black);
     label2->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (attackSlider = new Slider ("Attack"));
+    addAndMakeVisible (attackSlider = new Knob ("Attack"));
     attackSlider->setRange (0, 1, 0);
     attackSlider->setSliderStyle (Slider::RotaryVerticalDrag);
-    attackSlider->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
+    attackSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
     attackSlider->addListener (this);
 
     addAndMakeVisible (label4 = new Label ("new label",
@@ -59,10 +59,10 @@ TrackParameters::TrackParameters (Controller* controller)
     label4->setColour (TextEditor::textColourId, Colours::black);
     label4->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (decaySlider = new Slider ("Decay"));
+    addAndMakeVisible (decaySlider = new Knob ("Decay"));
     decaySlider->setRange (0, 1, 0);
     decaySlider->setSliderStyle (Slider::RotaryVerticalDrag);
-    decaySlider->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
+    decaySlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
     decaySlider->addListener (this);
 
     addAndMakeVisible (label5 = new Label ("new label",
@@ -73,10 +73,10 @@ TrackParameters::TrackParameters (Controller* controller)
     label5->setColour (TextEditor::textColourId, Colours::black);
     label5->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (pitchSlider = new Slider ("Pitch"));
-    pitchSlider->setRange (-2, 2, 0);
+    addAndMakeVisible (pitchSlider = new Knob ("Pitch"));
+    pitchSlider->setRange (-2, 2, 0.0833333);
     pitchSlider->setSliderStyle (Slider::RotaryVerticalDrag);
-    pitchSlider->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
+    pitchSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
     pitchSlider->addListener (this);
 
     addAndMakeVisible (label6 = new Label ("new label",
@@ -87,10 +87,10 @@ TrackParameters::TrackParameters (Controller* controller)
     label6->setColour (TextEditor::textColourId, Colours::black);
     label6->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (cutoffSlider = new Slider ("Pitch"));
+    addAndMakeVisible (cutoffSlider = new Knob ("Pitch"));
     cutoffSlider->setRange (0, 1, 0);
     cutoffSlider->setSliderStyle (Slider::RotaryVerticalDrag);
-    cutoffSlider->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
+    cutoffSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
     cutoffSlider->addListener (this);
 
     addAndMakeVisible (label10 = new Label ("new label",
@@ -101,10 +101,10 @@ TrackParameters::TrackParameters (Controller* controller)
     label10->setColour (TextEditor::textColourId, Colours::black);
     label10->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (distortSlider = new Slider ("Distort"));
+    addAndMakeVisible (distortSlider = new Knob ("Distort"));
     distortSlider->setRange (0, 1, 0);
     distortSlider->setSliderStyle (Slider::RotaryVerticalDrag);
-    distortSlider->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
+    distortSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
     distortSlider->addListener (this);
 
     addAndMakeVisible (label3 = new Label ("new label",
@@ -168,18 +168,18 @@ void TrackParameters::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    selectSlider->setBounds (5, 32, 64, 80);
-    label2->setBounds (-11, 5, 96, 24);
-    attackSlider->setBounds (157, 32, 43, 80);
-    label4->setBounds (132, 5, 96, 24);
-    decaySlider->setBounds (207, 32, 43, 80);
-    label5->setBounds (180, 5, 96, 24);
-    pitchSlider->setBounds (77, 32, 43, 80);
-    label6->setBounds (65, 5, 67, 24);
-    cutoffSlider->setBounds (337, 32, 64, 80);
-    label10->setBounds (321, 5, 96, 24);
-    distortSlider->setBounds (284, 32, 43, 80);
-    label3->setBounds (257, 5, 96, 24);
+    selectSlider->setBounds (16, 40, 40, 40);
+    label2->setBounds (-11, 13, 96, 24);
+    attackSlider->setBounds (158, 40, 40, 40);
+    label4->setBounds (131, 13, 96, 24);
+    decaySlider->setBounds (208, 40, 40, 40);
+    label5->setBounds (179, 13, 96, 24);
+    pitchSlider->setBounds (83, 48, 32, 32);
+    label6->setBounds (65, 13, 67, 24);
+    cutoffSlider->setBounds (337, 40, 40, 40);
+    label10->setBounds (310, 13, 96, 24);
+    distortSlider->setBounds (284, 40, 40, 40);
+    label3->setBounds (256, 13, 96, 24);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -253,56 +253,56 @@ BEGIN_JUCER_METADATA
                  initialWidth="600" initialHeight="400">
   <BACKGROUND backgroundColour="ffffff"/>
   <SLIDER name="Select" id="ae2904d9e602bae7" memberName="selectSlider"
-          virtualName="" explicitFocusOrder="0" pos="5 32 64 80" min="1"
-          max="5" int="1" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          virtualName="Knob" explicitFocusOrder="0" pos="16 40 40 40" min="0"
+          max="20" int="1" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="9b95e80f4bba0ec3" memberName="label2" virtualName=""
-         explicitFocusOrder="0" pos="-11 5 96 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="-11 13 96 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Select" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
   <SLIDER name="Attack" id="dcf2dbaf52d14406" memberName="attackSlider"
-          virtualName="" explicitFocusOrder="0" pos="157 32 43 80" min="0"
-          max="1" int="0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          virtualName="Knob" explicitFocusOrder="0" pos="158 40 40 40"
+          min="0" max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="600acbb5e03c4485" memberName="label4" virtualName=""
-         explicitFocusOrder="0" pos="132 5 96 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="131 13 96 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Attack&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15" bold="0" italic="0" justification="36"/>
-  <SLIDER name="Decay" id="9c5da3b543af0acd" memberName="decaySlider" virtualName=""
-          explicitFocusOrder="0" pos="207 32 43 80" min="0" max="1" int="0"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="1"
+  <SLIDER name="Decay" id="9c5da3b543af0acd" memberName="decaySlider" virtualName="Knob"
+          explicitFocusOrder="0" pos="208 40 40 40" min="0" max="1" int="0"
+          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="6d80791f4a659e3" memberName="label5" virtualName=""
-         explicitFocusOrder="0" pos="180 5 96 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="179 13 96 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Decay" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
-  <SLIDER name="Pitch" id="a0bcc16014a81d26" memberName="pitchSlider" virtualName=""
-          explicitFocusOrder="0" pos="77 32 43 80" min="-2" max="2" int="0"
-          style="RotaryVerticalDrag" textBoxPos="TextBoxBelow" textBoxEditable="1"
+  <SLIDER name="Pitch" id="a0bcc16014a81d26" memberName="pitchSlider" virtualName="Knob"
+          explicitFocusOrder="0" pos="83 48 32 32" min="-2" max="2" int="0.083333333333299994261"
+          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="1f974eb41a59cc16" memberName="label6" virtualName=""
-         explicitFocusOrder="0" pos="65 5 67 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="65 13 67 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Pitch" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
   <SLIDER name="Pitch" id="ec9ceab9e8f418ea" memberName="cutoffSlider"
-          virtualName="" explicitFocusOrder="0" pos="337 32 64 80" min="0"
-          max="1" int="0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          virtualName="Knob" explicitFocusOrder="0" pos="337 40 40 40"
+          min="0" max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="c2f8b942c21a3df3" memberName="label10" virtualName=""
-         explicitFocusOrder="0" pos="321 5 96 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="310 13 96 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Cutoff" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
   <SLIDER name="Distort" id="43b059df97ad4e4a" memberName="distortSlider"
-          virtualName="" explicitFocusOrder="0" pos="284 32 43 80" min="0"
-          max="1" int="0" style="RotaryVerticalDrag" textBoxPos="TextBoxBelow"
+          virtualName="Knob" explicitFocusOrder="0" pos="284 40 40 40"
+          min="0" max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="d9e5fba9bb477192" memberName="label3" virtualName=""
-         explicitFocusOrder="0" pos="257 5 96 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="256 13 96 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Distort" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>

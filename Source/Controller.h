@@ -17,6 +17,7 @@
 #include "Clock.h"
 #include "ClockListener.h"
 #include "Sequencer.h"
+#include "Knob.h"
 
 class Controller  {
 public:

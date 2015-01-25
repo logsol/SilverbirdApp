@@ -12,9 +12,9 @@
 
 Mixer::Mixer()
 {
-    createAndAddTrack(0, "Kick");
-    createAndAddTrack(1, "Snare");
-    createAndAddTrack(2, "Hihat");
+    for (int i = 0; i < maxTracks; i++) {
+        createAndAddTrack(i);
+    }
 }
 
 Mixer::~Mixer() {
@@ -22,26 +22,43 @@ Mixer::~Mixer() {
 
 int Mixer::getTrackByName(String name)
 {
-    if (name == "kick") {
-        return Mixer::kick;
-    }
-    if (name == "snare") {
-        return Mixer::snare;
-    }
-    if (name == "hihat") {
-        return Mixer::hihat;
+    for (int i = 0; i < maxTracks; i++) {
+        if (getNameByTrackId(i) == name) {
+            return i;
+        }
     }
     
     std::cout << "Got Wrong Track: " << name << std::endl;
-    exit(0);
-    return -1;
+    return Mixer::kick;
 }
 
-void Mixer::createAndAddTrack(int trackId, String name)
+String Mixer::getNameByTrackId(int trackId)
+{
+    switch (trackId) {
+        case Mixer::kick:
+            return "kick";
+        case Mixer::snare:
+            return "snare";
+        case Mixer::hihat:
+            return "hihat";
+        case Mixer::perc1:
+            return "perc1";
+        case Mixer::perc2:
+            return "perc2";
+        case Mixer::tones:
+            return "tones";
+            
+    }
+    std::cout << "Got Wrong Track id: " << trackId << std::endl;
+    return "kick";
+}
+
+void Mixer::createAndAddTrack(int trackId)
 {
     
-    Source* source = new Source(trackId, name, midiCollector, &globalParams);
-//    ScopedPointer<Source>
+    std::cout << String("track") + String(trackId);
+    
+    Source* source = new Source(trackId, String("track") + String(trackId), midiCollector, &globalParams);
     
     addInputSource(source, false);
     

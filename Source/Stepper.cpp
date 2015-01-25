@@ -30,14 +30,14 @@
 Stepper::Stepper (Controller* controller)
     : controller(controller)
 {
-    addAndMakeVisible (label = new Label ("new label",
-                                          TRANS("Stepper")));
-    label->setFont (Font (10.00f, Font::plain));
-    label->setJustificationType (Justification::topLeft);
-    label->setEditable (false, false, false);
-    label->setColour (Label::textColourId, Colour (0xffddd8d2));
-    label->setColour (TextEditor::textColourId, Colours::black);
-    label->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    addAndMakeVisible (stepperLabel = new Label ("stepper",
+                                                 TRANS("Stepper")));
+    stepperLabel->setFont (Font (10.00f, Font::plain));
+    stepperLabel->setJustificationType (Justification::topLeft);
+    stepperLabel->setEditable (false, false, false);
+    stepperLabel->setColour (Label::textColourId, Colour (0xff6f6d6a));
+    stepperLabel->setColour (TextEditor::textColourId, Colours::black);
+    stepperLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
 
     //[UserPreSize]
@@ -56,7 +56,7 @@ Stepper::~Stepper()
     //[Destructor_pre]. You can add your own custom destruction code here..
     //[/Destructor_pre]
 
-    label = nullptr;
+    stepperLabel = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -109,7 +109,10 @@ void Stepper::paint (Graphics& g)
         );
 
         if(i==0) continue;
+        
         g.setColour (Colour (0x55666666));
+        if(i%4==0) g.setColour (Colour (0xbb888888));
+        
         g.drawLine(i * cellWidth, 0, i * cellWidth, getHeight());
     }
 
@@ -124,7 +127,7 @@ void Stepper::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    label->setBounds (-2, 0, 42, 11);
+    stepperLabel->setBounds (-2, 0, 58, 11);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -170,6 +173,13 @@ void Stepper::clockStep(int cursor)
     this->cursor = cursor;
     repaint();
 }
+
+void Stepper::setComponentID (const String& newID)
+{
+    Component::setComponentID(newID);
+    stepperLabel->setText(newID, dontSendNotification);
+}
+
 //[/MiscUserCode]
 
 
@@ -192,11 +202,11 @@ BEGIN_JUCER_METADATA
     <METHOD name="mouseDown (const MouseEvent&amp; e)"/>
   </METHODS>
   <BACKGROUND backgroundColour="e5000000"/>
-  <LABEL name="new label" id="d5d914557b2ab44f" memberName="label" virtualName=""
-         explicitFocusOrder="0" pos="-2 0 42 11" textCol="ffddd8d2" edTextCol="ff000000"
-         edBkgCol="0" labelText="Stepper" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="10"
-         bold="0" italic="0" justification="9"/>
+  <LABEL name="stepper" id="d5d914557b2ab44f" memberName="stepperLabel"
+         virtualName="" explicitFocusOrder="0" pos="-2 0 58 11" textCol="ff6f6d6a"
+         edTextCol="ff000000" edBkgCol="0" labelText="Stepper" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="10" bold="0" italic="0" justification="9"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

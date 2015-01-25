@@ -46,6 +46,8 @@ public:
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
     void clockStep(int cursor) override;
+    void setComponentID (const String& newID);
+
     //[/UserMethods]
 
     void paint (Graphics& g);
@@ -63,7 +65,7 @@ private:
     //[/UserVariables]
 
     //==============================================================================
-    ScopedPointer<Label> label;
+    ScopedPointer<Label> stepperLabel;
 
 
     //==============================================================================

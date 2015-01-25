@@ -22,6 +22,7 @@ public:
     ~Mixer();
     
     int getTrackByName(String name);
+    String getNameByTrackId(int trackId);
     
     void playNote(int note, float velocity);
     
@@ -46,6 +47,9 @@ public:
         kick,
         snare,
         hihat,
+        perc1,
+        perc2,
+        tones,
         maxTracks
     };
     
@@ -55,7 +59,7 @@ public:
     
 protected:
     
-    void createAndAddTrack(int trackId, String name);
+    void createAndAddTrack(int trackId);
     void getNextAudioBlock (const AudioSourceChannelInfo&) override;
     void prepareToPlay (int samplesPerBlockExpected, double sampleRate) override;
     Source* getTrackById(int trackId);
