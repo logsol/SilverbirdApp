@@ -59,7 +59,6 @@ void Sequencer::clockStep(int cursorPosition)
             postMessage(sequencerMessage);
         }
     }
-    
 }
 
 void Sequencer::handleMessage (const Message& message)
