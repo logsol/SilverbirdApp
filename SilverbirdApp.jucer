@@ -32,8 +32,16 @@
       </GROUP>
       <GROUP id="{7910223D-4739-F887-8F7B-FD608B6F3A66}" name="View">
         <GROUP id="{05047D03-0942-0207-CD04-D6540CE92CE0}" name="Components">
+          <FILE id="ZnShZ9" name="Mods.cpp" compile="1" resource="0" file="Source/Mods.cpp"/>
+          <FILE id="N4DGej" name="Mods.h" compile="0" resource="0" file="Source/Mods.h"/>
+          <FILE id="n0iGwn" name="Drums.cpp" compile="1" resource="0" file="Source/Drums.cpp"/>
+          <FILE id="HpPtmn" name="Drums.h" compile="0" resource="0" file="Source/Drums.h"/>
           <FILE id="GLd4T6" name="Stepper.cpp" compile="1" resource="0" file="Source/Stepper.cpp"/>
           <FILE id="MxFhRb" name="Stepper.h" compile="0" resource="0" file="Source/Stepper.h"/>
+          <FILE id="Dk706B" name="BipolarStepper.cpp" compile="1" resource="0"
+                file="Source/BipolarStepper.cpp"/>
+          <FILE id="PMOxCq" name="BipolarStepper.h" compile="0" resource="0"
+                file="Source/BipolarStepper.h"/>
           <FILE id="xFeYs6" name="TrackParameters.cpp" compile="1" resource="0"
                 file="Source/TrackParameters.cpp"/>
           <FILE id="AKJHZv" name="TrackParameters.h" compile="0" resource="0"
@@ -240,10 +248,10 @@
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="Builds/MacOSX" smallIcon="fJGTOs" bigIcon="b5gehu">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
-                       isDebug="1" optimisation="1" targetName="SilverbirdApp"/>
-        <CONFIGURATION name="Release" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
-                       isDebug="0" optimisation="2" targetName="SilverbirdApp"/>
+        <CONFIGURATION name="Debug" osxSDK="10.9 SDK" osxCompatibility="10.9 SDK" osxArchitecture="default"
+                       isDebug="1" optimisation="1" targetName="SilverbirdApp" customXcodeFlags="MACOSX_DEPLOYMENT_TARGET=&quot;10.9&quot;"/>
+        <CONFIGURATION name="Release" osxSDK="10.9 SDK" osxCompatibility="10.9 SDK"
+                       osxArchitecture="default" isDebug="0" optimisation="2" targetName="SilverbirdApp"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_gui_extra" path="../JUCE/modules"/>

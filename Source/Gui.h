@@ -26,7 +26,6 @@
 #include "Knob.h"
 //[/Headers]
 
-#include "Stepper.h"
 
 
 //==============================================================================
@@ -92,12 +91,6 @@ private:
     ScopedPointer<Label> label6;
     ScopedPointer<Knob> shuffleSlider;
     ScopedPointer<Label> label10;
-    ScopedPointer<Stepper> kickStepper;
-    ScopedPointer<Stepper> snareStepper;
-    ScopedPointer<Stepper> hihatStepper;
-    ScopedPointer<Stepper> perc1Stepper;
-    ScopedPointer<Stepper> perc2Stepper;
-    ScopedPointer<Stepper> tonesStepper;
     ScopedPointer<ToggleButton> perc1MuteButton;
     ScopedPointer<ToggleButton> perc2MuteButton;
     ScopedPointer<ToggleButton> tonesMuteButton;
@@ -107,6 +100,7 @@ private:
     ScopedPointer<Label> label12;
     ScopedPointer<Label> label13;
     ScopedPointer<Label> label14;
+    ScopedPointer<TabbedComponent> sequencerTabs;
     Image cachedImage_background_png;
 
 

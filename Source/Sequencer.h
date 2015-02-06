@@ -34,7 +34,7 @@ protected:
     int numCells = 16;
     OwnedArray<Array<float>> matrix;
     
-    int notes[Mixer::maxTracks] = {36, 38, 42, 45, 48, 52};
+    int notes[Mixer::maxTracks];
     SequencerMessage* sequencerMessage; // gotta be on the heap.
      
 };

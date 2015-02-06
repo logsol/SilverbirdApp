@@ -21,10 +21,13 @@
 #include "Controller.h"
 #include "Mixer.h"
 #include "TrackParameters.h"
+#include "Drums.h"
 //[/Headers]
 
 #include "Gui.h"
 #include "TrackParameters.h"
+#include "Drums.h"
+#include "Mods.h"
 
 
 //[MiscUserDefs] You can add your own user definitions and misc code here...
@@ -216,12 +219,6 @@ Gui::Gui (Controller* controller)
     label10->setColour (TextEditor::textColourId, Colours::black);
     label10->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (kickStepper = new Stepper (controller));
-    addAndMakeVisible (snareStepper = new Stepper (controller));
-    addAndMakeVisible (hihatStepper = new Stepper (controller));
-    addAndMakeVisible (perc1Stepper = new Stepper (controller));
-    addAndMakeVisible (perc2Stepper = new Stepper (controller));
-    addAndMakeVisible (tonesStepper = new Stepper (controller));
     addAndMakeVisible (perc1MuteButton = new ToggleButton ("perc1Mute"));
     perc1MuteButton->setButtonText (String::empty);
     perc1MuteButton->setConnectedEdges (Button::ConnectedOnBottom);
@@ -282,6 +279,12 @@ Gui::Gui (Controller* controller)
     label14->setColour (TextEditor::textColourId, Colours::black);
     label14->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
+    addAndMakeVisible (sequencerTabs = new TabbedComponent (TabbedButtonBar::TabsAtLeft));
+    sequencerTabs->setTabBarDepth (25);
+    sequencerTabs->addTab (TRANS("Drums"), Colour (0xf1f1f1f1), new Drums (controller), true);
+    sequencerTabs->addTab (TRANS("Mods"), Colour (0xf1f1f1f1), new Mods (controller), true);
+    sequencerTabs->setCurrentTabIndex (0);
+
     cachedImage_background_png = ImageCache::getFromMemory (background_png, background_pngSize);
 
     //[UserPreSize]
@@ -302,20 +305,9 @@ Gui::Gui (Controller* controller)
          tonesVolumeSlider
      };
 
-    Stepper* steppers [Mixer::maxTracks] = {
-        kickStepper,
-        snareStepper,
-        hihatStepper,
-        perc1Stepper,
-        perc2Stepper,
-        tonesStepper
-    };
-
     for (int i = 0; i < Mixer::maxTracks; i++) {
         volumeSliders[i]->setValue(8);
         volumeSliders[i]->setSliderStyle(Slider::LinearBarVertical);
-
-        steppers[i]->setComponentID(controller->mixer.getNameByTrackId(i));
     }
 
     //[/Constructor]
@@ -351,12 +343,6 @@ Gui::~Gui()
     label6 = nullptr;
     shuffleSlider = nullptr;
     label10 = nullptr;
-    kickStepper = nullptr;
-    snareStepper = nullptr;
-    hihatStepper = nullptr;
-    perc1Stepper = nullptr;
-    perc2Stepper = nullptr;
-    tonesStepper = nullptr;
     perc1MuteButton = nullptr;
     perc2MuteButton = nullptr;
     tonesMuteButton = nullptr;
@@ -366,6 +352,7 @@ Gui::~Gui()
     label12 = nullptr;
     label13 = nullptr;
     label14 = nullptr;
+    sequencerTabs = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -420,12 +407,6 @@ void Gui::resized()
     label6->setBounds (496, 344, 64, 16);
     shuffleSlider->setBounds (507, 438, 40, 40);
     label10->setBounds (496, 416, 64, 16);
-    kickStepper->setBounds (608, 72, 400, 60);
-    snareStepper->setBounds (608, 144, 400, 60);
-    hihatStepper->setBounds (608, 216, 400, 60);
-    perc1Stepper->setBounds (608, 288, 400, 60);
-    perc2Stepper->setBounds (608, 360, 400, 60);
-    tonesStepper->setBounds (608, 432, 400, 60);
     perc1MuteButton->setBounds (224, 543, 24, 24);
     perc2MuteButton->setBounds (272, 543, 24, 24);
     tonesMuteButton->setBounds (320, 543, 24, 24);
@@ -435,6 +416,7 @@ void Gui::resized()
     label12->setBounds (217, 404, 40, 24);
     label13->setBounds (261, 404, 48, 24);
     label14->setBounds (308, 404, 48, 24);
+    sequencerTabs->setBounds (584, 56, 440, 440);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -576,17 +558,17 @@ void Gui::buttonClicked (Button* buttonThatWasClicked)
 bool Gui::keyPressed (const KeyPress& key)
 {
     //[UserCode_keyPressed] -- Add your code here...
-    
+
     switch (key.getKeyCode()) {
         case 32: // space
             controller->togglePlayPause();
             break;
-            
+
         default:
             break;
     }
-    
-    
+
+
     return false;  // Return true if your handler uses this key event, or false to allow it to be passed-on.
     //[/UserCode_keyPressed]
 }
@@ -739,24 +721,6 @@ BEGIN_JUCER_METADATA
          edBkgCol="0" labelText="Shuffle" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
-  <JUCERCOMP name="kick" id="d3558cec6b0505db" memberName="kickStepper" virtualName=""
-             explicitFocusOrder="0" pos="608 72 400 60" sourceFile="Stepper.cpp"
-             constructorParams="controller"/>
-  <JUCERCOMP name="snare" id="ce8e2fe038f9a041" memberName="snareStepper"
-             virtualName="" explicitFocusOrder="0" pos="608 144 400 60" sourceFile="Stepper.cpp"
-             constructorParams="controller"/>
-  <JUCERCOMP name="kick" id="c34ad782f2a5f719" memberName="hihatStepper" virtualName=""
-             explicitFocusOrder="0" pos="608 216 400 60" sourceFile="Stepper.cpp"
-             constructorParams="controller"/>
-  <JUCERCOMP name="perc1" id="f899291c5652d18a" memberName="perc1Stepper"
-             virtualName="" explicitFocusOrder="0" pos="608 288 400 60" sourceFile="Stepper.cpp"
-             constructorParams="controller"/>
-  <JUCERCOMP name="perc2" id="7e3f2afb02bd829e" memberName="perc2Stepper"
-             virtualName="" explicitFocusOrder="0" pos="608 360 400 60" sourceFile="Stepper.cpp"
-             constructorParams="controller"/>
-  <JUCERCOMP name="tones" id="2356b855f087cee0" memberName="tonesStepper"
-             virtualName="" explicitFocusOrder="0" pos="608 432 400 60" sourceFile="Stepper.cpp"
-             constructorParams="controller"/>
   <TOGGLEBUTTON name="perc1Mute" id="480dde763c553381" memberName="perc1MuteButton"
                 virtualName="" explicitFocusOrder="0" pos="224 543 24 24" buttonText=""
                 connectedEdges="8" needsCallback="1" radioGroupId="0" state="0"/>
@@ -793,6 +757,14 @@ BEGIN_JUCER_METADATA
          edBkgCol="0" labelText="Tones" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
+  <TABBEDCOMPONENT name="seqtabs" id="24d28c4cbe1b57cb" memberName="sequencerTabs"
+                   virtualName="" explicitFocusOrder="0" pos="584 56 440 440" orientation="left"
+                   tabBarDepth="25" initialTab="0">
+    <TAB name="Drums" colour="f1f1f1f1" useJucerComp="1" contentClassName=""
+         constructorParams="controller" jucerComponentFile="Drums.cpp"/>
+    <TAB name="Mods" colour="f1f1f1f1" useJucerComp="1" contentClassName=""
+         constructorParams="controller" jucerComponentFile="Mods.cpp"/>
+  </TABBEDCOMPONENT>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

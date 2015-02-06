@@ -80,6 +80,15 @@ void Stepper::paint (Graphics& g)
     float cellWidth = (float) getWidth() / (float) numCells;
 
     for (int i=0; i<numCells; i++) {
+        
+        
+        float base = isBipolar()
+            ? getHeight() * 0.5
+            : getHeight() - cells.getUnchecked(i) * getHeight();
+        
+        float value = isBipolar()
+            ? -cells.getUnchecked(i) * getHeight() + getHeight() * 0.5
+            : cells.getUnchecked(i) * getHeight();
 
         // default value color
         g.setColour (Colour (0xffffeb86));
@@ -88,7 +97,7 @@ void Stepper::paint (Graphics& g)
             // active background colour
             g.setColour (Colour (0xe5333333));
 
-            // painting active background
+            // painting Active BACKGROUND
             g.fillRect(
                        (float) i * cellWidth,
                        (float) 0,
@@ -100,11 +109,12 @@ void Stepper::paint (Graphics& g)
             g.setColour (Colour (0xffbfab46));
         }
 
+        // painting Active VALUE
         g.fillRect(
            (float) i * cellWidth,
-           (float) getHeight() - cells.getUnchecked(i) * getHeight(),
+           (float) base,
            (float) cellWidth,
-           (float) cells.getUnchecked(i) * getHeight()
+           (float) value
         );
 
         if(i==0) continue;
@@ -179,6 +189,10 @@ void Stepper::setComponentID (const String& newID)
     stepperLabel->setText(newID, dontSendNotification);
 }
 
+bool Stepper::isBipolar()
+{
+    return false;
+}
 //[/MiscUserCode]
 
 

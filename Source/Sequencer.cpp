@@ -13,6 +13,13 @@
 
 Sequencer::Sequencer(Mixer& mixer) : mixer(mixer)
 {
+    notes[0] = 36;
+    notes[1] = 38;
+    notes[2] = 42;
+    notes[3] = 45;
+    notes[4] = 48;
+    notes[5] = 52;
+    
     // setting up matrix
     
     for (int i = 0; i < Mixer::maxTracks; i++) {

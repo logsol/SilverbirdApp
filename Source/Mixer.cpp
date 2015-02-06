@@ -29,7 +29,8 @@ int Mixer::getTrackByName(String name)
     }
     
     std::cout << "Got Wrong Track: " << name << std::endl;
-    return Mixer::kick;
+    std::cout << "This means, that SNARE is being used as a default." << std::endl;
+    return Mixer::snare;
 }
 
 String Mixer::getNameByTrackId(int trackId)
@@ -50,7 +51,7 @@ String Mixer::getNameByTrackId(int trackId)
             
     }
     std::cout << "Got Wrong Track id: " << trackId << std::endl;
-    return "kick";
+    return "snare";
 }
 
 void Mixer::createAndAddTrack(int trackId)

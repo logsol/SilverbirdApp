@@ -35,7 +35,7 @@ public:
 protected:
     bool isPlaying = false;
     float bpm = 120;
-    int cursor = 0;
+    int cursor = -1;
     int numCells = 16;
     OwnedArray<ClockListener> listeners;
     
