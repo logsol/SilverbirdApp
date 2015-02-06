@@ -203,7 +203,7 @@ Gui::Gui (Controller* controller)
     label6->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (shuffleSlider = new Knob ("Shuffle"));
-    shuffleSlider->setRange (0, 1, 1);
+    shuffleSlider->setRange (0, 1, 0);
     shuffleSlider->setSliderStyle (Slider::RotaryVerticalDrag);
     shuffleSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
     shuffleSlider->addListener (this);
@@ -573,6 +573,24 @@ void Gui::buttonClicked (Button* buttonThatWasClicked)
     //[/UserbuttonClicked_Post]
 }
 
+bool Gui::keyPressed (const KeyPress& key)
+{
+    //[UserCode_keyPressed] -- Add your code here...
+    
+    switch (key.getKeyCode()) {
+        case 32: // space
+            controller->togglePlayPause();
+            break;
+            
+        default:
+            break;
+    }
+    
+    
+    return false;  // Return true if your handler uses this key event, or false to allow it to be passed-on.
+    //[/UserCode_keyPressed]
+}
+
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
@@ -593,6 +611,9 @@ BEGIN_JUCER_METADATA
                  variableInitialisers="controller(controller)" snapPixels="8"
                  snapActive="1" snapShown="1" overlayOpacity="0.330" fixedSize="1"
                  initialWidth="1076" initialHeight="611">
+  <METHODS>
+    <METHOD name="keyPressed (const KeyPress&amp; key)"/>
+  </METHODS>
   <BACKGROUND backgroundColour="ffffffff">
     <IMAGE pos="0 0 1079 639" resource="background_png" opacity="1" mode="0"/>
   </BACKGROUND>
@@ -711,7 +732,7 @@ BEGIN_JUCER_METADATA
          bold="0" italic="0" justification="36"/>
   <SLIDER name="Shuffle" id="f2d61c4a72ddf897" memberName="shuffleSlider"
           virtualName="Knob" explicitFocusOrder="0" pos="507 438 40 40"
-          min="0" max="1" int="1" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          min="0" max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="cfbf1f6cb7801bfe" memberName="label10" virtualName=""
          explicitFocusOrder="0" pos="496 416 64 16" edTextCol="ff000000"

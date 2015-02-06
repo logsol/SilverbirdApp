@@ -54,6 +54,7 @@ public:
     void resized();
     void sliderValueChanged (Slider* sliderThatWasMoved);
     void buttonClicked (Button* buttonThatWasClicked);
+    bool keyPressed (const KeyPress& key);
 
     // Binary resources:
     static const char* background_png;

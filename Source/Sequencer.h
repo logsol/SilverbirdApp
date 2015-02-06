@@ -36,6 +36,7 @@ protected:
     
     int notes[Mixer::maxTracks] = {36, 38, 42, 45, 48, 52};
     SequencerMessage* sequencerMessage; // gotta be on the heap.
+     
 };
 
 

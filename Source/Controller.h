@@ -26,11 +26,11 @@ public:
     
     void addClockListener(ClockListener* listener);
     void removeClockListener(ClockListener* listener);
+    void togglePlayPause();
 
     Sequencer sequencer;
     Clock clock;
     Mixer mixer;
-    int dead = 1234;
 
 protected:
     void bootstrap();

@@ -13,6 +13,7 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "ClockListener.h"
+#include "GlobalParamList.h"
 
 class Clock : public HighResolutionTimer, MessageListener
 {
@@ -27,11 +28,18 @@ public:
     void hiResTimerCallback();
     
     void handleMessage(const Message& message);
+    void setGlobalParams(globalParamList* globalParams);
+    
+    void togglePlayPause();
     
 protected:
+    bool isPlaying = false;
+    float bpm = 120;
     int cursor = 0;
     int numCells = 16;
     OwnedArray<ClockListener> listeners;
+    
+    globalParamList* globalParams;
 };
 
 #endif  // CLOCK_H_INCLUDED

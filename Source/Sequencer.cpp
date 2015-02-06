@@ -46,6 +46,9 @@ void Sequencer::setCell(int trackId, int cellId, float value)
 
 void Sequencer::clockStep(int cursorPosition)
 {
+    if (cursorPosition == -1) {
+        return;
+    }
     
     for (int trackId = 0; trackId < matrix.size(); trackId++) {
         if (matrix.getUnchecked(trackId)->getUnchecked(cursorPosition)) {

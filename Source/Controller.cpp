@@ -36,6 +36,7 @@ void Controller::bootstrap()
     std::cout << "Audio Device: " << audioDeviceManager.getCurrentAudioDevice()->getName() << std::endl;
     std::cout << "Midi Device: " << input << std::endl;
     
+    clock.setGlobalParams(&mixer.globalParams);
     clock.addListener(&sequencer);
 }
 
@@ -47,4 +48,9 @@ void Controller::addClockListener(ClockListener* listener)
 void Controller::removeClockListener(ClockListener* listener)
 {
     clock.removeListener(listener);
+}
+
+void Controller::togglePlayPause()
+{
+    clock.togglePlayPause();
 }
