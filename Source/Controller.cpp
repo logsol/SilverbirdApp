@@ -33,12 +33,11 @@ void Controller::bootstrap()
     if (! audioDeviceManager.isMidiInputEnabled (input)) {
         audioDeviceManager.setMidiInputEnabled (input, true);
     }
+    std::cout << "Audio Device: " << audioDeviceManager.getCurrentAudioDevice()->getName() << std::endl;
     std::cout << "Midi Device: " << input << std::endl;
     
     clock.addListener(&sequencer);
 }
-
-
 
 void Controller::addClockListener(ClockListener* listener)
 {

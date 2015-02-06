@@ -14,7 +14,7 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "ClockListener.h"
 
-class Clock : public Timer
+class Clock : public HighResolutionTimer, MessageListener
 {
 public:
     Clock();
@@ -23,7 +23,10 @@ public:
     void addListener(ClockListener* listener);
     void removeListener(ClockListener* listener);
     
-    void timerCallback() override;
+//    void timerCallback() override;
+    void hiResTimerCallback();
+    
+    void handleMessage(const Message& message);
     
 protected:
     int cursor = 0;

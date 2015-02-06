@@ -17,6 +17,7 @@ Clock::Clock()
 
 Clock::~Clock()
 {
+    stopTimer();
     listeners.clear(false);
 }
 
@@ -30,11 +31,16 @@ void Clock::removeListener(ClockListener* listener)
     listeners.removeObject(listener);
 }
 
-void Clock::timerCallback()
+//void Clock::timerCallback()
+void Clock::hiResTimerCallback()
 {
     cursor++;
     cursor = cursor % numCells;
     
+    postMessage(new Message());
+}
+
+void Clock::handleMessage(const Message& message){
     for (int i = 0; i < listeners.size(); i++) {
         listeners[i]->clockStep(cursor);
     }

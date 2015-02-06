@@ -55,9 +55,6 @@ String Mixer::getNameByTrackId(int trackId)
 
 void Mixer::createAndAddTrack(int trackId)
 {
-    
-    std::cout << String("track") + String(trackId);
-    
     Source* source = new Source(trackId, String("track") + String(trackId), midiCollector, &globalParams);
     
     addInputSource(source, false);

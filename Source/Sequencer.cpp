@@ -26,6 +26,7 @@ Sequencer::Sequencer(Mixer& mixer) : mixer(mixer)
 
 Sequencer::~Sequencer()
 {
+    //delete sequencerMessage;
 }
 
 int Sequencer::getNumCells()
@@ -40,12 +41,12 @@ Array<float> Sequencer::getCells(int trackId)
 
 void Sequencer::setCell(int trackId, int cellId, float value)
 {
-    //std::cout << trackId << " " << cellId << " "  << value << std::endl;
     matrix.getUnchecked(trackId)->set(cellId, value);
 }
 
 void Sequencer::clockStep(int cursorPosition)
 {
+    
     for (int trackId = 0; trackId < matrix.size(); trackId++) {
         if (matrix.getUnchecked(trackId)->getUnchecked(cursorPosition)) {
             sequencerMessage = new SequencerMessage();
@@ -55,6 +56,7 @@ void Sequencer::clockStep(int cursorPosition)
             postMessage(sequencerMessage);
         }
     }
+    
 }
 
 void Sequencer::handleMessage (const Message& message)
