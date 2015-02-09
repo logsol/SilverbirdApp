@@ -11,7 +11,7 @@
 #ifndef CONTROLLER_H_INCLUDED
 #define CONTROLLER_H_INCLUDED
 
-#include "../JuceLibraryCode/JuceHeader.h"
+#include "JuceHeader.h"
 #include "Source.h"
 #include "Mixer.h"
 #include "Clock.h"
@@ -26,18 +26,15 @@ public:
     
     void addClockListener(ClockListener* listener);
     void removeClockListener(ClockListener* listener);
+    void setParameter(int parameterIndex, float value);
     void togglePlayPause();
+    void setPlayPause(bool play);
 
     Sequencer sequencer;
     Clock clock;
     Mixer mixer;
 
 protected:
-    void bootstrap();
-    AudioSourcePlayer audioSourcePlayer;
-    AudioDeviceManager audioDeviceManager;
-    
-
 };
 
 #endif  // CONTROLLER_H_INCLUDED

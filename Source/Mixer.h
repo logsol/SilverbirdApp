@@ -11,7 +11,7 @@
 #ifndef MIXER_H_INCLUDED
 #define MIXER_H_INCLUDED
 
-#include "../JuceLibraryCode/JuceHeader.h"
+#include "JuceHeader.h"
 #include "Source.h"
 #include "GlobalParamList.h"
 #include <vector>
@@ -23,6 +23,9 @@ public:
     
     int getTrackByName(String name);
     String getNameByTrackId(int trackId);
+    
+    void prepareToPlay (int samplesPerBlockExpected, double sampleRate) override;
+    void getNextAudioBlock (const AudioSourceChannelInfo&) override;
     
     void playNote(int note, float velocity);
     
@@ -60,8 +63,7 @@ public:
 protected:
     
     void createAndAddTrack(int trackId);
-    void getNextAudioBlock (const AudioSourceChannelInfo&) override;
-    void prepareToPlay (int samplesPerBlockExpected, double sampleRate) override;
+    
     Source* getTrackById(int trackId);
     
     MidiKeyboardState keyboardState;

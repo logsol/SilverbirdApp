@@ -11,7 +11,7 @@
 #ifndef CLOCK_H_INCLUDED
 #define CLOCK_H_INCLUDED
 
-#include "../JuceLibraryCode/JuceHeader.h"
+#include "JuceHeader.h"
 #include "ClockListener.h"
 #include "GlobalParamList.h"
 
@@ -31,6 +31,7 @@ public:
     void setGlobalParams(globalParamList* globalParams);
     
     void togglePlayPause();
+    void setPlayPause(bool play);
     
 protected:
     bool isPlaying = false;

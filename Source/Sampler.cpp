@@ -11,7 +11,7 @@
 
 #include "Sampler.h"
 #include "Voice.h"
-#include "../JuceLibraryCode/JuceHeader.h"
+#include "JuceHeader.h"
 
 Sampler::Sampler(trackParamList* trackParams, globalParamList* globalParams)
     : trackParams(trackParams),

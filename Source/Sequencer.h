@@ -11,7 +11,7 @@
 #ifndef SEQUENCER_H_INCLUDED
 #define SEQUENCER_H_INCLUDED
 
-#include "../JuceLibraryCode/JuceHeader.h"
+#include "JuceHeader.h"
 #include "Mixer.h"
 #include "ClockListener.h"
 #include "SequencerMessage.h"

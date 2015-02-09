@@ -78,7 +78,6 @@ void Mixer::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
     bufferToFill.clearActiveBufferRegion();
     
     MidiBuffer incomingMidi;
-    
     midiCollector.removeNextBlockOfMessages (incomingMidi, bufferToFill.numSamples);
     
     for (int i=0; i<sources.size(); i++) {

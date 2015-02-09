@@ -11,7 +11,7 @@
 #ifndef VOICE_H_INCLUDED
 #define VOICE_H_INCLUDED
 
-#include "../JuceLibraryCode/JuceHeader.h"
+#include "JuceHeader.h"
 #include "Sound.h"
 #include "ADSR.h"
 

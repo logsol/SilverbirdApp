@@ -8,8 +8,8 @@
  ==============================================================================
  */
 
-#include "../JuceLibraryCode/JuceHeader.h"
-#include "Controller.h"
+#include "JuceHeader.h"
+#include "AppController.h"
 #include "Gui.h"
 
 
@@ -90,7 +90,7 @@ public:
          */
         
     private:
-        Controller controller;
+        AppController controller;
         Gui gui;
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainWindow)
     };

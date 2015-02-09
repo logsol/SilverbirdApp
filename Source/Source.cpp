@@ -11,6 +11,7 @@
 #include "Source.h"
 #include "Sound.h"
 #include "Mixer.h"
+#include "BinaryData.h"
 
 Source::Source(int trackId, String name, MidiMessageCollector& midiCollector, globalParamList* globalParams) :
     midiCollector (midiCollector),

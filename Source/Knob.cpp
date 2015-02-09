@@ -9,6 +9,8 @@
 */
 
 #include "Knob.h"
+#include "BinaryData.h"
+
 
 Knob::Knob(const String &name)
 : Slider(name)

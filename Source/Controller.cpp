@@ -13,31 +13,12 @@
 
 Controller::Controller() : sequencer(mixer)
 {
-    bootstrap();
+    clock.setGlobalParams(&mixer.globalParams);
+    clock.addListener(&sequencer);
 }
 
 Controller::~Controller()
 {
-}
-
-void Controller::bootstrap()
-{
-    audioDeviceManager.initialise (2, 2, 0, true, String::empty, 0);
-    audioSourcePlayer.setSource(&mixer);
-    audioDeviceManager.addAudioCallback(&audioSourcePlayer);
-    
-    audioDeviceManager.addMidiInputCallback (String::empty, &(mixer.midiCollector));
-
-    const String input ((MidiInput::getDevices())[0]);
-    
-    if (! audioDeviceManager.isMidiInputEnabled (input)) {
-        audioDeviceManager.setMidiInputEnabled (input, true);
-    }
-    std::cout << "Audio Device: " << audioDeviceManager.getCurrentAudioDevice()->getName() << std::endl;
-    std::cout << "Midi Device: " << input << std::endl;
-    
-    clock.setGlobalParams(&mixer.globalParams);
-    clock.addListener(&sequencer);
 }
 
 void Controller::addClockListener(ClockListener* listener)
@@ -53,4 +34,14 @@ void Controller::removeClockListener(ClockListener* listener)
 void Controller::togglePlayPause()
 {
     clock.togglePlayPause();
+}
+
+void Controller::setPlayPause(bool play)
+{
+    clock.setPlayPause(play);
+}
+
+void Controller::setParameter(int parameterIndex, float value)
+{
+    
 }

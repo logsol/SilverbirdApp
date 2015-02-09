@@ -12,7 +12,7 @@
 #define KNOB_H_INCLUDED
 
 
-#include "../JuceLibraryCode/JuceHeader.h"
+#include "JuceHeader.h"
 
 class Knob
 : public Slider

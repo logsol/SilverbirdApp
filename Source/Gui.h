@@ -21,7 +21,7 @@
 #define __JUCE_HEADER_1B7D314A9B5D26__
 
 //[Headers]     -- You can add your own extra header files here --
-#include "../JuceLibraryCode/JuceHeader.h"
+#include "JuceHeader.h"
 #include "Controller.h"
 #include "Knob.h"
 //[/Headers]

@@ -20,8 +20,6 @@
 //[Headers] You can add your own extra header files here...
 #include "Controller.h"
 #include "Mixer.h"
-#include "TrackParameters.h"
-#include "Drums.h"
 //[/Headers]
 
 #include "Gui.h"
@@ -290,7 +288,7 @@ Gui::Gui (Controller* controller)
     //[UserPreSize]
     //[/UserPreSize]
 
-    setSize (1076, 611);
+    setSize (1076, 639);
 
 
     //[Constructor] You can add your own custom stuff here..
@@ -429,79 +427,80 @@ void Gui::sliderValueChanged (Slider* sliderThatWasMoved)
     if (sliderThatWasMoved == masterSlider)
     {
         //[UserSliderCode_masterSlider] -- add your slider handling code here..
-        controller->mixer.globalParams.master = masterSlider->getValue();
+        controller->setParameter(Controller::, masterSlider->getValue());
+//        controller->mixer.globalParams.master = masterSlider->getValue();
         //[/UserSliderCode_masterSlider]
     }
     else if (sliderThatWasMoved == kickVolumeSlider)
     {
         //[UserSliderCode_kickVolumeSlider] -- add your slider handling code here..
-        controller->mixer.sources[Mixer::trackIndex::kick]->trackParams.level = kickVolumeSlider->getValue();
+//        controller->mixer.sources[Mixer::trackIndex::kick]->trackParams.level = kickVolumeSlider->getValue();
         //[/UserSliderCode_kickVolumeSlider]
     }
     else if (sliderThatWasMoved == snareVolumeSlider)
     {
         //[UserSliderCode_snareVolumeSlider] -- add your slider handling code here..
-        controller->mixer.sources[Mixer::trackIndex::snare]->trackParams.level = snareVolumeSlider->getValue();
+//        controller->mixer.sources[Mixer::trackIndex::snare]->trackParams.level = snareVolumeSlider->getValue();
         //[/UserSliderCode_snareVolumeSlider]
     }
     else if (sliderThatWasMoved == hihatVolumeSlider)
     {
         //[UserSliderCode_hihatVolumeSlider] -- add your slider handling code here..
-        controller->mixer.sources[Mixer::trackIndex::hihat]->trackParams.level = hihatVolumeSlider->getValue();
+//        controller->mixer.sources[Mixer::trackIndex::hihat]->trackParams.level = hihatVolumeSlider->getValue();
         //[/UserSliderCode_hihatVolumeSlider]
     }
     else if (sliderThatWasMoved == sampleAllSlider)
     {
         //[UserSliderCode_sampleAllSlider] -- add your slider handling code here..
-        controller->mixer.globalParams.sample = sampleAllSlider->getValue();
+//        controller->mixer.globalParams.sample = sampleAllSlider->getValue();
         //[/UserSliderCode_sampleAllSlider]
     }
     else if (sliderThatWasMoved == pitchSlider)
     {
         //[UserSliderCode_pitchSlider] -- add your slider handling code here..
-        controller->mixer.globalParams.pitch = pitchSlider->getValue();
+//        controller->mixer.globalParams.pitch = pitchSlider->getValue();
         //[/UserSliderCode_pitchSlider]
     }
     else if (sliderThatWasMoved == decaySlider)
     {
         //[UserSliderCode_decaySlider] -- add your slider handling code here..
-        controller->mixer.globalParams.decay = decaySlider->getValue();
+//        controller->mixer.globalParams.decay = decaySlider->getValue();
         //[/UserSliderCode_decaySlider]
     }
     else if (sliderThatWasMoved == distortSlider)
     {
         //[UserSliderCode_distortSlider] -- add your slider handling code here..
-        controller->mixer.globalParams.distort = distortSlider->getValue();
+//        controller->mixer.globalParams.distort = distortSlider->getValue();
         //[/UserSliderCode_distortSlider]
     }
     else if (sliderThatWasMoved == cutoffSlider)
     {
         //[UserSliderCode_cutoffSlider] -- add your slider handling code here..
-        controller->mixer.globalParams.cutoff = cutoffSlider->getValue();
+//        controller->mixer.globalParams.cutoff = cutoffSlider->getValue();
         //[/UserSliderCode_cutoffSlider]
     }
     else if (sliderThatWasMoved == shuffleSlider)
     {
         //[UserSliderCode_shuffleSlider] -- add your slider handling code here..
-        controller->mixer.globalParams.shuffle = shuffleSlider->getValue();
+//        controller->mixer.globalParams.shuffle = shuffleSlider->getValue();
         //[/UserSliderCode_shuffleSlider]
     }
     else if (sliderThatWasMoved == perc1VolumeSlider)
     {
         //[UserSliderCode_perc1VolumeSlider] -- add your slider handling code here..
-        controller->mixer.sources[Mixer::trackIndex::perc1]->trackParams.level = perc1VolumeSlider->getValue();
+//        controller->mixer.sources[Mixer::trackIndex::perc1]->trackParams.level = perc1VolumeSlider->getValue();
         //[/UserSliderCode_perc1VolumeSlider]
     }
     else if (sliderThatWasMoved == perc2VolumeSlider)
     {
         //[UserSliderCode_perc2VolumeSlider] -- add your slider handling code here..
-        controller->mixer.sources[Mixer::trackIndex::perc2]->trackParams.level = perc2VolumeSlider->getValue();
+//        controller->mixer.sources[Mixer::trackIndex::perc2]->trackParams.level = perc2VolumeSlider->getValue();
         //[/UserSliderCode_perc2VolumeSlider]
     }
     else if (sliderThatWasMoved == tonesVolumeSlider)
     {
         //[UserSliderCode_tonesVolumeSlider] -- add your slider handling code here..
-        controller->mixer.sources[Mixer::trackIndex::tones]->trackParams.level = tonesVolumeSlider->getValue();
+//        controller->mixer.sources[Mixer::trackIndex::tones]->trackParams.level = tonesVolumeSlider->getValue();
         //[/UserSliderCode_tonesVolumeSlider]
     }
 
@@ -517,37 +516,37 @@ void Gui::buttonClicked (Button* buttonThatWasClicked)
     if (buttonThatWasClicked == kickMuteButton)
     {
         //[UserButtonCode_kickMuteButton] -- add your button handler code here..
-        controller->mixer.sources[Mixer::trackIndex::kick]->trackParams.mute = kickMuteButton->getToggleState();
+//        controller->mixer.sources[Mixer::trackIndex::kick]->trackParams.mute = kickMuteButton->getToggleState();
         //[/UserButtonCode_kickMuteButton]
     }
     else if (buttonThatWasClicked == snareMuteButton)
     {
         //[UserButtonCode_snareMuteButton] -- add your button handler code here..
-        controller->mixer.sources[Mixer::trackIndex::snare]->trackParams.mute = snareMuteButton->getToggleState();
+//        controller->mixer.sources[Mixer::trackIndex::snare]->trackParams.mute = snareMuteButton->getToggleState();
         //[/UserButtonCode_snareMuteButton]
     }
     else if (buttonThatWasClicked == HihatMuteButton)
     {
         //[UserButtonCode_HihatMuteButton] -- add your button handler code here..
-        controller->mixer.sources[Mixer::trackIndex::hihat]->trackParams.mute = HihatMuteButton->getToggleState();
+//        controller->mixer.sources[Mixer::trackIndex::hihat]->trackParams.mute = HihatMuteButton->getToggleState();
         //[/UserButtonCode_HihatMuteButton]
     }
     else if (buttonThatWasClicked == perc1MuteButton)
     {
         //[UserButtonCode_perc1MuteButton] -- add your button handler code here..
-        controller->mixer.sources[Mixer::trackIndex::perc1]->trackParams.mute = perc1MuteButton->getToggleState();
+//        controller->mixer.sources[Mixer::trackIndex::perc1]->trackParams.mute = perc1MuteButton->getToggleState();
         //[/UserButtonCode_perc1MuteButton]
     }
     else if (buttonThatWasClicked == perc2MuteButton)
     {
         //[UserButtonCode_perc2MuteButton] -- add your button handler code here..
-        controller->mixer.sources[Mixer::trackIndex::perc2]->trackParams.mute = perc2MuteButton->getToggleState();
+//        controller->mixer.sources[Mixer::trackIndex::perc2]->trackParams.mute = perc2MuteButton->getToggleState();
         //[/UserButtonCode_perc2MuteButton]
     }
     else if (buttonThatWasClicked == tonesMuteButton)
     {
         //[UserButtonCode_tonesMuteButton] -- add your button handler code here..
-        controller->mixer.sources[Mixer::trackIndex::tones]->trackParams.mute = tonesMuteButton->getToggleState();
+//        controller->mixer.sources[Mixer::trackIndex::tones]->trackParams.mute = tonesMuteButton->getToggleState();
         //[/UserButtonCode_tonesMuteButton]
     }
 
@@ -591,8 +590,8 @@ BEGIN_JUCER_METADATA
 <JUCER_COMPONENT documentType="Component" className="Gui" componentName="Gui"
                  parentClasses="public Component" constructorParams="Controller* controller"
                  variableInitialisers="controller(controller)" snapPixels="8"
-                 snapActive="1" snapShown="1" overlayOpacity="0.330" fixedSize="1"
-                 initialWidth="1076" initialHeight="611">
+                 snapActive="1" snapShown="1" overlayOpacity="0.330" fixedSize="0"
+                 initialWidth="1076" initialHeight="639">
   <METHODS>
     <METHOD name="keyPressed (const KeyPress&amp; key)"/>
   </METHODS>

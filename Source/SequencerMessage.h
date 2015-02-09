@@ -11,7 +11,7 @@
 #ifndef SEQUENCERMESSAGE_H_INCLUDED
 #define SEQUENCERMESSAGE_H_INCLUDED
 
-#include "../JuceLibraryCode/JuceHeader.h"
+#include "JuceHeader.h"
 
 class SequencerMessage : public Message
 {

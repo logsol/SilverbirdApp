@@ -180,6 +180,9 @@ void Stepper::mouseDrag (const MouseEvent& e)
 void Stepper::clockStep(int cursor)
 {
     this->cursor = cursor;
+    
+    const MessageManagerLock l;
+    
     repaint();
 }
 
