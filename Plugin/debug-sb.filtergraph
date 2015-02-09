@@ -13,10 +13,10 @@
             isInstrument="0" fileTime="0" numInputs="2" numOutputs="0" isShell="0"/>
     <STATE>0.</STATE>
   </FILTER>
-  <FILTER uid="5" x="0.469531" y="0.488439" uiLastX="27" uiLastY="467">
+  <FILTER uid="5" x="0.469531" y="0.488439" uiLastX="82" uiLastY="91">
     <PLUGIN name="Silverbird" format="VST" category="Synth" manufacturer="Audiosalt"
             version="V1.0.0" file="/Users/logsol/Library/Audio/Plug-Ins/VST/Silverbird.vst"
-            uid="53425244" isInstrument="1" fileTime="14b6de489c8" numInputs="0"
+            uid="53425244" isInstrument="1" fileTime="14b6de8a490" numInputs="0"
             numOutputs="2" isShell="0"/>
     <STATE>160.K41XCA.....ZCIjQ....ALkPRQD....Y....A.................................................................................................................................................................................</STATE>
   </FILTER>

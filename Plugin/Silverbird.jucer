@@ -12,6 +12,64 @@
               companyName="Audiosalt" companyWebsite="audiosalt.com">
   <MAINGROUP id="b4xlPf" name="Silverbird">
     <GROUP id="{CE82D790-852B-90A3-716A-1E8101AD901C}" name="Source">
+      <GROUP id="{183B0EA0-9CFD-9AD6-BDC0-6B6B273DC2A1}" name="Resources">
+        <FILE id="yf9KGc" name="BinaryData.h" compile="0" resource="0" file="../JuceLibraryCode/BinaryData.h"/>
+        <FILE id="MJOJKJ" name="BinaryData.cpp" compile="1" resource="0" file="../JuceLibraryCode/BinaryData.cpp"/>
+        <FILE id="xucMYs" name="BinaryData2.cpp" compile="1" resource="0" file="../JuceLibraryCode/BinaryData2.cpp"/>
+        <FILE id="h8D3zq" name="BinaryData3.cpp" compile="1" resource="0" file="../JuceLibraryCode/BinaryData3.cpp"/>
+        <FILE id="v0EQVt" name="BinaryData4.cpp" compile="1" resource="0" file="../JuceLibraryCode/BinaryData4.cpp"/>
+      </GROUP>
+      <GROUP id="{6904BCF1-50FF-29B9-FCA8-B771C92F6582}" name="App">
+        <FILE id="FWwLyv" name="ADSR.cpp" compile="1" resource="0" file="../Source/ADSR.cpp"/>
+        <FILE id="Yo4kBm" name="ADSR.h" compile="0" resource="0" file="../Source/ADSR.h"/>
+        <FILE id="w0MyMN" name="BipolarStepper.cpp" compile="1" resource="0"
+              file="../Source/BipolarStepper.cpp"/>
+        <FILE id="u0b7g3" name="BipolarStepper.h" compile="0" resource="0"
+              file="../Source/BipolarStepper.h"/>
+        <FILE id="qhgX56" name="Clock.cpp" compile="1" resource="0" file="../Source/Clock.cpp"/>
+        <FILE id="Y2NNS3" name="Clock.h" compile="0" resource="0" file="../Source/Clock.h"/>
+        <FILE id="COen3R" name="ClockListener.cpp" compile="1" resource="0"
+              file="../Source/ClockListener.cpp"/>
+        <FILE id="cgnmFs" name="ClockListener.h" compile="0" resource="0" file="../Source/ClockListener.h"/>
+        <FILE id="VNglzW" name="Controller.cpp" compile="1" resource="0" file="../Source/Controller.cpp"/>
+        <FILE id="oAkuvt" name="Controller.h" compile="0" resource="0" file="../Source/Controller.h"/>
+        <FILE id="eUU5bI" name="Drums.cpp" compile="1" resource="0" file="../Source/Drums.cpp"/>
+        <FILE id="ztfeKw" name="Drums.h" compile="0" resource="0" file="../Source/Drums.h"/>
+        <FILE id="z6f2wR" name="GlobalParamList.h" compile="0" resource="0"
+              file="../Source/GlobalParamList.h"/>
+        <FILE id="iReRUS" name="Gui.cpp" compile="1" resource="0" file="../Source/Gui.cpp"/>
+        <FILE id="cYpAQq" name="Gui.h" compile="0" resource="0" file="../Source/Gui.h"/>
+        <FILE id="mwDpf3" name="Knob.cpp" compile="1" resource="0" file="../Source/Knob.cpp"/>
+        <FILE id="joZAcQ" name="Knob.h" compile="0" resource="0" file="../Source/Knob.h"/>
+        <FILE id="godQIu" name="Mixer.cpp" compile="1" resource="0" file="../Source/Mixer.cpp"/>
+        <FILE id="bR547c" name="Mixer.h" compile="0" resource="0" file="../Source/Mixer.h"/>
+        <FILE id="FUrFSp" name="Mods.cpp" compile="1" resource="0" file="../Source/Mods.cpp"/>
+        <FILE id="t833Oa" name="Mods.h" compile="0" resource="0" file="../Source/Mods.h"/>
+        <FILE id="atWAbr" name="Sampler.cpp" compile="1" resource="0" file="../Source/Sampler.cpp"/>
+        <FILE id="HW8hrq" name="Sampler.h" compile="0" resource="0" file="../Source/Sampler.h"/>
+        <FILE id="sbBDkw" name="Sequencer.cpp" compile="1" resource="0" file="../Source/Sequencer.cpp"/>
+        <FILE id="q0puPi" name="Sequencer.h" compile="0" resource="0" file="../Source/Sequencer.h"/>
+        <FILE id="XVZq2K" name="SequencerMessage.h" compile="0" resource="0"
+              file="../Source/SequencerMessage.h"/>
+        <FILE id="PDwR1t" name="Sound.cpp" compile="1" resource="0" file="../Source/Sound.cpp"/>
+        <FILE id="YIu20i" name="Sound.h" compile="0" resource="0" file="../Source/Sound.h"/>
+        <FILE id="D3pYIQ" name="Source.cpp" compile="1" resource="0" file="../Source/Source.cpp"/>
+        <FILE id="kfdsPi" name="Source.h" compile="0" resource="0" file="../Source/Source.h"/>
+        <FILE id="d3jQqT" name="Stepper.cpp" compile="1" resource="0" file="../Source/Stepper.cpp"/>
+        <FILE id="JgsTSF" name="Stepper.h" compile="0" resource="0" file="../Source/Stepper.h"/>
+        <FILE id="jrxHz5" name="TrackParameters.cpp" compile="1" resource="0"
+              file="../Source/TrackParameters.cpp"/>
+        <FILE id="eE8g39" name="TrackParameters.h" compile="0" resource="0"
+              file="../Source/TrackParameters.h"/>
+        <FILE id="RRqja9" name="TrackParamList.h" compile="0" resource="0"
+              file="../Source/TrackParamList.h"/>
+        <FILE id="cQ2hcM" name="Voice.cpp" compile="1" resource="0" file="../Source/Voice.cpp"/>
+        <FILE id="MYptD3" name="Voice.h" compile="0" resource="0" file="../Source/Voice.h"/>
+      </GROUP>
+      <FILE id="HiTGZK" name="PluginController.cpp" compile="1" resource="0"
+            file="Source/PluginController.cpp"/>
+      <FILE id="t7b8Mk" name="PluginController.h" compile="0" resource="0"
+            file="Source/PluginController.h"/>
       <FILE id="xc6BzT" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
       <FILE id="eznWma" name="PluginProcessor.h" compile="0" resource="0"
@@ -25,7 +83,7 @@
     <XCODE_MAC targetFolder="Builds/MacOSX" vstFolder="../../SDKs/vstsdk2.4"
                postbuildCommand="&#13;&#10;# This script takes the build product and copies it to the AU, VST, VST3, RTAS and AAX folders, depending on &#13;&#10;# which plugin types you've built&#13;&#10;&#13;&#10;original=$CONFIGURATION_BUILD_DIR/$FULL_PRODUCT_NAME&#13;&#10;&#13;&#10;# this looks inside the binary to detect which platforms are needed.. &#13;&#10;copyAU=&#96;nm -g &quot;$CONFIGURATION_BUILD_DIR/$EXECUTABLE_PATH&quot; | grep -i 'AudioUnit' | wc -l&#96;&#13;&#10;copyVST=&#96;nm -g &quot;$CONFIGURATION_BUILD_DIR/$EXECUTABLE_PATH&quot; | grep -i 'VSTPlugin' | wc -l&#96;&#13;&#10;copyVST3=&#96;nm -g &quot;$CONFIGURATION_BUILD_DIR/$EXECUTABLE_PATH&quot; | grep -i 'GetPluginFactory' | wc -l&#96;&#13;&#10;copyRTAS=&#96;nm -g &quot;$CONFIGURATION_BUILD_DIR/$EXECUTABLE_PATH&quot; | grep -i 'CProcess' | wc -l&#96;&#13;&#10;copyAAX=&#96;nm -g &quot;$CONFIGURATION_BUILD_DIR/$EXECUTABLE_PATH&quot; | grep -i 'ACFStartup' | wc -l&#96;&#13;&#10;&#13;&#10;if [ $copyAU -gt 0 ]; then&#13;&#10;  echo &quot;Copying to AudioUnit folder...&quot;&#13;&#10;  AU=~/Library/Audio/Plug-Ins/Components/$PRODUCT_NAME.component&#13;&#10;  if [ -d &quot;$AU&quot; ]; then &#13;&#10;    rm -r &quot;$AU&quot;&#13;&#10;  fi&#13;&#10;&#13;&#10;  cp -r &quot;$original&quot; &quot;$AU&quot;&#13;&#10;  sed -i &quot;&quot; -e 's/TDMwPTul/BNDLPTul/g' &quot;$AU/Contents/PkgInfo&quot;&#13;&#10;  sed -i &quot;&quot; -e 's/TDMw/BNDL/g' &quot;$AU/Contents/$INFOPLIST_FILE&quot;&#13;&#10;&#13;&#10;  # Fix info.plist for AUs built with Xcode 3&#13;&#10;  if [ -f &quot;$DEVELOPER_DIR/Library/Developer/CoreAudio/AudioUnits/AUPublic/AUBase/AUPlugInDispatch.cpp&quot; ]; then&#13;&#10;    echo&#13;&#10;  else&#13;&#10;    echo &quot;Removing AudioComponents entry from Info.plist because this is not a new-format AU&quot;&#13;&#10;    /usr/libexec/PlistBuddy -c &quot;Delete AudioComponents&quot; &quot;$AU/Contents/Info.plist&quot;&#13;&#10;  fi&#13;&#10;fi&#13;&#10;&#13;&#10;if [ $copyVST -gt 0 ]; then&#13;&#10;  echo &quot;Copying to VST folder...&quot;&#13;&#10;  VST=~/Library/Audio/Plug-Ins/VST/$PRODUCT_NAME.vst&#13;&#10;  if [ -d &quot;$VST&quot; ]; then &#13;&#10;    rm -r &quot;$VST&quot;&#13;&#10;  fi&#13;&#10;&#13;&#10;  cp -r &quot;$original&quot; &quot;$VST&quot;&#13;&#10;  sed -i &quot;&quot; -e 's/TDMwPTul/BNDLPTul/g' &quot;$VST/Contents/PkgInfo&quot;&#13;&#10;  sed -i &quot;&quot; -e 's/TDMw/BNDL/g' &quot;$VST/Contents/$INFOPLIST_FILE&quot;&#13;&#10;fi&#13;&#10;&#13;&#10;if [ $copyVST3 -gt 0 ]; then&#13;&#10;  echo &quot;Copying to VST3 folder...&quot;&#13;&#10;  VST3=~/Library/Audio/Plug-Ins/VST3/$PRODUCT_NAME.vst3&#13;&#10;  if [ -d &quot;$VST3&quot; ]; then &#13;&#10;    rm -r &quot;$VST3&quot;&#13;&#10;  fi&#13;&#10;&#13;&#10;  cp -r &quot;$original&quot; &quot;$VST3&quot;&#13;&#10;  sed -i &quot;&quot; -e 's/TDMwPTul/BNDLPTul/g' &quot;$VST3/Contents/PkgInfo&quot;&#13;&#10;  sed -i &quot;&quot; -e 's/TDMw/BNDL/g' &quot;$VST3/Contents/$INFOPLIST_FILE&quot;&#13;&#10;fi&#13;&#10;&#13;&#10;if [ $copyRTAS -gt 0 ]; then&#13;&#10;  echo &quot;Copying to RTAS folder...&quot;&#13;&#10;  RTAS=/Library/Application\ Support/Digidesign/Plug-Ins/$PRODUCT_NAME.dpm&#13;&#10;  if [ -d &quot;$RTAS&quot; ]; then&#13;&#10;    rm -r &quot;$RTAS&quot;&#13;&#10;  fi&#13;&#10;&#13;&#10;  cp -r &quot;$original&quot; &quot;$RTAS&quot;&#13;&#10;fi&#13;&#10;&#13;&#10;if [ $copyAAX -gt 0 ]; then&#13;&#10;  echo &quot;Copying to AAX folder...&quot;&#13;&#10;&#13;&#10;  if [ -d &quot;/Applications/ProTools_3PDev/Plug-Ins&quot; ]; then&#13;&#10;    AAX1=&quot;/Applications/ProTools_3PDev/Plug-Ins/$PRODUCT_NAME.aaxplugin&quot;&#13;&#10;&#13;&#10;    if [ -d &quot;$AAX1&quot; ]; then&#13;&#10;      rm -r &quot;$AAX1&quot;&#13;&#10;    fi&#13;&#10;&#13;&#10;    cp -R -H &quot;$original&quot; &quot;$AAX1&quot;&#13;&#10;  fi&#13;&#10;&#13;&#10;  if [ -d &quot;/Library/Application Support/Avid/Audio/Plug-Ins&quot; ]; then&#13;&#10;    AAX2=&quot;/Library/Application Support/Avid/Audio/Plug-Ins/$PRODUCT_NAME.aaxplugin&quot;&#13;&#10;&#13;&#10;    if [ -d &quot;$AAX2&quot; ]; then&#13;&#10;      rm -r &quot;$AAX2&quot;&#13;&#10;    fi&#13;&#10;&#13;&#10;    cp -R -H &quot;$original&quot; &quot;$AAX2&quot;&#13;&#10;  fi&#13;&#10;fi&#13;&#10;">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" osxSDK="10.9 SDK" osxCompatibility="10.9 SDK" osxArchitecture="default"
+        <CONFIGURATION name="Debug" osxSDK="10.9 SDK" osxCompatibility="10.9 SDK" osxArchitecture="32BitUniversal"
                        isDebug="1" optimisation="1" targetName="Silverbird"/>
         <CONFIGURATION name="Release" osxSDK="10.9 SDK" osxCompatibility="10.9 SDK"
                        osxArchitecture="default" isDebug="0" optimisation="2" targetName="Silverbird"/>

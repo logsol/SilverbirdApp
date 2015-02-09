@@ -40,8 +40,17 @@
       debugDocumentVersioning = "NO"
       allowLocationSimulation = "NO">
       <PathRunnable
-         FilePath = "/Users/logsol/Work/projects/c++/nj/JUCE/examples/audio plugin host/Builds/MacOSX/build/Debug/Plugin Host.app">
+         FilePath = "/Applications/Plugin Host.app">
       </PathRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "B4666B57B02E35B4611B709F"
+            BuildableName = "Silverbird.component"
+            BlueprintName = "Silverbird"
+            ReferencedContainer = "container:Silverbird.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <CommandLineArguments>
          <CommandLineArgument
             argument = "/Users/logsol/Work/projects/c++/SilverbirdApp/Plugin/debug-sb.filtergraph"

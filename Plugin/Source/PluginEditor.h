@@ -11,7 +11,7 @@
 #ifndef PLUGINEDITOR_H_INCLUDED
 #define PLUGINEDITOR_H_INCLUDED
 
-#include "../JuceLibraryCode/JuceHeader.h"
+#include "JuceHeader.h"
 #include "PluginProcessor.h"
 
 
@@ -21,7 +21,7 @@
 class SilverbirdAudioProcessorEditor  : public AudioProcessorEditor
 {
 public:
-    SilverbirdAudioProcessorEditor (SilverbirdAudioProcessor&);
+    SilverbirdAudioProcessorEditor (SilverbirdAudioProcessor&, PluginController&);
     ~SilverbirdAudioProcessorEditor();
 
     //==============================================================================

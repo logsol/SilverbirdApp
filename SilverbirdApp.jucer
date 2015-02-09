@@ -5,8 +5,9 @@
               jucerVersion="3.1.1">
   <MAINGROUP id="P1u1H7" name="SilverbirdApp">
     <GROUP id="{40B58F17-2A50-FCFC-AC96-EA61BE3F32E2}" name="Source">
-      <FILE id="WM42kq" name="Controller.cpp" compile="1" resource="0" file="Source/Controller.cpp"/>
-      <FILE id="PheKqL" name="Controller.h" compile="0" resource="0" file="Source/Controller.h"/>
+      <FILE id="tIDdXD" name="AppController.cpp" compile="1" resource="0"
+            file="Source/AppController.cpp"/>
+      <FILE id="qr1UjQ" name="AppController.h" compile="0" resource="0" file="Source/AppController.h"/>
       <GROUP id="{83064016-DD25-739D-D5D8-33E1E00341C3}" name="Sequencer">
         <FILE id="bmbbFr" name="Sequencer.cpp" compile="1" resource="0" file="Source/Sequencer.cpp"/>
         <FILE id="kwOZBF" name="Sequencer.h" compile="0" resource="0" file="Source/Sequencer.h"/>
@@ -17,6 +18,8 @@
         <FILE id="I7gAhn" name="Clock.h" compile="0" resource="0" file="Source/Clock.h"/>
       </GROUP>
       <GROUP id="{65D2481D-E290-269E-E2CF-FBF627AAB06A}" name="Engine">
+        <FILE id="WM42kq" name="Controller.cpp" compile="1" resource="0" file="Source/Controller.cpp"/>
+        <FILE id="PheKqL" name="Controller.h" compile="0" resource="0" file="Source/Controller.h"/>
         <FILE id="pI97GT" name="ADSR.cpp" compile="1" resource="0" file="Source/ADSR.cpp"/>
         <FILE id="O3Izmm" name="ADSR.h" compile="0" resource="0" file="Source/ADSR.h"/>
         <FILE id="HxAYT9" name="Voice.cpp" compile="1" resource="0" file="Source/Voice.cpp"/>

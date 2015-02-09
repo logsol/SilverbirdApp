@@ -10,7 +10,7 @@
 
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
-
+#include "PluginController.h"
 
 //==============================================================================
 SilverbirdAudioProcessor::SilverbirdAudioProcessor()
@@ -128,6 +128,8 @@ void SilverbirdAudioProcessor::prepareToPlay (double sampleRate, int samplesPerB
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
+    
+    controller.mixer.prepareToPlay(samplesPerBlock, sampleRate);
 }
 
 void SilverbirdAudioProcessor::releaseResources()
@@ -144,6 +146,8 @@ void SilverbirdAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuff
     // I've added this to avoid people getting screaming feedback
     // when they first compile the plugin, but obviously you don't need to
     // this code if your algorithm already fills all the output channels.
+    
+    /*
     for (int i = getNumInputChannels(); i < getNumOutputChannels(); ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
 
@@ -155,6 +159,29 @@ void SilverbirdAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuff
 
         // ..do something to the data...
     }
+    */
+
+    AudioSourceChannelInfo channelInfo (&buffer, 0, buffer.getNumSamples());
+    controller.mixer.getNextAudioBlock(channelInfo);
+    
+    AudioPlayHead::CurrentPositionInfo info;
+    getPlayHead()->getCurrentPosition(info);
+    
+    if (positionInfo.isPlaying != info.isPlaying) {
+        controller.setPlayPause(info.isPlaying);
+    }
+    
+    positionInfo = info;
+    
+    // merging incoming midi (from host) into midiCollector
+    MidiBuffer::Iterator iterator(midiMessages);
+    MidiMessage result;
+    int position;
+    
+    while (iterator.getNextEvent(result, position)) {
+        result.setTimeStamp(Time::getMillisecondCounter() / 1000.0);
+        controller.mixer.midiCollector.addMessageToQueue(result);
+    }
 }
 
 //==============================================================================
@@ -165,7 +192,7 @@ bool SilverbirdAudioProcessor::hasEditor() const
 
 AudioProcessorEditor* SilverbirdAudioProcessor::createEditor()
 {
-    return new SilverbirdAudioProcessorEditor (*this);
+    return new SilverbirdAudioProcessorEditor (*this, controller);
 }
 
 //==============================================================================
