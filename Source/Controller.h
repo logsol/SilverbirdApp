@@ -19,21 +19,40 @@
 #include "Sequencer.h"
 #include "Knob.h"
 
-class Controller  {
+class Controller
+{
 public:
     Controller();
     ~Controller();
     
     void addClockListener(ClockListener* listener);
     void removeClockListener(ClockListener* listener);
-    void setParameter(int parameterIndex, float value);
     void togglePlayPause();
     void setPlayPause(bool play);
+    
+    void setParameter(int parameterIndex, float value);
+    const String getName();
+    
+    //int getParamId(int paramId, bool isGlobal, int trackId, int cellId);
 
     Sequencer sequencer;
     Clock clock;
     Mixer mixer;
-
+    
+    /*
+    enum class Param {
+        shuffle,
+        level,
+        mute,
+        sample,
+        pitch,
+        attack,
+        decay,
+        distort,
+        cutoff,
+        max
+    };*/
+    
 protected:
 };
 

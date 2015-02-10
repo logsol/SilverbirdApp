@@ -12,13 +12,14 @@
 #define PLUGINPROCESSOR_H_INCLUDED
 
 #include "JuceHeader.h"
-#include "PluginController.h"
+#include "Controller.h"
+#include "Gui.h"
 
 
 //==============================================================================
 /**
 */
-class SilverbirdAudioProcessor  : public AudioProcessor
+class SilverbirdAudioProcessor  : public AudioProcessor, public Controller
 {
 public:
     //==============================================================================
@@ -65,10 +66,11 @@ public:
     //==============================================================================
     void getStateInformation (MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
+    
+    Gui* gui;
 
 private:
     
-    PluginController controller;
     AudioPlayHead::CurrentPositionInfo positionInfo;
     
     //==============================================================================

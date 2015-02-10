@@ -427,8 +427,8 @@ void Gui::sliderValueChanged (Slider* sliderThatWasMoved)
     if (sliderThatWasMoved == masterSlider)
     {
         //[UserSliderCode_masterSlider] -- add your slider handling code here..
-        controller->setParameter(Controller::, masterSlider->getValue());
-//        controller->mixer.globalParams.master = masterSlider->getValue();
+        //controller->setParameterNotifyingHost(1, masterSlider->getValue());
+        //controller->mixer.globalParams.master = masterSlider->getValue();
         //[/UserSliderCode_masterSlider]
     }
     else if (sliderThatWasMoved == kickVolumeSlider)

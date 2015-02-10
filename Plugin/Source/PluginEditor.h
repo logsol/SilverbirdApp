@@ -21,7 +21,7 @@
 class SilverbirdAudioProcessorEditor  : public AudioProcessorEditor
 {
 public:
-    SilverbirdAudioProcessorEditor (SilverbirdAudioProcessor&, PluginController&);
+    SilverbirdAudioProcessorEditor (SilverbirdAudioProcessor&);
     ~SilverbirdAudioProcessorEditor();
 
     //==============================================================================

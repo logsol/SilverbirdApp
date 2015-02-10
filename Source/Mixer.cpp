@@ -93,6 +93,7 @@ void Mixer::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
 
 void Mixer::playNote(int note, float velocity)
 {
+    // dying here? probably forgot to bootstrap.
     midiCollector.handleNoteOn(&keyboardState, 1, note, velocity);
 //    midiCollector.handleNoteOff(&keyboardState, 1, note);
 }

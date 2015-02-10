@@ -8,9 +8,10 @@
   ==============================================================================
 */
 
+/*
 #include "PluginController.h"
 
-PluginController::PluginController()
+PluginController::PluginController(PluginProcessor* processor) : processor(processor)
 {
     gui = new Gui(this);
 }
@@ -19,3 +20,8 @@ PluginController::~PluginController()
 {
     delete gui;
 }
+
+void PluginController::setParameter(int parameterIndex, float value)
+{
+}
+ */

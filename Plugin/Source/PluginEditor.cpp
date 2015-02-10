@@ -14,14 +14,14 @@
 
 
 //==============================================================================
-SilverbirdAudioProcessorEditor::SilverbirdAudioProcessorEditor (SilverbirdAudioProcessor& p, PluginController& controller)
+SilverbirdAudioProcessorEditor::SilverbirdAudioProcessorEditor (SilverbirdAudioProcessor& p)
     : AudioProcessorEditor (&p), processor (p)
 {
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
     setSize (1076, 639);
     
-    addAndMakeVisible (controller.gui);
+    addAndMakeVisible (processor.gui);
 }
 
 SilverbirdAudioProcessorEditor::~SilverbirdAudioProcessorEditor()

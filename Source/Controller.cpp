@@ -43,5 +43,45 @@ void Controller::setPlayPause(bool play)
 
 void Controller::setParameter(int parameterIndex, float value)
 {
-    
 }
+
+const String getName()
+{
+    return "SilverBird";
+}
+
+/*
+int Controller::getParamId(int paramId, bool isGlobal, int trackId, int cellId)
+{
+    if (isGlobal) {
+        return paramId;
+    }
+    
+    if (trackId > 0) {
+        
+        if (cellId > 0) {
+        }
+        
+        //return Controller::Param::max * trackId;
+    }
+    
+    */
+    
+    /*
+    i=0;
+    
+    while (globalParams as globalParam) {
+        ++i
+    }
+    
+    while (tracks as track) {
+        while (trackParams as trackParam) {
+            ++i;
+        }
+    }
+    
+     */
+/*
+    return 0;
+}
+*/

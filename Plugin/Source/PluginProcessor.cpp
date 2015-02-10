@@ -10,15 +10,18 @@
 
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
-#include "PluginController.h"
+#include "Gui.h"
+
 
 //==============================================================================
 SilverbirdAudioProcessor::SilverbirdAudioProcessor()
 {
+    gui = new Gui(this);
 }
 
 SilverbirdAudioProcessor::~SilverbirdAudioProcessor()
 {
+    delete gui;
 }
 
 //==============================================================================
@@ -29,7 +32,8 @@ const String SilverbirdAudioProcessor::getName() const
 
 int SilverbirdAudioProcessor::getNumParameters()
 {
-    return 0;
+    
+    return 2;
 }
 
 float SilverbirdAudioProcessor::getParameter (int index)
@@ -39,16 +43,17 @@ float SilverbirdAudioProcessor::getParameter (int index)
 
 void SilverbirdAudioProcessor::setParameter (int index, float newValue)
 {
+    mixer.globalParams.master = newValue;
 }
 
 const String SilverbirdAudioProcessor::getParameterName (int index)
 {
-    return String();
+    return String("Master");
 }
 
 const String SilverbirdAudioProcessor::getParameterText (int index)
 {
-    return String();
+    return String("OA");
 }
 
 const String SilverbirdAudioProcessor::getInputChannelName (int channelIndex) const
@@ -129,7 +134,7 @@ void SilverbirdAudioProcessor::prepareToPlay (double sampleRate, int samplesPerB
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
     
-    controller.mixer.prepareToPlay(samplesPerBlock, sampleRate);
+    mixer.prepareToPlay(samplesPerBlock, sampleRate);
 }
 
 void SilverbirdAudioProcessor::releaseResources()
@@ -162,13 +167,13 @@ void SilverbirdAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuff
     */
 
     AudioSourceChannelInfo channelInfo (&buffer, 0, buffer.getNumSamples());
-    controller.mixer.getNextAudioBlock(channelInfo);
+    mixer.getNextAudioBlock(channelInfo);
     
     AudioPlayHead::CurrentPositionInfo info;
     getPlayHead()->getCurrentPosition(info);
     
     if (positionInfo.isPlaying != info.isPlaying) {
-        controller.setPlayPause(info.isPlaying);
+        setPlayPause(info.isPlaying);
     }
     
     positionInfo = info;
@@ -180,7 +185,7 @@ void SilverbirdAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuff
     
     while (iterator.getNextEvent(result, position)) {
         result.setTimeStamp(Time::getMillisecondCounter() / 1000.0);
-        controller.mixer.midiCollector.addMessageToQueue(result);
+        mixer.midiCollector.addMessageToQueue(result);
     }
 }
 
@@ -192,7 +197,7 @@ bool SilverbirdAudioProcessor::hasEditor() const
 
 AudioProcessorEditor* SilverbirdAudioProcessor::createEditor()
 {
-    return new SilverbirdAudioProcessorEditor (*this, controller);
+    return new SilverbirdAudioProcessorEditor (*this);
 }
 
 //==============================================================================

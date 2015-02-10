@@ -7,24 +7,28 @@
 
   ==============================================================================
 */
-
+/*
 #ifndef PLUGINCONTROLLER_H_INCLUDED
 #define PLUGINCONTROLLER_H_INCLUDED
 
+class PluginProcessor;
+
 #include "Controller.h"
 #include "Gui.h"
-#include "PluginProcessor.h"
 
 class PluginController : public Controller
 {
 public:
-    PluginController();
+    PluginController(PluginProcessor* processor);
     ~PluginController();
     
     Gui* gui;
-    SilverbirdAudioProcessor& processor;
+    
+
+    
 protected:
 };
 
 
 #endif  // PLUGINCONTROLLER_H_INCLUDED
+*/
