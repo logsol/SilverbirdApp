@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2013
+Project("{55372634-2182-67A5-E87B-56F673C6DE38}") = "Silverbird", "Silverbird.vcxproj", "{9519AD3B-691E-F05C-6E5E-04555FC33270}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9519AD3B-691E-F05C-6E5E-04555FC33270}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9519AD3B-691E-F05C-6E5E-04555FC33270}.Debug|Win32.Build.0 = Debug|Win32
+		{9519AD3B-691E-F05C-6E5E-04555FC33270}.Release|Win32.ActiveCfg = Release|Win32
+		{9519AD3B-691E-F05C-6E5E-04555FC33270}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
