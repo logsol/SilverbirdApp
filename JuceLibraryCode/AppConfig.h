@@ -26,6 +26,7 @@
 #define JUCE_MODULE_AVAILABLE_juce_audio_devices         1
 #define JUCE_MODULE_AVAILABLE_juce_audio_formats         1
 #define JUCE_MODULE_AVAILABLE_juce_audio_processors      1
+#define JUCE_MODULE_AVAILABLE_juce_audio_utils           1
 #define JUCE_MODULE_AVAILABLE_juce_core                  1
 #define JUCE_MODULE_AVAILABLE_juce_data_structures       1
 #define JUCE_MODULE_AVAILABLE_juce_events                1
@@ -53,11 +54,11 @@
 #endif
 
 #ifndef    JUCE_ALSA
- //#define JUCE_ALSA
+ #define   JUCE_ALSA 1
 #endif
 
 #ifndef    JUCE_JACK
- //#define JUCE_JACK
+ #define   JUCE_JACK 1
 #endif
 
 #ifndef    JUCE_USE_ANDROID_OPENSLES
@@ -65,34 +66,34 @@
 #endif
 
 #ifndef    JUCE_USE_CDREADER
- //#define JUCE_USE_CDREADER
+ #define   JUCE_USE_CDREADER 0
 #endif
 
 #ifndef    JUCE_USE_CDBURNER
- //#define JUCE_USE_CDBURNER
+ #define   JUCE_USE_CDBURNER 0
 #endif
 
 //==============================================================================
 // juce_audio_formats flags:
 
 #ifndef    JUCE_USE_FLAC
- //#define JUCE_USE_FLAC
+ #define   JUCE_USE_FLAC 0
 #endif
 
 #ifndef    JUCE_USE_OGGVORBIS
- //#define JUCE_USE_OGGVORBIS
+ #define   JUCE_USE_OGGVORBIS 0
 #endif
 
 #ifndef    JUCE_USE_MP3AUDIOFORMAT
- //#define JUCE_USE_MP3AUDIOFORMAT
+ #define   JUCE_USE_MP3AUDIOFORMAT 0
 #endif
 
 #ifndef    JUCE_USE_LAME_AUDIO_FORMAT
- //#define JUCE_USE_LAME_AUDIO_FORMAT
+ #define   JUCE_USE_LAME_AUDIO_FORMAT 0
 #endif
 
 #ifndef    JUCE_USE_WINDOWS_MEDIA_FORMAT
- //#define JUCE_USE_WINDOWS_MEDIA_FORMAT
+ #define   JUCE_USE_WINDOWS_MEDIA_FORMAT 0
 #endif
 
 //==============================================================================
@@ -103,11 +104,11 @@
 #endif
 
 #ifndef    JUCE_PLUGINHOST_VST3
- //#define JUCE_PLUGINHOST_VST3
+ #define   JUCE_PLUGINHOST_VST3 0
 #endif
 
 #ifndef    JUCE_PLUGINHOST_AU
- //#define JUCE_PLUGINHOST_AU
+ #define   JUCE_PLUGINHOST_AU 0
 #endif
 
 //==============================================================================
@@ -122,7 +123,7 @@
 #endif
 
 #ifndef    JUCE_CHECK_MEMORY_LEAKS
- //#define JUCE_CHECK_MEMORY_LEAKS
+ #define   JUCE_CHECK_MEMORY_LEAKS 1
 #endif
 
 #ifndef    JUCE_DONT_AUTOLINK_TO_WIN32_LIBRARIES
@@ -167,11 +168,11 @@
 // juce_gui_extra flags:
 
 #ifndef    JUCE_WEB_BROWSER
- //#define JUCE_WEB_BROWSER
+ #define   JUCE_WEB_BROWSER 0
 #endif
 
 #ifndef    JUCE_ENABLE_LIVE_CONSTANT_EDITOR
- //#define JUCE_ENABLE_LIVE_CONSTANT_EDITOR
+ #define   JUCE_ENABLE_LIVE_CONSTANT_EDITOR 0
 #endif
 
 

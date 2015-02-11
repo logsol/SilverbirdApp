@@ -50,6 +50,9 @@ BipolarStepper::~BipolarStepper()
 
 
     //[Destructor]. You can add your own custom destruction code here..
+    
+    // HINT: doesnt need to remove from clockListeners, because parent is taking care of it.
+    
     //[/Destructor]
 }
 

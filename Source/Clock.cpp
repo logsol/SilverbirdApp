@@ -28,7 +28,7 @@ void Clock::addListener(ClockListener* listener)
 
 void Clock::removeListener(ClockListener* listener)
 {
-    listeners.removeObject(listener);
+    listeners.removeObject(listener, false);
 }
 
 //void Clock::timerCallback()
@@ -45,13 +45,15 @@ void Clock::hiResTimerCallback()
     }
     */
     
-    postMessage(new Message());
+    //postMessage(new Message());
 }
 
 void Clock::handleMessage(const Message& message){
     
     for (int i = 0; i < listeners.size(); i++) {
         listeners[i]->clockStep(cursor);
+        
+        // ah i think problem is, that gui is being allocated multiple times again in plugin mode. and creating too many steppers.
     }
 }
 
@@ -68,13 +70,32 @@ void Clock::togglePlayPause()
 
 void Clock::setPlayPause(bool play) {
     if(play) {
-        float sixteenthTime = 60000 / bpm / 4;
-        startTimer(sixteenthTime);
+        //float sixteenthTime = 60000 / bpm / 4;
+        //startTimer(sixteenthTime);
     } else {
-        stopTimer();
+        //stopTimer();
         cursor = -1;
         postMessage(new Message());
     }
     
     isPlaying = play;
+}
+
+void Clock::tick()
+{
+    if (!isPlaying) {
+        return;
+    }
+    
+    uint32 now = Time::getMillisecondCounter();
+    float difference = now - lastClockStepTime;
+    if (difference > sixteenthTime) {
+        
+        cursor++;
+        cursor = cursor % numCells;
+
+        postMessage(new Message());
+        lastClockStepTime = now;
+    }
+
 }

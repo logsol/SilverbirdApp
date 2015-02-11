@@ -22,8 +22,8 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "JuceHeader.h"
-#include "Controller.h"
 #include "Knob.h"
+class Controller;
 //[/Headers]
 
 
@@ -36,7 +36,7 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class Gui  : public Component,
+class Gui  : public AudioProcessorEditor,
              public SliderListener,
              public ButtonListener
 {

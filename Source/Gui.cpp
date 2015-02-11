@@ -18,7 +18,7 @@
 */
 
 //[Headers] You can add your own extra header files here...
-#include "Controller.h"
+class Controller;
 #include "Mixer.h"
 //[/Headers]
 
@@ -33,7 +33,7 @@
 
 //==============================================================================
 Gui::Gui (Controller* controller)
-    : controller(controller)
+    : AudioProcessorEditor (controller), controller(controller)
 {
     setName ("Gui");
     addAndMakeVisible (label = new Label ("new label",
@@ -292,6 +292,12 @@ Gui::Gui (Controller* controller)
 
 
     //[Constructor] You can add your own custom stuff here..
+    
+    if (JUCEApplication::isStandaloneApp()) {
+        setSize(1076, 611);
+    }
+    
+    
      masterSlider->setValue(4);
 
      Slider* volumeSliders [Mixer::maxTracks] = {
@@ -588,10 +594,10 @@ bool Gui::keyPressed (const KeyPress& key)
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="Gui" componentName="Gui"
-                 parentClasses="public Component" constructorParams="Controller* controller"
-                 variableInitialisers="controller(controller)" snapPixels="8"
-                 snapActive="1" snapShown="1" overlayOpacity="0.330" fixedSize="0"
-                 initialWidth="1076" initialHeight="639">
+                 parentClasses="public AudioProcessorEditor" constructorParams="Controller* controller"
+                 variableInitialisers="AudioProcessorEditor (controller), controller(controller)"
+                 snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
+                 fixedSize="0" initialWidth="1076" initialHeight="639">
   <METHODS>
     <METHOD name="keyPressed (const KeyPress&amp; key)"/>
   </METHODS>

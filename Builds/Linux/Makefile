@@ -51,11 +51,8 @@ ifeq ($(CONFIG),Release)
 endif
 
 OBJECTS := \
-  $(OBJDIR)/AppController_200d0d7e.o \
-  $(OBJDIR)/Sequencer_5ffb45b2.o \
-  $(OBJDIR)/ClockListener_63c33543.o \
-  $(OBJDIR)/Clock_6670f06f.o \
   $(OBJDIR)/Controller_2961cb25.o \
+  $(OBJDIR)/Processor_85e48f3.o \
   $(OBJDIR)/ADSR_8d33c52b.o \
   $(OBJDIR)/Voice_616ec393.o \
   $(OBJDIR)/Mixer_d95e2aea.o \
@@ -69,6 +66,9 @@ OBJECTS := \
   $(OBJDIR)/TrackParameters_a021bf76.o \
   $(OBJDIR)/Knob_7a6e67ff.o \
   $(OBJDIR)/Gui_2b5c821c.o \
+  $(OBJDIR)/Sequencer_5ffb45b2.o \
+  $(OBJDIR)/ClockListener_63c33543.o \
+  $(OBJDIR)/Clock_6670f06f.o \
   $(OBJDIR)/Main_90ebc5c2.o \
   $(OBJDIR)/BinaryData_ce4232d4.o \
   $(OBJDIR)/BinaryData2_fa243da8.o \
@@ -78,6 +78,7 @@ OBJECTS := \
   $(OBJDIR)/juce_audio_devices_a4c8a728.o \
   $(OBJDIR)/juce_audio_formats_d349f0c8.o \
   $(OBJDIR)/juce_audio_processors_44a134a2.o \
+  $(OBJDIR)/juce_audio_utils_f63b12e8.o \
   $(OBJDIR)/juce_core_aff681cc.o \
   $(OBJDIR)/juce_data_structures_bdd6d488.o \
   $(OBJDIR)/juce_events_79b2840.o \
@@ -102,29 +103,14 @@ strip:
 	@echo Stripping SilverbirdApp
 	-@strip --strip-unneeded $(OUTDIR)/$(TARGET)
 
-$(OBJDIR)/AppController_200d0d7e.o: ../../Source/AppController.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling AppController.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/Sequencer_5ffb45b2.o: ../../Source/Sequencer.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling Sequencer.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/ClockListener_63c33543.o: ../../Source/ClockListener.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling ClockListener.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/Clock_6670f06f.o: ../../Source/Clock.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling Clock.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
 $(OBJDIR)/Controller_2961cb25.o: ../../Source/Controller.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling Controller.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/Processor_85e48f3.o: ../../Source/Processor.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling Processor.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/ADSR_8d33c52b.o: ../../Source/ADSR.cpp
@@ -192,6 +178,21 @@ $(OBJDIR)/Gui_2b5c821c.o: ../../Source/Gui.cpp
 	@echo "Compiling Gui.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/Sequencer_5ffb45b2.o: ../../Source/Sequencer.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling Sequencer.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/ClockListener_63c33543.o: ../../Source/ClockListener.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling ClockListener.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/Clock_6670f06f.o: ../../Source/Clock.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling Clock.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/Main_90ebc5c2.o: ../../Source/Main.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling Main.cpp"
@@ -235,6 +236,11 @@ $(OBJDIR)/juce_audio_formats_d349f0c8.o: ../../JuceLibraryCode/modules/juce_audi
 $(OBJDIR)/juce_audio_processors_44a134a2.o: ../../JuceLibraryCode/modules/juce_audio_processors/juce_audio_processors.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling juce_audio_processors.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/juce_audio_utils_f63b12e8.o: ../../JuceLibraryCode/modules/juce_audio_utils/juce_audio_utils.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling juce_audio_utils.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/juce_core_aff681cc.o: ../../JuceLibraryCode/modules/juce_core/juce_core.cpp

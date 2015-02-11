@@ -59,6 +59,8 @@ Stepper::~Stepper()
     stepperLabel = nullptr;
 
     //[Destructor]. You can add your own custom destruction code here..
+    std::cout << "-" << this->getComponentID();
+    controller->removeClockListener(this);
     //[/Destructor]
 }
 

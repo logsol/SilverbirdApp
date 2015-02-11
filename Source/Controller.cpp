@@ -41,14 +41,62 @@ void Controller::setPlayPause(bool play)
     clock.setPlayPause(play);
 }
 
-void Controller::setParameter(int parameterIndex, float value)
+void Controller::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
+    mixer.prepareToPlay(samplesPerBlock, sampleRate);
 }
 
-const String getName()
+void Controller::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
 {
-    return "SilverBird";
+    
+    AudioSourceChannelInfo channelInfo (&buffer, 0, buffer.getNumSamples());
+    mixer.getNextAudioBlock(channelInfo);
+    
+    if (!JUCEApplication::isStandaloneApp()) {
+        
+        AudioPlayHead::CurrentPositionInfo info;
+        getPlayHead()->getCurrentPosition(info);
+        
+        if (positionInfo.isPlaying != info.isPlaying) {
+            setPlayPause(info.isPlaying);
+        }
+        
+        positionInfo = info;
+    }
+
+    
+    // merging incoming midi (from host) into midiCollector
+    MidiBuffer::Iterator iterator(midiMessages);
+    MidiMessage result;
+    int position;
+    
+    while (iterator.getNextEvent(result, position)) {
+        result.setTimeStamp(Time::getMillisecondCounter() / 1000.0);
+        mixer.midiCollector.addMessageToQueue(result);
+    }
+    
+    clock.tick();
 }
+
+AudioProcessorEditor* Controller::createEditor()
+{
+    return new Gui (this);
+}
+
+
+//==============================================================================
+// This creates new instances of the plugin..
+
+AudioProcessor* JUCE_CALLTYPE createPluginFilter()
+{
+    return new Controller();
+}
+
+
+
+
+
+
 
 /*
 int Controller::getParamId(int paramId, bool isGlobal, int trackId, int cellId)

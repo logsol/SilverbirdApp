@@ -11,72 +11,61 @@
               pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="3.1.1"
               companyName="Audiosalt" companyWebsite="audiosalt.com">
   <MAINGROUP id="b4xlPf" name="Silverbird">
-    <GROUP id="{CE82D790-852B-90A3-716A-1E8101AD901C}" name="Source">
-      <GROUP id="{183B0EA0-9CFD-9AD6-BDC0-6B6B273DC2A1}" name="Resources">
-        <FILE id="yf9KGc" name="BinaryData.h" compile="0" resource="0" file="../JuceLibraryCode/BinaryData.h"/>
-        <FILE id="MJOJKJ" name="BinaryData.cpp" compile="1" resource="0" file="../JuceLibraryCode/BinaryData.cpp"/>
-        <FILE id="xucMYs" name="BinaryData2.cpp" compile="1" resource="0" file="../JuceLibraryCode/BinaryData2.cpp"/>
-        <FILE id="h8D3zq" name="BinaryData3.cpp" compile="1" resource="0" file="../JuceLibraryCode/BinaryData3.cpp"/>
-        <FILE id="v0EQVt" name="BinaryData4.cpp" compile="1" resource="0" file="../JuceLibraryCode/BinaryData4.cpp"/>
-      </GROUP>
-      <GROUP id="{6904BCF1-50FF-29B9-FCA8-B771C92F6582}" name="App">
-        <FILE id="FWwLyv" name="ADSR.cpp" compile="1" resource="0" file="../Source/ADSR.cpp"/>
-        <FILE id="Yo4kBm" name="ADSR.h" compile="0" resource="0" file="../Source/ADSR.h"/>
-        <FILE id="w0MyMN" name="BipolarStepper.cpp" compile="1" resource="0"
-              file="../Source/BipolarStepper.cpp"/>
-        <FILE id="u0b7g3" name="BipolarStepper.h" compile="0" resource="0"
-              file="../Source/BipolarStepper.h"/>
-        <FILE id="qhgX56" name="Clock.cpp" compile="1" resource="0" file="../Source/Clock.cpp"/>
-        <FILE id="Y2NNS3" name="Clock.h" compile="0" resource="0" file="../Source/Clock.h"/>
-        <FILE id="COen3R" name="ClockListener.cpp" compile="1" resource="0"
-              file="../Source/ClockListener.cpp"/>
-        <FILE id="cgnmFs" name="ClockListener.h" compile="0" resource="0" file="../Source/ClockListener.h"/>
-        <FILE id="VNglzW" name="Controller.cpp" compile="1" resource="0" file="../Source/Controller.cpp"/>
-        <FILE id="oAkuvt" name="Controller.h" compile="0" resource="0" file="../Source/Controller.h"/>
-        <FILE id="eUU5bI" name="Drums.cpp" compile="1" resource="0" file="../Source/Drums.cpp"/>
-        <FILE id="ztfeKw" name="Drums.h" compile="0" resource="0" file="../Source/Drums.h"/>
-        <FILE id="z6f2wR" name="GlobalParamList.h" compile="0" resource="0"
-              file="../Source/GlobalParamList.h"/>
-        <FILE id="iReRUS" name="Gui.cpp" compile="1" resource="0" file="../Source/Gui.cpp"/>
-        <FILE id="cYpAQq" name="Gui.h" compile="0" resource="0" file="../Source/Gui.h"/>
-        <FILE id="mwDpf3" name="Knob.cpp" compile="1" resource="0" file="../Source/Knob.cpp"/>
-        <FILE id="joZAcQ" name="Knob.h" compile="0" resource="0" file="../Source/Knob.h"/>
-        <FILE id="godQIu" name="Mixer.cpp" compile="1" resource="0" file="../Source/Mixer.cpp"/>
-        <FILE id="bR547c" name="Mixer.h" compile="0" resource="0" file="../Source/Mixer.h"/>
-        <FILE id="FUrFSp" name="Mods.cpp" compile="1" resource="0" file="../Source/Mods.cpp"/>
-        <FILE id="t833Oa" name="Mods.h" compile="0" resource="0" file="../Source/Mods.h"/>
-        <FILE id="atWAbr" name="Sampler.cpp" compile="1" resource="0" file="../Source/Sampler.cpp"/>
-        <FILE id="HW8hrq" name="Sampler.h" compile="0" resource="0" file="../Source/Sampler.h"/>
-        <FILE id="sbBDkw" name="Sequencer.cpp" compile="1" resource="0" file="../Source/Sequencer.cpp"/>
-        <FILE id="q0puPi" name="Sequencer.h" compile="0" resource="0" file="../Source/Sequencer.h"/>
-        <FILE id="XVZq2K" name="SequencerMessage.h" compile="0" resource="0"
-              file="../Source/SequencerMessage.h"/>
-        <FILE id="PDwR1t" name="Sound.cpp" compile="1" resource="0" file="../Source/Sound.cpp"/>
-        <FILE id="YIu20i" name="Sound.h" compile="0" resource="0" file="../Source/Sound.h"/>
-        <FILE id="D3pYIQ" name="Source.cpp" compile="1" resource="0" file="../Source/Source.cpp"/>
-        <FILE id="kfdsPi" name="Source.h" compile="0" resource="0" file="../Source/Source.h"/>
-        <FILE id="d3jQqT" name="Stepper.cpp" compile="1" resource="0" file="../Source/Stepper.cpp"/>
-        <FILE id="JgsTSF" name="Stepper.h" compile="0" resource="0" file="../Source/Stepper.h"/>
-        <FILE id="jrxHz5" name="TrackParameters.cpp" compile="1" resource="0"
-              file="../Source/TrackParameters.cpp"/>
-        <FILE id="eE8g39" name="TrackParameters.h" compile="0" resource="0"
-              file="../Source/TrackParameters.h"/>
-        <FILE id="RRqja9" name="TrackParamList.h" compile="0" resource="0"
-              file="../Source/TrackParamList.h"/>
-        <FILE id="cQ2hcM" name="Voice.cpp" compile="1" resource="0" file="../Source/Voice.cpp"/>
-        <FILE id="MYptD3" name="Voice.h" compile="0" resource="0" file="../Source/Voice.h"/>
-      </GROUP>
-      <FILE id="HiTGZK" name="PluginController.cpp" compile="1" resource="0"
-            file="Source/PluginController.cpp"/>
-      <FILE id="t7b8Mk" name="PluginController.h" compile="0" resource="0"
-            file="Source/PluginController.h"/>
-      <FILE id="xc6BzT" name="PluginProcessor.cpp" compile="1" resource="0"
-            file="Source/PluginProcessor.cpp"/>
-      <FILE id="eznWma" name="PluginProcessor.h" compile="0" resource="0"
-            file="Source/PluginProcessor.h"/>
-      <FILE id="nfgkhb" name="PluginEditor.cpp" compile="1" resource="0"
-            file="Source/PluginEditor.cpp"/>
-      <FILE id="t20Uk7" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+    <GROUP id="{6F66B809-4718-D8FD-89EF-25CC00324E26}" name="Source">
+      <FILE id="qWBUdF" name="ADSR.cpp" compile="1" resource="0" file="../Source/ADSR.cpp"/>
+      <FILE id="gVi8kx" name="ADSR.h" compile="0" resource="0" file="../Source/ADSR.h"/>
+      <FILE id="LzdLmT" name="BipolarStepper.cpp" compile="1" resource="0"
+            file="../Source/BipolarStepper.cpp"/>
+      <FILE id="F9w6Jo" name="BipolarStepper.h" compile="0" resource="0"
+            file="../Source/BipolarStepper.h"/>
+      <FILE id="Pb887K" name="Clock.cpp" compile="1" resource="0" file="../Source/Clock.cpp"/>
+      <FILE id="XExHJU" name="Clock.h" compile="0" resource="0" file="../Source/Clock.h"/>
+      <FILE id="bQte9h" name="ClockListener.cpp" compile="1" resource="0"
+            file="../Source/ClockListener.cpp"/>
+      <FILE id="RUmWkQ" name="ClockListener.h" compile="0" resource="0" file="../Source/ClockListener.h"/>
+      <FILE id="hIha5G" name="Controller.cpp" compile="1" resource="0" file="../Source/Controller.cpp"/>
+      <FILE id="GfNgNy" name="Controller.h" compile="0" resource="0" file="../Source/Controller.h"/>
+      <FILE id="lNMsYp" name="Drums.cpp" compile="1" resource="0" file="../Source/Drums.cpp"/>
+      <FILE id="UKwLab" name="Drums.h" compile="0" resource="0" file="../Source/Drums.h"/>
+      <FILE id="VXOKTu" name="GlobalParamList.h" compile="0" resource="0"
+            file="../Source/GlobalParamList.h"/>
+      <FILE id="JM49DV" name="Gui.cpp" compile="1" resource="0" file="../Source/Gui.cpp"/>
+      <FILE id="x0fw1k" name="Gui.h" compile="0" resource="0" file="../Source/Gui.h"/>
+      <FILE id="KhZ90G" name="Knob.cpp" compile="1" resource="0" file="../Source/Knob.cpp"/>
+      <FILE id="GvvusW" name="Knob.h" compile="0" resource="0" file="../Source/Knob.h"/>
+      <FILE id="lYG2Hl" name="Mixer.cpp" compile="1" resource="0" file="../Source/Mixer.cpp"/>
+      <FILE id="mKG3Vm" name="Mixer.h" compile="0" resource="0" file="../Source/Mixer.h"/>
+      <FILE id="HHhScw" name="Mods.cpp" compile="1" resource="0" file="../Source/Mods.cpp"/>
+      <FILE id="JDomM5" name="Mods.h" compile="0" resource="0" file="../Source/Mods.h"/>
+      <FILE id="o9Mvdi" name="Processor.cpp" compile="1" resource="0" file="../Source/Processor.cpp"/>
+      <FILE id="Wdm4Fv" name="Processor.h" compile="0" resource="0" file="../Source/Processor.h"/>
+      <FILE id="VQkuVj" name="Sampler.cpp" compile="1" resource="0" file="../Source/Sampler.cpp"/>
+      <FILE id="dPugRS" name="Sampler.h" compile="0" resource="0" file="../Source/Sampler.h"/>
+      <FILE id="Z9Z7zF" name="Sequencer.cpp" compile="1" resource="0" file="../Source/Sequencer.cpp"/>
+      <FILE id="PDbeoM" name="Sequencer.h" compile="0" resource="0" file="../Source/Sequencer.h"/>
+      <FILE id="xhslQR" name="SequencerMessage.h" compile="0" resource="0"
+            file="../Source/SequencerMessage.h"/>
+      <FILE id="nVWCou" name="Sound.cpp" compile="1" resource="0" file="../Source/Sound.cpp"/>
+      <FILE id="DE4DjC" name="Sound.h" compile="0" resource="0" file="../Source/Sound.h"/>
+      <FILE id="llIujS" name="Source.cpp" compile="1" resource="0" file="../Source/Source.cpp"/>
+      <FILE id="xiyGnI" name="Source.h" compile="0" resource="0" file="../Source/Source.h"/>
+      <FILE id="cgLzt8" name="Stepper.cpp" compile="1" resource="0" file="../Source/Stepper.cpp"/>
+      <FILE id="tP1TkQ" name="Stepper.h" compile="0" resource="0" file="../Source/Stepper.h"/>
+      <FILE id="EO9URy" name="TrackParameters.cpp" compile="1" resource="0"
+            file="../Source/TrackParameters.cpp"/>
+      <FILE id="S5RJ3F" name="TrackParameters.h" compile="0" resource="0"
+            file="../Source/TrackParameters.h"/>
+      <FILE id="S9GANN" name="TrackParamList.h" compile="0" resource="0"
+            file="../Source/TrackParamList.h"/>
+      <FILE id="bREPAD" name="Voice.cpp" compile="1" resource="0" file="../Source/Voice.cpp"/>
+      <FILE id="fKjNmh" name="Voice.h" compile="0" resource="0" file="../Source/Voice.h"/>
+    </GROUP>
+    <GROUP id="{183B0EA0-9CFD-9AD6-BDC0-6B6B273DC2A1}" name="Resources">
+      <FILE id="yf9KGc" name="BinaryData.h" compile="0" resource="0" file="../JuceLibraryCode/BinaryData.h"/>
+      <FILE id="MJOJKJ" name="BinaryData.cpp" compile="1" resource="0" file="../JuceLibraryCode/BinaryData.cpp"/>
+      <FILE id="xucMYs" name="BinaryData2.cpp" compile="1" resource="0" file="../JuceLibraryCode/BinaryData2.cpp"/>
+      <FILE id="h8D3zq" name="BinaryData3.cpp" compile="1" resource="0" file="../JuceLibraryCode/BinaryData3.cpp"/>
+      <FILE id="v0EQVt" name="BinaryData4.cpp" compile="1" resource="0" file="../JuceLibraryCode/BinaryData4.cpp"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
@@ -155,20 +144,20 @@
     </LINUX_MAKE>
   </EXPORTFORMATS>
   <MODULES>
-    <MODULES id="juce_audio_basics" showAllCode="1" useLocalCopy="0"/>
-    <MODULES id="juce_audio_devices" showAllCode="1" useLocalCopy="0"/>
-    <MODULES id="juce_audio_formats" showAllCode="1" useLocalCopy="0"/>
-    <MODULES id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"/>
-    <MODULES id="juce_audio_processors" showAllCode="1" useLocalCopy="0"/>
-    <MODULES id="juce_core" showAllCode="1" useLocalCopy="0"/>
-    <MODULES id="juce_cryptography" showAllCode="1" useLocalCopy="0"/>
-    <MODULES id="juce_data_structures" showAllCode="1" useLocalCopy="0"/>
-    <MODULES id="juce_events" showAllCode="1" useLocalCopy="0"/>
-    <MODULES id="juce_graphics" showAllCode="1" useLocalCopy="0"/>
-    <MODULES id="juce_gui_basics" showAllCode="1" useLocalCopy="0"/>
-    <MODULES id="juce_gui_extra" showAllCode="1" useLocalCopy="0"/>
-    <MODULES id="juce_opengl" showAllCode="1" useLocalCopy="0"/>
-    <MODULES id="juce_video" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_audio_basics" showAllCode="1" useLocalCopy="1"/>
+    <MODULES id="juce_audio_devices" showAllCode="1" useLocalCopy="1"/>
+    <MODULES id="juce_audio_formats" showAllCode="1" useLocalCopy="1"/>
+    <MODULES id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="1"/>
+    <MODULES id="juce_audio_processors" showAllCode="1" useLocalCopy="1"/>
+    <MODULES id="juce_core" showAllCode="1" useLocalCopy="1"/>
+    <MODULES id="juce_cryptography" showAllCode="1" useLocalCopy="1"/>
+    <MODULES id="juce_data_structures" showAllCode="1" useLocalCopy="1"/>
+    <MODULES id="juce_events" showAllCode="1" useLocalCopy="1"/>
+    <MODULES id="juce_graphics" showAllCode="1" useLocalCopy="1"/>
+    <MODULES id="juce_gui_basics" showAllCode="1" useLocalCopy="1"/>
+    <MODULES id="juce_gui_extra" showAllCode="1" useLocalCopy="1"/>
+    <MODULES id="juce_opengl" showAllCode="1" useLocalCopy="1"/>
+    <MODULES id="juce_video" showAllCode="1" useLocalCopy="1"/>
   </MODULES>
   <JUCEOPTIONS JUCE_QUICKTIME="disabled"/>
 </JUCERPROJECT>

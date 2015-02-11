@@ -10,29 +10,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../Source/Clock.cpp"
-            timestampString = "445180240.769489"
+            timestampString = "445378818.104896"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "Clock::handleMessage(const Message&amp; message)"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../../../Source/Clock.cpp"
-            timestampString = "445180240.769489"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "Clock::handleMessage(const Message&amp; message)"
-            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Clock::handleMessage(juce::Message const&amp;)"
+                  moduleName = "Silverbird"
+                  urlString = "file:///Users/logsol/Work/projects/c++/SilverbirdApp/Source/Clock.cpp"
+                  timestampString = "445378819.699442"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "125">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "non-virtual thunk to Clock::handleMessage(juce::Message const&amp;)"
+                  moduleName = "Silverbird"
+                  urlString = "file:///Users/logsol/Work/projects/c++/SilverbirdApp/Source/Clock.cpp"
+                  timestampString = "445378819.699722"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "18">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

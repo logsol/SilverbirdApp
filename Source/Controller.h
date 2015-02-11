@@ -12,32 +12,37 @@
 #define CONTROLLER_H_INCLUDED
 
 #include "JuceHeader.h"
+#include "Processor.h"
 #include "Source.h"
 #include "Mixer.h"
 #include "Clock.h"
 #include "ClockListener.h"
 #include "Sequencer.h"
 #include "Knob.h"
+#include "Gui.h"
 
-class Controller
+class Controller : public SilverbirdAudioProcessor
 {
 public:
     Controller();
-    ~Controller();
+    virtual ~Controller();
     
     void addClockListener(ClockListener* listener);
     void removeClockListener(ClockListener* listener);
     void togglePlayPause();
     void setPlayPause(bool play);
     
-    void setParameter(int parameterIndex, float value);
-    const String getName();
+    void processBlock (AudioSampleBuffer&, MidiBuffer&) override;
+    void prepareToPlay (double sampleRate, int samplesPerBlock) override;
+    
+    AudioProcessorEditor* createEditor() ;
     
     //int getParamId(int paramId, bool isGlobal, int trackId, int cellId);
 
     Sequencer sequencer;
     Clock clock;
     Mixer mixer;
+    
     
     /*
     enum class Param {
@@ -54,6 +59,7 @@ public:
     };*/
     
 protected:
+    AudioPlayHead::CurrentPositionInfo positionInfo;
 };
 
 #endif  // CONTROLLER_H_INCLUDED

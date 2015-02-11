@@ -33,11 +33,15 @@ public:
     void togglePlayPause();
     void setPlayPause(bool play);
     
+    void tick();
+    
 protected:
     bool isPlaying = false;
     float bpm = 120;
     int cursor = -1;
     int numCells = 16;
+    float sixteenthTime = 60000 / bpm / 4;
+    float lastClockStepTime = 0;
     OwnedArray<ClockListener> listeners;
     
     globalParamList* globalParams;
