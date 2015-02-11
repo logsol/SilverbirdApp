@@ -1,0 +1,232 @@
+﻿Build started 11.02.2015 12:39:41.
+Project "\\VBOXSVR\c++\SilverbirdApp\Plugin\Builds\VisualStudio2013\Silverbird.vcxproj" on node 2 (Build target(s)).
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\JuceLibraryCode /I..\..\..\..\JUCE\modules /I..\..\..\..\SDKs\vstsdk2.4 /I..\..\..\Source /I..\..\..\JuceLibraryCode /ZI /nologo /W4 /WX- /MP /Od /Oy- /D WIN32 /D _WINDOWS /D DEBUG /D _DEBUG /D JUCER_VS2013_78A5020=1 /D JUCE_APP_VERSION=1.0.0 /D JUCE_APP_VERSION_HEX=0x10000 /D _WINDLL /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Debug\\" /Fd"Debug\\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\..\JuceLibraryCode\BinaryData.cpp ..\..\..\JuceLibraryCode\BinaryData2.cpp ..\..\..\JuceLibraryCode\BinaryData3.cpp ..\..\..\JuceLibraryCode\BinaryData4.cpp ..\..\..\Source\ADSR.cpp ..\..\..\Source\BipolarStepper.cpp ..\..\..\Source\Clock.cpp ..\..\..\Source\ClockListener.cpp ..\..\..\Source\Controller.cpp ..\..\..\Source\Drums.cpp ..\..\..\Source\Gui.cpp ..\..\..\Source\Knob.cpp ..\..\..\Source\Mixer.cpp ..\..\..\Source\Mods.cpp ..\..\..\Source\Sampler.cpp ..\..\..\Source\Sequencer.cpp ..\..\..\Source\Sound.cpp ..\..\..\Source\Source.cpp ..\..\..\Source\Stepper.cpp ..\..\..\Source\TrackParameters.cpp ..\..\..\Source\Voice.cpp ..\..\Source\PluginController.cpp ..\..\Source\PluginProcessor.cpp ..\..\Source\PluginEditor.cpp ..\..\..\..\JUCE\modules\juce_audio_plugin_client\AAX\juce_AAX_Wrapper.cpp ..\..\..\..\JUCE\modules\juce_audio_basics\juce_audio_basics.cpp ..\..\..\..\JUCE\modules\juce_audio_devices\juce_audio_devices.cpp ..\..\..\..\JUCE\modules\juce_audio_formats\juce_audio_formats.cpp ..\..\..\..\JUCE\modules\juce_audio_processors\juce_audio_processors.cpp ..\..\..\..\JUCE\modules\juce_core\juce_core.cpp ..\..\..\..\JUCE\modules\juce_cryptography\juce_cryptography.cpp ..\..\..\..\JUCE\modules\juce_data_structures\juce_data_structures.cpp ..\..\..\..\JUCE\modules\juce_events\juce_events.cpp ..\..\..\..\JUCE\modules\juce_graphics\juce_graphics.cpp ..\..\..\..\JUCE\modules\juce_gui_basics\juce_gui_basics.cpp ..\..\..\..\JUCE\modules\juce_gui_extra\juce_gui_extra.cpp ..\..\..\..\JUCE\modules\juce_opengl\juce_opengl.cpp ..\..\..\..\JUCE\modules\juce_audio_plugin_client\utility\juce_PluginUtilities.cpp ..\..\..\..\JUCE\modules\juce_video\juce_video.cpp ..\..\..\..\JUCE\modules\juce_audio_plugin_client\VST\juce_VST_Wrapper.cpp ..\..\..\..\JUCE\modules\juce_audio_plugin_client\VST3\juce_VST3_Wrapper.cpp
+  BinaryData.cpp
+  BinaryData2.cpp
+  BinaryData3.cpp
+  BinaryData4.cpp
+  ADSR.cpp
+\\vboxsvr\c++\silverbirdapp\source\adsr.cpp(29): warning C4305: 'argument' : truncation from 'double' to 'float'
+\\vboxsvr\c++\silverbirdapp\source\adsr.cpp(30): warning C4305: 'argument' : truncation from 'double' to 'float'
+\\vboxsvr\c++\silverbirdapp\source\adsr.cpp(39): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\c++\silverbirdapp\source\adsr.cpp(45): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\c++\silverbirdapp\source\adsr.cpp(51): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\c++\silverbirdapp\source\adsr.cpp(55): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\c++\silverbirdapp\source\adsr.cpp(60): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\c++\silverbirdapp\source\adsr.cpp(65): warning C4305: '=' : truncation from 'double' to 'float'
+\\vboxsvr\c++\silverbirdapp\source\adsr.cpp(67): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\c++\silverbirdapp\source\adsr.cpp(72): warning C4305: '=' : truncation from 'double' to 'float'
+\\vboxsvr\c++\silverbirdapp\source\adsr.cpp(74): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\c++\silverbirdapp\source\adsr.cpp(75): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+  BipolarStepper.cpp
+\\vboxsvr\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\c++\silverbirdapp\source\sampler.h(28): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(360) : see declaration of 'juce::Synthesiser::noteOn'
+  Clock.cpp
+\\vboxsvr\c++\silverbirdapp\source\clock.cpp(51): warning C4100: 'message' : unreferenced formal parameter
+\\vboxsvr\c++\silverbirdapp\source\clock.cpp(72): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+  ClockListener.cpp
+  Controller.cpp
+\\vboxsvr\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\c++\silverbirdapp\source\sampler.h(28): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(360) : see declaration of 'juce::Synthesiser::noteOn'
+\\vboxsvr\c++\silverbirdapp\source\controller.cpp(44): warning C4100: 'value' : unreferenced formal parameter
+\\vboxsvr\c++\silverbirdapp\source\controller.cpp(44): warning C4100: 'parameterIndex' : unreferenced formal parameter
+  Drums.cpp
+\\vboxsvr\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\c++\silverbirdapp\source\sampler.h(28): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(360) : see declaration of 'juce::Synthesiser::noteOn'
+\\vboxsvr\c++\silverbirdapp\source\drums.cpp(85): warning C4100: 'g' : unreferenced formal parameter
+  Gui.cpp
+\\vboxsvr\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\c++\silverbirdapp\source\sampler.h(28): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(360) : see declaration of 'juce::Synthesiser::noteOn'
+  Knob.cpp
+  Mixer.cpp
+\\vboxsvr\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\c++\silverbirdapp\source\sampler.h(28): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(360) : see declaration of 'juce::Synthesiser::noteOn'
+  Mods.cpp
+\\vboxsvr\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\c++\silverbirdapp\source\sampler.h(28): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(360) : see declaration of 'juce::Synthesiser::noteOn'
+\\vboxsvr\c++\silverbirdapp\source\mods.cpp(63): warning C4100: 'g' : unreferenced formal parameter
+  Sampler.cpp
+\\vboxsvr\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\c++\silverbirdapp\source\sampler.h(28): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(360) : see declaration of 'juce::Synthesiser::noteOn'
+\\vboxsvr\c++\silverbirdapp\source\sampler.cpp(38): warning C4127: conditional expression is constant
+\\vboxsvr\c++\silverbirdapp\source\sampler.cpp(43): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\c++\silverbirdapp\source\sampler.cpp(62): warning C4100: 'allowTailOff' : unreferenced formal parameter
+\\vboxsvr\c++\silverbirdapp\source\sampler.cpp(62): warning C4100: 'voice' : unreferenced formal parameter
+  Sequencer.cpp
+\\vboxsvr\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\c++\silverbirdapp\source\sampler.h(28): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(360) : see declaration of 'juce::Synthesiser::noteOn'
+  Sound.cpp
+\\vboxsvr\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\c++\silverbirdapp\source\sound.cpp(18): warning C4100: 'releaseTimeSecs' : unreferenced formal parameter
+\\vboxsvr\c++\silverbirdapp\source\sound.cpp(17): warning C4100: 'attackTimeSecs' : unreferenced formal parameter
+  Source.cpp
+\\vboxsvr\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\c++\silverbirdapp\source\sampler.h(28): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(360) : see declaration of 'juce::Synthesiser::noteOn'
+\\vboxsvr\c++\silverbirdapp\source\source.cpp(254): warning C4305: 'argument' : truncation from 'double' to 'float'
+\\vboxsvr\c++\silverbirdapp\source\source.cpp(245): warning C4100: 'index' : unreferenced formal parameter
+\\vboxsvr\c++\silverbirdapp\source\source.cpp(265): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+\\vboxsvr\c++\silverbirdapp\source\source.cpp(262): warning C4100: 'samplesPerBlockExpected' : unreferenced formal parameter
+\\vboxsvr\c++\silverbirdapp\source\source.cpp(278): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\c++\silverbirdapp\source\source.cpp(279): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\c++\silverbirdapp\source\source.cpp(299): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+\\vboxsvr\c++\silverbirdapp\source\source.cpp(300): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+  Stepper.cpp
+\\vboxsvr\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\c++\silverbirdapp\source\sampler.h(28): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(360) : see declaration of 'juce::Synthesiser::noteOn'
+\\vboxsvr\c++\silverbirdapp\source\stepper.cpp(87): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\c++\silverbirdapp\source\stepper.cpp(91): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\c++\silverbirdapp\source\stepper.cpp(125): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+\\vboxsvr\c++\silverbirdapp\source\stepper.cpp(154): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+\\vboxsvr\c++\silverbirdapp\source\stepper.cpp(155): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+\\vboxsvr\c++\silverbirdapp\source\stepper.cpp(157): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+  TrackParameters.cpp
+\\vboxsvr\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\c++\silverbirdapp\source\sampler.h(28): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(360) : see declaration of 'juce::Synthesiser::noteOn'
+\\vboxsvr\c++\silverbirdapp\source\trackparameters.cpp(157): warning C4100: 'g' : unreferenced formal parameter
+\\vboxsvr\c++\silverbirdapp\source\trackparameters.cpp(196): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+\\vboxsvr\c++\silverbirdapp\source\trackparameters.cpp(202): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\c++\silverbirdapp\source\trackparameters.cpp(208): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\c++\silverbirdapp\source\trackparameters.cpp(214): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\c++\silverbirdapp\source\trackparameters.cpp(220): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\c++\silverbirdapp\source\trackparameters.cpp(226): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+  Generating Code...
+  Compiling...
+  Voice.cpp
+\\vboxsvr\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\c++\silverbirdapp\source\voice.cpp(18): warning C4305: 'argument' : truncation from 'double' to 'float'
+\\vboxsvr\c++\silverbirdapp\source\voice.cpp(19): warning C4305: 'argument' : truncation from 'double' to 'float'
+  PluginController.cpp
+  PluginProcessor.cpp
+\\vboxsvr\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\c++\silverbirdapp\source\sampler.h(28): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(360) : see declaration of 'juce::Synthesiser::noteOn'
+\\vboxsvr\c++\silverbirdapp\plugin\source\pluginprocessor.cpp(38): warning C4100: 'index' : unreferenced formal parameter
+\\vboxsvr\c++\silverbirdapp\plugin\source\pluginprocessor.cpp(43): warning C4100: 'index' : unreferenced formal parameter
+\\vboxsvr\c++\silverbirdapp\plugin\source\pluginprocessor.cpp(48): warning C4100: 'index' : unreferenced formal parameter
+\\vboxsvr\c++\silverbirdapp\plugin\source\pluginprocessor.cpp(53): warning C4100: 'index' : unreferenced formal parameter
+\\vboxsvr\c++\silverbirdapp\plugin\source\pluginprocessor.cpp(68): warning C4100: 'index' : unreferenced formal parameter
+\\vboxsvr\c++\silverbirdapp\plugin\source\pluginprocessor.cpp(73): warning C4100: 'index' : unreferenced formal parameter
+\\vboxsvr\c++\silverbirdapp\plugin\source\pluginprocessor.cpp(117): warning C4100: 'index' : unreferenced formal parameter
+\\vboxsvr\c++\silverbirdapp\plugin\source\pluginprocessor.cpp(121): warning C4100: 'index' : unreferenced formal parameter
+\\vboxsvr\c++\silverbirdapp\plugin\source\pluginprocessor.cpp(126): warning C4100: 'newName' : unreferenced formal parameter
+\\vboxsvr\c++\silverbirdapp\plugin\source\pluginprocessor.cpp(126): warning C4100: 'index' : unreferenced formal parameter
+\\vboxsvr\c++\silverbirdapp\plugin\source\pluginprocessor.cpp(203): warning C4100: 'destData' : unreferenced formal parameter
+\\vboxsvr\c++\silverbirdapp\plugin\source\pluginprocessor.cpp(210): warning C4100: 'sizeInBytes' : unreferenced formal parameter
+\\vboxsvr\c++\silverbirdapp\plugin\source\pluginprocessor.cpp(210): warning C4100: 'data' : unreferenced formal parameter
+  PluginEditor.cpp
+\\vboxsvr\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\c++\silverbirdapp\source\sampler.h(28): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(360) : see declaration of 'juce::Synthesiser::noteOn'
+\\vboxsvr\c++\silverbirdapp\plugin\source\plugineditor.cpp(31): warning C4100: 'g' : unreferenced formal parameter
+  juce_AAX_Wrapper.cpp
+  juce_audio_basics.cpp
+  juce_audio_devices.cpp
+  juce_audio_formats.cpp
+  juce_audio_processors.cpp
+  juce_core.cpp
+  juce_cryptography.cpp
+  juce_data_structures.cpp
+  juce_events.cpp
+  juce_graphics.cpp
+  juce_gui_basics.cpp
+  juce_gui_extra.cpp
+  juce_opengl.cpp
+  juce_PluginUtilities.cpp
+  juce_video.cpp
+  juce_VST_Wrapper.cpp
+  Generating Code...
+  Compiling...
+  juce_VST3_Wrapper.cpp
+  Generating Code...
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\JuceLibraryCode /I..\..\..\..\JUCE\modules /I..\..\..\..\SDKs\vstsdk2.4 /I..\..\..\Source /I..\..\..\JuceLibraryCode /ZI /nologo /W4 /WX- /MP /Od /Oy- /D WIN32 /D _WINDOWS /D DEBUG /D _DEBUG /D JUCER_VS2013_78A5020=1 /D JUCE_APP_VERSION=1.0.0 /D JUCE_APP_VERSION_HEX=0x10000 /D _WINDLL /Gm- /EHsc /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Debug\\" /Fd"Debug\\vc120.pdb" /Gz /TP /analyze- /errorReport:prompt ..\..\..\..\JUCE\modules\juce_audio_plugin_client\RTAS\juce_RTAS_DigiCode1.cpp ..\..\..\..\JUCE\modules\juce_audio_plugin_client\RTAS\juce_RTAS_DigiCode2.cpp ..\..\..\..\JUCE\modules\juce_audio_plugin_client\RTAS\juce_RTAS_DigiCode3.cpp ..\..\..\..\JUCE\modules\juce_audio_plugin_client\RTAS\juce_RTAS_WinUtilities.cpp ..\..\..\..\JUCE\modules\juce_audio_plugin_client\RTAS\juce_RTAS_Wrapper.cpp
+  juce_RTAS_DigiCode1.cpp
+  juce_RTAS_DigiCode2.cpp
+  juce_RTAS_DigiCode3.cpp
+  juce_RTAS_WinUtilities.cpp
+  juce_RTAS_Wrapper.cpp
+  Generating Code...
+ResourceCompile:
+  C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D _DEBUG /l"0x0409" /nologo /fo"Debug\resources.res" .\resources.rc 
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\Debug\\Silverbird.dll" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:libcmt.lib /NODEFAULTLIB:msvcrt.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"Debug\\Silverbird.pdb" /SUBSYSTEM:WINDOWS /LARGEADDRESSAWARE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Debug\Silverbird.lib" /MACHINE:X86 /SAFESEH:NO /FORCE:multiple /DLL Debug\resources.res
+  Debug\\BinaryData.obj
+  Debug\\BinaryData2.obj
+  Debug\\BinaryData3.obj
+  Debug\\BinaryData4.obj
+  Debug\\ADSR.obj
+  Debug\\BipolarStepper.obj
+  Debug\\Clock.obj
+  Debug\\ClockListener.obj
+  Debug\\Controller.obj
+  Debug\\Drums.obj
+  Debug\\Gui.obj
+  Debug\\Knob.obj
+  Debug\\Mixer.obj
+  Debug\\Mods.obj
+  Debug\\Sampler.obj
+  Debug\\Sequencer.obj
+  Debug\\Sound.obj
+  Debug\\Source.obj
+  Debug\\Stepper.obj
+  Debug\\TrackParameters.obj
+  Debug\\Voice.obj
+  Debug\\PluginController.obj
+  Debug\\PluginProcessor.obj
+  Debug\\PluginEditor.obj
+  Debug\\juce_AAX_Wrapper.obj
+  Debug\\juce_audio_basics.obj
+  Debug\\juce_audio_devices.obj
+  Debug\\juce_audio_formats.obj
+  Debug\\juce_audio_processors.obj
+  Debug\\juce_core.obj
+  Debug\\juce_cryptography.obj
+  Debug\\juce_data_structures.obj
+  Debug\\juce_events.obj
+  Debug\\juce_graphics.obj
+  Debug\\juce_gui_basics.obj
+  Debug\\juce_gui_extra.obj
+  Debug\\juce_opengl.obj
+  Debug\\juce_PluginUtilities.obj
+  Debug\\juce_RTAS_DigiCode1.obj
+  Debug\\juce_RTAS_DigiCode2.obj
+  Debug\\juce_RTAS_DigiCode3.obj
+  Debug\\juce_RTAS_WinUtilities.obj
+  Debug\\juce_RTAS_Wrapper.obj
+  Debug\\juce_video.obj
+  Debug\\juce_VST_Wrapper.obj
+  Debug\\juce_VST3_Wrapper.obj
+BinaryData.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/OPT:LBR' specification
+     Creating library .\Debug\Silverbird.lib and object .\Debug\Silverbird.exp
+  Silverbird.vcxproj -> \\VBOXSVR\c++\SilverbirdApp\Plugin\Builds\VisualStudio2013\.\Debug\Silverbird.dll
+Done Building Project "\\VBOXSVR\c++\SilverbirdApp\Plugin\Builds\VisualStudio2013\Silverbird.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:03:18.29

@@ -10,6 +10,7 @@
 
 #ifndef APPCONTROLLER_H_INCLUDED
 #define APPCONTROLLER_H_INCLUDED
+#define IS_STANDALONE
 
 #include "JuceHeader.h"
 #include "Controller.h"

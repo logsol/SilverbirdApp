@@ -108,7 +108,7 @@
     <VS2013 targetFolder="Builds/VisualStudio2013" vstFolder="../../SDKs/vstsdk2.4">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="1" optimisation="1" targetName="Silverbird"/>
+                       isDebug="1" optimisation="1" targetName="Silverbird" headerPath="..\..\..\Source&#10;..\..\..\JuceLibraryCode"/>
         <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
                        isDebug="0" optimisation="2" targetName="Silverbird"/>
       </CONFIGURATIONS>
