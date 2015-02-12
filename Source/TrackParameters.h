@@ -40,7 +40,7 @@ class TrackParameters  : public Component,
 {
 public:
     //==============================================================================
-    TrackParameters (Controller* controller);
+    TrackParameters (Controller* controller, int trackId);
     ~TrackParameters();
 
     //==============================================================================
@@ -56,6 +56,7 @@ public:
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
     Controller* controller;
+    int trackId;
     //[/UserVariables]
 
     //==============================================================================

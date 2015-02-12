@@ -12,6 +12,8 @@
               companyName="Audiosalt" companyWebsite="audiosalt.com">
   <MAINGROUP id="b4xlPf" name="Silverbird">
     <GROUP id="{6F66B809-4718-D8FD-89EF-25CC00324E26}" name="Source">
+      <FILE id="NdGHVO" name="Parameter.cpp" compile="1" resource="0" file="../Source/Parameter.cpp"/>
+      <FILE id="o8SM6c" name="Parameter.h" compile="0" resource="0" file="../Source/Parameter.h"/>
       <FILE id="qWBUdF" name="ADSR.cpp" compile="1" resource="0" file="../Source/ADSR.cpp"/>
       <FILE id="gVi8kx" name="ADSR.h" compile="0" resource="0" file="../Source/ADSR.h"/>
       <FILE id="LzdLmT" name="BipolarStepper.cpp" compile="1" resource="0"

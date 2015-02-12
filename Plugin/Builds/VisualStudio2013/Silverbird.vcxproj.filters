@@ -325,6 +325,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\Source\Parameter.cpp">
+      <Filter>Silverbird\Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\Source\ADSR.cpp">
       <Filter>Silverbird\Source</Filter>
     </ClCompile>
@@ -1635,6 +1638,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\Source\Parameter.h">
+      <Filter>Silverbird\Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\Source\ADSR.h">
       <Filter>Silverbird\Source</Filter>
     </ClInclude>

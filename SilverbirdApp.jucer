@@ -6,6 +6,8 @@
   <MAINGROUP id="P1u1H7" name="SilverbirdApp">
     <GROUP id="{40B58F17-2A50-FCFC-AC96-EA61BE3F32E2}" name="Source">
       <GROUP id="{65D2481D-E290-269E-E2CF-FBF627AAB06A}" name="Engine">
+        <FILE id="X8AzuF" name="Parameter.cpp" compile="1" resource="0" file="Source/Parameter.cpp"/>
+        <FILE id="a9f3nK" name="Parameter.h" compile="0" resource="0" file="Source/Parameter.h"/>
         <FILE id="WM42kq" name="Controller.cpp" compile="1" resource="0" file="Source/Controller.cpp"/>
         <FILE id="PheKqL" name="Controller.h" compile="0" resource="0" file="Source/Controller.h"/>
         <FILE id="F26QCR" name="Processor.cpp" compile="1" resource="0" file="Source/Processor.cpp"/>

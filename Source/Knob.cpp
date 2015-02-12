@@ -30,7 +30,6 @@ Knob::~Knob()
     deleteAllChildren();
 }
 
-//==============================================================================
 void Knob::paint(Graphics& g)
 {
     double range = getMaximum() - getMinimum();
@@ -56,5 +55,3 @@ void Knob::paint(Graphics& g)
                 false);
     
 }
-
-//==============================================================================

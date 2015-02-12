@@ -25,7 +25,7 @@ public:
     {
         //ApplicationProperties::setStorageParameters (T("SilverbirdApp"), String::empty, T("SilverbirdApp"), 400, PropertiesFile::storeAsXML);
         
-        pluginWindow = new StandaloneFilterWindow ("Silverbird", Colours::black, NULL, false);
+        pluginWindow = new StandaloneFilterWindow (ProjectInfo::projectName, Colours::black, NULL, false);
         
         pluginWindow->setTitleBarButtonsRequired (DocumentWindow::allButtons, false);
         pluginWindow->setVisible (true);

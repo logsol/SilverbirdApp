@@ -24,7 +24,7 @@ public:
     
     void paint(Graphics& g) override;
     
-private:
+protected:
     //==============================================================================
     Image* image;
     int singleImageWidth;

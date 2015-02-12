@@ -12,10 +12,11 @@
 #include "Sampler.h"
 #include "Voice.h"
 #include "JuceHeader.h"
+#include "Controller.h"
+#include "Parameter.h"
 
-Sampler::Sampler(trackParamList* trackParams, globalParamList* globalParams)
-    : trackParams(trackParams),
-    globalParams(globalParams)
+Sampler::Sampler(int trackId, OwnedArray<Parameter>* parameters) : trackId(trackId),
+                                                               parameters(parameters)
 {
     for (int i = 0; i < 16; i++)
     {
@@ -30,17 +31,29 @@ Sampler::~Sampler() {
 
 void Sampler::noteOn (const int midiChannel, const int midiNoteNumber, const float velocity)
 {
-    int sample = 0;
-    float pitch = 0;
-    float attack = 0;
-    float decay = 1;
+    int sample = 1;
+    float pitch = 1;
+    float attack = 0.01;
+    float decay = 0.99;
+    
+    int   trackSample = parameters->getUnchecked(Controller::getParameterId(Controller::params::sample, trackId))->getValue();
+    float trackPitch = parameters->getUnchecked(Controller::getParameterId(Controller::params::pitch, trackId))->getValue();
+    float trackAttack = parameters->getUnchecked(Controller::getParameterId(Controller::params::attack, trackId))->getValue();
+    float trackDecay = parameters->getUnchecked(Controller::getParameterId(Controller::params::decay, trackId))->getValue();
+    
+    int   globalSample = parameters->getUnchecked(Controller::getParameterId(Controller::params::sample))->getValue();
+    float globalPitch = parameters->getUnchecked(Controller::getParameterId(Controller::params::pitch))->getValue();
+    float globalDecay = parameters->getUnchecked(Controller::getParameterId(Controller::params::decay))->getValue();
+
+
     
     if (true) {
         // +1000 -1 to safely shift far into positive range but keep first sample
-        sample = (trackParams->sample + globalParams->sample +999)  % sounds.size();
-        pitch = trackParams->pitch + globalParams->pitch;
-        attack = trackParams->attack;
-        decay = fmax(0, fmin(1, trackParams->decay + globalParams->decay));
+        
+        sample = (trackSample + globalSample /*+ 999*/)  % sounds.size();
+        pitch = trackPitch + globalPitch;
+        attack = trackAttack;
+        decay = fmax(0, fmin(1, trackDecay + globalDecay));
     }
     
     const ScopedLock sl (lock);

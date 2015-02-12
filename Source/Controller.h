@@ -21,7 +21,9 @@
 #include "Knob.h"
 #include "Gui.h"
 
-class Controller : public SilverbirdAudioProcessor
+class Controller : public SilverbirdAudioProcessor,
+                   public Slider::Listener,
+                   public Button::Listener
 {
 public:
     Controller();
@@ -36,27 +38,44 @@ public:
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
     
     AudioProcessorEditor* createEditor() ;
+    void setParameter (int index, float newValue) override;
     
-    //int getParamId(int paramId, bool isGlobal, int trackId, int cellId);
+    //int getNumParameters() override;
+    //float getParameter (int index) override;
+    
+    const String getParameterName (int index) override;
+    const String getParameterText (int index) override;
+    void getStateInformation (MemoryBlock& destData) override;
+    void setStateInformation (const void* data, int sizeInBytes) override;
+    
+    static int getParameterId(int paramNameId, int trackId = -1, int cellId = -1);
+    Parameter* getParameterByAttrs(int paramNameId, int trackId = -1, int cellId = -1);
+    
+    void sliderValueChanged (Slider* slider) override;
+    void buttonClicked (Button* button) override;
+    void onGuiParameterChange (Value& value);
 
-    Sequencer sequencer;
-    Clock clock;
+
+    OwnedArray<Parameter> parameters;
+    
     Mixer mixer;
+    Clock clock;
+    Sequencer sequencer;
     
-    
-    /*
-    enum class Param {
-        shuffle,
-        level,
-        mute,
-        sample,
-        pitch,
-        attack,
-        decay,
-        distort,
-        cutoff,
-        max
-    };*/
+    struct params {
+        enum {
+            shuffle,
+            level,
+            mute,
+            sample,
+            pitch,
+            attack,
+            decay,
+            distort,
+            cutoff,
+            max
+        };
+    };
     
 protected:
     AudioPlayHead::CurrentPositionInfo positionInfo;

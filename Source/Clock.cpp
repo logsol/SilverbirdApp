@@ -9,8 +9,9 @@
 */
 
 #include "Clock.h"
+#include "Parameter.h"
 
-Clock::Clock()
+Clock::Clock(OwnedArray<Parameter>* parameters) : parameters(parameters)
 {
     listeners.clear(true);
 }
@@ -52,8 +53,6 @@ void Clock::handleMessage(const Message& message){
     
     for (int i = 0; i < listeners.size(); i++) {
         listeners[i]->clockStep(cursor);
-        
-        // ah i think problem is, that gui is being allocated multiple times again in plugin mode. and creating too many steppers.
     }
 }
 

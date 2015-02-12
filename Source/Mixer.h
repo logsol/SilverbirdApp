@@ -14,38 +14,21 @@
 #include "JuceHeader.h"
 #include "Source.h"
 #include "GlobalParamList.h"
-#include <vector>
+#include "Parameter.h"
 
 class Mixer : public MixerAudioSource {
 public:
-    Mixer();
+    Mixer(OwnedArray<Parameter>* parameters);
     ~Mixer();
     
-    int getTrackByName(String name);
-    String getNameByTrackId(int trackId);
+    static int getTrackByName(String name);
+    static String getNameByTrackId(int trackId);
     
     void prepareToPlay (int samplesPerBlockExpected, double sampleRate) override;
     void getNextAudioBlock (const AudioSourceChannelInfo&) override;
     
     void playNote(int note, float velocity);
-    
-    void setSampleAll(int value);
-    void setPitch(float value);
-    void setDecay(float value);
-    void setDistort(float value);
-    void setCutoff(float value);
-    void setShuffle(float value);
-    void setMaster(float value);
-    
-    void setTrackLevel(float value, int trackId);
-    void setTrackMute(bool value, int trackId);
-    void setTrackSample(int value, int trackId);
-    void setTrackAttack(float value, int trackId);
-    void setTrackDecay(float value, int trackId);
-    void setTrackPitch(float value, int trackId);
-    void setTrackDistort(float value, int trackId);
-    void setTrackCutoff(float value, int trackId);
-    
+
     enum trackIndex {
         kick,
         snare,
@@ -58,7 +41,7 @@ public:
     
     OwnedArray<Source> sources;
     MidiMessageCollector midiCollector;
-    globalParamList globalParams;
+    OwnedArray<Parameter>* parameters;
     
 protected:
     
@@ -67,6 +50,8 @@ protected:
     Source* getTrackById(int trackId);
     
     MidiKeyboardState keyboardState;
+    
+    float lastLevel = 1;
 };
 
 #endif  // MIXER_H_INCLUDED

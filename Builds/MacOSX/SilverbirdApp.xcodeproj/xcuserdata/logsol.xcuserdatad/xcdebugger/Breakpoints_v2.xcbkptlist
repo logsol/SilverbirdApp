@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../Source/Mixer.cpp"
-            timestampString = "444927696.943653"
+            timestampString = "445451226.882015"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "Mixer::getTrackByName(String name)"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../Source/Mixer.cpp"
-            timestampString = "444927696.943653"
+            timestampString = "445451226.882015"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "Mixer::getNameByTrackId(int trackId)"
             landmarkType = "5">
          </BreakpointContent>
@@ -40,13 +40,16 @@
          <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
+            condition = "trackId == 0"
             continueAfterRunningActions = "No"
-            filePath = "../../Source/Controller.cpp"
-            timestampString = "445369780.888301"
+            filePath = "../../Source/Sampler.cpp"
+            timestampString = "445451226.882015"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105">
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "Sampler::noteOn (const int midiChannel, const int midiNoteNumber, const float velocity)"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

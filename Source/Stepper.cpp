@@ -58,8 +58,8 @@ Stepper::~Stepper()
 
     stepperLabel = nullptr;
 
+
     //[Destructor]. You can add your own custom destruction code here..
-    std::cout << "-" << this->getComponentID();
     controller->removeClockListener(this);
     //[/Destructor]
 }
@@ -82,12 +82,12 @@ void Stepper::paint (Graphics& g)
     float cellWidth = (float) getWidth() / (float) numCells;
 
     for (int i=0; i<numCells; i++) {
-        
-        
+
+
         float base = isBipolar()
             ? getHeight() * 0.5
             : getHeight() - cells.getUnchecked(i) * getHeight();
-        
+
         float value = isBipolar()
             ? -cells.getUnchecked(i) * getHeight() + getHeight() * 0.5
             : cells.getUnchecked(i) * getHeight();
@@ -120,10 +120,10 @@ void Stepper::paint (Graphics& g)
         );
 
         if(i==0) continue;
-        
+
         g.setColour (Colour (0x55666666));
         if(i%4==0) g.setColour (Colour (0xbb888888));
-        
+
         g.drawLine(i * cellWidth, 0, i * cellWidth, getHeight());
     }
 
@@ -182,9 +182,9 @@ void Stepper::mouseDrag (const MouseEvent& e)
 void Stepper::clockStep(int cursor)
 {
     this->cursor = cursor;
-    
+
     const MessageManagerLock l;
-    
+
     repaint();
 }
 

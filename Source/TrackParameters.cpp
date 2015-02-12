@@ -28,8 +28,8 @@
 //[/MiscUserDefs]
 
 //==============================================================================
-TrackParameters::TrackParameters (Controller* controller)
-    : controller(controller)
+TrackParameters::TrackParameters (Controller* controller, int trackId)
+    : controller(controller), trackId(trackId)
 {
     addAndMakeVisible (selectSlider = new Knob ("Select"));
     selectSlider->setRange (0, 20, 1);
@@ -123,10 +123,38 @@ TrackParameters::TrackParameters (Controller* controller)
 
 
     //[Constructor] You can add your own custom stuff here..
-    selectSlider->setValue(3, dontSendNotification);
-    decaySlider->setValue(1, dontSendNotification);
-    pitchSlider->setValue(0, dontSendNotification);
-    cutoffSlider->setValue(1, dontSendNotification);
+
+    Parameter* p;
+
+    p = controller->getParameterByAttrs(Controller::params::sample, trackId);
+    selectSlider->getValueObject().referTo(*p);
+    selectSlider->addListener(controller);
+
+    p = controller->getParameterByAttrs(Controller::params::pitch, trackId);
+    pitchSlider->getValueObject().referTo(*p);
+    pitchSlider->addListener(controller);
+
+    p = controller->getParameterByAttrs(Controller::params::attack, trackId);
+    attackSlider->getValueObject().referTo(*p);
+    attackSlider->addListener(controller);
+
+    p = controller->getParameterByAttrs(Controller::params::decay, trackId);
+    decaySlider->getValueObject().referTo(*p);
+    decaySlider->addListener(controller);
+
+    p = controller->getParameterByAttrs(Controller::params::distort, trackId);
+    distortSlider->getValueObject().referTo(*p);
+    distortSlider->addListener(controller);
+
+    p = controller->getParameterByAttrs(Controller::params::cutoff, trackId);
+    cutoffSlider->getValueObject().referTo(*p);
+    cutoffSlider->addListener(controller);
+
+    selectSlider->setValue(3);
+    decaySlider->setValue(1);
+    pitchSlider->setValue(0);
+    cutoffSlider->setValue(1);
+
     //[/Constructor]
 }
 
@@ -187,43 +215,36 @@ void TrackParameters::resized()
 void TrackParameters::sliderValueChanged (Slider* sliderThatWasMoved)
 {
     //[UsersliderValueChanged_Pre]
-    int trackId = findParentComponentOfClass<TabbedComponent>()->getCurrentTabIndex();
     //[/UsersliderValueChanged_Pre]
 
     if (sliderThatWasMoved == selectSlider)
     {
         //[UserSliderCode_selectSlider] -- add your slider handling code here..
-        controller->mixer.sources[trackId]->trackParams.sample = selectSlider->getValue();
         //[/UserSliderCode_selectSlider]
     }
     else if (sliderThatWasMoved == attackSlider)
     {
         //[UserSliderCode_attackSlider] -- add your slider handling code here..
-        controller->mixer.sources[trackId]->trackParams.attack = attackSlider->getValue();
         //[/UserSliderCode_attackSlider]
     }
     else if (sliderThatWasMoved == decaySlider)
     {
         //[UserSliderCode_decaySlider] -- add your slider handling code here..
-        controller->mixer.sources[trackId]->trackParams.decay = decaySlider->getValue();
         //[/UserSliderCode_decaySlider]
     }
     else if (sliderThatWasMoved == pitchSlider)
     {
         //[UserSliderCode_pitchSlider] -- add your slider handling code here..
-        controller->mixer.sources[trackId]->trackParams.pitch = pitchSlider->getValue();
         //[/UserSliderCode_pitchSlider]
     }
     else if (sliderThatWasMoved == cutoffSlider)
     {
         //[UserSliderCode_cutoffSlider] -- add your slider handling code here..
-        controller->mixer.sources[trackId]->trackParams.cutoff = cutoffSlider->getValue();
         //[/UserSliderCode_cutoffSlider]
     }
     else if (sliderThatWasMoved == distortSlider)
     {
         //[UserSliderCode_distortSlider] -- add your slider handling code here..
-        controller->mixer.sources[trackId]->trackParams.distort = distortSlider->getValue();
         //[/UserSliderCode_distortSlider]
     }
 
@@ -247,10 +268,10 @@ void TrackParameters::sliderValueChanged (Slider* sliderThatWasMoved)
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="TrackParameters" componentName=""
-                 parentClasses="public Component" constructorParams="Controller* controller"
-                 variableInitialisers="controller(controller)" snapPixels="8"
-                 snapActive="1" snapShown="1" overlayOpacity="0.330" fixedSize="0"
-                 initialWidth="600" initialHeight="400">
+                 parentClasses="public Component" constructorParams="Controller* controller, int trackId"
+                 variableInitialisers="controller(controller), trackId(trackId)"
+                 snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
+                 fixedSize="0" initialWidth="600" initialHeight="400">
   <BACKGROUND backgroundColour="ffffff"/>
   <SLIDER name="Select" id="ae2904d9e602bae7" memberName="selectSlider"
           virtualName="Knob" explicitFocusOrder="0" pos="16 40 40 40" min="0"

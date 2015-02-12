@@ -15,11 +15,12 @@
 #include "Sound.h"
 #include "TrackParamList.h"
 #include "GlobalParamList.h"
+#include "Parameter.h"
 
 class Sampler : public Synthesiser {
 public:
     
-    Sampler(trackParamList* trackParams, globalParamList* globalParams);
+    Sampler(int trackId, OwnedArray<Parameter>* parameters);
     ~Sampler();
     
     void setSelection(int selection);
@@ -33,8 +34,8 @@ public:
                                              bool stealIfNoneAvailable) const;
     
 protected:
-    trackParamList* trackParams;
-    globalParamList* globalParams;
+    int trackId;
+    OwnedArray<Parameter>* parameters;
 };
 
 

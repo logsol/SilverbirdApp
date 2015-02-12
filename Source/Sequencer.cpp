@@ -33,7 +33,6 @@ Sequencer::Sequencer(Mixer& mixer) : mixer(mixer)
 
 Sequencer::~Sequencer()
 {
-    //delete sequencerMessage;
 }
 
 int Sequencer::getNumCells()

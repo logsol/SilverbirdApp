@@ -12,13 +12,15 @@
 #include "Sound.h"
 #include "Mixer.h"
 #include "BinaryData.h"
+#include "Controller.h"
+#include "Parameter.h"
 
-Source::Source(int trackId, String name, MidiMessageCollector& midiCollector, globalParamList* globalParams) :
+Source::Source(int trackId, String name, MidiMessageCollector& midiCollector, OwnedArray<Parameter>* parameters) :
     midiCollector (midiCollector),
     name (name),
     trackId (trackId),
-    globalParams(globalParams),
-    sampler(&trackParams, this->globalParams)
+    sampler(trackId, parameters),
+    parameters(parameters)
 {
     configure(trackId);
 }
@@ -275,9 +277,20 @@ void Source::releaseResources()
 void Source::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
 {
     // calculations
-    float cutoff = fmax(0, fmin(1, trackParams.cutoff + globalParams->cutoff));
-    float distort = 1 - fmax(0, fmin(0.93, trackParams.distort + globalParams->distort));
-    float level = trackParams.level * (!trackParams.mute);
+
+    
+    float trackCuttoff = parameters->getUnchecked(Controller::getParameterId(Controller::params::cutoff, trackId))->getValue();
+    float trackDistort = parameters->getUnchecked(Controller::getParameterId(Controller::params::distort, trackId))->getValue();
+    float trackLevel   = parameters->getUnchecked(Controller::getParameterId(Controller::params::level, trackId))->getValue();
+    float trackMute    = parameters->getUnchecked(Controller::getParameterId(Controller::params::mute, trackId))->getValue();
+    
+    float globalCuttoff = parameters->getUnchecked(Controller::getParameterId(Controller::params::cutoff))->getValue();
+    float globalDistort = parameters->getUnchecked(Controller::getParameterId(Controller::params::distort))->getValue();
+    
+    float cutoff = fmax(0, fmin(1, trackCuttoff + globalCuttoff));
+    float distort = 1 - fmax(0, fmin(0.93, trackDistort + globalDistort));
+    float level = trackLevel * (!ceil(trackMute));
+    
     
     // setup
     bufferToFill.clearActiveBufferRegion();
@@ -302,49 +315,52 @@ void Source::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
     filterR.processSamples(bufferToFill.buffer->getWritePointer(1), bufferToFill.buffer->getNumSamples());
                                
     // dsp: level
-    bufferToFill.buffer->applyGain(0, bufferToFill.numSamples, level);
+    bufferToFill.buffer->applyGainRamp(0, bufferToFill.numSamples, lastLevel, level);
+    lastLevel = level;
 }
 
+/*
 void Source::setLevel(float value)
 {
-    trackParams.level = value;
+    //trackParams.level = value;
 }
 
 void Source::setMute(bool isMuted)
 {
-    trackParams.mute = isMuted;
+    //trackParams.mute = isMuted;
 }
 
 void Source::setSample(int value)
 {
     
-    trackParams.sample = value;
+    //trackParams.sample = value;
 }
 
 void Source::setAttack(float value)
 {
-    trackParams.attack = value;
+    //trackParams.attack = value;
 }
 
 void Source::setDecay(float value)
 {
-    trackParams.decay = value;
+    //trackParams.decay = value;
 }
 
 void Source::setPitch(float value)
 {
-    trackParams.pitch = value;
+    //trackParams.pitch = value;
 }
 
 void Source::setDistort(float value)
 {
-    trackParams.distort = value;
+    //trackParams.distort = value;
 }
 
 void Source::setCutoff(float value)
 {
-    trackParams.cutoff = value;
+    //trackParams.cutoff = value;
 }
+*/
 
 /*
  * fold back distortion

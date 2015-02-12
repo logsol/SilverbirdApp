@@ -14,11 +14,12 @@
 #include "JuceHeader.h"
 #include "ClockListener.h"
 #include "GlobalParamList.h"
+#include "Parameter.h"
 
 class Clock : public HighResolutionTimer, MessageListener
 {
 public:
-    Clock();
+    Clock(OwnedArray<Parameter>* parameters);
     ~Clock();
     
     void addListener(ClockListener* listener);
@@ -43,6 +44,7 @@ protected:
     float sixteenthTime = 60000 / bpm / 4;
     float lastClockStepTime = 0;
     OwnedArray<ClockListener> listeners;
+    OwnedArray<Parameter>* parameters;
     
     globalParamList* globalParams;
 };

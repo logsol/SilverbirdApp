@@ -9,8 +9,10 @@
 */
 
 #include "Mixer.h"
+#include "Controller.h"
+#include "Parameter.h"
 
-Mixer::Mixer()
+Mixer::Mixer(OwnedArray<Parameter>* parameters) : parameters(parameters)
 {
     for (int i = 0; i < maxTracks; i++) {
         createAndAddTrack(i);
@@ -56,7 +58,7 @@ String Mixer::getNameByTrackId(int trackId)
 
 void Mixer::createAndAddTrack(int trackId)
 {
-    Source* source = new Source(trackId, String("track") + String(trackId), midiCollector, &globalParams);
+    Source* source = new Source(trackId, String("track") + String(trackId), midiCollector, parameters);
     
     addInputSource(source, false);
     
@@ -87,96 +89,13 @@ void Mixer::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
     }
     
     MixerAudioSource::getNextAudioBlock(bufferToFill);
-    
-    bufferToFill.buffer->applyGain(globalParams.master);
+
+    float level = parameters->getUnchecked(Controller::getParameterId(Controller::params::level))->getValue();
+    bufferToFill.buffer->applyGainRamp(0, bufferToFill.numSamples, lastLevel, level);
+    lastLevel = level;
 }
 
 void Mixer::playNote(int note, float velocity)
 {
-    // dying here? probably forgot to bootstrap.
     midiCollector.handleNoteOn(&keyboardState, 1, note, velocity);
-//    midiCollector.handleNoteOff(&keyboardState, 1, note);
-}
-
-void Mixer::setSampleAll (int value)
-{
-    globalParams.sample = value;
-}
-
-void Mixer::setPitch(float value)
-{
-    globalParams.pitch = value;
-}
-
-void Mixer::setDecay(float value)
-{
-    globalParams.decay = value;
-}
-
-void Mixer::setDistort(float value)
-{
-    globalParams.distort = value;
-}
-
-void Mixer::setCutoff(float value)
-{
-    globalParams.cutoff = value;
-}
-
-void Mixer::setShuffle(float value)
-{
-    globalParams.shuffle = value;
-}
-
-void Mixer::setMaster (float value)
-{
-    globalParams.master = value;
-}
-
-void Mixer::setTrackLevel (float value, int trackId)
-{
-    Source* source = getTrackById(trackId);
-    source->setLevel(value);
-}
-
-void Mixer::setTrackMute (bool value, int trackId)
-{
-    Source* source = getTrackById(trackId);
-    source->setMute(value);
-}
-
-void Mixer::setTrackSample(int value, int trackId)
-{
-    Source* source = getTrackById(trackId);
-    source->setSample(value);
-}
-
-void Mixer::setTrackAttack(float value, int trackId)
-{
-    Source* source = getTrackById(trackId);
-    source->setAttack(value);
-}
-
-void Mixer::setTrackDecay(float value, int trackId)
-{
-    Source* source = getTrackById(trackId);
-    source->setDecay(value);
-}
-
-void Mixer::setTrackPitch(float value, int trackId)
-{
-    Source* source = getTrackById(trackId);
-    source->setPitch(value);
-}
-
-void Mixer::setTrackDistort(float value, int trackId)
-{
-    Source* source = getTrackById(trackId);
-    source->setDistort(value);
-}
-
-void Mixer::setTrackCutoff(float value, int trackId)
-{
-    Source* source = getTrackById(trackId);
-    source->setCutoff(value);
 }

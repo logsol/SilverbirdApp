@@ -54,14 +54,15 @@ public:
     void resized();
     void mouseDown (const MouseEvent& e);
     void mouseDrag (const MouseEvent& e);
-    
-protected:
-    virtual bool isBipolar();
+
+
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
+    
+protected:
+    virtual bool isBipolar();
     Controller* controller;
-
     int cursor = -1;
     //[/UserVariables]
 

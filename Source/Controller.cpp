@@ -11,9 +11,28 @@
 #include "Controller.h"
 
 
-Controller::Controller() : sequencer(mixer)
+Controller::Controller() : mixer(&parameters),
+                           clock(&parameters),
+                           sequencer(mixer)
 {
-    clock.setGlobalParams(&mixer.globalParams);
+    int parameterId = 0;
+    
+    // FIXME: outsource into method
+    
+    for (int paramNameId = 0; paramNameId < Controller::params::max; ++paramNameId) {
+        Parameter* p = new Parameter(parameterId, paramNameId);
+        parameters.add(p);
+        parameterId++;
+    }
+    
+    for (int trackId = 0; trackId < Mixer::maxTracks; ++trackId) {
+        for (int paramNameId = 0; paramNameId < Controller::params::max; ++paramNameId) {
+            Parameter* p = new Parameter(parameterId, paramNameId, trackId);
+            parameters.add(p);
+            parameterId++;
+        }
+    }
+      
     clock.addListener(&sequencer);
 }
 
@@ -83,7 +102,82 @@ AudioProcessorEditor* Controller::createEditor()
     return new Gui (this);
 }
 
+void Controller::setParameter (int index, float newValue)
+{
+    Value value = *parameters[index];
+    value.setValue(newValue);
+}
 
+int Controller::getParameterId(int paramNameId, int trackId, int cellId)
+{
+    // trackId -1 means it's global
+    
+    if (trackId != -1) {
+        if (cellId != -1) {
+        }
+        
+        return (trackId + 1) * Controller::params::max + paramNameId;
+    }
+    
+    return paramNameId;
+}
+
+Parameter* Controller::getParameterByAttrs(int paramNameId, int trackId, int cellId)
+{
+    for (int i = 0; i < parameters.size(); ++i) {
+        Parameter* parameter = parameters.getUnchecked(i);
+        if (parameter && parameter->paramNameId == paramNameId
+            && parameter->trackId == trackId
+            && parameter->cellId == cellId) {
+            return parameter;
+        }
+    }
+    
+    return nullptr; // FIXME : should not crash here (create if() everywhere this method is called)
+}
+
+const String Controller::getParameterName (int index)
+{
+    return parameters.getUnchecked(index)->name;
+}
+
+const String Controller::getParameterText (int index)
+{
+    return parameters.getUnchecked(index)->getValue().toString();
+}
+
+void Controller::getStateInformation (MemoryBlock& destData)
+{
+    //copyXmlToBinary();
+}
+
+void Controller::setStateInformation (const void* data, int sizeInBytes)
+{
+    //getXmlFromBinary();
+}
+
+void Controller::sliderValueChanged(Slider *slider)
+{
+    onGuiParameterChange(slider->getValueObject());
+}
+
+void Controller::buttonClicked (Button* button)
+{
+    onGuiParameterChange(button->getToggleStateValue());
+}
+
+void Controller::onGuiParameterChange (Value& value)
+{
+    for (int i=0; i < parameters.size(); i++) {
+        Parameter* p = parameters.getUnchecked(i);
+        if (p->refersToSameSourceAs(value)) {
+            setParameterNotifyingHost(p->parameterId, p->getValue());
+            return;
+        }
+    }
+    std::cout << "should not be happenign;" << std::endl;
+    
+}
 //==============================================================================
 // This creates new instances of the plugin..
 
@@ -91,45 +185,3 @@ AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
     return new Controller();
 }
-
-
-
-
-
-
-
-/*
-int Controller::getParamId(int paramId, bool isGlobal, int trackId, int cellId)
-{
-    if (isGlobal) {
-        return paramId;
-    }
-    
-    if (trackId > 0) {
-        
-        if (cellId > 0) {
-        }
-        
-        //return Controller::Param::max * trackId;
-    }
-    
-    */
-    
-    /*
-    i=0;
-    
-    while (globalParams as globalParam) {
-        ++i
-    }
-    
-    while (tracks as track) {
-        while (trackParams as trackParam) {
-            ++i;
-        }
-    }
-    
-     */
-/*
-    return 0;
-}
-*/

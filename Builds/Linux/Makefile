@@ -51,6 +51,7 @@ ifeq ($(CONFIG),Release)
 endif
 
 OBJECTS := \
+  $(OBJDIR)/Parameter_73564c8a.o \
   $(OBJDIR)/Controller_2961cb25.o \
   $(OBJDIR)/Processor_85e48f3.o \
   $(OBJDIR)/ADSR_8d33c52b.o \
@@ -102,6 +103,11 @@ clean:
 strip:
 	@echo Stripping SilverbirdApp
 	-@strip --strip-unneeded $(OUTDIR)/$(TARGET)
+
+$(OBJDIR)/Parameter_73564c8a.o: ../../Source/Parameter.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling Parameter.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/Controller_2961cb25.o: ../../Source/Controller.cpp
 	-@mkdir -p $(OBJDIR)

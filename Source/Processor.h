@@ -39,7 +39,7 @@ public:
 
     int getNumParameters() override;
     float getParameter (int index) override;
-    void setParameter (int index, float newValue) override;
+    virtual void setParameter (int index, float newValue) override;
 
     const String getParameterName (int index) override;
     const String getParameterText (int index) override;

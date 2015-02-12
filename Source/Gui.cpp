@@ -125,12 +125,12 @@ Gui::Gui (Controller* controller)
 
     addAndMakeVisible (tabbedComponent = new TabbedComponent (TabbedButtonBar::TabsAtTop));
     tabbedComponent->setTabBarDepth (26);
-    tabbedComponent->addTab (TRANS("Kick"), Colour (0xf1f1f1f1), new TrackParameters (controller), true);
-    tabbedComponent->addTab (TRANS("Snare"), Colour (0xf1f1f1f1), new TrackParameters (controller), true);
-    tabbedComponent->addTab (TRANS("Hihat"), Colour (0xf1f1f1f1), new TrackParameters (controller), true);
-    tabbedComponent->addTab (TRANS("Perc1"), Colour (0xf1f1f1f1), new TrackParameters (controller), true);
-    tabbedComponent->addTab (TRANS("Perc2"), Colour (0xf1f1f1f1), new TrackParameters (controller), true);
-    tabbedComponent->addTab (TRANS("Tones"), Colour (0xf1f1f1f1), new TrackParameters (controller), true);
+    tabbedComponent->addTab (TRANS("Kick"), Colour (0xf1f1f1f1), new TrackParameters (controller, 0), true);
+    tabbedComponent->addTab (TRANS("Snare"), Colour (0xf1f1f1f1), new TrackParameters (controller, 1), true);
+    tabbedComponent->addTab (TRANS("Hihat"), Colour (0xf1f1f1f1), new TrackParameters (controller, 2), true);
+    tabbedComponent->addTab (TRANS("Perc1"), Colour (0xf1f1f1f1), new TrackParameters (controller, 3), true);
+    tabbedComponent->addTab (TRANS("Perc2"), Colour (0xf1f1f1f1), new TrackParameters (controller, 4), true);
+    tabbedComponent->addTab (TRANS("Tones"), Colour (0xf1f1f1f1), new TrackParameters (controller, 5), true);
     tabbedComponent->setCurrentTabIndex (0);
 
     addAndMakeVisible (sampleAllSlider = new Knob ("SampleAll"));
@@ -292,27 +292,73 @@ Gui::Gui (Controller* controller)
 
 
     //[Constructor] You can add your own custom stuff here..
-    
+
     if (JUCEApplication::isStandaloneApp()) {
         setSize(1076, 611);
     }
-    
-    
-     masterSlider->setValue(4);
 
-     Slider* volumeSliders [Mixer::maxTracks] = {
+    Parameter* p;
+
+    p = controller->getParameterByAttrs(Controller::params::sample);
+    sampleAllSlider->getValueObject().referTo(*p);
+    sampleAllSlider->addListener(controller);
+
+    p = controller->getParameterByAttrs(Controller::params::pitch);
+    pitchSlider->getValueObject().referTo(*p);
+    pitchSlider->addListener(controller);
+
+    p = controller->getParameterByAttrs(Controller::params::decay);
+    decaySlider->getValueObject().referTo(*p);
+    decaySlider->addListener(controller);
+
+    p = controller->getParameterByAttrs(Controller::params::distort);
+    distortSlider->getValueObject().referTo(*p);
+    distortSlider->addListener(controller);
+
+    p = controller->getParameterByAttrs(Controller::params::cutoff);
+    cutoffSlider->getValueObject().referTo(*p);
+    cutoffSlider->addListener(controller);
+
+    p = controller->getParameterByAttrs(Controller::params::shuffle);
+    shuffleSlider->getValueObject().referTo(*p);
+    shuffleSlider->addListener(controller);
+
+    p = controller->getParameterByAttrs(Controller::params::level);
+    masterSlider->getValueObject().referTo(*p);
+    masterSlider->addListener(controller);
+
+
+    Slider* volumeSliders [Mixer::maxTracks] = {
          kickVolumeSlider,
          snareVolumeSlider,
          hihatVolumeSlider,
          perc1VolumeSlider,
          perc2VolumeSlider,
          tonesVolumeSlider
-     };
+    };
+
+    ToggleButton* muteButtons [Mixer::maxTracks] = {
+        kickMuteButton,
+        snareMuteButton,
+        HihatMuteButton,
+        perc1MuteButton,
+        perc2MuteButton,
+        tonesMuteButton
+    };
 
     for (int i = 0; i < Mixer::maxTracks; i++) {
-        volumeSliders[i]->setValue(8);
+        p = controller->getParameterByAttrs(Controller::params::level, i);
+        volumeSliders[i]->getValueObject().referTo(*p);
         volumeSliders[i]->setSliderStyle(Slider::LinearBarVertical);
+        volumeSliders[i]->addListener(controller);
+        volumeSliders[i]->setValue(0.8);
+
+        p = controller->getParameterByAttrs(Controller::params::mute, i);
+        muteButtons[i]->getToggleStateValue().referTo(*p);
+        muteButtons[i]->addListener(controller);
     }
+
+    masterSlider->setValue(0.8);
 
     //[/Constructor]
 }
@@ -433,80 +479,66 @@ void Gui::sliderValueChanged (Slider* sliderThatWasMoved)
     if (sliderThatWasMoved == masterSlider)
     {
         //[UserSliderCode_masterSlider] -- add your slider handling code here..
-        //controller->setParameterNotifyingHost(1, masterSlider->getValue());
-        //controller->mixer.globalParams.master = masterSlider->getValue();
         //[/UserSliderCode_masterSlider]
     }
     else if (sliderThatWasMoved == kickVolumeSlider)
     {
         //[UserSliderCode_kickVolumeSlider] -- add your slider handling code here..
-//        controller->mixer.sources[Mixer::trackIndex::kick]->trackParams.level = kickVolumeSlider->getValue();
         //[/UserSliderCode_kickVolumeSlider]
     }
     else if (sliderThatWasMoved == snareVolumeSlider)
     {
         //[UserSliderCode_snareVolumeSlider] -- add your slider handling code here..
-//        controller->mixer.sources[Mixer::trackIndex::snare]->trackParams.level = snareVolumeSlider->getValue();
         //[/UserSliderCode_snareVolumeSlider]
     }
     else if (sliderThatWasMoved == hihatVolumeSlider)
     {
         //[UserSliderCode_hihatVolumeSlider] -- add your slider handling code here..
-//        controller->mixer.sources[Mixer::trackIndex::hihat]->trackParams.level = hihatVolumeSlider->getValue();
         //[/UserSliderCode_hihatVolumeSlider]
     }
     else if (sliderThatWasMoved == sampleAllSlider)
     {
         //[UserSliderCode_sampleAllSlider] -- add your slider handling code here..
-//        controller->mixer.globalParams.sample = sampleAllSlider->getValue();
         //[/UserSliderCode_sampleAllSlider]
     }
     else if (sliderThatWasMoved == pitchSlider)
     {
         //[UserSliderCode_pitchSlider] -- add your slider handling code here..
-//        controller->mixer.globalParams.pitch = pitchSlider->getValue();
         //[/UserSliderCode_pitchSlider]
     }
     else if (sliderThatWasMoved == decaySlider)
     {
         //[UserSliderCode_decaySlider] -- add your slider handling code here..
-//        controller->mixer.globalParams.decay = decaySlider->getValue();
         //[/UserSliderCode_decaySlider]
     }
     else if (sliderThatWasMoved == distortSlider)
     {
         //[UserSliderCode_distortSlider] -- add your slider handling code here..
-//        controller->mixer.globalParams.distort = distortSlider->getValue();
         //[/UserSliderCode_distortSlider]
     }
     else if (sliderThatWasMoved == cutoffSlider)
     {
         //[UserSliderCode_cutoffSlider] -- add your slider handling code here..
-//        controller->mixer.globalParams.cutoff = cutoffSlider->getValue();
         //[/UserSliderCode_cutoffSlider]
     }
     else if (sliderThatWasMoved == shuffleSlider)
     {
         //[UserSliderCode_shuffleSlider] -- add your slider handling code here..
-//        controller->mixer.globalParams.shuffle = shuffleSlider->getValue();
         //[/UserSliderCode_shuffleSlider]
     }
     else if (sliderThatWasMoved == perc1VolumeSlider)
     {
         //[UserSliderCode_perc1VolumeSlider] -- add your slider handling code here..
-//        controller->mixer.sources[Mixer::trackIndex::perc1]->trackParams.level = perc1VolumeSlider->getValue();
         //[/UserSliderCode_perc1VolumeSlider]
     }
     else if (sliderThatWasMoved == perc2VolumeSlider)
     {
         //[UserSliderCode_perc2VolumeSlider] -- add your slider handling code here..
-//        controller->mixer.sources[Mixer::trackIndex::perc2]->trackParams.level = perc2VolumeSlider->getValue();
         //[/UserSliderCode_perc2VolumeSlider]
     }
     else if (sliderThatWasMoved == tonesVolumeSlider)
     {
         //[UserSliderCode_tonesVolumeSlider] -- add your slider handling code here..
-//        controller->mixer.sources[Mixer::trackIndex::tones]->trackParams.level = tonesVolumeSlider->getValue();
         //[/UserSliderCode_tonesVolumeSlider]
     }
 
@@ -522,37 +554,31 @@ void Gui::buttonClicked (Button* buttonThatWasClicked)
     if (buttonThatWasClicked == kickMuteButton)
     {
         //[UserButtonCode_kickMuteButton] -- add your button handler code here..
-//        controller->mixer.sources[Mixer::trackIndex::kick]->trackParams.mute = kickMuteButton->getToggleState();
         //[/UserButtonCode_kickMuteButton]
     }
     else if (buttonThatWasClicked == snareMuteButton)
     {
         //[UserButtonCode_snareMuteButton] -- add your button handler code here..
-//        controller->mixer.sources[Mixer::trackIndex::snare]->trackParams.mute = snareMuteButton->getToggleState();
         //[/UserButtonCode_snareMuteButton]
     }
     else if (buttonThatWasClicked == HihatMuteButton)
     {
         //[UserButtonCode_HihatMuteButton] -- add your button handler code here..
-//        controller->mixer.sources[Mixer::trackIndex::hihat]->trackParams.mute = HihatMuteButton->getToggleState();
         //[/UserButtonCode_HihatMuteButton]
     }
     else if (buttonThatWasClicked == perc1MuteButton)
     {
         //[UserButtonCode_perc1MuteButton] -- add your button handler code here..
-//        controller->mixer.sources[Mixer::trackIndex::perc1]->trackParams.mute = perc1MuteButton->getToggleState();
         //[/UserButtonCode_perc1MuteButton]
     }
     else if (buttonThatWasClicked == perc2MuteButton)
     {
         //[UserButtonCode_perc2MuteButton] -- add your button handler code here..
-//        controller->mixer.sources[Mixer::trackIndex::perc2]->trackParams.mute = perc2MuteButton->getToggleState();
         //[/UserButtonCode_perc2MuteButton]
     }
     else if (buttonThatWasClicked == tonesMuteButton)
     {
         //[UserButtonCode_tonesMuteButton] -- add your button handler code here..
-//        controller->mixer.sources[Mixer::trackIndex::tones]->trackParams.mute = tonesMuteButton->getToggleState();
         //[/UserButtonCode_tonesMuteButton]
     }
 
@@ -660,17 +686,17 @@ BEGIN_JUCER_METADATA
                    virtualName="" explicitFocusOrder="0" pos="40 40 400 128" orientation="top"
                    tabBarDepth="26" initialTab="0">
     <TAB name="Kick" colour="f1f1f1f1" useJucerComp="1" contentClassName="TrackParameters"
-         constructorParams="controller" jucerComponentFile="TrackParameters.cpp"/>
+         constructorParams="controller, 0" jucerComponentFile="TrackParameters.cpp"/>
     <TAB name="Snare" colour="f1f1f1f1" useJucerComp="1" contentClassName="TrackParameters"
-         constructorParams="controller" jucerComponentFile="TrackParameters.cpp"/>
+         constructorParams="controller, 1" jucerComponentFile="TrackParameters.cpp"/>
     <TAB name="Hihat" colour="f1f1f1f1" useJucerComp="1" contentClassName="TrackParameters"
-         constructorParams="controller" jucerComponentFile="TrackParameters.cpp"/>
+         constructorParams="controller, 2" jucerComponentFile="TrackParameters.cpp"/>
     <TAB name="Perc1" colour="f1f1f1f1" useJucerComp="1" contentClassName=""
-         constructorParams="controller" jucerComponentFile="TrackParameters.cpp"/>
+         constructorParams="controller, 3" jucerComponentFile="TrackParameters.cpp"/>
     <TAB name="Perc2" colour="f1f1f1f1" useJucerComp="1" contentClassName=""
-         constructorParams="controller" jucerComponentFile="TrackParameters.cpp"/>
+         constructorParams="controller, 4" jucerComponentFile="TrackParameters.cpp"/>
     <TAB name="Tones" colour="f1f1f1f1" useJucerComp="1" contentClassName=""
-         constructorParams="controller" jucerComponentFile="TrackParameters.cpp"/>
+         constructorParams="controller, 5" jucerComponentFile="TrackParameters.cpp"/>
   </TABBEDCOMPONENT>
   <SLIDER name="SampleAll" id="ee8c6f5ed858bc06" memberName="sampleAllSlider"
           virtualName="Knob" explicitFocusOrder="0" pos="512 80 32 32"

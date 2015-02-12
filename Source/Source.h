@@ -17,12 +17,13 @@
 #include "Sampler.h"
 #include "TrackParamList.h"
 #include "GlobalParamList.h"
+#include "Parameter.h"
 
 class Source : public AudioSource
 {
     
 public:
-    Source(int trackId, String name, MidiMessageCollector& midiCollector, globalParamList* globalParams);
+    Source(int trackId, String name, MidiMessageCollector& midiCollector, OwnedArray<Parameter>* parameters);
     ~Source();
     
     void updateSampleRate(int sampleRate);
@@ -30,6 +31,7 @@ public:
     void releaseResources();
     void getNextAudioBlock(const AudioSourceChannelInfo& bufferToFill);
     
+    /*
     void setLevel(float value);
     void setMute(bool isMuted);
     void setSample(int value);
@@ -38,6 +40,7 @@ public:
     void setPitch(float value);
     void setDistort(float value);
     void setCutoff(float value);
+    */
     
     float foldback(float in, float threshold);
     
@@ -46,8 +49,7 @@ public:
     int trackId;
     
     MidiBuffer incomingMidi;
-    
-    trackParamList trackParams; // automatic creation
+
     
 protected:
     
@@ -58,11 +60,11 @@ protected:
     IIRFilter filterR;
 
     double sampleRate;
-    
-    globalParamList* globalParams; // getting from outside
+    float lastLevel = 1;
+
 
     Sampler sampler;
-
+    OwnedArray<Parameter>* parameters;
 };
 
 

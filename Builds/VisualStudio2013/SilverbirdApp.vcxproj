@@ -131,6 +131,7 @@
     </Bscmake>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\Parameter.cpp"/>
     <ClCompile Include="..\..\Source\Controller.cpp"/>
     <ClCompile Include="..\..\Source\Processor.cpp"/>
     <ClCompile Include="..\..\Source\ADSR.cpp"/>
@@ -1214,6 +1215,7 @@
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_gui_extra\juce_gui_extra.cpp"/>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\Parameter.h"/>
     <ClInclude Include="..\..\Source\Controller.h"/>
     <ClInclude Include="..\..\Source\Processor.h"/>
     <ClInclude Include="..\..\Source\ADSR.h"/>
