@@ -1283,7 +1283,6 @@
     <ClInclude Include="..\..\..\Source\ClockListener.h"/>
     <ClInclude Include="..\..\..\Source\Controller.h"/>
     <ClInclude Include="..\..\..\Source\Drums.h"/>
-    <ClInclude Include="..\..\..\Source\GlobalParamList.h"/>
     <ClInclude Include="..\..\..\Source\Gui.h"/>
     <ClInclude Include="..\..\..\Source\Knob.h"/>
     <ClInclude Include="..\..\..\Source\Mixer.h"/>
@@ -1296,7 +1295,6 @@
     <ClInclude Include="..\..\..\Source\Source.h"/>
     <ClInclude Include="..\..\..\Source\Stepper.h"/>
     <ClInclude Include="..\..\..\Source\TrackParameters.h"/>
-    <ClInclude Include="..\..\..\Source\TrackParamList.h"/>
     <ClInclude Include="..\..\..\Source\Voice.h"/>
     <ClInclude Include="..\..\..\JuceLibraryCode\BinaryData.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>

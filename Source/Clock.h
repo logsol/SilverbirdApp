@@ -13,7 +13,6 @@
 
 #include "JuceHeader.h"
 #include "ClockListener.h"
-#include "GlobalParamList.h"
 #include "Parameter.h"
 
 class Clock : public HighResolutionTimer, MessageListener
@@ -25,11 +24,9 @@ public:
     void addListener(ClockListener* listener);
     void removeListener(ClockListener* listener);
     
-//    void timerCallback() override;
     void hiResTimerCallback();
     
     void handleMessage(const Message& message);
-    void setGlobalParams(globalParamList* globalParams);
     
     void togglePlayPause();
     void setPlayPause(bool play);
@@ -45,8 +42,6 @@ protected:
     float lastClockStepTime = 0;
     OwnedArray<ClockListener> listeners;
     OwnedArray<Parameter>* parameters;
-    
-    globalParamList* globalParams;
 };
 
 #endif  // CLOCK_H_INCLUDED

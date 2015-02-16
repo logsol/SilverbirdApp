@@ -29,8 +29,6 @@
       <FILE id="GfNgNy" name="Controller.h" compile="0" resource="0" file="../Source/Controller.h"/>
       <FILE id="lNMsYp" name="Drums.cpp" compile="1" resource="0" file="../Source/Drums.cpp"/>
       <FILE id="UKwLab" name="Drums.h" compile="0" resource="0" file="../Source/Drums.h"/>
-      <FILE id="VXOKTu" name="GlobalParamList.h" compile="0" resource="0"
-            file="../Source/GlobalParamList.h"/>
       <FILE id="JM49DV" name="Gui.cpp" compile="1" resource="0" file="../Source/Gui.cpp"/>
       <FILE id="x0fw1k" name="Gui.h" compile="0" resource="0" file="../Source/Gui.h"/>
       <FILE id="KhZ90G" name="Knob.cpp" compile="1" resource="0" file="../Source/Knob.cpp"/>
@@ -57,8 +55,6 @@
             file="../Source/TrackParameters.cpp"/>
       <FILE id="S5RJ3F" name="TrackParameters.h" compile="0" resource="0"
             file="../Source/TrackParameters.h"/>
-      <FILE id="S9GANN" name="TrackParamList.h" compile="0" resource="0"
-            file="../Source/TrackParamList.h"/>
       <FILE id="bREPAD" name="Voice.cpp" compile="1" resource="0" file="../Source/Voice.cpp"/>
       <FILE id="fKjNmh" name="Voice.h" compile="0" resource="0" file="../Source/Voice.h"/>
     </GROUP>

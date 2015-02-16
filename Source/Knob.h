@@ -23,12 +23,15 @@ public:
     ~Knob();
     
     void paint(Graphics& g) override;
+    void setBaseCenter(bool isCentered);
+    void setStepSize(float stepSize);
     
 protected:
     //==============================================================================
     Image* image;
     int singleImageWidth;
     int singleImageHeight;
+    bool useCenteredImage = false;
 };
 
 

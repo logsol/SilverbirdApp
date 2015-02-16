@@ -14,6 +14,7 @@
 #include "JuceHeader.h"
 #include "Controller.h"
 #include "Parameter.h"
+#include "Mixer.h"
 
 Sampler::Sampler(int trackId, OwnedArray<Parameter>* parameters) : trackId(trackId),
                                                                parameters(parameters)
@@ -31,30 +32,30 @@ Sampler::~Sampler() {
 
 void Sampler::noteOn (const int midiChannel, const int midiNoteNumber, const float velocity)
 {
-    int sample = 1;
+    int   sample = 1;
     float pitch = 1;
     float attack = 0.01;
     float decay = 0.99;
     
-    int   trackSample = parameters->getUnchecked(Controller::getParameterId(Controller::params::sample, trackId))->getValue();
-    float trackPitch = parameters->getUnchecked(Controller::getParameterId(Controller::params::pitch, trackId))->getValue();
-    float trackAttack = parameters->getUnchecked(Controller::getParameterId(Controller::params::attack, trackId))->getValue();
-    float trackDecay = parameters->getUnchecked(Controller::getParameterId(Controller::params::decay, trackId))->getValue();
+    float trackSample = parameters->getUnchecked(Controller::getParameterId(Controller::params::sample, trackId))->getScaledValue();
+    float trackPitch = parameters->getUnchecked(Controller::getParameterId(Controller::params::pitch, trackId))->getScaledValue();
+    float trackAttack = parameters->getUnchecked(Controller::getParameterId(Controller::params::attack, trackId))->getScaledValue();
+    float trackDecay = parameters->getUnchecked(Controller::getParameterId(Controller::params::decay, trackId))->getScaledValue();
     
-    int   globalSample = parameters->getUnchecked(Controller::getParameterId(Controller::params::sample))->getValue();
-    float globalPitch = parameters->getUnchecked(Controller::getParameterId(Controller::params::pitch))->getValue();
-    float globalDecay = parameters->getUnchecked(Controller::getParameterId(Controller::params::decay))->getValue();
+    float globalSample = parameters->getUnchecked(Controller::getParameterId(Controller::params::sample))->getScaledValue();
+    float globalPitch = parameters->getUnchecked(Controller::getParameterId(Controller::params::pitch))->getScaledValue();
+    float globalDecay = parameters->getUnchecked(Controller::getParameterId(Controller::params::decay))->getScaledValue();
 
 
     
-    if (true) {
-        // +1000 -1 to safely shift far into positive range but keep first sample
-        
-        sample = (trackSample + globalSample /*+ 999*/)  % sounds.size();
-        pitch = trackPitch + globalPitch;
-        attack = trackAttack;
-        decay = fmax(0, fmin(1, trackDecay + globalDecay));
-    }
+    // +getNumberOfSounds to shift into positive range
+    sample =  ((int) trackSample + (int) globalSample + getNumberOfSounds()) % getNumberOfSounds();
+    pitch = pow(2, trackPitch + globalPitch);
+    
+    // formula from reaktor version
+    attack = pow(1.12202, (trackAttack * 100 - 60));
+    decay = pow(1.12202, fmin(1, fmax(0.1, trackDecay + globalDecay)) * 100 - 60);
+
     
     const ScopedLock sl (lock);
     for (int i = sounds.size(); --i >= 0;)
@@ -69,7 +70,7 @@ void Sampler::noteOn (const int midiChannel, const int midiNoteNumber, const flo
             voice->setVoiceParameters(attack, decay, pitch);
             startVoice (voice, sound, midiChannel, midiNoteNumber, velocity);
         }
-    } 
+    }
 }
 
 void Sampler::stopVoice (SynthesiserVoice* voice, const bool allowTailOff)
@@ -96,4 +97,9 @@ SynthesiserVoice* Sampler::findFreeVoice (SynthesiserSound* soundToPlay,
         return findVoiceToSteal (soundToPlay, midiChannel, midiNoteNumber);
     
     return nullptr;
+}
+
+int Sampler::getNumberOfSounds()
+{
+    return sounds.size();
 }

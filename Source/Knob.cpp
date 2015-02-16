@@ -34,16 +34,11 @@ void Knob::paint(Graphics& g)
 {
     double range = getMaximum() - getMinimum();
     
-    if (getMinimum() < 0) {
-        singleImageWidth = 37;
-        singleImageHeight = 32;
-    }
-    
     Image knobImage = ImageCache::getFromMemory (BinaryData::Knob_png, BinaryData::Knob_pngSize);
     int numImagePics = knobImage.getWidth() / singleImageWidth;
     int imageOffset = singleImageWidth * (int)((numImagePics-1) * getValue()/range);
     
-    if (getMinimum() < 0) {
+    if (useCenteredImage) {
         knobImage = ImageCache::getFromMemory (BinaryData::Knob_Centered_png, BinaryData::Knob_Centered_pngSize);
         numImagePics = knobImage.getWidth() / singleImageWidth;
         imageOffset = singleImageWidth * (int)((numImagePics) * (getValue() - getMinimum())/range);
@@ -54,4 +49,19 @@ void Knob::paint(Graphics& g)
                 imageOffset, 0, singleImageWidth, singleImageHeight,
                 false);
     
+}
+
+void Knob::setBaseCenter(bool isCentered) {
+    
+    if (isCentered) {
+        singleImageWidth = 37;
+        singleImageHeight = 32;
+        
+        useCenteredImage = true;
+    }
+}
+
+void Knob::setStepSize(float stepSize)
+{
+    setRange(getMinimum(), getMaximum(), stepSize);
 }

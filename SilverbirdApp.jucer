@@ -56,12 +56,6 @@
         <FILE id="k1GNBn" name="Clock.cpp" compile="1" resource="0" file="Source/Clock.cpp"/>
         <FILE id="I7gAhn" name="Clock.h" compile="0" resource="0" file="Source/Clock.h"/>
       </GROUP>
-      <GROUP id="{3300D092-9234-681D-F537-BF112E1F6849}" name="Structs">
-        <FILE id="ueGtu2" name="GlobalParamList.h" compile="0" resource="0"
-              file="Source/GlobalParamList.h"/>
-        <FILE id="P26RcM" name="TrackParamList.h" compile="0" resource="0"
-              file="Source/TrackParamList.h"/>
-      </GROUP>
       <GROUP id="{A3777E05-86BF-E467-8360-5B2722BA9453}" name="Messages">
         <FILE id="TYWRAb" name="SequencerMessage.h" compile="0" resource="0"
               file="Source/SequencerMessage.h"/>

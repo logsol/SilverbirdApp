@@ -13,7 +13,6 @@
 
 #include "JuceHeader.h"
 #include "Source.h"
-#include "GlobalParamList.h"
 #include "Parameter.h"
 
 class Mixer : public MixerAudioSource {
@@ -21,14 +20,6 @@ public:
     Mixer(OwnedArray<Parameter>* parameters);
     ~Mixer();
     
-    static int getTrackByName(String name);
-    static String getNameByTrackId(int trackId);
-    
-    void prepareToPlay (int samplesPerBlockExpected, double sampleRate) override;
-    void getNextAudioBlock (const AudioSourceChannelInfo&) override;
-    
-    void playNote(int note, float velocity);
-
     enum trackIndex {
         kick,
         snare,
@@ -38,6 +29,17 @@ public:
         tones,
         maxTracks
     };
+    
+    static const int SelectAllOffset = 21;
+    static int getTrackByName(String name);
+    static String getNameByTrackId(int trackId);
+    
+    void prepareToPlay (int samplesPerBlockExpected, double sampleRate) override;
+    void getNextAudioBlock (const AudioSourceChannelInfo&) override;
+    
+    void playNote(int note, float velocity);
+    
+    int getNumberOfSoundsByTrack(int track);
     
     OwnedArray<Source> sources;
     MidiMessageCollector midiCollector;

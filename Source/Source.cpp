@@ -279,17 +279,17 @@ void Source::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
     // calculations
 
     
-    float trackCuttoff = parameters->getUnchecked(Controller::getParameterId(Controller::params::cutoff, trackId))->getValue();
-    float trackDistort = parameters->getUnchecked(Controller::getParameterId(Controller::params::distort, trackId))->getValue();
-    float trackLevel   = parameters->getUnchecked(Controller::getParameterId(Controller::params::level, trackId))->getValue();
-    float trackMute    = parameters->getUnchecked(Controller::getParameterId(Controller::params::mute, trackId))->getValue();
+    float trackCutoff = parameters->getUnchecked(Controller::getParameterId(Controller::params::cutoff, trackId))->getScaledValue();
+    float trackDistort = parameters->getUnchecked(Controller::getParameterId(Controller::params::distort, trackId))->getScaledValue();
+    float trackLevel   = parameters->getUnchecked(Controller::getParameterId(Controller::params::level, trackId))->getScaledValue();
+    float trackMute    = parameters->getUnchecked(Controller::getParameterId(Controller::params::mute, trackId))->getScaledValue();
     
-    float globalCuttoff = parameters->getUnchecked(Controller::getParameterId(Controller::params::cutoff))->getValue();
-    float globalDistort = parameters->getUnchecked(Controller::getParameterId(Controller::params::distort))->getValue();
+    float globalCutoff = parameters->getUnchecked(Controller::getParameterId(Controller::params::cutoff))->getScaledValue();
+    float globalDistort = parameters->getUnchecked(Controller::getParameterId(Controller::params::distort))->getScaledValue();
     
-    float cutoff = fmax(0, fmin(1, trackCuttoff + globalCuttoff));
+    float cutoff = fmax(0, fmin(1, trackCutoff + globalCutoff));
     float distort = 1 - fmax(0, fmin(0.93, trackDistort + globalDistort));
-    float level = trackLevel * (!ceil(trackMute));
+    float level = trackLevel * !trackMute;
     
     
     // setup
@@ -320,49 +320,6 @@ void Source::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
 }
 
 /*
-void Source::setLevel(float value)
-{
-    //trackParams.level = value;
-}
-
-void Source::setMute(bool isMuted)
-{
-    //trackParams.mute = isMuted;
-}
-
-void Source::setSample(int value)
-{
-    
-    //trackParams.sample = value;
-}
-
-void Source::setAttack(float value)
-{
-    //trackParams.attack = value;
-}
-
-void Source::setDecay(float value)
-{
-    //trackParams.decay = value;
-}
-
-void Source::setPitch(float value)
-{
-    //trackParams.pitch = value;
-}
-
-void Source::setDistort(float value)
-{
-    //trackParams.distort = value;
-}
-
-void Source::setCutoff(float value)
-{
-    //trackParams.cutoff = value;
-}
-*/
-
-/*
  * fold back distortion
  *
  * Type : distortion
@@ -377,4 +334,10 @@ float Source::foldback(float in, float threshold)
         in= fabs(fabs(fmod(in - threshold, threshold*4)) - threshold*2) - threshold;
     }
     return in;
+}
+
+
+int Source::getNumberOfSounds()
+{
+    return sampler.getNumberOfSounds();
 }

@@ -40,14 +40,13 @@
          <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
-            condition = "trackId == 0"
             continueAfterRunningActions = "No"
             filePath = "../../Source/Sampler.cpp"
-            timestampString = "445451226.882015"
+            timestampString = "445772067.09634"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "Sampler::noteOn (const int midiChannel, const int midiNoteNumber, const float velocity)"
             landmarkType = "5">
          </BreakpointContent>

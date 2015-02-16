@@ -27,12 +27,12 @@ Controller::Controller() : mixer(&parameters),
     
     for (int trackId = 0; trackId < Mixer::maxTracks; ++trackId) {
         for (int paramNameId = 0; paramNameId < Controller::params::max; ++paramNameId) {
-            Parameter* p = new Parameter(parameterId, paramNameId, trackId);
+            Parameter* p = new Parameter(parameterId, paramNameId, trackId, mixer.getNumberOfSoundsByTrack(trackId));
             parameters.add(p);
             parameterId++;
         }
     }
-      
+    
     clock.addListener(&sequencer);
 }
 
@@ -67,6 +67,7 @@ void Controller::prepareToPlay (double sampleRate, int samplesPerBlock)
 
 void Controller::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
 {
+
     
     AudioSourceChannelInfo channelInfo (&buffer, 0, buffer.getNumSamples());
     mixer.getNextAudioBlock(channelInfo);
@@ -143,7 +144,7 @@ const String Controller::getParameterName (int index)
 
 const String Controller::getParameterText (int index)
 {
-    return parameters.getUnchecked(index)->getValue().toString();
+    return (String) parameters.getUnchecked(index)->getScaledValue();
 }
 
 void Controller::getStateInformation (MemoryBlock& destData)
@@ -171,7 +172,7 @@ void Controller::onGuiParameterChange (Value& value)
     for (int i=0; i < parameters.size(); i++) {
         Parameter* p = parameters.getUnchecked(i);
         if (p->refersToSameSourceAs(value)) {
-            setParameterNotifyingHost(p->parameterId, p->getValue());
+            setParameterNotifyingHost(p->parameterId, p->getValue());   
             return;
         }
     }

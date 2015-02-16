@@ -13,8 +13,6 @@
 
 #include "JuceHeader.h"
 #include "Sound.h"
-#include "TrackParamList.h"
-#include "GlobalParamList.h"
 #include "Parameter.h"
 
 class Sampler : public Synthesiser {
@@ -32,6 +30,8 @@ public:
                                              int midiChannel,
                                              int midiNoteNumber,
                                              bool stealIfNoneAvailable) const;
+    
+    int getNumberOfSounds();
     
 protected:
     int trackId;

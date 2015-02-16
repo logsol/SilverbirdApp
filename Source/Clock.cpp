@@ -56,11 +56,6 @@ void Clock::handleMessage(const Message& message){
     }
 }
 
-void Clock::setGlobalParams(globalParamList* globalParams)
-{
-    this->globalParams = globalParams;
-}
-
 
 void Clock::togglePlayPause()
 {

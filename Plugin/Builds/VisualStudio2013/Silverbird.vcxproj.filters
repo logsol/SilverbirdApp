@@ -1659,9 +1659,6 @@
     <ClInclude Include="..\..\..\Source\Drums.h">
       <Filter>Silverbird\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\Source\GlobalParamList.h">
-      <Filter>Silverbird\Source</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\Source\Gui.h">
       <Filter>Silverbird\Source</Filter>
     </ClInclude>
@@ -1696,9 +1693,6 @@
       <Filter>Silverbird\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Source\TrackParameters.h">
-      <Filter>Silverbird\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Source\TrackParamList.h">
       <Filter>Silverbird\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Source\Voice.h">

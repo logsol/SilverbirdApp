@@ -99,3 +99,8 @@ void Mixer::playNote(int note, float velocity)
 {
     midiCollector.handleNoteOn(&keyboardState, 1, note, velocity);
 }
+
+int Mixer::getNumberOfSoundsByTrack(int track)
+{
+    return sources.getUnchecked(track)->getNumberOfSounds();
+}

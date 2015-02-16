@@ -74,7 +74,6 @@ void Voice::startNote (const int midiNoteNumber,
                              SynthesiserSound* s,
                              const int pitchWheel)
 {
-    //std::cout << "playing voice nr: " << id << std::endl;
     this->velocity = velocity;
     SamplerVoice::startNote(midiNoteNumber, velocity, s, pitchWheel);
     env.reset();
@@ -86,7 +85,7 @@ void Voice::setVoiceParameters(float attack, float decay, float pitch)
     env.setAttackRate(attack * (float) getSampleRate());
     env.setDecayRate(decay * (float) getSampleRate());
     
-    this->pitch = translatePitchValue(pitch);
+    this->pitch = (pitch); //translatePitchValue
 }
 
 float Voice::translatePitchValue(float pitch)

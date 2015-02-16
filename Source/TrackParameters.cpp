@@ -32,7 +32,7 @@ TrackParameters::TrackParameters (Controller* controller, int trackId)
     : controller(controller), trackId(trackId)
 {
     addAndMakeVisible (selectSlider = new Knob ("Select"));
-    selectSlider->setRange (0, 20, 1);
+    selectSlider->setRange (0, 1, 0);
     selectSlider->setSliderStyle (Slider::RotaryVerticalDrag);
     selectSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
     selectSlider->addListener (this);
@@ -74,7 +74,7 @@ TrackParameters::TrackParameters (Controller* controller, int trackId)
     label5->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (pitchSlider = new Knob ("Pitch"));
-    pitchSlider->setRange (-2, 2, 0.0833333);
+    pitchSlider->setRange (0, 1, 0);
     pitchSlider->setSliderStyle (Slider::RotaryVerticalDrag);
     pitchSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
     pitchSlider->addListener (this);
@@ -127,33 +127,42 @@ TrackParameters::TrackParameters (Controller* controller, int trackId)
     Parameter* p;
 
     p = controller->getParameterByAttrs(Controller::params::sample, trackId);
-    selectSlider->getValueObject().referTo(*p);
     selectSlider->addListener(controller);
+    selectSlider->getValueObject().referTo(*p);
+    selectSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
 
     p = controller->getParameterByAttrs(Controller::params::pitch, trackId);
-    pitchSlider->getValueObject().referTo(*p);
     pitchSlider->addListener(controller);
+    pitchSlider->getValueObject().referTo(*p);
+    pitchSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
 
     p = controller->getParameterByAttrs(Controller::params::attack, trackId);
-    attackSlider->getValueObject().referTo(*p);
     attackSlider->addListener(controller);
+    attackSlider->getValueObject().referTo(*p);
+    attackSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
 
     p = controller->getParameterByAttrs(Controller::params::decay, trackId);
-    decaySlider->getValueObject().referTo(*p);
     decaySlider->addListener(controller);
+    decaySlider->getValueObject().referTo(*p);
+    decaySlider->setDoubleClickReturnValue(true, p->getDefaultValue());
 
     p = controller->getParameterByAttrs(Controller::params::distort, trackId);
-    distortSlider->getValueObject().referTo(*p);
     distortSlider->addListener(controller);
+    distortSlider->getValueObject().referTo(*p);
+    distortSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
 
     p = controller->getParameterByAttrs(Controller::params::cutoff, trackId);
-    cutoffSlider->getValueObject().referTo(*p);
     cutoffSlider->addListener(controller);
+    cutoffSlider->getValueObject().referTo(*p);
+    cutoffSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
+    
+    
+    pitchSlider->setBaseCenter(true);
+    
+    // -1 because there is 1 piece less then there are cuts in the "pie"
+    selectSlider->setStepSize(1.0 / (controller->mixer.getNumberOfSoundsByTrack(trackId) - 1));
+    pitchSlider->setStepSize(1.0 / 24);
 
-    selectSlider->setValue(3);
-    decaySlider->setValue(1);
-    pitchSlider->setValue(0);
-    cutoffSlider->setValue(1);
 
     //[/Constructor]
 }
@@ -275,7 +284,7 @@ BEGIN_JUCER_METADATA
   <BACKGROUND backgroundColour="ffffff"/>
   <SLIDER name="Select" id="ae2904d9e602bae7" memberName="selectSlider"
           virtualName="Knob" explicitFocusOrder="0" pos="16 40 40 40" min="0"
-          max="20" int="1" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="9b95e80f4bba0ec3" memberName="label2" virtualName=""
          explicitFocusOrder="0" pos="-11 13 96 24" edTextCol="ff000000"
@@ -301,7 +310,7 @@ BEGIN_JUCER_METADATA
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
   <SLIDER name="Pitch" id="a0bcc16014a81d26" memberName="pitchSlider" virtualName="Knob"
-          explicitFocusOrder="0" pos="83 48 32 32" min="-2" max="2" int="0.083333333333299994261"
+          explicitFocusOrder="0" pos="83 48 32 32" min="0" max="1" int="0"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="1f974eb41a59cc16" memberName="label6" virtualName=""

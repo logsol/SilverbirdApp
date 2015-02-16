@@ -55,7 +55,6 @@ public:
     void buttonClicked (Button* button) override;
     void onGuiParameterChange (Value& value);
 
-
     OwnedArray<Parameter> parameters;
     
     Mixer mixer;

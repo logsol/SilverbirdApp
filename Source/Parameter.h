@@ -13,10 +13,11 @@
 
 #include "JuceHeader.h"
 
+
 class Parameter : public Value
 {
 public:
-    Parameter(int parameterId, int paramNameId, int trackId = -1, int cellId = -1);
+    Parameter(int parameterId, int paramNameId, int trackId = -1, int numSoundsTrack = 0, int cellId = -1);
     ~Parameter();
     
     int parameterId;
@@ -24,7 +25,11 @@ public:
     bool isGlobal;
     String name;
     int trackId;
+    int numSoundsTrack;
     int cellId;
+    
+    float getScaledValue();
+    float getDefaultValue();
     
 protected:
     String createName();

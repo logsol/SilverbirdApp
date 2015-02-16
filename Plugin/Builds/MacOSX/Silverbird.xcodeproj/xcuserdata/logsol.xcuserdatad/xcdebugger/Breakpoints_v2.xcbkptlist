@@ -9,44 +9,30 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../Source/Clock.cpp"
-            timestampString = "445442773.22996"
+            filePath = "../../../Source/Gui.cpp"
+            timestampString = "445787552.917526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
-            landmarkName = "Clock::handleMessage(const Message&amp; message)"
+            startingLineNumber = "397"
+            endingLineNumber = "397"
+            landmarkName = "Gui::Gui (Controller* controller)"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Clock::handleMessage(juce::Message const&amp;)"
-                  moduleName = "Silverbird"
-                  urlString = "file:///Users/logsol/Work/projects/c++/SilverbirdApp/Source/Clock.cpp"
-                  timestampString = "445378819.699442"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "125">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "non-virtual thunk to Clock::handleMessage(juce::Message const&amp;)"
-                  moduleName = "Silverbird"
-                  urlString = "file:///Users/logsol/Work/projects/c++/SilverbirdApp/Source/Clock.cpp"
-                  timestampString = "445378819.699722"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "58"
-                  endingLineNumber = "58"
-                  offsetFromSymbolStart = "18">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../JuceLibraryCode/modules/juce_audio_processors/processors/juce_AudioProcessor.cpp"
+            timestampString = "445781085.55844"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "343"
+            endingLineNumber = "343"
+            landmarkName = "AudioProcessor::createEditorIfNeeded()"
+            landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -55,13 +41,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../Source/Parameter.cpp"
-            timestampString = "445443293.694812"
+            filePath = "../../../Source/Gui.cpp"
+            timestampString = "445787577.029737"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
-            landmarkName = "Parameter::Parameter(int parameterId, int paramNameId, int trackId, int cellId)"
+            startingLineNumber = "299"
+            endingLineNumber = "299"
+            landmarkName = "Gui::Gui (Controller* controller)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

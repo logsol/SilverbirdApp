@@ -20,9 +20,6 @@
     <Filter Include="SilverbirdApp\Source\Sequencer">
       <UniqueIdentifier>{66938094-53F3-68B5-470A-85BDEC935D88}</UniqueIdentifier>
     </Filter>
-    <Filter Include="SilverbirdApp\Source\Structs">
-      <UniqueIdentifier>{B7BB439F-9883-2B45-E6D8-33F11A2EA8C7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="SilverbirdApp\Source\Messages">
       <UniqueIdentifier>{26C4E60C-18F9-883A-756C-D079FEC7462A}</UniqueIdentifier>
     </Filter>
@@ -1598,12 +1595,6 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Clock.h">
       <Filter>SilverbirdApp\Source\Sequencer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\GlobalParamList.h">
-      <Filter>SilverbirdApp\Source\Structs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\TrackParamList.h">
-      <Filter>SilverbirdApp\Source\Structs</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\SequencerMessage.h">
       <Filter>SilverbirdApp\Source\Messages</Filter>

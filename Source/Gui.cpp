@@ -52,7 +52,6 @@ Gui::Gui (Controller* controller)
     masterSlider->setColour (Slider::rotarySliderFillColourId, Colour (0x7f0000ff));
     masterSlider->setColour (Slider::rotarySliderOutlineColourId, Colour (0x66000000));
     masterSlider->addListener (this);
-    masterSlider->setSkewFactor (0.33);
 
     addAndMakeVisible (kickMuteButton = new ToggleButton ("kickMute"));
     kickMuteButton->setButtonText (String::empty);
@@ -134,7 +133,7 @@ Gui::Gui (Controller* controller)
     tabbedComponent->setCurrentTabIndex (0);
 
     addAndMakeVisible (sampleAllSlider = new Knob ("SampleAll"));
-    sampleAllSlider->setRange (-10, 10, 1);
+    sampleAllSlider->setRange (0, 1, 0);
     sampleAllSlider->setSliderStyle (Slider::RotaryVerticalDrag);
     sampleAllSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
     sampleAllSlider->addListener (this);
@@ -148,7 +147,7 @@ Gui::Gui (Controller* controller)
     label2->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (pitchSlider = new Knob ("Pitch"));
-    pitchSlider->setRange (-1, 1, 0.0833333);
+    pitchSlider->setRange (0, 1, 0);
     pitchSlider->setSliderStyle (Slider::RotaryVerticalDrag);
     pitchSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
     pitchSlider->addListener (this);
@@ -162,7 +161,7 @@ Gui::Gui (Controller* controller)
     label3->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (decaySlider = new Knob ("Decay"));
-    decaySlider->setRange (-1, 1, 0);
+    decaySlider->setRange (0, 1, 0);
     decaySlider->setSliderStyle (Slider::RotaryVerticalDrag);
     decaySlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
     decaySlider->addListener (this);
@@ -176,7 +175,7 @@ Gui::Gui (Controller* controller)
     label4->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (distortSlider = new Knob ("Distort"));
-    distortSlider->setRange (-1, 1, 0);
+    distortSlider->setRange (0, 1, 0);
     distortSlider->setSliderStyle (Slider::RotaryVerticalDrag);
     distortSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
     distortSlider->addListener (this);
@@ -190,7 +189,7 @@ Gui::Gui (Controller* controller)
     label5->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (cutoffSlider = new Knob ("Cutoff"));
-    cutoffSlider->setRange (-1, 1, 0);
+    cutoffSlider->setRange (0, 1, 0);
     cutoffSlider->setSliderStyle (Slider::RotaryVerticalDrag);
     cutoffSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
     cutoffSlider->addListener (this);
@@ -300,32 +299,39 @@ Gui::Gui (Controller* controller)
     Parameter* p;
 
     p = controller->getParameterByAttrs(Controller::params::sample);
-    sampleAllSlider->getValueObject().referTo(*p);
     sampleAllSlider->addListener(controller);
+    sampleAllSlider->getValueObject().referTo(*p);
+    sampleAllSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
 
     p = controller->getParameterByAttrs(Controller::params::pitch);
-    pitchSlider->getValueObject().referTo(*p);
     pitchSlider->addListener(controller);
+    pitchSlider->getValueObject().referTo(*p);
+    pitchSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
 
     p = controller->getParameterByAttrs(Controller::params::decay);
-    decaySlider->getValueObject().referTo(*p);
     decaySlider->addListener(controller);
+    decaySlider->getValueObject().referTo(*p);
+    decaySlider->setDoubleClickReturnValue(true, p->getDefaultValue());
 
     p = controller->getParameterByAttrs(Controller::params::distort);
-    distortSlider->getValueObject().referTo(*p);
     distortSlider->addListener(controller);
+    distortSlider->getValueObject().referTo(*p);
+    distortSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
 
     p = controller->getParameterByAttrs(Controller::params::cutoff);
-    cutoffSlider->getValueObject().referTo(*p);
     cutoffSlider->addListener(controller);
+    cutoffSlider->getValueObject().referTo(*p);
+    cutoffSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
 
     p = controller->getParameterByAttrs(Controller::params::shuffle);
-    shuffleSlider->getValueObject().referTo(*p);
     shuffleSlider->addListener(controller);
+    shuffleSlider->getValueObject().referTo(*p);
+    shuffleSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
 
     p = controller->getParameterByAttrs(Controller::params::level);
-    masterSlider->getValueObject().referTo(*p);
     masterSlider->addListener(controller);
+    masterSlider->getValueObject().referTo(*p);
+    masterSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
 
 
     Slider* volumeSliders [Mixer::maxTracks] = {
@@ -348,17 +354,25 @@ Gui::Gui (Controller* controller)
 
     for (int i = 0; i < Mixer::maxTracks; i++) {
         p = controller->getParameterByAttrs(Controller::params::level, i);
-        volumeSliders[i]->getValueObject().referTo(*p);
-        volumeSliders[i]->setSliderStyle(Slider::LinearBarVertical);
         volumeSliders[i]->addListener(controller);
-        volumeSliders[i]->setValue(0.8);
+        volumeSliders[i]->getValueObject().referTo(*p);
+        volumeSliders[i]->setDoubleClickReturnValue(true, p->getDefaultValue());
+        volumeSliders[i]->setSliderStyle(Slider::LinearBarVertical);
+        
 
         p = controller->getParameterByAttrs(Controller::params::mute, i);
-        muteButtons[i]->getToggleStateValue().referTo(*p);
         muteButtons[i]->addListener(controller);
+        muteButtons[i]->getToggleStateValue().referTo(*p);
     }
-
-    masterSlider->setValue(0.8);
+    
+    sampleAllSlider->setBaseCenter(true);
+    pitchSlider->setBaseCenter(true);
+    decaySlider->setBaseCenter(true);
+    distortSlider->setBaseCenter(true);
+    cutoffSlider->setBaseCenter(true);
+    
+    sampleAllSlider->setStepSize(1.0 / (Mixer::SelectAllOffset - 1));
+    pitchSlider->setStepSize(1.0 / 24);
 
     //[/Constructor]
 }
@@ -639,7 +653,7 @@ BEGIN_JUCER_METADATA
           virtualName="Knob" explicitFocusOrder="0" pos="507 510 40 40"
           trackcol="7fffffff" rotarysliderfill="7f0000ff" rotaryslideroutline="66000000"
           min="0" max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
-          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="0.33000000000000001554"/>
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <TOGGLEBUTTON name="kickMute" id="a54088c4b7b86a7c" memberName="kickMuteButton"
                 virtualName="" explicitFocusOrder="0" pos="80 543 24 24" buttonText=""
                 connectedEdges="8" needsCallback="1" radioGroupId="0" state="0"/>
@@ -700,7 +714,7 @@ BEGIN_JUCER_METADATA
   </TABBEDCOMPONENT>
   <SLIDER name="SampleAll" id="ee8c6f5ed858bc06" memberName="sampleAllSlider"
           virtualName="Knob" explicitFocusOrder="0" pos="512 80 32 32"
-          min="-10" max="10" int="1" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          min="0" max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="464a5d28fca25a0c" memberName="label2" virtualName=""
          explicitFocusOrder="0" pos="496 56 64 16" edTextCol="ff000000"
@@ -708,7 +722,7 @@ BEGIN_JUCER_METADATA
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
   <SLIDER name="Pitch" id="e7d610330ae7eaca" memberName="pitchSlider" virtualName="Knob"
-          explicitFocusOrder="0" pos="512 152 32 32" min="-1" max="1" int="0.083333333333299994261"
+          explicitFocusOrder="0" pos="512 152 32 32" min="0" max="1" int="0"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="593f1bb74248fc8e" memberName="label3" virtualName=""
@@ -717,7 +731,7 @@ BEGIN_JUCER_METADATA
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
   <SLIDER name="Decay" id="d1d1220e691f4548" memberName="decaySlider" virtualName="Knob"
-          explicitFocusOrder="0" pos="512 224 32 32" min="-1" max="1" int="0"
+          explicitFocusOrder="0" pos="512 224 32 32" min="0" max="1" int="0"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="6dfb3c910fd7b3e8" memberName="label4" virtualName=""
@@ -727,7 +741,7 @@ BEGIN_JUCER_METADATA
          bold="0" italic="0" justification="36"/>
   <SLIDER name="Distort" id="ac3fc5b27347700" memberName="distortSlider"
           virtualName="Knob" explicitFocusOrder="0" pos="512 296 32 32"
-          min="-1" max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          min="0" max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="cf04cb747d287869" memberName="label5" virtualName=""
          explicitFocusOrder="0" pos="496 272 64 16" edTextCol="ff000000"
@@ -736,7 +750,7 @@ BEGIN_JUCER_METADATA
          bold="0" italic="0" justification="36"/>
   <SLIDER name="Cutoff" id="b67410e0785de65c" memberName="cutoffSlider"
           virtualName="Knob" explicitFocusOrder="0" pos="512 368 32 32"
-          min="-1" max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          min="0" max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="7d7b6cd7315776a8" memberName="label6" virtualName=""
          explicitFocusOrder="0" pos="496 344 64 16" edTextCol="ff000000"

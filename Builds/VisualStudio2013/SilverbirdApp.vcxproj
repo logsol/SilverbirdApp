@@ -1234,8 +1234,6 @@
     <ClInclude Include="..\..\Source\Sequencer.h"/>
     <ClInclude Include="..\..\Source\ClockListener.h"/>
     <ClInclude Include="..\..\Source\Clock.h"/>
-    <ClInclude Include="..\..\Source\GlobalParamList.h"/>
-    <ClInclude Include="..\..\Source\TrackParamList.h"/>
     <ClInclude Include="..\..\Source\SequencerMessage.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioSampleBuffer.h"/>
