@@ -21,13 +21,13 @@ This project is currently in development.
 ### Todo:
 - Send FX
 
-## Download
+## Download current alpha version
 
 Hint: This software is still in experimental state.
 
-Platform         | App / Plugin       
----------------- | ----------- 
-**OSX (32 bit)**     | [Standalone & Vst Plugin](http://audiosalt.com/files/silverbird/Silverbird_OSX.zip)
-**Windows (32 bit)** | [Standalone & Vst Plugin](http://audiosalt.com/files/silverbird/Silverbird_Windows.zip)  
-**Linux (32 bit)**   | [Standalone](http://audiosalt.com/files/silverbird/Silverbird_Linux.zip)
+Platform         | App / Plugin | Built for
+---------------- | ------------ | -------------
+**OSX (32 bit)**     | [Standalone & Vst Plugin](http://audiosalt.com/files/silverbird/Silverbird_OSX.zip) | OSX 10.9
+**Windows (32 bit)** | [Standalone & Vst Plugin](http://audiosalt.com/files/silverbird/Silverbird_Windows.zip) | Windows 7
+**Linux (32 bit)**   | [Standalone](http://audiosalt.com/files/silverbird/Silverbird_Linux.zip) | Ubuntu 14.04
 
