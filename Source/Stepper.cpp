@@ -119,6 +119,13 @@ void Stepper::paint (Graphics& g)
             g.setColour (Colour (0xffbfab46));
         }
 
+        // Windows patch (wont draw negative values)
+        if (value < 0){
+            float oldBase = base;
+            base = oldBase + value;
+            value = std::abs(value);
+        }
+
         // painting Active VALUE
         g.fillRect(
            (float) i * cellWidth,
