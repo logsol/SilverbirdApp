@@ -331,6 +331,15 @@
     <ClCompile Include="..\..\..\Source\ADSR.cpp">
       <Filter>Silverbird\Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\Source\Transport.cpp">
+      <Filter>Silverbird\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Source\BpmSlider.cpp">
+      <Filter>Silverbird\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\Source\CustomLook.cpp">
+      <Filter>Silverbird\Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\Source\BipolarStepper.cpp">
       <Filter>Silverbird\Source</Filter>
     </ClCompile>
@@ -1642,6 +1651,15 @@
       <Filter>Silverbird\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Source\ADSR.h">
+      <Filter>Silverbird\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Source\Transport.h">
+      <Filter>Silverbird\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Source\BpmSlider.h">
+      <Filter>Silverbird\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Source\CustomLook.h">
       <Filter>Silverbird\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Source\BipolarStepper.h">

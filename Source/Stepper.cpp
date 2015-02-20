@@ -27,15 +27,17 @@
 //[/MiscUserDefs]
 
 //==============================================================================
-Stepper::Stepper (Controller* controller)
-    : controller(controller)
+Stepper::Stepper (Controller* controller, int trackId, bool isModulationTrack)
+    : controller(controller),
+      trackId(trackId),
+      isModulationTrack(isModulationTrack)
 {
     addAndMakeVisible (stepperLabel = new Label ("stepper",
-                                                 TRANS("Stepper")));
-    stepperLabel->setFont (Font (10.00f, Font::plain));
-    stepperLabel->setJustificationType (Justification::topLeft);
+                                                 TRANS("Snare")));
+    stepperLabel->setFont (Font ("Charcoal CY", 15.50f, Font::plain));
+    stepperLabel->setJustificationType (Justification::centredLeft);
     stepperLabel->setEditable (false, false, false);
-    stepperLabel->setColour (Label::textColourId, Colour (0xff6f6d6a));
+    stepperLabel->setColour (Label::textColourId, Colour (0xff7e7e7e));
     stepperLabel->setColour (TextEditor::textColourId, Colours::black);
     stepperLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
@@ -47,7 +49,12 @@ Stepper::Stepper (Controller* controller)
 
 
     //[Constructor] You can add your own custom stuff here..
+
     controller->addClockListener(this);
+
+    stepperLabel->setText(controller->mixer.getNameByTrackId(trackId, isModulationTrack), dontSendNotification);
+    stepperLabel->setInterceptsMouseClicks(false, false);
+
     //[/Constructor]
 }
 
@@ -74,10 +81,11 @@ void Stepper::paint (Graphics& g)
 
     //[UserPaint] Add your own custom painting code here..
 
-    int trackId = controller->mixer.getTrackByName(getComponentID());
     int numCells = controller->sequencer.getNumCells();
 
-    Array<float> cells = controller->sequencer.getCells(trackId);
+    Array<float> cells = isModulationTrack
+        ? controller->sequencer.getModulationCells(trackId)
+        : controller->sequencer.getCells(trackId);
 
     float cellWidth = (float) getWidth() / (float) numCells;
 
@@ -130,6 +138,11 @@ void Stepper::paint (Graphics& g)
     g.setColour (Colour (0xff777777));
     g.drawRect(0, 0, getWidth(), getHeight());
 
+    if(isBipolar()) {
+        g.setColour (Colour (0xdd666666));
+        g.drawLine(0, getHeight() * 0.5, getWidth(), getHeight() * 0.5);
+    }
+
     //[/UserPaint]
 }
 
@@ -138,7 +151,7 @@ void Stepper::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    stepperLabel->setBounds (-2, 0, 58, 11);
+    stepperLabel->setBounds (-2, 2, 120, 13);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -158,9 +171,7 @@ void Stepper::mouseDown (const MouseEvent& e)
 
     float value = fmin(1, fmax(0, ((float) getHeight() - (float) e.getPosition().getY()) / (float) getHeight()));
 
-    controller->sequencer.setCell(controller->mixer.getTrackByName(getComponentID()), cellId, value);
-
-    // FIXME: it might be better to use some sort of ValueListener here similar to ButtonListener as its a component change
+    updateSequencer(cellId, value);
 
     repaint();
 
@@ -190,14 +201,27 @@ void Stepper::clockStep(int cursor)
 
 void Stepper::setComponentID (const String& newID)
 {
+    /*
     Component::setComponentID(newID);
     stepperLabel->setText(newID, dontSendNotification);
+     */
 }
 
 bool Stepper::isBipolar()
 {
     return false;
 }
+
+void Stepper::updateSequencer(int cellId, float value)
+{
+    if (isModulationTrack) {
+        controller->sequencer.setModulationCell(trackId, cellId, value);
+    } else {
+        controller->sequencer.setCell(trackId, cellId, value);
+    }
+}
+
+// FIXME: it might be better to use some sort of ValueListener here similar to ButtonListener as its a component change
 //[/MiscUserCode]
 
 
@@ -211,20 +235,20 @@ bool Stepper::isBipolar()
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="Stepper" componentName=""
-                 parentClasses="public Component, public ClockListener" constructorParams="Controller* controller"
-                 variableInitialisers="controller(controller)" snapPixels="8"
-                 snapActive="1" snapShown="1" overlayOpacity="0.330" fixedSize="1"
-                 initialWidth="400" initialHeight="60">
+                 parentClasses="public Component, public ClockListener" constructorParams="Controller* controller, int trackId, bool isModulationTrack"
+                 variableInitialisers="controller(controller),&#10;trackId(trackId),&#10;isModulationTrack(isModulationTrack)"
+                 snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
+                 fixedSize="1" initialWidth="400" initialHeight="60">
   <METHODS>
     <METHOD name="mouseDrag (const MouseEvent&amp; e)"/>
     <METHOD name="mouseDown (const MouseEvent&amp; e)"/>
   </METHODS>
   <BACKGROUND backgroundColour="e5000000"/>
   <LABEL name="stepper" id="d5d914557b2ab44f" memberName="stepperLabel"
-         virtualName="" explicitFocusOrder="0" pos="-2 0 58 11" textCol="ff6f6d6a"
-         edTextCol="ff000000" edBkgCol="0" labelText="Stepper" editableSingleClick="0"
-         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="10" bold="0" italic="0" justification="9"/>
+         virtualName="" explicitFocusOrder="0" pos="-2 2 120 13" textCol="ff7e7e7e"
+         edTextCol="ff000000" edBkgCol="0" labelText="Snare" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Charcoal CY"
+         fontsize="15.5" bold="0" italic="0" justification="33"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

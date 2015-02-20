@@ -30,8 +30,9 @@ public:
     
     void togglePlayPause();
     void setPlayPause(bool play);
+    void setBpm(float bpm);
     
-    void tick();
+    void tick(float shuffle);
     
 protected:
     bool isPlaying = false;

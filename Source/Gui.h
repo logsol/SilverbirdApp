@@ -26,6 +26,7 @@
 class Controller;
 //[/Headers]
 
+#include "Transport.h"
 
 
 //==============================================================================
@@ -68,9 +69,6 @@ private:
     //==============================================================================
     ScopedPointer<Label> label;
     ScopedPointer<Knob> masterSlider;
-    ScopedPointer<ToggleButton> kickMuteButton;
-    ScopedPointer<ToggleButton> snareMuteButton;
-    ScopedPointer<ToggleButton> HihatMuteButton;
     ScopedPointer<Slider> kickVolumeSlider;
     ScopedPointer<Slider> snareVolumeSlider;
     ScopedPointer<Slider> hihatVolumeSlider;
@@ -78,7 +76,7 @@ private:
     ScopedPointer<Label> label8;
     ScopedPointer<Label> label9;
     ScopedPointer<Label> label11;
-    ScopedPointer<TabbedComponent> tabbedComponent;
+    ScopedPointer<TabbedComponent> trackTabs;
     ScopedPointer<Knob> sampleAllSlider;
     ScopedPointer<Label> label2;
     ScopedPointer<Knob> pitchSlider;
@@ -91,9 +89,6 @@ private:
     ScopedPointer<Label> label6;
     ScopedPointer<Knob> shuffleSlider;
     ScopedPointer<Label> label10;
-    ScopedPointer<ToggleButton> perc1MuteButton;
-    ScopedPointer<ToggleButton> perc2MuteButton;
-    ScopedPointer<ToggleButton> tonesMuteButton;
     ScopedPointer<Slider> perc1VolumeSlider;
     ScopedPointer<Slider> perc2VolumeSlider;
     ScopedPointer<Slider> tonesVolumeSlider;
@@ -101,6 +96,13 @@ private:
     ScopedPointer<Label> label13;
     ScopedPointer<Label> label14;
     ScopedPointer<TabbedComponent> sequencerTabs;
+    ScopedPointer<TextButton> kickMuteButton;
+    ScopedPointer<TextButton> snareMuteButton;
+    ScopedPointer<TextButton> hihatMuteButton;
+    ScopedPointer<TextButton> perc2MuteButton;
+    ScopedPointer<TextButton> tonesMuteButton;
+    ScopedPointer<TextButton> perc1MuteButton;
+    ScopedPointer<Transport> transport;
     Image cachedImage_background_png;
 
 

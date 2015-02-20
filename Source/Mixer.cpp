@@ -14,7 +14,7 @@
 
 Mixer::Mixer(OwnedArray<Parameter>* parameters) : parameters(parameters)
 {
-    for (int i = 0; i < maxTracks; i++) {
+    for (int i = 0; i < Mixer::tracks::max; i++) {
         createAndAddTrack(i);
     }
 }
@@ -22,38 +22,39 @@ Mixer::Mixer(OwnedArray<Parameter>* parameters) : parameters(parameters)
 Mixer::~Mixer() {
 }
 
-int Mixer::getTrackByName(String name)
+String Mixer::getNameByTrackId(int trackId, bool isModulationTrack)
 {
-    for (int i = 0; i < maxTracks; i++) {
-        if (getNameByTrackId(i) == name) {
-            return i;
+    if (isModulationTrack) {
+        switch (trackId) {
+            case Mixer::mods::sample:
+                return "Select";
+            case Mixer::mods::pitch:
+                return "Pitch";
+            case Mixer::mods::decay:
+                return "Decay";
+            case Mixer::mods::cutoff:
+                return "Filter";
+            default:
+                break;
         }
     }
     
-    std::cout << "Got Wrong Track: " << name << std::endl;
-    std::cout << "This means, that SNARE is being used as a default." << std::endl;
-    return Mixer::snare;
-}
-
-String Mixer::getNameByTrackId(int trackId)
-{
     switch (trackId) {
-        case Mixer::kick:
-            return "kick";
-        case Mixer::snare:
-            return "snare";
-        case Mixer::hihat:
-            return "hihat";
-        case Mixer::perc1:
-            return "perc1";
-        case Mixer::perc2:
-            return "perc2";
-        case Mixer::tones:
-            return "tones";
+        case Mixer::tracks::kick:
+            return "Kick";
+        case Mixer::tracks::snare:
+            return "Snare";
+        case Mixer::tracks::hihat:
+            return "Hihat";
+        case Mixer::tracks::perc1:
+            return "Perc1";
+        case Mixer::tracks::perc2:
+            return "Perc2";
+        case Mixer::tracks::tones:
+            return "Tones";
             
     }
-    std::cout << "Got Wrong Track id: " << trackId << std::endl;
-    return "snare";
+    return "<Undefined> Track";
 }
 
 void Mixer::createAndAddTrack(int trackId)
@@ -103,4 +104,12 @@ void Mixer::playNote(int note, float velocity)
 int Mixer::getNumberOfSoundsByTrack(int track)
 {
     return sources.getUnchecked(track)->getNumberOfSounds();
+}
+
+void Mixer::setColumnModulations(Array<float>* currentModulations)
+{
+    // setting all sources with modulation so far. (no target selection yet)
+    for (int i=0; i<sources.size(); i++) {
+        sources[i]->setModulations(currentModulations);
+    }
 }

@@ -25,7 +25,7 @@ Controller::Controller() : mixer(&parameters),
         parameterId++;
     }
     
-    for (int trackId = 0; trackId < Mixer::maxTracks; ++trackId) {
+    for (int trackId = 0; trackId < Mixer::tracks::max; ++trackId) {
         for (int paramNameId = 0; paramNameId < Controller::params::max; ++paramNameId) {
             Parameter* p = new Parameter(parameterId, paramNameId, trackId, mixer.getNumberOfSoundsByTrack(trackId));
             parameters.add(p);
@@ -60,6 +60,11 @@ void Controller::setPlayPause(bool play)
     clock.setPlayPause(play);
 }
 
+void Controller::setBpm(float bpm)
+{
+    clock.setBpm(bpm);
+}
+
 void Controller::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     mixer.prepareToPlay(samplesPerBlock, sampleRate);
@@ -68,7 +73,7 @@ void Controller::prepareToPlay (double sampleRate, int samplesPerBlock)
 void Controller::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
 {
 
-    
+    // Getting the audio data from the mixer
     AudioSourceChannelInfo channelInfo (&buffer, 0, buffer.getNumSamples());
     mixer.getNextAudioBlock(channelInfo);
     
@@ -76,31 +81,38 @@ void Controller::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midiMessage
         
         AudioPlayHead::CurrentPositionInfo info;
         getPlayHead()->getCurrentPosition(info);
-        
         if (positionInfo.isPlaying != info.isPlaying) {
             setPlayPause(info.isPlaying);
         }
-        
+        if (positionInfo.bpm != info.bpm) {
+            setBpm(info.bpm);
+        }
         positionInfo = info;
+        
+        // merging incoming midi (from host) into midiCollector
+        MidiBuffer::Iterator iterator(midiMessages);
+        MidiMessage result;
+        int position;
+        
+        while (iterator.getNextEvent(result, position)) {
+            result.setTimeStamp(Time::getMillisecondCounter() / 1000.0);
+            mixer.midiCollector.addMessageToQueue(result);
+        }
+    
     }
 
     
-    // merging incoming midi (from host) into midiCollector
-    MidiBuffer::Iterator iterator(midiMessages);
-    MidiMessage result;
-    int position;
-    
-    while (iterator.getNextEvent(result, position)) {
-        result.setTimeStamp(Time::getMillisecondCounter() / 1000.0);
-        mixer.midiCollector.addMessageToQueue(result);
-    }
-    
-    clock.tick();
+    clock.tick(getParameter(getParameterId(Controller::params::shuffle)));
 }
 
 AudioProcessorEditor* Controller::createEditor()
 {
     return new Gui (this);
+}
+
+float Controller::getParameter (int index)
+{
+    return (float) parameters[index]->getValue();
 }
 
 void Controller::setParameter (int index, float newValue)
@@ -147,6 +159,11 @@ const String Controller::getParameterText (int index)
     return (String) parameters.getUnchecked(index)->getScaledValue();
 }
 
+int Controller::getNumParameters()
+{
+    return parameters.size();
+}
+
 void Controller::getStateInformation (MemoryBlock& destData)
 {
     //copyXmlToBinary();
@@ -176,8 +193,7 @@ void Controller::onGuiParameterChange (Value& value)
             return;
         }
     }
-    std::cout << "should not be happenign;" << std::endl;
-    
+    std::cout << "Warn: Value in none of the parameters." << std::endl;
 }
 //==============================================================================
 // This creates new instances of the plugin..

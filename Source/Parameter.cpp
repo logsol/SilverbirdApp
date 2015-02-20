@@ -82,7 +82,6 @@ String Parameter::createName()
     }
     
     name = Mixer::getNameByTrackId(trackId) + " " + paramName;
-    name = name.substring(0, 1).toUpperCase() + name.substring(1);
     
     return name;
 }
@@ -91,6 +90,11 @@ float Parameter::getScaledValue()
 {
     float value = getValue();
     
+    return Parameter::scale(paramNameId, isGlobal, value, numSoundsTrack);
+}
+
+float Parameter::scale(int paramNameId, bool isGlobal, float value, int numSoundsTrack)
+{
     switch (paramNameId) {
             
         case Controller::params::shuffle:
@@ -106,6 +110,9 @@ float Parameter::getScaledValue()
             break;
             
         case Controller::params::sample:
+            if(!isGlobal && numSoundsTrack == -1) {
+                std::cout << "Warn: calling scale() without numSounds!" << std::endl;
+            }
             return isGlobal
                 ? floor(Mixer::SelectAllOffset * (value - 0.5))
                 : floor(numSoundsTrack * value);

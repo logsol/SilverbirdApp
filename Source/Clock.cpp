@@ -75,7 +75,13 @@ void Clock::setPlayPause(bool play) {
     isPlaying = play;
 }
 
-void Clock::tick()
+void Clock::setBpm(float bpm)
+{
+    this->bpm = bpm;
+    this->sixteenthTime = 60000 / this->bpm / 4;
+}
+
+void Clock::tick(float shuffle)
 {
     if (!isPlaying) {
         return;
@@ -83,13 +89,18 @@ void Clock::tick()
     
     uint32 now = Time::getMillisecondCounter();
     float difference = now - lastClockStepTime;
-    if (difference > sixteenthTime) {
+    
+    float shuffleTime = cursor % 2
+        ? 0.0
+        : 1 / (bpm / 60 * 4) * 1000 * shuffle / 5;
+    
+    if (difference > sixteenthTime + shuffleTime) {
         
         cursor++;
         cursor = cursor % numCells;
 
         postMessage(new Message());
-        lastClockStepTime = now;
+        lastClockStepTime = now - shuffleTime;
     }
 
 }

@@ -45,16 +45,19 @@ void Sampler::noteOn (const int midiChannel, const int midiNoteNumber, const flo
     float globalSample = parameters->getUnchecked(Controller::getParameterId(Controller::params::sample))->getScaledValue();
     float globalPitch = parameters->getUnchecked(Controller::getParameterId(Controller::params::pitch))->getScaledValue();
     float globalDecay = parameters->getUnchecked(Controller::getParameterId(Controller::params::decay))->getScaledValue();
-
+    
+    float modulationSample = Parameter::scale(Controller::params::sample, true, currentModulations->getUnchecked(Mixer::mods::sample));
+    float modulationPitch = Parameter::scale(Controller::params::pitch, true, currentModulations->getUnchecked(Mixer::mods::pitch));
+    float modulationDecay = Parameter::scale(Controller::params::decay, true, currentModulations->getUnchecked(Mixer::mods::decay));
 
     
     // +getNumberOfSounds to shift into positive range
-    sample =  ((int) trackSample + (int) globalSample + getNumberOfSounds()) % getNumberOfSounds();
-    pitch = pow(2, trackPitch + globalPitch);
+    sample =  ((int) trackSample + (int) globalSample + (int) modulationSample + getNumberOfSounds()) % getNumberOfSounds();
+    pitch = pow(2, trackPitch + globalPitch + modulationPitch);
     
     // formula from reaktor version
     attack = pow(1.12202, (trackAttack * 100 - 60));
-    decay = pow(1.12202, fmin(1, fmax(0.1, trackDecay + globalDecay)) * 100 - 60);
+    decay = pow(1.12202, fmin(1, fmax(0.1, trackDecay + globalDecay + modulationDecay)) * 100 - 60);
 
     
     const ScopedLock sl (lock);
@@ -102,4 +105,9 @@ SynthesiserVoice* Sampler::findFreeVoice (SynthesiserSound* soundToPlay,
 int Sampler::getNumberOfSounds()
 {
     return sounds.size();
+}
+
+void Sampler::setModulations(Array<float> *currentModulations)
+{
+    this->currentModulations = currentModulations;
 }

@@ -31,6 +31,8 @@ public:
     float getScaledValue();
     float getDefaultValue();
     
+    static float scale(int paramNameId, bool isGlobal, float value, int numSoundsTrack = -1);
+    
 protected:
     String createName();
 };

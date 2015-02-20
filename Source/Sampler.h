@@ -32,6 +32,8 @@ public:
                                              bool stealIfNoneAvailable) const;
     
     int getNumberOfSounds();
+    void setModulations(Array<float>* currentModulations);
+    Array<float>* currentModulations = nullptr;
     
 protected:
     int trackId;

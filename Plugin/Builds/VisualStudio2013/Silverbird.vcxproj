@@ -135,6 +135,9 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\Source\Parameter.cpp"/>
     <ClCompile Include="..\..\..\Source\ADSR.cpp"/>
+    <ClCompile Include="..\..\..\Source\Transport.cpp"/>
+    <ClCompile Include="..\..\..\Source\BpmSlider.cpp"/>
+    <ClCompile Include="..\..\..\Source\CustomLook.cpp"/>
     <ClCompile Include="..\..\..\Source\BipolarStepper.cpp"/>
     <ClCompile Include="..\..\..\Source\Clock.cpp"/>
     <ClCompile Include="..\..\..\Source\ClockListener.cpp"/>
@@ -1278,6 +1281,9 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\Source\Parameter.h"/>
     <ClInclude Include="..\..\..\Source\ADSR.h"/>
+    <ClInclude Include="..\..\..\Source\Transport.h"/>
+    <ClInclude Include="..\..\..\Source\BpmSlider.h"/>
+    <ClInclude Include="..\..\..\Source\CustomLook.h"/>
     <ClInclude Include="..\..\..\Source\BipolarStepper.h"/>
     <ClInclude Include="..\..\..\Source\Clock.h"/>
     <ClInclude Include="..\..\..\Source\ClockListener.h"/>

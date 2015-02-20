@@ -28,7 +28,7 @@ const String SilverbirdAudioProcessor::getName() const
 
 int SilverbirdAudioProcessor::getNumParameters()
 {
-    return 300; // FIXME PLEASE
+    return 1;
 }
 
 float SilverbirdAudioProcessor::getParameter (int index)
@@ -42,12 +42,12 @@ void SilverbirdAudioProcessor::setParameter (int index, float newValue)
 
 const String SilverbirdAudioProcessor::getParameterName (int index)
 {
-    return String("Master");
+    return String("");
 }
 
 const String SilverbirdAudioProcessor::getParameterText (int index)
 {
-    return String("OA");
+    return String("");
 }
 
 const String SilverbirdAudioProcessor::getInputChannelName (int channelIndex) const

@@ -33,18 +33,18 @@ public:
     void removeClockListener(ClockListener* listener);
     void togglePlayPause();
     void setPlayPause(bool play);
+    void setBpm(float bpm);
     
     void processBlock (AudioSampleBuffer&, MidiBuffer&) override;
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
     
-    AudioProcessorEditor* createEditor() ;
+    AudioProcessorEditor* createEditor();
+    float getParameter (int index) override;
     void setParameter (int index, float newValue) override;
-    
-    //int getNumParameters() override;
-    //float getParameter (int index) override;
     
     const String getParameterName (int index) override;
     const String getParameterText (int index) override;
+    int getNumParameters() override;
     void getStateInformation (MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
     

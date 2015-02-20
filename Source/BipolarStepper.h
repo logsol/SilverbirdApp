@@ -40,7 +40,7 @@ class BipolarStepper  : public Stepper
 {
 public:
     //==============================================================================
-    BipolarStepper (Controller* controller);
+    BipolarStepper (Controller* controller, int trackId, bool isModulationTrack);
     ~BipolarStepper();
 
     //==============================================================================
@@ -55,7 +55,9 @@ public:
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
     Controller* controller;
-    bool isBipolar();
+
+protected:
+    bool isBipolar() override;
     //[/UserVariables]
 
     //==============================================================================

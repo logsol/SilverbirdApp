@@ -31,9 +31,10 @@
 Mods::Mods (Controller* controller)
     : controller(controller)
 {
-    addAndMakeVisible (kickStepBipolar = new BipolarStepper (controller));
-    addAndMakeVisible (kickStepBipolar2 = new BipolarStepper (controller));
-    addAndMakeVisible (kickStepBipolar3 = new BipolarStepper (controller));
+    addAndMakeVisible (decayStepper = new BipolarStepper (controller, Mixer::mods::decay, true));
+    addAndMakeVisible (selectStepper = new BipolarStepper (controller, Mixer::mods::sample, true));
+    addAndMakeVisible (pitchStepper = new BipolarStepper (controller, Mixer::mods::pitch, true));
+    addAndMakeVisible (filterStepper = new BipolarStepper (controller, Mixer::mods::cutoff, true));
 
     //[UserPreSize]
     //[/UserPreSize]
@@ -50,9 +51,10 @@ Mods::~Mods()
     //[Destructor_pre]. You can add your own custom destruction code here..
     //[/Destructor_pre]
 
-    kickStepBipolar = nullptr;
-    kickStepBipolar2 = nullptr;
-    kickStepBipolar3 = nullptr;
+    decayStepper = nullptr;
+    selectStepper = nullptr;
+    pitchStepper = nullptr;
+    filterStepper = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -74,9 +76,10 @@ void Mods::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    kickStepBipolar->setBounds (8, 8, 400, 60);
-    kickStepBipolar2->setBounds (8, 112, 400, 60);
-    kickStepBipolar3->setBounds (8, 216, 400, 60);
+    decayStepper->setBounds (8, 152, 400, 60);
+    selectStepper->setBounds (8, 8, 400, 60);
+    pitchStepper->setBounds (8, 80, 400, 60);
+    filterStepper->setBounds (8, 224, 400, 60);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -101,15 +104,18 @@ BEGIN_JUCER_METADATA
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="0" initialWidth="600" initialHeight="400">
   <BACKGROUND backgroundColour="ffffff"/>
-  <JUCERCOMP name="kick" id="edaf762d44b011e1" memberName="kickStepBipolar"
+  <JUCERCOMP name="decay" id="edaf762d44b011e1" memberName="decayStepper"
+             virtualName="" explicitFocusOrder="0" pos="8 152 400 60" sourceFile="BipolarStepper.cpp"
+             constructorParams="controller, Mixer::mods::decay, true"/>
+  <JUCERCOMP name="select" id="12b261afd0a6481d" memberName="selectStepper"
              virtualName="" explicitFocusOrder="0" pos="8 8 400 60" sourceFile="BipolarStepper.cpp"
-             constructorParams="controller"/>
-  <JUCERCOMP name="kick" id="12b261afd0a6481d" memberName="kickStepBipolar2"
-             virtualName="" explicitFocusOrder="0" pos="8 112 400 60" sourceFile="BipolarStepper.cpp"
-             constructorParams="controller"/>
-  <JUCERCOMP name="kick" id="ce8ced319e6c7204" memberName="kickStepBipolar3"
-             virtualName="" explicitFocusOrder="0" pos="8 216 400 60" sourceFile="BipolarStepper.cpp"
-             constructorParams="controller"/>
+             constructorParams="controller, Mixer::mods::sample, true"/>
+  <JUCERCOMP name="pitch" id="ce8ced319e6c7204" memberName="pitchStepper"
+             virtualName="" explicitFocusOrder="0" pos="8 80 400 60" sourceFile="BipolarStepper.cpp"
+             constructorParams="controller, Mixer::mods::pitch, true"/>
+  <JUCERCOMP name="filter" id="abd63af6b458b15e" memberName="filterStepper"
+             virtualName="" explicitFocusOrder="0" pos="8 224 400 60" sourceFile="BipolarStepper.cpp"
+             constructorParams="controller, Mixer::mods::cutoff, true"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

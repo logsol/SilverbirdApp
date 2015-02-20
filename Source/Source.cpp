@@ -33,7 +33,7 @@ void Source::configure(int trackId)
     
     switch (trackId) {
         {
-        case Mixer::kick:
+        case Mixer::tracks::kick:
             const int numKicks = 23;
             MemoryInputStream* kicks[numKicks] = {
                 //new MemoryInputStream (BinaryData::sine_aif, BinaryData::sine_aifSize, false),
@@ -61,11 +61,11 @@ void Source::configure(int trackId)
                 new MemoryInputStream (BinaryData::kick_22_aif, BinaryData::kick_22_aifSize, false),
                 new MemoryInputStream (BinaryData::kick_23_aif, BinaryData::kick_23_aifSize, false)
             };
-            setup(Mixer::trackIndex::kick, 36, numKicks, kicks);
+            setup(Mixer::tracks::kick, 36, numKicks, kicks);
             break;
         }
         {
-        case Mixer::snare:
+        case Mixer::tracks::snare:
             const int numSnares = 24;
             MemoryInputStream* snares[numSnares] = {
                 new MemoryInputStream (BinaryData::snare_01_aif, BinaryData::snare_01_aifSize, false),
@@ -93,11 +93,11 @@ void Source::configure(int trackId)
                 new MemoryInputStream (BinaryData::snare_23_aif, BinaryData::snare_23_aifSize, false),
                 new MemoryInputStream (BinaryData::snare_24_aif, BinaryData::snare_24_aifSize, false)
             };
-            setup(Mixer::trackIndex::snare, 38, numSnares, snares);
+            setup(Mixer::tracks::snare, 38, numSnares, snares);
             break;
         }
         {
-        case Mixer::hihat:
+        case Mixer::tracks::hihat:
             const int numHihats = 23;
             MemoryInputStream* hihats[numHihats] = {
                 new MemoryInputStream (BinaryData::hihat_01_aif, BinaryData::hihat_01_aifSize, false),
@@ -125,11 +125,11 @@ void Source::configure(int trackId)
                 new MemoryInputStream (BinaryData::hihat_23_aif, BinaryData::hihat_23_aifSize, false)
                 
             };
-            setup(Mixer::trackIndex::hihat, 42, numHihats, hihats);
+            setup(Mixer::tracks::hihat, 42, numHihats, hihats);
             break;
         }
         {
-        case Mixer::perc1:
+        case Mixer::tracks::perc1:
             const int numPerc1s = 26;
             MemoryInputStream* perc1s[numPerc1s] = {
                 new MemoryInputStream (BinaryData::perc1_01_aif, BinaryData::perc1_01_aifSize, false),
@@ -159,11 +159,11 @@ void Source::configure(int trackId)
                 new MemoryInputStream (BinaryData::perc1_25_aif, BinaryData::perc1_25_aifSize, false),
                 new MemoryInputStream (BinaryData::perc1_26_aif, BinaryData::perc1_26_aifSize, false)
             };
-            setup(Mixer::trackIndex::perc1, 45, numPerc1s, perc1s);
+            setup(Mixer::tracks::perc1, 45, numPerc1s, perc1s);
             break;
         }
         {
-        case Mixer::perc2:
+        case Mixer::tracks::perc2:
             const int numPerc2s = 29;
             MemoryInputStream* perc2s[numPerc2s] = {
                 new MemoryInputStream (BinaryData::perc2_01_aif, BinaryData::perc2_01_aifSize, false),
@@ -196,11 +196,11 @@ void Source::configure(int trackId)
                 new MemoryInputStream (BinaryData::perc2_28_aif, BinaryData::perc2_28_aifSize, false),
                 new MemoryInputStream (BinaryData::perc2_29_aif, BinaryData::perc2_29_aifSize, false)
             };
-            setup(Mixer::trackIndex::perc2, 48, numPerc2s, perc2s);
+            setup(Mixer::tracks::perc2, 48, numPerc2s, perc2s);
             break;
         }
         {
-        case Mixer::tones:
+        case Mixer::tracks::tones:
             const int numTones = 30;
             MemoryInputStream* tones[numTones] = {
                 new MemoryInputStream (BinaryData::tones_01_aif, BinaryData::tones_01_aifSize, false),
@@ -234,7 +234,7 @@ void Source::configure(int trackId)
                 new MemoryInputStream (BinaryData::tones_29_aif, BinaryData::tones_29_aifSize, false),
                 new MemoryInputStream (BinaryData::tones_30_aif, BinaryData::tones_30_aifSize, false)
             };
-            setup(Mixer::trackIndex::tones, 52, numTones, tones);
+            setup(Mixer::tracks::tones, 52, numTones, tones);
             break;
         }
         {
@@ -277,8 +277,6 @@ void Source::releaseResources()
 void Source::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
 {
     // calculations
-
-    
     float trackCutoff = parameters->getUnchecked(Controller::getParameterId(Controller::params::cutoff, trackId))->getScaledValue();
     float trackDistort = parameters->getUnchecked(Controller::getParameterId(Controller::params::distort, trackId))->getScaledValue();
     float trackLevel   = parameters->getUnchecked(Controller::getParameterId(Controller::params::level, trackId))->getScaledValue();
@@ -287,10 +285,13 @@ void Source::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
     float globalCutoff = parameters->getUnchecked(Controller::getParameterId(Controller::params::cutoff))->getScaledValue();
     float globalDistort = parameters->getUnchecked(Controller::getParameterId(Controller::params::distort))->getScaledValue();
     
-    float cutoff = fmax(0, fmin(1, trackCutoff + globalCutoff));
+    float modulationCutoff = sampler.currentModulations != nullptr
+        ? Parameter::scale(Controller::params::cutoff, true, sampler.currentModulations->getUnchecked(Mixer::mods::cutoff))
+        : 0.0;
+    
+    float cutoff = fmax(0, fmin(1, trackCutoff + globalCutoff + modulationCutoff));
     float distort = 1 - fmax(0, fmin(0.93, trackDistort + globalDistort));
     float level = trackLevel * !trackMute;
-    
     
     // setup
     bufferToFill.clearActiveBufferRegion();
@@ -340,4 +341,9 @@ float Source::foldback(float in, float threshold)
 int Source::getNumberOfSounds()
 {
     return sampler.getNumberOfSounds();
+}
+
+void Source::setModulations(Array<float>* currentModulations)
+{
+    this->sampler.setModulations(currentModulations);
 }

@@ -20,19 +20,31 @@ public:
     Mixer(OwnedArray<Parameter>* parameters);
     ~Mixer();
     
-    enum trackIndex {
-        kick,
-        snare,
-        hihat,
-        perc1,
-        perc2,
-        tones,
-        maxTracks
+    // FIXME : create struct and refactor project accordingly
+    struct tracks {
+        enum {
+            kick,
+            snare,
+            hihat,
+            perc1,
+            perc2,
+            tones,
+            max
+        };
+    };
+    
+    struct mods {
+        enum {
+            sample,
+            pitch,
+            decay,
+            cutoff,
+            max
+        };
     };
     
     static const int SelectAllOffset = 21;
-    static int getTrackByName(String name);
-    static String getNameByTrackId(int trackId);
+    static String getNameByTrackId(int trackId, bool isModulationTrack = false);
     
     void prepareToPlay (int samplesPerBlockExpected, double sampleRate) override;
     void getNextAudioBlock (const AudioSourceChannelInfo&) override;
@@ -40,6 +52,8 @@ public:
     void playNote(int note, float velocity);
     
     int getNumberOfSoundsByTrack(int track);
+    
+    void setColumnModulations(Array<float>* currentModulations);
     
     OwnedArray<Source> sources;
     MidiMessageCollector midiCollector;

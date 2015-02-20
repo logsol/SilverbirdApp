@@ -60,12 +60,15 @@ OBJECTS := \
   $(OBJDIR)/Sampler_e764c69.o \
   $(OBJDIR)/Source_e71e0224.o \
   $(OBJDIR)/Sound_322374f0.o \
+  $(OBJDIR)/BpmSlider_53f58501.o \
+  $(OBJDIR)/Transport_32ccd00a.o \
   $(OBJDIR)/Mods_6d413dba.o \
   $(OBJDIR)/Drums_b8e3026e.o \
   $(OBJDIR)/Stepper_615f26b2.o \
   $(OBJDIR)/BipolarStepper_94527603.o \
   $(OBJDIR)/TrackParameters_a021bf76.o \
   $(OBJDIR)/Knob_7a6e67ff.o \
+  $(OBJDIR)/CustomLook_94c1e339.o \
   $(OBJDIR)/Gui_2b5c821c.o \
   $(OBJDIR)/Sequencer_5ffb45b2.o \
   $(OBJDIR)/ClockListener_63c33543.o \
@@ -149,6 +152,16 @@ $(OBJDIR)/Sound_322374f0.o: ../../Source/Sound.cpp
 	@echo "Compiling Sound.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/BpmSlider_53f58501.o: ../../Source/BpmSlider.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling BpmSlider.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/Transport_32ccd00a.o: ../../Source/Transport.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling Transport.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/Mods_6d413dba.o: ../../Source/Mods.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling Mods.cpp"
@@ -177,6 +190,11 @@ $(OBJDIR)/TrackParameters_a021bf76.o: ../../Source/TrackParameters.cpp
 $(OBJDIR)/Knob_7a6e67ff.o: ../../Source/Knob.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling Knob.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CustomLook_94c1e339.o: ../../Source/CustomLook.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CustomLook.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/Gui_2b5c821c.o: ../../Source/Gui.cpp

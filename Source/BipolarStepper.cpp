@@ -27,8 +27,8 @@
 //[/MiscUserDefs]
 
 //==============================================================================
-BipolarStepper::BipolarStepper (Controller* controller)
-    : Stepper(controller), controller(controller)
+BipolarStepper::BipolarStepper (Controller* controller, int trackId, bool isModulationTrack)
+    : Stepper(controller, trackId, isModulationTrack), controller(controller)
 {
 
     //[UserPreSize]
@@ -50,9 +50,9 @@ BipolarStepper::~BipolarStepper()
 
 
     //[Destructor]. You can add your own custom destruction code here..
-    
+
     // HINT: doesnt need to remove from clockListeners, because parent is taking care of it.
-    
+
     //[/Destructor]
 }
 
@@ -85,6 +85,8 @@ bool BipolarStepper::isBipolar()
 {
     return true;
 }
+
+
 //[/MiscUserCode]
 
 
@@ -98,10 +100,10 @@ bool BipolarStepper::isBipolar()
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="BipolarStepper" componentName=""
-                 parentClasses="public Stepper" constructorParams="Controller* controller"
-                 variableInitialisers="Stepper(controller), controller(controller)"
+                 parentClasses="public Stepper" constructorParams="Controller* controller, int trackId, bool isModulationTrack"
+                 variableInitialisers="Stepper(controller, trackId, isModulationTrack), controller(controller)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
-                 fixedSize="0" initialWidth="400" initialHeight="60">
+                 fixedSize="1" initialWidth="400" initialHeight="60">
   <BACKGROUND backgroundColour="e51f1f1f"/>
 </JUCER_COMPONENT>
 

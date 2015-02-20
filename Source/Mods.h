@@ -57,9 +57,10 @@ private:
     //[/UserVariables]
 
     //==============================================================================
-    ScopedPointer<BipolarStepper> kickStepBipolar;
-    ScopedPointer<BipolarStepper> kickStepBipolar2;
-    ScopedPointer<BipolarStepper> kickStepBipolar3;
+    ScopedPointer<BipolarStepper> decayStepper;
+    ScopedPointer<BipolarStepper> selectStepper;
+    ScopedPointer<BipolarStepper> pitchStepper;
+    ScopedPointer<BipolarStepper> filterStepper;
 
 
     //==============================================================================

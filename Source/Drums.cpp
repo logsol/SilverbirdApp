@@ -33,12 +33,12 @@
 Drums::Drums (Controller* controller)
     : controller(controller)
 {
-    addAndMakeVisible (kickStepper = new Stepper (controller));
-    addAndMakeVisible (snareStepper = new Stepper (controller));
-    addAndMakeVisible (hihatStepper = new Stepper (controller));
-    addAndMakeVisible (perc1Stepper = new Stepper (controller));
-    addAndMakeVisible (perc2Stepper = new Stepper (controller));
-    addAndMakeVisible (tonesStepper = new Stepper (controller));
+    addAndMakeVisible (kickStepper = new Stepper (controller, Mixer::tracks::kick, false));
+    addAndMakeVisible (snareStepper = new Stepper (controller, Mixer::tracks::snare, false));
+    addAndMakeVisible (hihatStepper = new Stepper (controller, Mixer::tracks::hihat, false));
+    addAndMakeVisible (perc1Stepper = new Stepper (controller, Mixer::tracks::perc1, false));
+    addAndMakeVisible (perc2Stepper = new Stepper (controller, Mixer::tracks::perc2, false));
+    addAndMakeVisible (tonesStepper = new Stepper (controller, Mixer::tracks::tones, false));
 
     //[UserPreSize]
     //[/UserPreSize]
@@ -47,20 +47,6 @@ Drums::Drums (Controller* controller)
 
 
     //[Constructor] You can add your own custom stuff here..
-
-    Stepper* steppers [Mixer::maxTracks] = {
-        kickStepper,
-        snareStepper,
-        hihatStepper,
-        perc1Stepper,
-        perc2Stepper,
-        tonesStepper
-    };
-
-    for (int i = 0; i < Mixer::maxTracks; i++) {
-        steppers[i]->setComponentID(controller->mixer.getNameByTrackId(i));
-    }
-
     //[/Constructor]
 }
 
@@ -128,22 +114,22 @@ BEGIN_JUCER_METADATA
   <BACKGROUND backgroundColour="ffffff"/>
   <JUCERCOMP name="kick" id="d3558cec6b0505db" memberName="kickStepper" virtualName=""
              explicitFocusOrder="0" pos="8 8 400 60" sourceFile="Stepper.cpp"
-             constructorParams="controller"/>
+             constructorParams="controller, Mixer::tracks::kick, false"/>
   <JUCERCOMP name="snare" id="ce8e2fe038f9a041" memberName="snareStepper"
              virtualName="" explicitFocusOrder="0" pos="8 80 400 60" sourceFile="Stepper.cpp"
-             constructorParams="controller"/>
+             constructorParams="controller, Mixer::tracks::snare, false"/>
   <JUCERCOMP name="kick" id="c34ad782f2a5f719" memberName="hihatStepper" virtualName=""
              explicitFocusOrder="0" pos="8 152 400 60" sourceFile="Stepper.cpp"
-             constructorParams="controller"/>
+             constructorParams="controller, Mixer::tracks::hihat, false"/>
   <JUCERCOMP name="perc1" id="f899291c5652d18a" memberName="perc1Stepper"
              virtualName="" explicitFocusOrder="0" pos="8 224 400 60" sourceFile="Stepper.cpp"
-             constructorParams="controller"/>
+             constructorParams="controller, Mixer::tracks::perc1, false"/>
   <JUCERCOMP name="perc2" id="7e3f2afb02bd829e" memberName="perc2Stepper"
              virtualName="" explicitFocusOrder="0" pos="8 296 400 60" sourceFile="Stepper.cpp"
-             constructorParams="controller"/>
+             constructorParams="controller, Mixer::tracks::perc2, false"/>
   <JUCERCOMP name="tones" id="2356b855f087cee0" memberName="tonesStepper"
              virtualName="" explicitFocusOrder="0" pos="8 368 400 60" sourceFile="Stepper.cpp"
-             constructorParams="controller"/>
+             constructorParams="controller, Mixer::tracks::tones, false"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

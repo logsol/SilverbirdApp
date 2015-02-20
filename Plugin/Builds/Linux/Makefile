@@ -53,6 +53,9 @@ endif
 OBJECTS := \
   $(OBJDIR)/Parameter_ab22c239.o \
   $(OBJDIR)/ADSR_dcf23e1c.o \
+  $(OBJDIR)/Transport_6a9945b9.o \
+  $(OBJDIR)/BpmSlider_8bc1fab0.o \
+  $(OBJDIR)/CustomLook_5684236a.o \
   $(OBJDIR)/BipolarStepper_2da735b4.o \
   $(OBJDIR)/Clock_e81959e.o \
   $(OBJDIR)/ClockListener_4fef3b72.o \
@@ -116,6 +119,21 @@ $(OBJDIR)/Parameter_ab22c239.o: ../../../Source/Parameter.cpp
 $(OBJDIR)/ADSR_dcf23e1c.o: ../../../Source/ADSR.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling ADSR.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/Transport_6a9945b9.o: ../../../Source/Transport.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling Transport.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/BpmSlider_8bc1fab0.o: ../../../Source/BpmSlider.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling BpmSlider.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CustomLook_5684236a.o: ../../../Source/CustomLook.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CustomLook.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/BipolarStepper_2da735b4.o: ../../../Source/BipolarStepper.cpp

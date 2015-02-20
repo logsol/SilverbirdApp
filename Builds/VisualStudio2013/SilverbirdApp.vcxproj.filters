@@ -343,6 +343,12 @@
     <ClCompile Include="..\..\Source\Sound.cpp">
       <Filter>SilverbirdApp\Source\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\BpmSlider.cpp">
+      <Filter>SilverbirdApp\Source\View\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Transport.cpp">
+      <Filter>SilverbirdApp\Source\View\Components</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Mods.cpp">
       <Filter>SilverbirdApp\Source\View\Components</Filter>
     </ClCompile>
@@ -360,6 +366,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\Knob.cpp">
       <Filter>SilverbirdApp\Source\View\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CustomLook.cpp">
+      <Filter>SilverbirdApp\Source\View</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Gui.cpp">
       <Filter>SilverbirdApp\Source\View</Filter>
@@ -1566,6 +1575,12 @@
     <ClInclude Include="..\..\Source\Sound.h">
       <Filter>SilverbirdApp\Source\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\BpmSlider.h">
+      <Filter>SilverbirdApp\Source\View\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Transport.h">
+      <Filter>SilverbirdApp\Source\View\Components</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Mods.h">
       <Filter>SilverbirdApp\Source\View\Components</Filter>
     </ClInclude>
@@ -1583,6 +1598,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Knob.h">
       <Filter>SilverbirdApp\Source\View\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\CustomLook.h">
+      <Filter>SilverbirdApp\Source\View</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Gui.h">
       <Filter>SilverbirdApp\Source\View</Filter>

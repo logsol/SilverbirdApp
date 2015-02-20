@@ -24,7 +24,9 @@ public:
     
     int getNumCells();
     Array<float> getCells(int trackId);
+    Array<float> getModulationCells(int trackId);
     void setCell(int trackId, int cellId, float value);
+    void setModulationCell(int trackId, int cellId, float value);
     void clockStep(int counter);
     
     void handleMessage (const Message& message);
@@ -33,8 +35,10 @@ protected:
     Mixer& mixer;
     int numCells = 16;
     OwnedArray<Array<float>> matrix;
+    OwnedArray<Array<float>> modulationMatrix;
+    Array<float> columnModulations;
     
-    int notes[Mixer::maxTracks];
+    int notes[Mixer::tracks::max];
     SequencerMessage* sequencerMessage; // gotta be on the heap.
      
 };

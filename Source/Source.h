@@ -38,6 +38,7 @@ public:
     MidiBuffer incomingMidi;
 
     int getNumberOfSounds();
+    void setModulations(Array<float>* currentModulations);
     
 protected:
     

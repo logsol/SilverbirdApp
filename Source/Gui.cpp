@@ -20,6 +20,7 @@
 //[Headers] You can add your own extra header files here...
 class Controller;
 #include "Mixer.h"
+#include "CustomLook.h"
 //[/Headers]
 
 #include "Gui.h"
@@ -52,21 +53,6 @@ Gui::Gui (Controller* controller)
     masterSlider->setColour (Slider::rotarySliderFillColourId, Colour (0x7f0000ff));
     masterSlider->setColour (Slider::rotarySliderOutlineColourId, Colour (0x66000000));
     masterSlider->addListener (this);
-
-    addAndMakeVisible (kickMuteButton = new ToggleButton ("kickMute"));
-    kickMuteButton->setButtonText (String::empty);
-    kickMuteButton->setConnectedEdges (Button::ConnectedOnBottom);
-    kickMuteButton->addListener (this);
-
-    addAndMakeVisible (snareMuteButton = new ToggleButton ("snareMute"));
-    snareMuteButton->setButtonText (String::empty);
-    snareMuteButton->setConnectedEdges (Button::ConnectedOnBottom);
-    snareMuteButton->addListener (this);
-
-    addAndMakeVisible (HihatMuteButton = new ToggleButton ("hihatMute"));
-    HihatMuteButton->setButtonText (String::empty);
-    HihatMuteButton->setConnectedEdges (Button::ConnectedOnBottom);
-    HihatMuteButton->addListener (this);
 
     addAndMakeVisible (kickVolumeSlider = new Slider ("kickVolume"));
     kickVolumeSlider->setRange (0, 1, 0);
@@ -122,15 +108,15 @@ Gui::Gui (Controller* controller)
     label11->setColour (TextEditor::textColourId, Colours::black);
     label11->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (tabbedComponent = new TabbedComponent (TabbedButtonBar::TabsAtTop));
-    tabbedComponent->setTabBarDepth (26);
-    tabbedComponent->addTab (TRANS("Kick"), Colour (0xf1f1f1f1), new TrackParameters (controller, 0), true);
-    tabbedComponent->addTab (TRANS("Snare"), Colour (0xf1f1f1f1), new TrackParameters (controller, 1), true);
-    tabbedComponent->addTab (TRANS("Hihat"), Colour (0xf1f1f1f1), new TrackParameters (controller, 2), true);
-    tabbedComponent->addTab (TRANS("Perc1"), Colour (0xf1f1f1f1), new TrackParameters (controller, 3), true);
-    tabbedComponent->addTab (TRANS("Perc2"), Colour (0xf1f1f1f1), new TrackParameters (controller, 4), true);
-    tabbedComponent->addTab (TRANS("Tones"), Colour (0xf1f1f1f1), new TrackParameters (controller, 5), true);
-    tabbedComponent->setCurrentTabIndex (0);
+    addAndMakeVisible (trackTabs = new TabbedComponent (TabbedButtonBar::TabsAtTop));
+    trackTabs->setTabBarDepth (26);
+    trackTabs->addTab (TRANS("Kick"), Colour (0xf1f1f1f1), new TrackParameters (controller, 0), true);
+    trackTabs->addTab (TRANS("Snare"), Colour (0xf1f1f1f1), new TrackParameters (controller, 1), true);
+    trackTabs->addTab (TRANS("Hihat"), Colour (0xf1f1f1f1), new TrackParameters (controller, 2), true);
+    trackTabs->addTab (TRANS("Perc1"), Colour (0xf1f1f1f1), new TrackParameters (controller, 3), true);
+    trackTabs->addTab (TRANS("Perc2"), Colour (0xf1f1f1f1), new TrackParameters (controller, 4), true);
+    trackTabs->addTab (TRANS("Tones"), Colour (0xf1f1f1f1), new TrackParameters (controller, 5), true);
+    trackTabs->setCurrentTabIndex (0);
 
     addAndMakeVisible (sampleAllSlider = new Knob ("SampleAll"));
     sampleAllSlider->setRange (0, 1, 0);
@@ -216,21 +202,6 @@ Gui::Gui (Controller* controller)
     label10->setColour (TextEditor::textColourId, Colours::black);
     label10->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (perc1MuteButton = new ToggleButton ("perc1Mute"));
-    perc1MuteButton->setButtonText (String::empty);
-    perc1MuteButton->setConnectedEdges (Button::ConnectedOnBottom);
-    perc1MuteButton->addListener (this);
-
-    addAndMakeVisible (perc2MuteButton = new ToggleButton ("perc2Mute"));
-    perc2MuteButton->setButtonText (String::empty);
-    perc2MuteButton->setConnectedEdges (Button::ConnectedOnBottom);
-    perc2MuteButton->addListener (this);
-
-    addAndMakeVisible (tonesMuteButton = new ToggleButton ("tonesMute"));
-    tonesMuteButton->setButtonText (String::empty);
-    tonesMuteButton->setConnectedEdges (Button::ConnectedOnBottom);
-    tonesMuteButton->addListener (this);
-
     addAndMakeVisible (perc1VolumeSlider = new Slider ("perc1Volume"));
     perc1VolumeSlider->setRange (0, 1, 0);
     perc1VolumeSlider->setSliderStyle (Slider::LinearBar);
@@ -282,6 +253,43 @@ Gui::Gui (Controller* controller)
     sequencerTabs->addTab (TRANS("Mods"), Colour (0xf1f1f1f1), new Mods (controller), true);
     sequencerTabs->setCurrentTabIndex (0);
 
+    addAndMakeVisible (kickMuteButton = new TextButton ("kickMute"));
+    kickMuteButton->setButtonText (TRANS("M"));
+    kickMuteButton->addListener (this);
+    kickMuteButton->setColour (TextButton::buttonColourId, Colour (0xffcecece));
+    kickMuteButton->setColour (TextButton::buttonOnColourId, Colour (0xffffeb86));
+
+    addAndMakeVisible (snareMuteButton = new TextButton ("snareMute"));
+    snareMuteButton->setButtonText (TRANS("M"));
+    snareMuteButton->addListener (this);
+    snareMuteButton->setColour (TextButton::buttonColourId, Colour (0xffcecece));
+    snareMuteButton->setColour (TextButton::buttonOnColourId, Colour (0xffffeb86));
+
+    addAndMakeVisible (hihatMuteButton = new TextButton ("hihatMute"));
+    hihatMuteButton->setButtonText (TRANS("M"));
+    hihatMuteButton->addListener (this);
+    hihatMuteButton->setColour (TextButton::buttonColourId, Colour (0xffcecece));
+    hihatMuteButton->setColour (TextButton::buttonOnColourId, Colour (0xffffeb86));
+
+    addAndMakeVisible (perc2MuteButton = new TextButton ("perc2Mute"));
+    perc2MuteButton->setButtonText (TRANS("M"));
+    perc2MuteButton->addListener (this);
+    perc2MuteButton->setColour (TextButton::buttonColourId, Colour (0xffcecece));
+    perc2MuteButton->setColour (TextButton::buttonOnColourId, Colour (0xffffeb86));
+
+    addAndMakeVisible (tonesMuteButton = new TextButton ("tonesMute"));
+    tonesMuteButton->setButtonText (TRANS("M"));
+    tonesMuteButton->addListener (this);
+    tonesMuteButton->setColour (TextButton::buttonColourId, Colour (0xffcecece));
+    tonesMuteButton->setColour (TextButton::buttonOnColourId, Colour (0xffffeb86));
+
+    addAndMakeVisible (perc1MuteButton = new TextButton ("perc1Mute"));
+    perc1MuteButton->setButtonText (TRANS("M"));
+    perc1MuteButton->addListener (this);
+    perc1MuteButton->setColour (TextButton::buttonColourId, Colour (0xffcecece));
+    perc1MuteButton->setColour (TextButton::buttonOnColourId, Colour (0xffffeb86));
+
+    addAndMakeVisible (transport = new Transport (controller));
     cachedImage_background_png = ImageCache::getFromMemory (background_png, background_pngSize);
 
     //[UserPreSize]
@@ -295,6 +303,10 @@ Gui::Gui (Controller* controller)
     if (JUCEApplication::isStandaloneApp()) {
         setSize(1076, 611);
     }
+
+    CustomLook customLook;
+    customLook.setDefaultSansSerifTypefaceName("Arial");
+    LookAndFeel::setDefaultLookAndFeel(&customLook);
 
     Parameter* p;
 
@@ -334,7 +346,7 @@ Gui::Gui (Controller* controller)
     masterSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
 
 
-    Slider* volumeSliders [Mixer::maxTracks] = {
+    Slider* volumeSliders [Mixer::tracks::max] = {
          kickVolumeSlider,
          snareVolumeSlider,
          hihatVolumeSlider,
@@ -343,37 +355,41 @@ Gui::Gui (Controller* controller)
          tonesVolumeSlider
     };
 
-    ToggleButton* muteButtons [Mixer::maxTracks] = {
+    Button* muteButtons [Mixer::tracks::max] = {
         kickMuteButton,
         snareMuteButton,
-        HihatMuteButton,
+        hihatMuteButton,
         perc1MuteButton,
         perc2MuteButton,
         tonesMuteButton
     };
 
-    for (int i = 0; i < Mixer::maxTracks; i++) {
+    for (int i = 0; i < Mixer::tracks::max; i++) {
         p = controller->getParameterByAttrs(Controller::params::level, i);
         volumeSliders[i]->addListener(controller);
         volumeSliders[i]->getValueObject().referTo(*p);
         volumeSliders[i]->setDoubleClickReturnValue(true, p->getDefaultValue());
         volumeSliders[i]->setSliderStyle(Slider::LinearBarVertical);
-        
 
         p = controller->getParameterByAttrs(Controller::params::mute, i);
         muteButtons[i]->addListener(controller);
         muteButtons[i]->getToggleStateValue().referTo(*p);
+        muteButtons[i]->setClickingTogglesState(true);
     }
-    
+
     sampleAllSlider->setBaseCenter(true);
     pitchSlider->setBaseCenter(true);
     decaySlider->setBaseCenter(true);
     distortSlider->setBaseCenter(true);
     cutoffSlider->setBaseCenter(true);
-    
+
     sampleAllSlider->setStepSize(1.0 / (Mixer::SelectAllOffset - 1));
     pitchSlider->setStepSize(1.0 / 24);
 
+    if(!JUCEApplication::isStandaloneApp()) {
+        transport->setVisible(false);
+    }
+ 
     //[/Constructor]
 }
 
@@ -384,9 +400,6 @@ Gui::~Gui()
 
     label = nullptr;
     masterSlider = nullptr;
-    kickMuteButton = nullptr;
-    snareMuteButton = nullptr;
-    HihatMuteButton = nullptr;
     kickVolumeSlider = nullptr;
     snareVolumeSlider = nullptr;
     hihatVolumeSlider = nullptr;
@@ -394,7 +407,7 @@ Gui::~Gui()
     label8 = nullptr;
     label9 = nullptr;
     label11 = nullptr;
-    tabbedComponent = nullptr;
+    trackTabs = nullptr;
     sampleAllSlider = nullptr;
     label2 = nullptr;
     pitchSlider = nullptr;
@@ -407,9 +420,6 @@ Gui::~Gui()
     label6 = nullptr;
     shuffleSlider = nullptr;
     label10 = nullptr;
-    perc1MuteButton = nullptr;
-    perc2MuteButton = nullptr;
-    tonesMuteButton = nullptr;
     perc1VolumeSlider = nullptr;
     perc2VolumeSlider = nullptr;
     tonesVolumeSlider = nullptr;
@@ -417,6 +427,13 @@ Gui::~Gui()
     label13 = nullptr;
     label14 = nullptr;
     sequencerTabs = nullptr;
+    kickMuteButton = nullptr;
+    snareMuteButton = nullptr;
+    hihatMuteButton = nullptr;
+    perc2MuteButton = nullptr;
+    tonesMuteButton = nullptr;
+    perc1MuteButton = nullptr;
+    transport = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -448,17 +465,14 @@ void Gui::resized()
 
     label->setBounds (496, 488, 64, 16);
     masterSlider->setBounds (507, 510, 40, 40);
-    kickMuteButton->setBounds (80, 543, 24, 24);
-    snareMuteButton->setBounds (128, 543, 24, 24);
-    HihatMuteButton->setBounds (176, 543, 24, 24);
-    kickVolumeSlider->setBounds (80, 432, 20, 104);
-    snareVolumeSlider->setBounds (128, 432, 20, 104);
-    hihatVolumeSlider->setBounds (176, 432, 20, 104);
-    label7->setBounds (73, 404, 40, 24);
-    label8->setBounds (117, 404, 48, 24);
-    label9->setBounds (164, 404, 48, 24);
-    label11->setBounds (36, 542, 40, 24);
-    tabbedComponent->setBounds (40, 40, 400, 128);
+    kickVolumeSlider->setBounds (120, 424, 20, 104);
+    snareVolumeSlider->setBounds (168, 424, 20, 104);
+    hihatVolumeSlider->setBounds (216, 424, 20, 104);
+    label7->setBounds (113, 396, 40, 24);
+    label8->setBounds (157, 396, 48, 24);
+    label9->setBounds (204, 396, 48, 24);
+    label11->setBounds (74, 534, 40, 24);
+    trackTabs->setBounds (40, 40, 400, 128);
     sampleAllSlider->setBounds (512, 80, 32, 32);
     label2->setBounds (496, 56, 64, 16);
     pitchSlider->setBounds (512, 152, 32, 32);
@@ -471,16 +485,20 @@ void Gui::resized()
     label6->setBounds (496, 344, 64, 16);
     shuffleSlider->setBounds (507, 438, 40, 40);
     label10->setBounds (496, 416, 64, 16);
-    perc1MuteButton->setBounds (224, 543, 24, 24);
-    perc2MuteButton->setBounds (272, 543, 24, 24);
-    tonesMuteButton->setBounds (320, 543, 24, 24);
-    perc1VolumeSlider->setBounds (224, 432, 20, 104);
-    perc2VolumeSlider->setBounds (272, 432, 20, 104);
-    tonesVolumeSlider->setBounds (320, 432, 20, 104);
-    label12->setBounds (217, 404, 40, 24);
-    label13->setBounds (261, 404, 48, 24);
-    label14->setBounds (308, 404, 48, 24);
+    perc1VolumeSlider->setBounds (264, 424, 20, 104);
+    perc2VolumeSlider->setBounds (312, 424, 20, 104);
+    tonesVolumeSlider->setBounds (360, 424, 20, 104);
+    label12->setBounds (257, 396, 40, 24);
+    label13->setBounds (301, 396, 48, 24);
+    label14->setBounds (348, 396, 48, 24);
     sequencerTabs->setBounds (584, 56, 440, 440);
+    kickMuteButton->setBounds (118, 539, 24, 16);
+    snareMuteButton->setBounds (166, 539, 24, 16);
+    hihatMuteButton->setBounds (214, 539, 24, 16);
+    perc2MuteButton->setBounds (310, 539, 24, 16);
+    tonesMuteButton->setBounds (358, 539, 24, 16);
+    perc1MuteButton->setBounds (262, 539, 24, 16);
+    transport->setBounds (816, 576, 224, 40);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -575,15 +593,10 @@ void Gui::buttonClicked (Button* buttonThatWasClicked)
         //[UserButtonCode_snareMuteButton] -- add your button handler code here..
         //[/UserButtonCode_snareMuteButton]
     }
-    else if (buttonThatWasClicked == HihatMuteButton)
+    else if (buttonThatWasClicked == hihatMuteButton)
     {
-        //[UserButtonCode_HihatMuteButton] -- add your button handler code here..
-        //[/UserButtonCode_HihatMuteButton]
-    }
-    else if (buttonThatWasClicked == perc1MuteButton)
-    {
-        //[UserButtonCode_perc1MuteButton] -- add your button handler code here..
-        //[/UserButtonCode_perc1MuteButton]
+        //[UserButtonCode_hihatMuteButton] -- add your button handler code here..
+        //[/UserButtonCode_hihatMuteButton]
     }
     else if (buttonThatWasClicked == perc2MuteButton)
     {
@@ -594,6 +607,11 @@ void Gui::buttonClicked (Button* buttonThatWasClicked)
     {
         //[UserButtonCode_tonesMuteButton] -- add your button handler code here..
         //[/UserButtonCode_tonesMuteButton]
+    }
+    else if (buttonThatWasClicked == perc1MuteButton)
+    {
+        //[UserButtonCode_perc1MuteButton] -- add your button handler code here..
+        //[/UserButtonCode_perc1MuteButton]
     }
 
     //[UserbuttonClicked_Post]
@@ -606,7 +624,9 @@ bool Gui::keyPressed (const KeyPress& key)
 
     switch (key.getKeyCode()) {
         case 32: // space
-            controller->togglePlayPause();
+            if(JUCEApplication::isStandaloneApp()) {
+                controller->togglePlayPause();
+            }
             break;
 
         default:
@@ -654,49 +674,40 @@ BEGIN_JUCER_METADATA
           trackcol="7fffffff" rotarysliderfill="7f0000ff" rotaryslideroutline="66000000"
           min="0" max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
-  <TOGGLEBUTTON name="kickMute" id="a54088c4b7b86a7c" memberName="kickMuteButton"
-                virtualName="" explicitFocusOrder="0" pos="80 543 24 24" buttonText=""
-                connectedEdges="8" needsCallback="1" radioGroupId="0" state="0"/>
-  <TOGGLEBUTTON name="snareMute" id="e89902473100fa31" memberName="snareMuteButton"
-                virtualName="" explicitFocusOrder="0" pos="128 543 24 24" buttonText=""
-                connectedEdges="8" needsCallback="1" radioGroupId="0" state="0"/>
-  <TOGGLEBUTTON name="hihatMute" id="f8c6023f10633d76" memberName="HihatMuteButton"
-                virtualName="" explicitFocusOrder="0" pos="176 543 24 24" buttonText=""
-                connectedEdges="8" needsCallback="1" radioGroupId="0" state="0"/>
   <SLIDER name="kickVolume" id="ae31972216ca91d8" memberName="kickVolumeSlider"
-          virtualName="" explicitFocusOrder="0" pos="80 432 20 104" thumbcol="ffffeb86"
+          virtualName="" explicitFocusOrder="0" pos="120 424 20 104" thumbcol="ffffeb86"
           min="0" max="1" int="0" style="LinearBar" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <SLIDER name="snareVolume" id="7473f902a9aba960" memberName="snareVolumeSlider"
-          virtualName="" explicitFocusOrder="0" pos="128 432 20 104" thumbcol="ffffeb86"
+          virtualName="" explicitFocusOrder="0" pos="168 424 20 104" thumbcol="ffffeb86"
           min="0" max="1" int="0" style="LinearBar" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <SLIDER name="hihatVolume" id="8734ecc063a71519" memberName="hihatVolumeSlider"
-          virtualName="" explicitFocusOrder="0" pos="176 432 20 104" thumbcol="ffffeb86"
+          virtualName="" explicitFocusOrder="0" pos="216 424 20 104" thumbcol="ffffeb86"
           rotarysliderfill="7f0000ff" min="0" max="1" int="0" style="LinearBar"
           textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
           textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="486b2beaa1324a51" memberName="label7" virtualName=""
-         explicitFocusOrder="0" pos="73 404 40 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="113 396 40 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Kick" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
   <LABEL name="new label" id="681d168e20d88e68" memberName="label8" virtualName=""
-         explicitFocusOrder="0" pos="117 404 48 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="157 396 48 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Snare" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
   <LABEL name="new label" id="fdffc56aa102332a" memberName="label9" virtualName=""
-         explicitFocusOrder="0" pos="164 404 48 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="204 396 48 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Hihat" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
   <LABEL name="new label" id="f92fa637a94fb66e" memberName="label11" virtualName=""
-         explicitFocusOrder="0" pos="36 542 40 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="74 534 40 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Mute" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
-  <TABBEDCOMPONENT name="new tabbed component" id="299c842daf4e2362" memberName="tabbedComponent"
+  <TABBEDCOMPONENT name="new tabbed component" id="299c842daf4e2362" memberName="trackTabs"
                    virtualName="" explicitFocusOrder="0" pos="40 40 400 128" orientation="top"
                    tabBarDepth="26" initialTab="0">
     <TAB name="Kick" colour="f1f1f1f1" useJucerComp="1" contentClassName="TrackParameters"
@@ -766,39 +777,30 @@ BEGIN_JUCER_METADATA
          edBkgCol="0" labelText="Shuffle" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
-  <TOGGLEBUTTON name="perc1Mute" id="480dde763c553381" memberName="perc1MuteButton"
-                virtualName="" explicitFocusOrder="0" pos="224 543 24 24" buttonText=""
-                connectedEdges="8" needsCallback="1" radioGroupId="0" state="0"/>
-  <TOGGLEBUTTON name="perc2Mute" id="263376113ad469b7" memberName="perc2MuteButton"
-                virtualName="" explicitFocusOrder="0" pos="272 543 24 24" buttonText=""
-                connectedEdges="8" needsCallback="1" radioGroupId="0" state="0"/>
-  <TOGGLEBUTTON name="tonesMute" id="2fbad6fae8f0a531" memberName="tonesMuteButton"
-                virtualName="" explicitFocusOrder="0" pos="320 543 24 24" buttonText=""
-                connectedEdges="8" needsCallback="1" radioGroupId="0" state="0"/>
   <SLIDER name="perc1Volume" id="931a095c7e36a9ad" memberName="perc1VolumeSlider"
-          virtualName="" explicitFocusOrder="0" pos="224 432 20 104" thumbcol="ffffeb86"
+          virtualName="" explicitFocusOrder="0" pos="264 424 20 104" thumbcol="ffffeb86"
           min="0" max="1" int="0" style="LinearBar" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <SLIDER name="perc2Volume" id="add5fec410a35fb1" memberName="perc2VolumeSlider"
-          virtualName="" explicitFocusOrder="0" pos="272 432 20 104" thumbcol="ffffeb86"
+          virtualName="" explicitFocusOrder="0" pos="312 424 20 104" thumbcol="ffffeb86"
           min="0" max="1" int="0" style="LinearBar" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <SLIDER name="tonesVolume" id="4518cd8aea8e1fba" memberName="tonesVolumeSlider"
-          virtualName="" explicitFocusOrder="0" pos="320 432 20 104" thumbcol="ffffeb86"
+          virtualName="" explicitFocusOrder="0" pos="360 424 20 104" thumbcol="ffffeb86"
           min="0" max="1" int="0" style="LinearBar" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="eb7df0e8715d3628" memberName="label12" virtualName=""
-         explicitFocusOrder="0" pos="217 404 40 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="257 396 40 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Perc1" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
   <LABEL name="new label" id="e795b2fc234361fa" memberName="label13" virtualName=""
-         explicitFocusOrder="0" pos="261 404 48 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="301 396 48 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Perc2" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
   <LABEL name="new label" id="f58b8e0d925833a5" memberName="label14" virtualName=""
-         explicitFocusOrder="0" pos="308 404 48 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="348 396 48 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Tones" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
@@ -810,6 +812,33 @@ BEGIN_JUCER_METADATA
     <TAB name="Mods" colour="f1f1f1f1" useJucerComp="1" contentClassName=""
          constructorParams="controller" jucerComponentFile="Mods.cpp"/>
   </TABBEDCOMPONENT>
+  <TEXTBUTTON name="kickMute" id="6f9d4a20ba8d8c20" memberName="kickMuteButton"
+              virtualName="" explicitFocusOrder="0" pos="118 539 24 16" bgColOff="ffcecece"
+              bgColOn="ffffeb86" buttonText="M" connectedEdges="0" needsCallback="1"
+              radioGroupId="0"/>
+  <TEXTBUTTON name="snareMute" id="193f3fda240f899b" memberName="snareMuteButton"
+              virtualName="" explicitFocusOrder="0" pos="166 539 24 16" bgColOff="ffcecece"
+              bgColOn="ffffeb86" buttonText="M" connectedEdges="0" needsCallback="1"
+              radioGroupId="0"/>
+  <TEXTBUTTON name="hihatMute" id="ee96d9a38008708a" memberName="hihatMuteButton"
+              virtualName="" explicitFocusOrder="0" pos="214 539 24 16" bgColOff="ffcecece"
+              bgColOn="ffffeb86" buttonText="M" connectedEdges="0" needsCallback="1"
+              radioGroupId="0"/>
+  <TEXTBUTTON name="perc2Mute" id="6eb4bd4aade5d37e" memberName="perc2MuteButton"
+              virtualName="" explicitFocusOrder="0" pos="310 539 24 16" bgColOff="ffcecece"
+              bgColOn="ffffeb86" buttonText="M" connectedEdges="0" needsCallback="1"
+              radioGroupId="0"/>
+  <TEXTBUTTON name="tonesMute" id="4e7c7d3732b16ea3" memberName="tonesMuteButton"
+              virtualName="" explicitFocusOrder="0" pos="358 539 24 16" bgColOff="ffcecece"
+              bgColOn="ffffeb86" buttonText="M" connectedEdges="0" needsCallback="1"
+              radioGroupId="0"/>
+  <TEXTBUTTON name="perc1Mute" id="9e2bba0b682a48fd" memberName="perc1MuteButton"
+              virtualName="" explicitFocusOrder="0" pos="262 539 24 16" bgColOff="ffcecece"
+              bgColOn="ffffeb86" buttonText="M" connectedEdges="0" needsCallback="1"
+              radioGroupId="0"/>
+  <JUCERCOMP name="" id="8ba4a7c2e5920bea" memberName="transport" virtualName=""
+             explicitFocusOrder="0" pos="816 576 224 40" sourceFile="Transport.cpp"
+             constructorParams="controller"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

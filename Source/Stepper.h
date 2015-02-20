@@ -40,7 +40,7 @@ class Stepper  : public Component,
 {
 public:
     //==============================================================================
-    Stepper (Controller* controller);
+    Stepper (Controller* controller, int trackId, bool isModulationTrack);
     ~Stepper();
 
     //==============================================================================
@@ -59,10 +59,14 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-    
+
 protected:
     virtual bool isBipolar();
+    virtual void updateSequencer(int cellId, float value);
+
     Controller* controller;
+    int trackId;
+    bool isModulationTrack;
     int cursor = -1;
     //[/UserVariables]
 

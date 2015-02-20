@@ -27,6 +27,10 @@
       </GROUP>
       <GROUP id="{7910223D-4739-F887-8F7B-FD608B6F3A66}" name="View">
         <GROUP id="{05047D03-0942-0207-CD04-D6540CE92CE0}" name="Components">
+          <FILE id="xx7SeK" name="BpmSlider.cpp" compile="1" resource="0" file="Source/BpmSlider.cpp"/>
+          <FILE id="ejsgxR" name="BpmSlider.h" compile="0" resource="0" file="Source/BpmSlider.h"/>
+          <FILE id="oGdy5I" name="Transport.cpp" compile="1" resource="0" file="Source/Transport.cpp"/>
+          <FILE id="iXI0nd" name="Transport.h" compile="0" resource="0" file="Source/Transport.h"/>
           <FILE id="ZnShZ9" name="Mods.cpp" compile="1" resource="0" file="Source/Mods.cpp"/>
           <FILE id="N4DGej" name="Mods.h" compile="0" resource="0" file="Source/Mods.h"/>
           <FILE id="n0iGwn" name="Drums.cpp" compile="1" resource="0" file="Source/Drums.cpp"/>
@@ -44,6 +48,8 @@
           <FILE id="yX5x8g" name="Knob.cpp" compile="1" resource="0" file="Source/Knob.cpp"/>
           <FILE id="eQaVnz" name="Knob.h" compile="0" resource="0" file="Source/Knob.h"/>
         </GROUP>
+        <FILE id="bgQCMx" name="CustomLook.cpp" compile="1" resource="0" file="Source/CustomLook.cpp"/>
+        <FILE id="JEosAb" name="CustomLook.h" compile="0" resource="0" file="Source/CustomLook.h"/>
         <FILE id="gYIfyT" name="Gui.cpp" compile="1" resource="0" file="Source/Gui.cpp"/>
         <FILE id="mkuCIT" name="Gui.h" compile="0" resource="0" file="Source/Gui.h"/>
       </GROUP>
