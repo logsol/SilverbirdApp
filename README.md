@@ -1,7 +1,8 @@
 SilverbirdApp
 =============
 
-C++ remake of the great groovebox SilverbirdLive of my friend Andre Goc (see http://www.native-instruments.com/en/community/reaktor-user-library/entry/show/7413/).
+C++ remake of the great groovebox SilverbirdLive of my friend Andre Goc 
+(see http://www.native-instruments.com/en/community/reaktor-user-library/entry/show/7413/).
 
 This project is currently in development.
 
