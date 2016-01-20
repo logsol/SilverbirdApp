@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission is granted to use this software under the terms of either:
    a) the GPL v2 (or any later version)
@@ -457,7 +457,7 @@ void LookAndFeel_V3::drawLinearSliderBackground (Graphics& g, int x, int y, int 
 void LookAndFeel_V3::drawPopupMenuBackground (Graphics& g, int width, int height)
 {
     g.fillAll (findColour (PopupMenu::backgroundColourId));
-    (void) width; (void) height;
+    ignoreUnused (width, height);
 
    #if ! JUCE_MAC
     g.setColour (findColour (PopupMenu::textColourId).withAlpha (0.6f));

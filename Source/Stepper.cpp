@@ -32,6 +32,9 @@ Stepper::Stepper (Controller* controller, int trackId, bool isModulationTrack)
       trackId(trackId),
       isModulationTrack(isModulationTrack)
 {
+    //[Constructor_pre] You can add your own custom stuff here..
+    //[/Constructor_pre]
+
     addAndMakeVisible (stepperLabel = new Label ("stepper",
                                                  TRANS("Snare")));
     stepperLabel->setFont (Font ("Charcoal CY", 15.50f, Font::plain));

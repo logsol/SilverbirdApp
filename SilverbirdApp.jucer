@@ -2,7 +2,7 @@
 
 <JUCERPROJECT id="t5PU2z" name="SilverbirdApp" projectType="guiapp" version="1.0.0"
               bundleIdentifier="com.audiosalt.SilverbirdApp" includeBinaryInAppConfig="1"
-              jucerVersion="3.1.1" companyName="Audiosalt" companyWebsite="audiosalt.com">
+              jucerVersion="4.1.0" companyName="Audiosalt" companyWebsite="audiosalt.com">
   <MAINGROUP id="P1u1H7" name="SilverbirdApp">
     <GROUP id="{40B58F17-2A50-FCFC-AC96-EA61BE3F32E2}" name="Source">
       <GROUP id="{65D2481D-E290-269E-E2CF-FBF627AAB06A}" name="Engine">
@@ -69,191 +69,315 @@
       <FILE id="DidWNp" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
     </GROUP>
     <GROUP id="{ED3D9729-17B3-221F-DA8E-B7C677696983}" name="Resources">
-      <GROUP id="{E78935BB-0CA4-7AA9-2126-75060B4DF2BB}" name="Images">
-        <FILE id="GP0nnH" name="Knob_Centered.png" compile="0" resource="1"
-              file="../../../../Dropbox/audiosalt/Silverbird/Images/Knob_Centered.png"/>
-        <FILE id="nyeBa4" name="Knob.png" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Images/Knob.png"/>
-        <FILE id="b5gehu" name="Bird.png" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Images/Bird.png"/>
-        <FILE id="fJGTOs" name="SB.png" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Images/SB.png"/>
-        <FILE id="u5OsKR" name="Background.png" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Images/Background.png"/>
+      <GROUP id="{87255292-EFDC-C638-E0CF-F7F4CE654601}" name="Samples">
+        <GROUP id="{9FB33BFE-9836-84D9-7703-3B7798AD04CF}" name="Hihat">
+          <FILE id="KOaZQB" name="hihat_01.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_01.aif"/>
+          <FILE id="UsKEjB" name="hihat_02.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_02.aif"/>
+          <FILE id="ilEPrv" name="hihat_03.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_03.aif"/>
+          <FILE id="uE24p6" name="hihat_04.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_04.aif"/>
+          <FILE id="Rm5Tgd" name="hihat_05.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_05.aif"/>
+          <FILE id="C2F9cI" name="hihat_06.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_06.aif"/>
+          <FILE id="n4HNxq" name="hihat_07.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_07.aif"/>
+          <FILE id="bGftM0" name="hihat_08.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_08.aif"/>
+          <FILE id="DQQebb" name="hihat_09.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_09.aif"/>
+          <FILE id="vRWimh" name="hihat_10.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_10.aif"/>
+          <FILE id="LivwHW" name="hihat_11.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_11.aif"/>
+          <FILE id="j5KOP5" name="hihat_12.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_12.aif"/>
+          <FILE id="KrbIpe" name="hihat_13.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_13.aif"/>
+          <FILE id="EjrrXX" name="hihat_14.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_14.aif"/>
+          <FILE id="CdHwdw" name="hihat_15.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_15.aif"/>
+          <FILE id="BMl3wl" name="hihat_16.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_16.aif"/>
+          <FILE id="Sw3ana" name="hihat_17.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_17.aif"/>
+          <FILE id="tbMjnO" name="hihat_18.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_18.aif"/>
+          <FILE id="Fo6eDg" name="hihat_19.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_19.aif"/>
+          <FILE id="O0pX25" name="hihat_20.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_20.aif"/>
+          <FILE id="hnQFmq" name="hihat_21.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_21.aif"/>
+          <FILE id="i84F3i" name="hihat_22.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_22.aif"/>
+          <FILE id="RTIRyC" name="hihat_23.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_23.aif"/>
+          <FILE id="lkm1L1" name="hihat1.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat1.aif"/>
+          <FILE id="VaIHEf" name="hihat2.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat2.aif"/>
+          <FILE id="TvF8vb" name="hihat3.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat3.aif"/>
+          <FILE id="aYaNYM" name="hihat4.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat4.aif"/>
+          <FILE id="NOexs6" name="hihat5.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat5.aif"/>
+          <FILE id="yJYVm0" name="hihat6.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat6.aif"/>
+          <FILE id="DMg1Zi" name="hihat7.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat7.aif"/>
+          <FILE id="aZH2RM" name="hihat8.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat8.aif"/>
+          <FILE id="No3zfD" name="hihat9.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat9.aif"/>
+          <FILE id="HR7c6T" name="hihat10.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat10.aif"/>
+          <FILE id="exQ6Sn" name="hihat11.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat11.aif"/>
+          <FILE id="GYbFKJ" name="hihat12.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat12.aif"/>
+          <FILE id="ifNSBf" name="hihat13.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat13.aif"/>
+          <FILE id="ooUCvg" name="hihat14.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat14.aif"/>
+          <FILE id="e8ynKy" name="hihat15.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat15.aif"/>
+          <FILE id="JVypCT" name="hihat16.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat16.aif"/>
+          <FILE id="OtblLS" name="hihat17.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat17.aif"/>
+          <FILE id="GJq4AB" name="hihat18.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat18.aif"/>
+          <FILE id="Hcu6dg" name="hihat19.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat19.aif"/>
+          <FILE id="IwPC5D" name="hihat20.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat20.aif"/>
+          <FILE id="vqZrnG" name="hihat21.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat21.aif"/>
+          <FILE id="SCcN8Y" name="hihat22.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat22.aif"/>
+          <FILE id="yXSkZ6" name="hihat23.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat23.aif"/>
+        </GROUP>
+        <GROUP id="{579FB0EA-830C-FCC9-EC8D-331B06DFC0D4}" name="Kick">
+          <FILE id="KWPb6R" name="kick_01.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_01.aif"/>
+          <FILE id="NYuW3X" name="kick_02.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_02.aif"/>
+          <FILE id="ajyseU" name="kick_03.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_03.aif"/>
+          <FILE id="bkpwQE" name="kick_04.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_04.aif"/>
+          <FILE id="YEy6lM" name="kick_05.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_05.aif"/>
+          <FILE id="Lwjevp" name="kick_06.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_06.aif"/>
+          <FILE id="d2zGQ6" name="kick_07.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_07.aif"/>
+          <FILE id="BLB14y" name="kick_08.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_08.aif"/>
+          <FILE id="QHvwcO" name="kick_09.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_09.aif"/>
+          <FILE id="cJr383" name="kick_10.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_10.aif"/>
+          <FILE id="SromVq" name="kick_11.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_11.aif"/>
+          <FILE id="q4NYrN" name="kick_12.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_12.aif"/>
+          <FILE id="D9JcHb" name="kick_13.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_13.aif"/>
+          <FILE id="sxoKwa" name="kick_14.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_14.aif"/>
+          <FILE id="GHAcDF" name="kick_15.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_15.aif"/>
+          <FILE id="ng0Qu9" name="kick_16.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_16.aif"/>
+          <FILE id="IScqtj" name="kick_17.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_17.aif"/>
+          <FILE id="BkrDYr" name="kick_18.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_18.aif"/>
+          <FILE id="TKYiQA" name="kick_19.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_19.aif"/>
+          <FILE id="i2lPd7" name="kick_20.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_20.aif"/>
+          <FILE id="OFSA73" name="kick_21.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_21.aif"/>
+          <FILE id="hiws1G" name="kick_22.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_22.aif"/>
+          <FILE id="Nb9HcH" name="kick_23.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_23.aif"/>
+          <FILE id="dZDWOd" name="kick1.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick1.aif"/>
+          <FILE id="uqVw9y" name="kick2.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick2.aif"/>
+          <FILE id="bqv16m" name="kick3.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick3.aif"/>
+          <FILE id="PPBhi2" name="kick4.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick4.aif"/>
+          <FILE id="D57wev" name="kick5.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick5.aif"/>
+          <FILE id="cqFp9k" name="kick6.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick6.aif"/>
+          <FILE id="uuMcf9" name="kick7.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick7.aif"/>
+          <FILE id="erCDRX" name="kick8.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick8.aif"/>
+          <FILE id="m670kX" name="kick9.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick9.aif"/>
+          <FILE id="BzXCHM" name="kick10.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick10.aif"/>
+          <FILE id="lYJdG1" name="kick11.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick11.aif"/>
+          <FILE id="ottlBM" name="kick12.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick12.aif"/>
+          <FILE id="JTJJSx" name="kick13.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick13.aif"/>
+          <FILE id="MnVNlP" name="kick14.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick14.aif"/>
+          <FILE id="gfGi1a" name="kick15.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick15.aif"/>
+          <FILE id="xIonoZ" name="kick16.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick16.aif"/>
+          <FILE id="na9BcP" name="kick17.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick17.aif"/>
+          <FILE id="Yz9n6B" name="kick18.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick18.aif"/>
+          <FILE id="IdJdtB" name="kick19.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick19.aif"/>
+          <FILE id="xTLEH0" name="kick20.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick20.aif"/>
+          <FILE id="k1zljW" name="kick21.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick21.aif"/>
+          <FILE id="edhx5p" name="kick22.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick22.aif"/>
+          <FILE id="hORZvS" name="kick23.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick23.aif"/>
+        </GROUP>
+        <GROUP id="{4EA534AC-2EA9-B3E9-F829-47AA5298E725}" name="Perc">
+          <FILE id="i2cXNH" name="Perc1.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc1.aif"/>
+          <FILE id="ofUhMG" name="perc1_01.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_01.aif"/>
+          <FILE id="r7xEFa" name="perc1_02.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_02.aif"/>
+          <FILE id="IGYuG7" name="perc1_03.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_03.aif"/>
+          <FILE id="mp9LpE" name="perc1_04.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_04.aif"/>
+          <FILE id="lhYewD" name="perc1_05.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_05.aif"/>
+          <FILE id="NbqoHc" name="perc1_06.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_06.aif"/>
+          <FILE id="u1nwIU" name="perc1_07.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_07.aif"/>
+          <FILE id="cNM7WK" name="perc1_08.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_08.aif"/>
+          <FILE id="bdFQny" name="perc1_09.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_09.aif"/>
+          <FILE id="PVv4Uj" name="perc1_10.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_10.aif"/>
+          <FILE id="ickgiA" name="perc1_11.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_11.aif"/>
+          <FILE id="fC57Vk" name="perc1_12.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_12.aif"/>
+          <FILE id="vCDBok" name="perc1_13.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_13.aif"/>
+          <FILE id="kDTeDA" name="perc1_14.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_14.aif"/>
+          <FILE id="dNKWYp" name="perc1_15.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_15.aif"/>
+          <FILE id="lf7Z0Z" name="perc1_16.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_16.aif"/>
+          <FILE id="Qp5fTM" name="perc1_17.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_17.aif"/>
+          <FILE id="nMe6nF" name="perc1_18.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_18.aif"/>
+          <FILE id="ZBv4jq" name="perc1_19.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_19.aif"/>
+          <FILE id="l1iJR0" name="perc1_20.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_20.aif"/>
+          <FILE id="KghwJa" name="perc1_21.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_21.aif"/>
+          <FILE id="R6dvNu" name="perc1_22.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_22.aif"/>
+          <FILE id="x5UPZk" name="perc1_23.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_23.aif"/>
+          <FILE id="CGOnM3" name="perc1_24.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_24.aif"/>
+          <FILE id="d4ZSU5" name="perc1_25.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_25.aif"/>
+          <FILE id="Hr3GWP" name="perc1_26.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_26.aif"/>
+          <FILE id="qyi0He" name="Perc2.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc2.aif"/>
+          <FILE id="YXdLeW" name="Perc3.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc3.aif"/>
+          <FILE id="B51YU8" name="Perc4.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc4.aif"/>
+          <FILE id="HUqxqq" name="Perc5.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc5.aif"/>
+          <FILE id="iYEdvx" name="Perc6.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc6.aif"/>
+          <FILE id="WuATJe" name="Perc7.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc7.aif"/>
+          <FILE id="lXYhQV" name="Perc8.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc8.aif"/>
+          <FILE id="SGTB8C" name="Perc9.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc9.aif"/>
+          <FILE id="FnqBgl" name="Perc10.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc10.aif"/>
+          <FILE id="TSS0nP" name="Perc11.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc11.aif"/>
+          <FILE id="ojb8Dg" name="Perc12.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc12.aif"/>
+          <FILE id="IA9dzW" name="Perc13.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc13.aif"/>
+          <FILE id="i0E0YR" name="Perc14.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc14.aif"/>
+          <FILE id="UrTVCL" name="Perc15.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc15.aif"/>
+          <FILE id="nymWUo" name="Perc16.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc16.aif"/>
+          <FILE id="xRw1fZ" name="Perc17.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc17.aif"/>
+          <FILE id="oQw0F2" name="Perc18.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc18.aif"/>
+          <FILE id="M1Jmm1" name="Perc19.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc19.aif"/>
+          <FILE id="dOkEC0" name="Perc20.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc20.aif"/>
+          <FILE id="NDaQOE" name="Perc21.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc21.aif"/>
+          <FILE id="g7TgV3" name="Perc22.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc22.aif"/>
+          <FILE id="mILd2O" name="Perc23.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc23.aif"/>
+          <FILE id="V0eMZO" name="Perc24.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc24.aif"/>
+          <FILE id="St2g0o" name="Perc25.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc25.aif"/>
+          <FILE id="UY31RW" name="Perc26.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc26.aif"/>
+          <FILE id="w0pCSC" name="Perc27.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc27.aif"/>
+          <FILE id="WdcLny" name="Perc28.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/Perc28.aif"/>
+        </GROUP>
+        <GROUP id="{7315E05C-FD65-E3B1-41E5-E03AB8465043}" name="Perc2">
+          <FILE id="mIxU56" name="perc2_01.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_01.aif"/>
+          <FILE id="EEGFHW" name="perc2_02.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_02.aif"/>
+          <FILE id="WzVLQ6" name="perc2_03.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_03.aif"/>
+          <FILE id="iX6SvQ" name="perc2_04.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_04.aif"/>
+          <FILE id="GP3Wa8" name="perc2_05.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_05.aif"/>
+          <FILE id="slsVZg" name="perc2_06.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_06.aif"/>
+          <FILE id="iNgRJL" name="perc2_07.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_07.aif"/>
+          <FILE id="aNYCWt" name="perc2_08.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_08.aif"/>
+          <FILE id="th1Dz2" name="perc2_09.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_09.aif"/>
+          <FILE id="Q5WVWt" name="perc2_10.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_10.aif"/>
+          <FILE id="zvjRrw" name="perc2_11.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_11.aif"/>
+          <FILE id="MXp6Hr" name="perc2_12.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_12.aif"/>
+          <FILE id="Q7YYz4" name="perc2_13.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_13.aif"/>
+          <FILE id="pKJ2Ih" name="perc2_14.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_14.aif"/>
+          <FILE id="XFVbzB" name="perc2_15.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_15.aif"/>
+          <FILE id="utnUzn" name="perc2_16.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_16.aif"/>
+          <FILE id="mUlacQ" name="perc2_17.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_17.aif"/>
+          <FILE id="jfWkGG" name="perc2_18.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_18.aif"/>
+          <FILE id="Ys5cfG" name="perc2_19.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_19.aif"/>
+          <FILE id="N3LAcU" name="perc2_20.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_20.aif"/>
+          <FILE id="hAhQDU" name="perc2_21.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_21.aif"/>
+          <FILE id="PbkVXr" name="perc2_22.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_22.aif"/>
+          <FILE id="h2lSp4" name="perc2_23.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_23.aif"/>
+          <FILE id="l5jQvB" name="perc2_24.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_24.aif"/>
+          <FILE id="k2RrZk" name="perc2_25.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_25.aif"/>
+          <FILE id="fpEnQu" name="perc2_26.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_26.aif"/>
+          <FILE id="GXHYce" name="perc2_27.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_27.aif"/>
+          <FILE id="S1yExo" name="perc2_28.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_28.aif"/>
+          <FILE id="DQKHSp" name="perc2_29.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_29.aif"/>
+          <FILE id="WiKxbG" name="Perc21.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/Perc21.aif"/>
+          <FILE id="VOFeCx" name="Perc22.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/Perc22.aif"/>
+          <FILE id="XS4wmo" name="Perc23.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/Perc23.aif"/>
+          <FILE id="FGMqCj" name="Perc24.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/Perc24.aif"/>
+          <FILE id="gQeWHw" name="Perc25.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/Perc25.aif"/>
+          <FILE id="I48LVQ" name="Perc26.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/Perc26.aif"/>
+          <FILE id="OdbYLI" name="Perc27.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/Perc27.aif"/>
+          <FILE id="pCAKy4" name="Perc28.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/Perc28.aif"/>
+          <FILE id="gANnMC" name="Perc29.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/Perc29.aif"/>
+          <FILE id="Yvzin5" name="Perc210.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/Perc210.aif"/>
+          <FILE id="tbN6Bt" name="Perc211.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/Perc211.aif"/>
+          <FILE id="TgSVCP" name="Perc212.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/Perc212.aif"/>
+          <FILE id="Rykgub" name="Perc213.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/Perc213.aif"/>
+          <FILE id="TUJAaM" name="Perc214.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/Perc214.aif"/>
+          <FILE id="giiMd6" name="Perc215.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/Perc215.aif"/>
+          <FILE id="IDQzre" name="Perc216.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/Perc216.aif"/>
+          <FILE id="fCFhGi" name="Perc217.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/Perc217.aif"/>
+          <FILE id="OElDDS" name="Perc218.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/Perc218.aif"/>
+          <FILE id="WYoUNt" name="Perc219.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/Perc219.aif"/>
+          <FILE id="fyka3E" name="Perc220.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/Perc220.aif"/>
+          <FILE id="VIgYU4" name="Perc221.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/Perc221.aif"/>
+          <FILE id="ZAd4Jx" name="Perc222.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/Perc222.aif"/>
+          <FILE id="Zdamy8" name="Perc223.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/Perc223.aif"/>
+          <FILE id="QcLVxE" name="Perc224.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/Perc224.aif"/>
+          <FILE id="oDrUdX" name="Perc225.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/Perc225.aif"/>
+          <FILE id="jzGkcx" name="Perc226.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/Perc226.aif"/>
+        </GROUP>
+        <GROUP id="{0A5CC916-CB47-AA4C-6861-1404193E5C31}" name="Snare">
+          <FILE id="J9IXnj" name="snare_01.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_01.aif"/>
+          <FILE id="d76BRa" name="snare_02.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_02.aif"/>
+          <FILE id="i4ZWgs" name="snare_03.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_03.aif"/>
+          <FILE id="wOdcfR" name="snare_04.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_04.aif"/>
+          <FILE id="IhfLHj" name="snare_05.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_05.aif"/>
+          <FILE id="RPoCXn" name="snare_06.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_06.aif"/>
+          <FILE id="kxF7S3" name="snare_07.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_07.aif"/>
+          <FILE id="FlyCaJ" name="snare_08.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_08.aif"/>
+          <FILE id="uPMSrU" name="snare_09.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_09.aif"/>
+          <FILE id="BDMisg" name="snare_10.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_10.aif"/>
+          <FILE id="IawMXN" name="snare_11.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_11.aif"/>
+          <FILE id="QYts3B" name="snare_12.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_12.aif"/>
+          <FILE id="SWUPyb" name="snare_13.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_13.aif"/>
+          <FILE id="jflWDO" name="snare_14.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_14.aif"/>
+          <FILE id="vucbFd" name="snare_15.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_15.aif"/>
+          <FILE id="F3lycB" name="snare_16.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_16.aif"/>
+          <FILE id="pebttq" name="snare_17.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_17.aif"/>
+          <FILE id="snJH4R" name="snare_18.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_18.aif"/>
+          <FILE id="XSNgzU" name="snare_19.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_19.aif"/>
+          <FILE id="JHKbqN" name="snare_20.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_20.aif"/>
+          <FILE id="LYitaZ" name="snare_21.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_21.aif"/>
+          <FILE id="re6KOh" name="snare_22.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_22.aif"/>
+          <FILE id="Q2osCz" name="snare_23.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_23.aif"/>
+          <FILE id="LUSQ3J" name="snare_24.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_24.aif"/>
+          <FILE id="DBHGXL" name="snare1.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare1.aif"/>
+          <FILE id="KCzUwo" name="snare2.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare2.aif"/>
+          <FILE id="FKbpKg" name="snare3.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare3.aif"/>
+          <FILE id="lYDQ0p" name="snare4.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare4.aif"/>
+          <FILE id="uQIzVt" name="snare5.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare5.aif"/>
+          <FILE id="d5nAq1" name="snare6.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare6.aif"/>
+          <FILE id="TDeCNv" name="snare7.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare7.aif"/>
+          <FILE id="jsF5sD" name="snare8.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare8.aif"/>
+          <FILE id="HFG1bH" name="snare9.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare9.aif"/>
+          <FILE id="eZxcCL" name="snare10.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare10.aif"/>
+          <FILE id="C57ijd" name="snare11.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare11.aif"/>
+          <FILE id="QE2Hdh" name="snare12.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare12.aif"/>
+          <FILE id="u2g72V" name="snare13.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare13.aif"/>
+          <FILE id="qrIB4S" name="snare14.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare14.aif"/>
+          <FILE id="wM2PKz" name="snare15.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare15.aif"/>
+          <FILE id="qunoBl" name="snare16.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare16.aif"/>
+          <FILE id="cLf5Sm" name="snare17.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare17.aif"/>
+          <FILE id="xPTJrJ" name="snare18.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare18.aif"/>
+          <FILE id="EVBvwA" name="snare19.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare19.aif"/>
+          <FILE id="uAJPG2" name="snare20.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare20.aif"/>
+          <FILE id="MuqHUX" name="snare21.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare21.aif"/>
+          <FILE id="qtL3wC" name="snare22.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare22.aif"/>
+          <FILE id="iDkT2F" name="snare23.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare23.aif"/>
+          <FILE id="cuzuMr" name="snare24.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare24.aif"/>
+        </GROUP>
+        <GROUP id="{D9560B31-E02E-28A0-6BB1-6BB36A52872E}" name="Tones">
+          <FILE id="N8bSXB" name="tones_01.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_01.aif"/>
+          <FILE id="fdAL2h" name="tones_02.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_02.aif"/>
+          <FILE id="aOrWma" name="tones_03.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_03.aif"/>
+          <FILE id="I7zrhn" name="tones_04.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_04.aif"/>
+          <FILE id="KSOfHx" name="tones_05.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_05.aif"/>
+          <FILE id="R08rtb" name="tones_06.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_06.aif"/>
+          <FILE id="LJ0SZo" name="tones_07.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_07.aif"/>
+          <FILE id="IaQYdN" name="tones_08.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_08.aif"/>
+          <FILE id="Aqsfda" name="tones_09.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_09.aif"/>
+          <FILE id="B9bOO2" name="tones_10.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_10.aif"/>
+          <FILE id="UMkuUs" name="tones_11.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_11.aif"/>
+          <FILE id="qsEoOX" name="tones_12.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_12.aif"/>
+          <FILE id="EOo3Fj" name="tones_13.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_13.aif"/>
+          <FILE id="oF8Xs4" name="tones_14.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_14.aif"/>
+          <FILE id="i9ZKba" name="tones_15.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_15.aif"/>
+          <FILE id="yIAIMu" name="tones_16.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_16.aif"/>
+          <FILE id="Nibu6i" name="tones_17.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_17.aif"/>
+          <FILE id="rHBXGS" name="tones_18.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_18.aif"/>
+          <FILE id="WXiflw" name="tones_19.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_19.aif"/>
+          <FILE id="DIIvkh" name="tones_20.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_20.aif"/>
+          <FILE id="iBQhYN" name="tones_21.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_21.aif"/>
+          <FILE id="SAA84h" name="tones_22.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_22.aif"/>
+          <FILE id="JzIIe5" name="tones_23.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_23.aif"/>
+          <FILE id="WKKJqw" name="tones_24.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_24.aif"/>
+          <FILE id="ezKuab" name="tones_25.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_25.aif"/>
+          <FILE id="E8sJ5E" name="tones_26.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_26.aif"/>
+          <FILE id="MbDymf" name="tones_27.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_27.aif"/>
+          <FILE id="c5OJMQ" name="tones_28.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_28.aif"/>
+          <FILE id="EIJqLK" name="tones_29.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_29.aif"/>
+          <FILE id="q6CVP7" name="tones_30.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_30.aif"/>
+        </GROUP>
       </GROUP>
-      <GROUP id="{D187FC60-5D9C-999B-BCE3-87C72521A455}" name="Sounds">
-        <FILE id="sCcaJS" name="sine.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/sine.aif"/>
-        <GROUP id="{7FD0E917-4F28-7893-661C-FEBB12B67081}" name="Hihat">
-          <FILE id="NA1FnR" name="hihat_01.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_01.aif"/>
-          <FILE id="QFRCJk" name="hihat_02.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_02.aif"/>
-          <FILE id="Xg83Gn" name="hihat_03.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_03.aif"/>
-          <FILE id="MeXvDH" name="hihat_04.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_04.aif"/>
-          <FILE id="OwpGNO" name="hihat_05.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_05.aif"/>
-          <FILE id="ZTky2L" name="hihat_06.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_06.aif"/>
-          <FILE id="waGM8I" name="hihat_07.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_07.aif"/>
-          <FILE id="lRzAXS" name="hihat_08.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_08.aif"/>
-          <FILE id="g3WTNb" name="hihat_09.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_09.aif"/>
-          <FILE id="mVm89Z" name="hihat_10.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_10.aif"/>
-          <FILE id="gUgmmK" name="hihat_11.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_11.aif"/>
-          <FILE id="hB7SFt" name="hihat_12.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_12.aif"/>
-          <FILE id="elRl5d" name="hihat_13.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_13.aif"/>
-          <FILE id="Ys1Hq2" name="hihat_14.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_14.aif"/>
-          <FILE id="GWZuGl" name="hihat_15.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_15.aif"/>
-          <FILE id="qSZVDI" name="hihat_16.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_16.aif"/>
-          <FILE id="vfUrhy" name="hihat_17.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_17.aif"/>
-          <FILE id="Mef0p2" name="hihat_18.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_18.aif"/>
-          <FILE id="NMQ3pJ" name="hihat_19.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_19.aif"/>
-          <FILE id="PczbES" name="hihat_20.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_20.aif"/>
-          <FILE id="zVeOUY" name="hihat_21.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_21.aif"/>
-          <FILE id="AlQ33X" name="hihat_22.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_22.aif"/>
-          <FILE id="UCaUgo" name="hihat_23.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat/hihat_23.aif"/>
-        </GROUP>
-        <GROUP id="{D22FB7E8-6771-7575-49C0-050EA04E47E5}" name="Kick">
-          <FILE id="Svsn62" name="kick_01.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_01.aif"/>
-          <FILE id="mOceI6" name="kick_02.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_02.aif"/>
-          <FILE id="hCXSHC" name="kick_03.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_03.aif"/>
-          <FILE id="VKBXWa" name="kick_04.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_04.aif"/>
-          <FILE id="FBitTD" name="kick_05.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_05.aif"/>
-          <FILE id="kUGbHd" name="kick_06.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_06.aif"/>
-          <FILE id="ewz2Rj" name="kick_07.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_07.aif"/>
-          <FILE id="udaNGN" name="kick_08.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_08.aif"/>
-          <FILE id="CYDfnn" name="kick_09.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_09.aif"/>
-          <FILE id="IJVwAT" name="kick_10.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_10.aif"/>
-          <FILE id="G7Q4K1" name="kick_11.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_11.aif"/>
-          <FILE id="YUa5Dh" name="kick_12.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_12.aif"/>
-          <FILE id="jlgo5p" name="kick_13.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_13.aif"/>
-          <FILE id="TqIYW8" name="kick_14.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_14.aif"/>
-          <FILE id="OgPwFa" name="kick_15.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_15.aif"/>
-          <FILE id="GemL6s" name="kick_16.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_16.aif"/>
-          <FILE id="zpyG6v" name="kick_17.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_17.aif"/>
-          <FILE id="gvPWiZ" name="kick_18.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_18.aif"/>
-          <FILE id="fnZqu9" name="kick_19.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_19.aif"/>
-          <FILE id="SAatph" name="kick_20.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_20.aif"/>
-          <FILE id="GdyLYt" name="kick_21.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_21.aif"/>
-          <FILE id="PvBLEL" name="kick_22.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_22.aif"/>
-          <FILE id="aMSw7k" name="kick_23.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Kick/kick_23.aif"/>
-        </GROUP>
-        <GROUP id="{A43E31E1-6CA7-4338-B086-B303B69735D3}" name="Perc">
-          <FILE id="MszTlp" name="perc1_01.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_01.aif"/>
-          <FILE id="pnVJeK" name="perc1_02.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_02.aif"/>
-          <FILE id="HqtcBZ" name="perc1_03.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_03.aif"/>
-          <FILE id="klupCQ" name="perc1_04.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_04.aif"/>
-          <FILE id="wi53Ba" name="perc1_05.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_05.aif"/>
-          <FILE id="tQRQNP" name="perc1_06.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_06.aif"/>
-          <FILE id="RBZZCm" name="perc1_07.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_07.aif"/>
-          <FILE id="YF7RiM" name="perc1_08.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_08.aif"/>
-          <FILE id="R2uJTP" name="perc1_09.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_09.aif"/>
-          <FILE id="KUfWci" name="perc1_10.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_10.aif"/>
-          <FILE id="IzrSdt" name="perc1_11.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_11.aif"/>
-          <FILE id="Xtpi6e" name="perc1_12.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_12.aif"/>
-          <FILE id="CGzb6m" name="perc1_13.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_13.aif"/>
-          <FILE id="DxOyI0" name="perc1_14.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_14.aif"/>
-          <FILE id="NsjbJf" name="perc1_15.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_15.aif"/>
-          <FILE id="MPGQXl" name="perc1_16.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_16.aif"/>
-          <FILE id="aKX25Z" name="perc1_17.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_17.aif"/>
-          <FILE id="VXzWSk" name="perc1_18.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_18.aif"/>
-          <FILE id="Q0iiR8" name="perc1_19.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_19.aif"/>
-          <FILE id="iNSShG" name="perc1_20.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_20.aif"/>
-          <FILE id="Y6ZElz" name="perc1_21.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_21.aif"/>
-          <FILE id="xY8Y9I" name="perc1_22.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_22.aif"/>
-          <FILE id="neKFv5" name="perc1_23.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_23.aif"/>
-          <FILE id="mKcjFR" name="perc1_24.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_24.aif"/>
-          <FILE id="BfUxLw" name="perc1_25.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_25.aif"/>
-          <FILE id="z9qvMN" name="perc1_26.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc/perc1_26.aif"/>
-        </GROUP>
-        <GROUP id="{CBF40038-1425-BC9F-9230-A104D092718C}" name="Perc2">
-          <FILE id="i9mymU" name="perc2_01.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_01.aif"/>
-          <FILE id="eAiajR" name="perc2_02.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_02.aif"/>
-          <FILE id="HEy0PR" name="perc2_03.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_03.aif"/>
-          <FILE id="ER9J96" name="perc2_04.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_04.aif"/>
-          <FILE id="f8FwUS" name="perc2_05.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_05.aif"/>
-          <FILE id="ZlI9bp" name="perc2_06.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_06.aif"/>
-          <FILE id="tvFVoZ" name="perc2_07.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_07.aif"/>
-          <FILE id="YpRtXF" name="perc2_08.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_08.aif"/>
-          <FILE id="ulIsP9" name="perc2_09.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_09.aif"/>
-          <FILE id="AZv7kj" name="perc2_10.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_10.aif"/>
-          <FILE id="I07BL4" name="perc2_11.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_11.aif"/>
-          <FILE id="wFmSvM" name="perc2_12.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_12.aif"/>
-          <FILE id="fqPIS7" name="perc2_13.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_13.aif"/>
-          <FILE id="bq44i4" name="perc2_14.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_14.aif"/>
-          <FILE id="EfR8Rp" name="perc2_15.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_15.aif"/>
-          <FILE id="N9aTxG" name="perc2_16.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_16.aif"/>
-          <FILE id="eyDq5a" name="perc2_17.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_17.aif"/>
-          <FILE id="d45flo" name="perc2_18.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_18.aif"/>
-          <FILE id="fXrYtk" name="perc2_19.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_19.aif"/>
-          <FILE id="tPJ07B" name="perc2_20.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_20.aif"/>
-          <FILE id="Josb4u" name="perc2_21.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_21.aif"/>
-          <FILE id="rnesvr" name="perc2_22.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_22.aif"/>
-          <FILE id="xIIzPV" name="perc2_23.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_23.aif"/>
-          <FILE id="fKX0Ol" name="perc2_24.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_24.aif"/>
-          <FILE id="FqQ4ao" name="perc2_25.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_25.aif"/>
-          <FILE id="hCUDGW" name="perc2_26.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_26.aif"/>
-          <FILE id="cYjcoV" name="perc2_27.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_27.aif"/>
-          <FILE id="inK6op" name="perc2_28.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_28.aif"/>
-          <FILE id="vY1Rqv" name="perc2_29.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2/perc2_29.aif"/>
-        </GROUP>
-        <GROUP id="{0F129193-D36E-53FD-E484-72A4D30D6FBB}" name="Snare">
-          <FILE id="WDxxaA" name="snare_01.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_01.aif"/>
-          <FILE id="ujIwZJ" name="snare_02.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_02.aif"/>
-          <FILE id="UPu8DX" name="snare_03.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_03.aif"/>
-          <FILE id="QqaTm3" name="snare_04.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_04.aif"/>
-          <FILE id="g2cnS8" name="snare_05.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_05.aif"/>
-          <FILE id="eCUIxo" name="snare_06.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_06.aif"/>
-          <FILE id="rBMkga" name="snare_07.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_07.aif"/>
-          <FILE id="Xd85EC" name="snare_08.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_08.aif"/>
-          <FILE id="nYEEo5" name="snare_09.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_09.aif"/>
-          <FILE id="hHk5r5" name="snare_10.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_10.aif"/>
-          <FILE id="eo4nl3" name="snare_11.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_11.aif"/>
-          <FILE id="BTWHs5" name="snare_12.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_12.aif"/>
-          <FILE id="HeCkNu" name="snare_13.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_13.aif"/>
-          <FILE id="STNXIe" name="snare_14.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_14.aif"/>
-          <FILE id="UhUI7s" name="snare_15.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_15.aif"/>
-          <FILE id="sgCMt5" name="snare_16.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_16.aif"/>
-          <FILE id="hlQImV" name="snare_17.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_17.aif"/>
-          <FILE id="fD8BC2" name="snare_18.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_18.aif"/>
-          <FILE id="XhtOue" name="snare_19.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_19.aif"/>
-          <FILE id="Q03mcs" name="snare_20.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_20.aif"/>
-          <FILE id="utSUmU" name="snare_21.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_21.aif"/>
-          <FILE id="LwEQQF" name="snare_22.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_22.aif"/>
-          <FILE id="Pu9PSM" name="snare_23.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_23.aif"/>
-          <FILE id="Q9Qzga" name="snare_24.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Snare/snare_24.aif"/>
-        </GROUP>
-        <GROUP id="{EBF8EC04-8DD6-10E8-6155-AE1DDC11663A}" name="Tones">
-          <FILE id="HMWxFJ" name="tones_01.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_01.aif"/>
-          <FILE id="AvzW79" name="tones_02.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_02.aif"/>
-          <FILE id="PnX6jx" name="tones_03.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_03.aif"/>
-          <FILE id="Qjyz2C" name="tones_04.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_04.aif"/>
-          <FILE id="AWOnng" name="tones_05.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_05.aif"/>
-          <FILE id="o55aIj" name="tones_06.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_06.aif"/>
-          <FILE id="GDhZlv" name="tones_07.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_07.aif"/>
-          <FILE id="BuqTRI" name="tones_08.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_08.aif"/>
-          <FILE id="TLys5w" name="tones_09.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_09.aif"/>
-          <FILE id="rezZpA" name="tones_10.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_10.aif"/>
-          <FILE id="EJygXW" name="tones_11.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_11.aif"/>
-          <FILE id="AxzkJl" name="tones_12.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_12.aif"/>
-          <FILE id="SIQvZn" name="tones_13.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_13.aif"/>
-          <FILE id="sYOeZP" name="tones_14.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_14.aif"/>
-          <FILE id="pKjxbR" name="tones_15.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_15.aif"/>
-          <FILE id="hqjPML" name="tones_16.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_16.aif"/>
-          <FILE id="oDxwMi" name="tones_17.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_17.aif"/>
-          <FILE id="dyg7N2" name="tones_18.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_18.aif"/>
-          <FILE id="hjHkxB" name="tones_19.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_19.aif"/>
-          <FILE id="Mzy4Jy" name="tones_20.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_20.aif"/>
-          <FILE id="BPSYqt" name="tones_21.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_21.aif"/>
-          <FILE id="afAeE8" name="tones_22.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_22.aif"/>
-          <FILE id="vZJW4X" name="tones_23.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_23.aif"/>
-          <FILE id="MJTYAs" name="tones_24.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_24.aif"/>
-          <FILE id="cUB4aE" name="tones_25.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_25.aif"/>
-          <FILE id="lzSX9i" name="tones_26.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_26.aif"/>
-          <FILE id="Xe3L7K" name="tones_27.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_27.aif"/>
-          <FILE id="BtKejZ" name="tones_28.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_28.aif"/>
-          <FILE id="E8kvTb" name="tones_29.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_29.aif"/>
-          <FILE id="MaAY3H" name="tones_30.aif" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Samples/Tones/tones_30.aif"/>
-        </GROUP>
+      <GROUP id="{77A2669D-49B1-41CB-A75D-710AF012B651}" name="Images">
+        <FILE id="z578EU" name="Background.png" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Images/Background.png"/>
+        <FILE id="o9XE0B" name="Bird.png" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Images/Bird.png"/>
+        <FILE id="sbxj9i" name="Knob_Centered.png" compile="0" resource="1"
+              file="../../../../Dropbox/audiosalt/Silverbird/Images/Knob_Centered.png"/>
+        <FILE id="q1AHnn" name="Knob.png" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Images/Knob.png"/>
+        <FILE id="lVxp3x" name="SB.png" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Images/SB.png"/>
       </GROUP>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="Builds/MacOSX" smallIcon="fJGTOs" bigIcon="b5gehu">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" osxSDK="10.9 SDK" osxCompatibility="10.9 SDK" osxArchitecture="default"
-                       isDebug="1" optimisation="1" targetName="SilverbirdApp" customXcodeFlags="MACOSX_DEPLOYMENT_TARGET=&quot;10.9&quot;"/>
+        <CONFIGURATION name="Debug" osxSDK="10.11 SDK" osxCompatibility="10.11 SDK"
+                       osxArchitecture="default" isDebug="1" optimisation="1" targetName="SilverbirdApp"
+                       customXcodeFlags="MACOSX_DEPLOYMENT_TARGET=&quot;10.9&quot;"/>
         <CONFIGURATION name="Release" osxSDK="10.9 SDK" osxCompatibility="10.9 SDK"
                        osxArchitecture="default" isDebug="0" optimisation="2" targetName="SilverbirdApp"/>
       </CONFIGURATIONS>
@@ -271,7 +395,7 @@
         <MODULEPATH id="juce_audio_utils" path="../JUCE/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
-    <VS2013 targetFolder="Builds/VisualStudio2013" smallIcon="fJGTOs" bigIcon="b5gehu">
+    <VS2013 targetFolder="Builds/VisualStudio2013" smallIcon="cW5Db3" bigIcon="Mg3RT0">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
                        isDebug="1" optimisation="1" targetName="SilverbirdApp"/>

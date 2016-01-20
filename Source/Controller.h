@@ -58,8 +58,8 @@ public:
     OwnedArray<Parameter> parameters;
     
     Mixer mixer;
-    Clock clock;
     Sequencer sequencer;
+    Clock clock;
     
     struct params {
         enum {

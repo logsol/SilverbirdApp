@@ -16,7 +16,7 @@
 #include "ClockListener.h"
 #include "SequencerMessage.h"
 
-class Sequencer : public ClockListener, public MessageListener
+class Sequencer : public MessageListener
 {
 public:
     Sequencer(Mixer& mixer);
@@ -27,7 +27,7 @@ public:
     Array<float> getModulationCells(int trackId);
     void setCell(int trackId, int cellId, float value);
     void setModulationCell(int trackId, int cellId, float value);
-    void clockStep(int counter);
+    void clockStep(int counter, double nextStepTimeMs);
     
     void handleMessage (const Message& message);
     

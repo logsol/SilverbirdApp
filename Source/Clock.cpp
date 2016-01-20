@@ -9,16 +9,19 @@
 */
 
 #include "Clock.h"
-#include "Parameter.h"
 
-Clock::Clock(OwnedArray<Parameter>* parameters) : parameters(parameters)
+
+Clock::Clock(OwnedArray<Parameter>* parameters, Mixer& mixer, Sequencer& sequencer)
+    : parameters(parameters),
+      mixer(mixer),
+      sequencer(sequencer) 
 {
     listeners.clear(true);
 }
 
 Clock::~Clock()
 {
-    stopTimer();
+    //stopTimer();
     listeners.clear(false);
 }
 
@@ -33,22 +36,25 @@ void Clock::removeListener(ClockListener* listener)
 }
 
 //void Clock::timerCallback()
+/*
 void Clock::hiResTimerCallback()
 {
-    cursor++;
-    cursor = cursor % numCells;
+    //cursor++;
+    //cursor = cursor % numCells;
     
-    /*
+ 
     // 1e&a 2e&a 3e&a 4e&a (all e/a hits)
     if(cursor % 2) {
         float shl = 1 / (bpm / 60 * 4) * 1000 * globalParams->shuffle / 5;
         juce::Thread::sleep(shl);
     }
-    */
+ 
     
     //postMessage(new Message());
 }
+*/
 
+// handle asynchronous calls for gui
 void Clock::handleMessage(const Message& message){
     
     for (int i = 0; i < listeners.size(); i++) {
@@ -64,10 +70,8 @@ void Clock::togglePlayPause()
 
 void Clock::setPlayPause(bool play) {
     if(play) {
-        //float sixteenthTime = 60000 / bpm / 4;
-        //startTimer(sixteenthTime);
+        lastClockStepTimeMs = Time::getMillisecondCounterHiRes() - sixteenthTimeMs;
     } else {
-        //stopTimer();
         cursor = -1;
         postMessage(new Message());
     }
@@ -78,29 +82,36 @@ void Clock::setPlayPause(bool play) {
 void Clock::setBpm(float bpm)
 {
     this->bpm = bpm;
-    this->sixteenthTime = 60000 / this->bpm / 4;
+    this->sixteenthTimeMs = 60000 / this->bpm / 4;
 }
 
-void Clock::tick(float shuffle)
+void Clock::tick(float shuffle, AudioSampleBuffer& buffer, double sampleRate)
 {
     if (!isPlaying) {
         return;
     }
     
-    uint32 now = Time::getMillisecondCounter();
-    float difference = now - lastClockStepTime;
+    double now = Time::getMillisecondCounterHiRes();
+    double nextStepTimeMs = lastClockStepTimeMs + sixteenthTimeMs;
     
-    float shuffleTime = cursor % 2
-        ? 0.0
-        : 1 / (bpm / 60 * 4) * 1000 * shuffle / 5;
+    int numSamples = buffer.getNumSamples();
+    double singleSampleTimeMs = 1000/sampleRate;
+    double endOfBlockTimeMs = now + (numSamples * singleSampleTimeMs);
     
-    if (difference > sixteenthTime + shuffleTime) {
+    double shuffleTimeMs = cursor % 2
+      ? 0.0
+      : 1 / (bpm / 60 * 4) * 1000 * shuffle / 5;
+    
+    //nextStepTimeMs += shuffleTimeMs;
+    
+    if (nextStepTimeMs <= endOfBlockTimeMs) {
         
+        lastClockStepTimeMs = nextStepTimeMs;
         cursor++;
         cursor = cursor % numCells;
-
+        
+        sequencer.clockStep(cursor, nextStepTimeMs);
+        
         postMessage(new Message());
-        lastClockStepTime = now - shuffleTime;
     }
-
 }

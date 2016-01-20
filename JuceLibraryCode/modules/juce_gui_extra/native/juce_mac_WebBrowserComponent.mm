@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission is granted to use this software under the terms of either:
    a) the GPL v2 (or any later version)
@@ -98,7 +98,7 @@ private:
                 [resultListener chooseFilename: juceStringToNS (files.getReference(i).getFullPathName())];
         }
        #else
-        (void) resultListener; (void) allowMultipleFiles;
+        ignoreUnused (resultListener, allowMultipleFiles);
         jassertfalse; // Can't use this without modal loops being enabled!
        #endif
     }
@@ -122,8 +122,7 @@ private:
 - (BOOL) gestureRecognizer: (UIGestureRecognizer*) gestureRecognizer
          shouldRecognizeSimultaneouslyWithGestureRecognizer: (UIGestureRecognizer*) otherGestureRecognizer
 {
-    (void) gestureRecognizer;
-    (void) otherGestureRecognizer;
+    ignoreUnused (gestureRecognizer, otherGestureRecognizer);
     return YES;
 }
 
@@ -153,8 +152,7 @@ private:
 - (BOOL) webView: (UIWebView*) webView shouldStartLoadWithRequest: (NSURLRequest*) request
                                                    navigationType: (UIWebViewNavigationType) navigationType
 {
-    (void) webView;
-    (void) navigationType;
+    ignoreUnused (webView, navigationType);
     return ownerComponent->pageAboutToLoad (nsStringToJuce (request.URL.absoluteString));
 }
 
@@ -287,7 +285,7 @@ public:
 private:
    #if JUCE_MAC
     WebView* webView;
-    NSObject* clickListener;
+    id clickListener;
    #else
     UIWebView* webView;
     WebViewTapDetector* tapDetector;

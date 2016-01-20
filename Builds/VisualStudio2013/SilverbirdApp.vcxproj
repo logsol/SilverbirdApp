@@ -38,10 +38,8 @@
   </PropertyGroup>
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\Debug\</OutDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">SilverbirdApp</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\Release\</OutDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">SilverbirdApp</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
     <PlatformToolset>v120</PlatformToolset>
@@ -58,7 +56,7 @@
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <AdditionalIncludeDirectories>..\..\JuceLibraryCode;..\..\JuceLibraryCode\modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;DEBUG;_DEBUG;JUCER_VS2013_78A5020=1;JUCE_APP_VERSION=1.0.0;JUCE_APP_VERSION_HEX=0x10000;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCER_VS2013_78A5020=1;JUCE_APP_VERSION=1.0.0;JUCE_APP_VERSION_HEX=0x10000;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader/>
@@ -99,7 +97,7 @@
     <ClCompile>
       <Optimization>MinSpace</Optimization>
       <AdditionalIncludeDirectories>..\..\JuceLibraryCode;..\..\JuceLibraryCode\modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;JUCER_VS2013_78A5020=1;JUCE_APP_VERSION=1.0.0;JUCE_APP_VERSION_HEX=0x10000;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCER_VS2013_78A5020=1;JUCE_APP_VERSION=1.0.0;JUCE_APP_VERSION_HEX=0x10000;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader/>
@@ -157,10 +155,16 @@
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioSampleBuffer.cpp">
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_FloatVectorOperations.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_FloatVectorOperations.cpp">
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_FFT.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_IIRFilter.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_LagrangeInterpolator.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\midi\juce_MidiBuffer.cpp">
@@ -178,10 +182,34 @@
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\midi\juce_MidiMessageSequence.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_IIRFilter.cpp">
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\midi\juce_MidiRPN.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_LagrangeInterpolator.cpp">
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPEInstrument.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPEMessages.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPENote.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPESynthesiser.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPESynthesiserBase.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPESynthesiserVoice.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPEValue.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPEZone.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPEZoneLayout.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\sources\juce_BufferingAudioSource.cpp">
@@ -331,6 +359,9 @@
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_formats\sampler\juce_Sampler.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_processors\processors\juce_AudioChannelSet.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_processors\processors\juce_AudioProcessor.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -370,6 +401,12 @@
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_processors\scanning\juce_PluginListComponent.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_processors\utilities\juce_AudioProcessorParameters.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_processors\utilities\juce_AudioProcessorValueTreeState.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioAppComponent.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -382,10 +419,25 @@
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioThumbnailCache.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioVisualiserComponent.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_MidiKeyboardComponent.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\players\juce_AudioProcessorPlayer.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\native\juce_android_BluetoothMidiDevicePairingDialogue.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\native\juce_linux_BluetoothMidiDevicePairingDialogue.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\native\juce_win_BluetoothMidiDevicePairingDialogue.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_core\text\juce_Base64.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_core\text\juce_CharacterFunctions.cpp">
@@ -580,6 +632,9 @@
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_core\native\juce_android_Threads.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_core\native\juce_curl_Network.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_core\native\juce_linux_CommonFile.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -617,6 +672,9 @@
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_data_structures\values\juce_ValueTree.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_data_structures\values\juce_ValueTreeSynchroniser.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_data_structures\undomanager\juce_UndoManager.cpp">
@@ -1205,6 +1263,8 @@
     <ClCompile Include="..\..\JuceLibraryCode\BinaryData2.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\BinaryData3.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\BinaryData4.cpp"/>
+    <ClCompile Include="..\..\JuceLibraryCode\BinaryData5.cpp"/>
+    <ClCompile Include="..\..\JuceLibraryCode\BinaryData6.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\juce_audio_basics.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_devices\juce_audio_devices.cpp"/>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_formats\juce_audio_formats.cpp"/>
@@ -1244,15 +1304,27 @@
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioSampleBuffer.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_FloatVectorOperations.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_Decibels.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_FFT.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_IIRFilter.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_LagrangeInterpolator.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_LinearSmoothedValue.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_Reverb.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\midi\juce_MidiBuffer.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\midi\juce_MidiFile.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\midi\juce_MidiKeyboardState.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\midi\juce_MidiMessage.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\midi\juce_MidiMessageSequence.h"/>
-    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_Decibels.h"/>
-    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_IIRFilter.h"/>
-    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_LagrangeInterpolator.h"/>
-    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_Reverb.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\midi\juce_MidiRPN.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPEInstrument.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPEMessages.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPENote.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPESynthesiser.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPESynthesiserBase.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPESynthesiserVoice.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPEValue.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPEZone.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPEZoneLayout.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\sources\juce_AudioSource.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\sources\juce_BufferingAudioSource.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\sources\juce_ChannelRemappingAudioSource.h"/>
@@ -1296,6 +1368,7 @@
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_formats\codecs\juce_WindowsMediaAudioFormat.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_formats\sampler\juce_Sampler.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_formats\juce_audio_formats.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_processors\processors\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_processors\processors\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_processors\processors\juce_AudioPluginInstance.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_processors\processors\juce_AudioProcessor.h"/>
@@ -1317,15 +1390,24 @@
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_processors\scanning\juce_KnownPluginList.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_processors\scanning\juce_PluginDirectoryScanner.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_processors\scanning\juce_PluginListComponent.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_processors\utilities\juce_AudioParameterBool.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_processors\utilities\juce_AudioParameterChoice.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_processors\utilities\juce_AudioParameterFloat.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_processors\utilities\juce_AudioParameterInt.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_processors\utilities\juce_AudioProcessorParameterWithID.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_processors\utilities\juce_AudioProcessorValueTreeState.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_processors\juce_audio_processors.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioAppComponent.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioDeviceSelectorComponent.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioThumbnail.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioThumbnailBase.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioThumbnailCache.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioVisualiserComponent.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_BluetoothMidiDevicePairingDialogue.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_MidiKeyboardComponent.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\players\juce_AudioProcessorPlayer.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\juce_audio_utils.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\text\juce_Base64.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\text\juce_CharacterFunctions.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\text\juce_CharPointer_ASCII.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\text\juce_CharPointer_UTF8.h"/>
@@ -1366,6 +1448,7 @@
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\containers\juce_ElementComparator.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\containers\juce_HashMap.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\containers\juce_LinkedListPointer.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\containers\juce_ListenerList.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\containers\juce_NamedValueSet.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\containers\juce_OwnedArray.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\containers\juce_PropertySet.h"/>
@@ -1435,12 +1518,14 @@
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\misc\juce_WindowsRegistry.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\native\juce_android_JNIHelpers.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\native\juce_BasicNativeHeaders.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\native\juce_mac_ClangBugWorkaround.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\native\juce_osx_ObjCHelpers.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\native\juce_posix_SharedCode.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\native\juce_win32_ComSmartPtr.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\juce_core.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_data_structures\values\juce_Value.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_data_structures\values\juce_ValueTree.h"/>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_data_structures\values\juce_ValueTreeSynchroniser.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_data_structures\undomanager\juce_UndoableAction.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_data_structures\undomanager\juce_UndoManager.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_data_structures\app_properties\juce_ApplicationProperties.h"/>
@@ -1462,7 +1547,6 @@
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_events\broadcasters\juce_AsyncUpdater.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_events\broadcasters\juce_ChangeBroadcaster.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_events\broadcasters\juce_ChangeListener.h"/>
-    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_events\broadcasters\juce_ListenerList.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_events\interprocess\juce_ConnectedChildProcess.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_events\interprocess\juce_InterprocessConnection.h"/>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_events\interprocess\juce_InterprocessConnectionServer.h"/>
@@ -1665,12 +1749,6 @@
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h"/>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Images\Knob_Centered.png"/>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Images\Knob.png"/>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Images\Bird.png"/>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Images\SB.png"/>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Images\Background.png"/>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\sine.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_01.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_02.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_03.aif"/>
@@ -1694,6 +1772,29 @@
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_21.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_22.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_23.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat1.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat2.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat3.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat4.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat5.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat6.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat7.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat8.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat9.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat10.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat11.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat12.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat13.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat14.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat15.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat16.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat17.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat18.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat19.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat20.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat21.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat22.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat23.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_01.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_02.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_03.aif"/>
@@ -1717,6 +1818,30 @@
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_21.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_22.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_23.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick1.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick2.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick3.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick4.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick5.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick6.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick7.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick8.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick9.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick10.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick11.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick12.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick13.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick14.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick15.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick16.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick17.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick18.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick19.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick20.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick21.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick22.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick23.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc1.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_01.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_02.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_03.aif"/>
@@ -1743,6 +1868,33 @@
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_24.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_25.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_26.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc2.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc3.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc4.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc5.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc6.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc7.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc8.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc9.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc10.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc11.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc12.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc13.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc14.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc15.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc16.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc17.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc18.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc19.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc20.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc21.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc22.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc23.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc24.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc25.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc26.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc27.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc28.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_01.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_02.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_03.aif"/>
@@ -1772,6 +1924,32 @@
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_27.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_28.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_29.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc21.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc22.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc23.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc24.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc25.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc26.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc27.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc28.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc29.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc210.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc211.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc212.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc213.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc214.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc215.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc216.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc217.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc218.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc219.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc220.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc221.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc222.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc223.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc224.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc225.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc226.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_01.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_02.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_03.aif"/>
@@ -1796,6 +1974,30 @@
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_22.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_23.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_24.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare1.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare2.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare3.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare4.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare5.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare6.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare7.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare8.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare9.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare10.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare11.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare12.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare13.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare14.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare15.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare16.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare17.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare18.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare19.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare20.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare21.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare22.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare23.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare24.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_01.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_02.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_03.aif"/>
@@ -1826,6 +2028,11 @@
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_28.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_29.aif"/>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_30.aif"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Images\Background.png"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Images\Bird.png"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Images\Knob_Centered.png"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Images\Knob.png"/>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Images\SB.png"/>
     <None Include="..\..\JuceLibraryCode\modules\juce_audio_basics\juce_module_info"/>
     <None Include="..\..\JuceLibraryCode\modules\juce_audio_devices\juce_module_info"/>
     <None Include="..\..\JuceLibraryCode\modules\juce_audio_formats\juce_module_info"/>
@@ -1837,7 +2044,6 @@
     <None Include="..\..\JuceLibraryCode\modules\juce_graphics\juce_module_info"/>
     <None Include="..\..\JuceLibraryCode\modules\juce_gui_basics\juce_module_info"/>
     <None Include="..\..\JuceLibraryCode\modules\juce_gui_extra\juce_module_info"/>
-    <None Include=".\icon.ico"/>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include=".\resources.rc"/>

@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission is granted to use this software under the terms of either:
    a) the GPL v2 (or any later version)
@@ -22,7 +22,7 @@
   ==============================================================================
 */
 
-#if defined (JUCE_GUI_BASICS_H_INCLUDED) && ! JUCE_AMALGAMATED_INCLUDE
+#ifdef JUCE_GUI_BASICS_H_INCLUDED
  /* When you add this cpp file to your project, you mustn't include it in a file where you've
     already included any other headers - just put it inside a file on its own, possibly with your config
     flags preceding it, but don't include anything else. That also includes avoiding any automatic prefix
@@ -31,25 +31,17 @@
  #error "Incorrect use of JUCE cpp file"
 #endif
 
-// Your project must contain an AppConfig.h file with your project-specific settings in it,
-// and your header search path must make it accessible to the module's files.
-#include "AppConfig.h"
-
 #define NS_FORMAT_FUNCTION(F,A) // To avoid spurious warnings from GCC
 
 #include "../juce_core/native/juce_BasicNativeHeaders.h"
 #include "juce_gui_basics.h"
-
-#if JUCE_MODULE_AVAILABLE_juce_opengl
- #include "../juce_opengl/juce_opengl.h"
-#endif
 
 //==============================================================================
 #if JUCE_MAC
  #import <WebKit/WebKit.h>
  #import <IOKit/pwr_mgt/IOPMLib.h>
 
- #if JUCE_SUPPORT_CARBON && ! (defined (MAC_OS_X_VERSION_10_6) && MAC_OS_X_VERSION_MIN_REQUIRED >= MAC_OS_X_VERSION_10_6)
+ #if JUCE_SUPPORT_CARBON
   #define Point CarbonDummyPointName
   #define Component CarbonDummyCompName
   #import <Carbon/Carbon.h> // still needed for SetSystemUIMode()
@@ -104,6 +96,11 @@
  #include <X11/XKBlib.h>
  #include <X11/cursorfont.h>
  #include <unistd.h>
+
+ #if JUCE_USE_XRANDR
+  /* If you're trying to use Xrandr, you'll need to install the "libxrandr-dev" package..  */
+  #include <X11/extensions/Xrandr.h>
+ #endif
 
  #if JUCE_USE_XINERAMA
   /* If you're trying to use Xinerama, you'll need to install the "libxinerama-dev" package..  */

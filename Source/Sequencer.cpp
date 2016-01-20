@@ -68,12 +68,27 @@ void Sequencer::setModulationCell(int trackId, int cellId, float value)
     modulationMatrix.getUnchecked(trackId)->set(cellId, value);
 }
 
-void Sequencer::clockStep(int cursorPosition)
+void Sequencer::clockStep(int cursorPosition, double nextStepTimeMs)
 {
     if (cursorPosition == -1) {
         return;
     }
+
+    for (int i = 0; i < Mixer::mods::max; i++) {
+        float value = modulationMatrix.getUnchecked(i)->getUnchecked(cursorPosition);
+        columnModulations.insert(i, value);
+    }
+    mixer.setColumnModulations(&columnModulations);
     
+    for (int trackId = 0; trackId < Mixer::tracks::max; trackId++) {
+        float value = matrix.getUnchecked(trackId)->getUnchecked(cursorPosition);
+        
+        MidiMessage m = MidiMessage::noteOn(1, notes[trackId], static_cast<float>(value));
+        m.setTimeStamp(nextStepTimeMs / 1000.0);
+        mixer.midiCollector.addMessageToQueue(m);
+    }
+    
+    /*
     sequencerMessage = new SequencerMessage();
     sequencerMessage->type = SequencerMessage::type_modulation;
     sequencerMessage->cellId = cursorPosition;
@@ -85,11 +100,12 @@ void Sequencer::clockStep(int cursorPosition)
         sequencerMessage->trackId = trackId;
         sequencerMessage->cellId = cursorPosition;
         postMessage(sequencerMessage);
-    }
+    }*/
 }
 
 void Sequencer::handleMessage (const Message& message)
 {
+    /*
     SequencerMessage* sequencerMessage = (SequencerMessage*) &message;
     
     if (sequencerMessage->type == SequencerMessage::type_modulation) {
@@ -107,4 +123,5 @@ void Sequencer::handleMessage (const Message& message)
         mixer.playNote(notes[sequencerMessage->trackId], value);
         return;
     } 
+     */
 }

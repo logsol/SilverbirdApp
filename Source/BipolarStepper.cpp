@@ -30,6 +30,9 @@
 BipolarStepper::BipolarStepper (Controller* controller, int trackId, bool isModulationTrack)
     : Stepper(controller, trackId, isModulationTrack), controller(controller)
 {
+    //[Constructor_pre] You can add your own custom stuff here..
+    //[/Constructor_pre]
+
 
     //[UserPreSize]
     //[/UserPreSize]

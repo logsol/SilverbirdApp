@@ -81,10 +81,12 @@ void Mixer::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
     bufferToFill.clearActiveBufferRegion();
     
     MidiBuffer incomingMidi;
+    
     midiCollector.removeNextBlockOfMessages (incomingMidi, bufferToFill.numSamples);
     
     for (int i=0; i<sources.size(); i++) {
         // copying object with copy constructor:
+        //fixme: shouldnt copy constructor look like MidiBuffer sharedMidi(incomingMidi) ?
         MidiBuffer sharedMidi = incomingMidi;
         sources[i]->incomingMidi = sharedMidi;
     }

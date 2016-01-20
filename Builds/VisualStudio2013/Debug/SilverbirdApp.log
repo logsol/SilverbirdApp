@@ -1,0 +1,64 @@
+﻿Build started 20.02.2015 17:27:50.
+     1>Project "\\VBOXSVR\c++\SilverbirdApp\Builds\VisualStudio2013\SilverbirdApp.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\JuceLibraryCode /I..\..\JuceLibraryCode\modules /ZI /nologo /W4 /WX- /MP /Od /Oy- /D WIN32 /D _WINDOWS /D DEBUG /D _DEBUG /D JUCER_VS2013_78A5020=1 /D JUCE_APP_VERSION=1.0.0 /D JUCE_APP_VERSION_HEX=0x10000 /Gm- /EHsc /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Debug\\" /Fd"Debug\\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Source\Stepper.cpp
+         Stepper.cpp
+     1>\\vboxsvr\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+                 \\vboxsvr\c++\silverbirdapp\jucelibrarycode\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+     1>\\vboxsvr\c++\silverbirdapp\source\sampler.h(27): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+                 \\vboxsvr\c++\silverbirdapp\jucelibrarycode\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(360) : see declaration of 'juce::Synthesiser::noteOn'
+     1>\\vboxsvr\c++\silverbirdapp\source\stepper.cpp(97): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>\\vboxsvr\c++\silverbirdapp\source\stepper.cpp(101): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>\\vboxsvr\c++\silverbirdapp\source\stepper.cpp(141): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>\\vboxsvr\c++\silverbirdapp\source\stepper.cpp(149): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>\\vboxsvr\c++\silverbirdapp\source\stepper.cpp(149): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>\\vboxsvr\c++\silverbirdapp\source\stepper.cpp(175): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+     1>\\vboxsvr\c++\silverbirdapp\source\stepper.cpp(176): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+     1>\\vboxsvr\c++\silverbirdapp\source\stepper.cpp(178): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>\\vboxsvr\c++\silverbirdapp\source\stepper.cpp(208): warning C4100: 'newID' : unreferenced formal parameter
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\Debug\\SilverbirdApp.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:libcmt.lib /NODEFAULTLIB:msvcrt.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"Debug\\SilverbirdApp.pdb" /SUBSYSTEM:WINDOWS /LARGEADDRESSAWARE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Debug\SilverbirdApp.lib" /MACHINE:X86 /SAFESEH:NO Debug\resources.res
+         Debug\\Parameter.obj
+         Debug\\Controller.obj
+         Debug\\Processor.obj
+         Debug\\ADSR.obj
+         Debug\\Voice.obj
+         Debug\\Mixer.obj
+         Debug\\Sampler.obj
+         Debug\\Source.obj
+         Debug\\Sound.obj
+         Debug\\BpmSlider.obj
+         Debug\\Transport.obj
+         Debug\\Mods.obj
+         Debug\\Drums.obj
+         Debug\\Stepper.obj
+         Debug\\BipolarStepper.obj
+         Debug\\TrackParameters.obj
+         Debug\\Knob.obj
+         Debug\\CustomLook.obj
+         Debug\\Gui.obj
+         Debug\\Sequencer.obj
+         Debug\\ClockListener.obj
+         Debug\\Clock.obj
+         Debug\\Main.obj
+         Debug\\BinaryData.obj
+         Debug\\BinaryData2.obj
+         Debug\\BinaryData3.obj
+         Debug\\BinaryData4.obj
+         Debug\\juce_audio_basics.obj
+         Debug\\juce_audio_devices.obj
+         Debug\\juce_audio_formats.obj
+         Debug\\juce_audio_processors.obj
+         Debug\\juce_audio_utils.obj
+         Debug\\juce_core.obj
+         Debug\\juce_data_structures.obj
+         Debug\\juce_events.obj
+         Debug\\juce_graphics.obj
+         Debug\\juce_gui_basics.obj
+         Debug\\juce_gui_extra.obj
+         SilverbirdApp.vcxproj -> \\VBOXSVR\c++\SilverbirdApp\Builds\VisualStudio2013\.\Debug\SilverbirdApp.exe
+     1>Done Building Project "\\VBOXSVR\c++\SilverbirdApp\Builds\VisualStudio2013\SilverbirdApp.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:06.06

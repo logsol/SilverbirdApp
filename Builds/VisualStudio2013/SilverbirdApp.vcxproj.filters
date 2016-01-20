@@ -26,29 +26,29 @@
     <Filter Include="SilverbirdApp\Resources">
       <UniqueIdentifier>{348C9731-B363-7CA6-394F-46A9DE9431BA}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SilverbirdApp\Resources\Samples">
+      <UniqueIdentifier>{48CD0EF8-3740-ED92-DFEC-93635F7ABE1B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SilverbirdApp\Resources\Samples\Hihat">
+      <UniqueIdentifier>{AD868F06-7A28-AE11-2B2B-CD986E6B7123}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SilverbirdApp\Resources\Samples\Kick">
+      <UniqueIdentifier>{0A77E78C-8F52-C710-8205-51F4144864B7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SilverbirdApp\Resources\Samples\Perc">
+      <UniqueIdentifier>{24B247A0-BF8F-FF00-1D0F-CC4FB6690AAA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SilverbirdApp\Resources\Samples\Perc2">
+      <UniqueIdentifier>{CB82EFF6-7D83-DB60-89C6-00C2A408518D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SilverbirdApp\Resources\Samples\Snare">
+      <UniqueIdentifier>{82F1ADD9-790C-DBC8-58E2-6BAE75182F91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SilverbirdApp\Resources\Samples\Tones">
+      <UniqueIdentifier>{EBCF72A5-2794-E4BE-3E03-3C26CF8A5DE7}</UniqueIdentifier>
+    </Filter>
     <Filter Include="SilverbirdApp\Resources\Images">
       <UniqueIdentifier>{3BEDEDD2-1ED5-5322-E18F-25AD6928BDDA}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SilverbirdApp\Resources\Sounds">
-      <UniqueIdentifier>{9A904D5F-3C31-544F-1038-37A5590AEF79}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SilverbirdApp\Resources\Sounds\Hihat">
-      <UniqueIdentifier>{9B83415D-1BC4-1D4A-CC29-5FA3A0895A94}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SilverbirdApp\Resources\Sounds\Kick">
-      <UniqueIdentifier>{22EF6609-6DE1-7EF9-5D20-3C76A5D1D387}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SilverbirdApp\Resources\Sounds\Perc">
-      <UniqueIdentifier>{03E1DDFE-D58A-18B5-BAE2-62A11361CD00}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SilverbirdApp\Resources\Sounds\Perc2">
-      <UniqueIdentifier>{F4297A56-4534-B3A9-6A59-A08268D69005}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SilverbirdApp\Resources\Sounds\Snare">
-      <UniqueIdentifier>{EFFFC8C2-F88D-4917-1021-FF821F10D6CB}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SilverbirdApp\Resources\Sounds\Tones">
-      <UniqueIdentifier>{7316ACAC-EA19-C93F-1BFB-3179E42FBA35}</UniqueIdentifier>
     </Filter>
     <Filter Include="Juce Modules">
       <UniqueIdentifier>{422C46B7-0467-2DB0-BF3C-16DFCAFD69AC}</UniqueIdentifier>
@@ -59,11 +59,14 @@
     <Filter Include="Juce Modules\juce_audio_basics\buffers">
       <UniqueIdentifier>{A33A1E1D-AC2C-6382-8681-48B0FC374C60}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Juce Modules\juce_audio_basics\effects">
+      <UniqueIdentifier>{11A75801-B027-40BD-4993-023023ACCBF7}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Juce Modules\juce_audio_basics\midi">
       <UniqueIdentifier>{3FD908F5-98C8-9A61-FC03-0BAF8913CBB0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Juce Modules\juce_audio_basics\effects">
-      <UniqueIdentifier>{11A75801-B027-40BD-4993-023023ACCBF7}</UniqueIdentifier>
+    <Filter Include="Juce Modules\juce_audio_basics\mpe">
+      <UniqueIdentifier>{8C868E51-156D-A916-047C-0D9EA1393675}</UniqueIdentifier>
     </Filter>
     <Filter Include="Juce Modules\juce_audio_basics\sources">
       <UniqueIdentifier>{EF2CAB40-0432-429B-C517-86ADF136BB8A}</UniqueIdentifier>
@@ -116,6 +119,9 @@
     <Filter Include="Juce Modules\juce_audio_processors\scanning">
       <UniqueIdentifier>{EB8DD942-E2CB-869F-D381-E02A65BA790B}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Juce Modules\juce_audio_processors\utilities">
+      <UniqueIdentifier>{8F91DFC0-7A71-1BA8-D8D9-6B4CF49151A4}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Juce Modules\juce_audio_utils">
       <UniqueIdentifier>{B63F69FD-8A40-8E1E-E7ED-419B8DC1C12B}</UniqueIdentifier>
     </Filter>
@@ -124,6 +130,9 @@
     </Filter>
     <Filter Include="Juce Modules\juce_audio_utils\players">
       <UniqueIdentifier>{AEDCB7F7-7A36-5392-8E9A-715F5BDE35CB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Juce Modules\juce_audio_utils\native">
+      <UniqueIdentifier>{B48C883A-8483-AF6D-808C-1D9A749048D8}</UniqueIdentifier>
     </Filter>
     <Filter Include="Juce Modules\juce_core">
       <UniqueIdentifier>{95CA1506-2B94-0DEE-0C8D-85EDEBBC4E88}</UniqueIdentifier>
@@ -388,11 +397,17 @@
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
       <Filter>Juce Modules\juce_audio_basics\buffers</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_AudioSampleBuffer.cpp">
-      <Filter>Juce Modules\juce_audio_basics\buffers</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_FloatVectorOperations.cpp">
       <Filter>Juce Modules\juce_audio_basics\buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_FFT.cpp">
+      <Filter>Juce Modules\juce_audio_basics\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_IIRFilter.cpp">
+      <Filter>Juce Modules\juce_audio_basics\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_LagrangeInterpolator.cpp">
+      <Filter>Juce Modules\juce_audio_basics\effects</Filter>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\midi\juce_MidiBuffer.cpp">
       <Filter>Juce Modules\juce_audio_basics\midi</Filter>
@@ -409,11 +424,35 @@
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\midi\juce_MidiMessageSequence.cpp">
       <Filter>Juce Modules\juce_audio_basics\midi</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_IIRFilter.cpp">
-      <Filter>Juce Modules\juce_audio_basics\effects</Filter>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\midi\juce_MidiRPN.cpp">
+      <Filter>Juce Modules\juce_audio_basics\midi</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_LagrangeInterpolator.cpp">
-      <Filter>Juce Modules\juce_audio_basics\effects</Filter>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPEInstrument.cpp">
+      <Filter>Juce Modules\juce_audio_basics\mpe</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPEMessages.cpp">
+      <Filter>Juce Modules\juce_audio_basics\mpe</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPENote.cpp">
+      <Filter>Juce Modules\juce_audio_basics\mpe</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPESynthesiser.cpp">
+      <Filter>Juce Modules\juce_audio_basics\mpe</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPESynthesiserBase.cpp">
+      <Filter>Juce Modules\juce_audio_basics\mpe</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPESynthesiserVoice.cpp">
+      <Filter>Juce Modules\juce_audio_basics\mpe</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPEValue.cpp">
+      <Filter>Juce Modules\juce_audio_basics\mpe</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPEZone.cpp">
+      <Filter>Juce Modules\juce_audio_basics\mpe</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPEZoneLayout.cpp">
+      <Filter>Juce Modules\juce_audio_basics\mpe</Filter>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\sources\juce_BufferingAudioSource.cpp">
       <Filter>Juce Modules\juce_audio_basics\sources</Filter>
@@ -568,6 +607,9 @@
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_formats\sampler\juce_Sampler.cpp">
       <Filter>Juce Modules\juce_audio_formats\sampler</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_processors\processors\juce_AudioChannelSet.cpp">
+      <Filter>Juce Modules\juce_audio_processors\processors</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_processors\processors\juce_AudioProcessor.cpp">
       <Filter>Juce Modules\juce_audio_processors\processors</Filter>
     </ClCompile>
@@ -610,6 +652,12 @@
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_processors\scanning\juce_PluginListComponent.cpp">
       <Filter>Juce Modules\juce_audio_processors\scanning</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_processors\utilities\juce_AudioProcessorParameters.cpp">
+      <Filter>Juce Modules\juce_audio_processors\utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_processors\utilities\juce_AudioProcessorValueTreeState.cpp">
+      <Filter>Juce Modules\juce_audio_processors\utilities</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioAppComponent.cpp">
       <Filter>Juce Modules\juce_audio_utils\gui</Filter>
     </ClCompile>
@@ -622,11 +670,32 @@
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioThumbnailCache.cpp">
       <Filter>Juce Modules\juce_audio_utils\gui</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioVisualiserComponent.cpp">
+      <Filter>Juce Modules\juce_audio_utils\gui</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_MidiKeyboardComponent.cpp">
       <Filter>Juce Modules\juce_audio_utils\gui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\players\juce_AudioProcessorPlayer.cpp">
       <Filter>Juce Modules\juce_audio_utils\players</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\native\juce_android_BluetoothMidiDevicePairingDialogue.cpp">
+      <Filter>Juce Modules\juce_audio_utils\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\native\juce_ios_BluetoothMidiDevicePairingDialogue.mm">
+      <Filter>Juce Modules\juce_audio_utils\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\native\juce_linux_BluetoothMidiDevicePairingDialogue.cpp">
+      <Filter>Juce Modules\juce_audio_utils\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\native\juce_mac_BluetoothMidiDevicePairingDialogue.mm">
+      <Filter>Juce Modules\juce_audio_utils\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_utils\native\juce_win_BluetoothMidiDevicePairingDialogue.cpp">
+      <Filter>Juce Modules\juce_audio_utils\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_core\text\juce_Base64.cpp">
+      <Filter>Juce Modules\juce_core\text</Filter>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_core\text\juce_CharacterFunctions.cpp">
       <Filter>Juce Modules\juce_core\text</Filter>
@@ -820,6 +889,9 @@
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_core\native\juce_android_Threads.cpp">
       <Filter>Juce Modules\juce_core\native</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_core\native\juce_curl_Network.cpp">
+      <Filter>Juce Modules\juce_core\native</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_core\native\juce_linux_CommonFile.cpp">
       <Filter>Juce Modules\juce_core\native</Filter>
     </ClCompile>
@@ -872,6 +944,9 @@
       <Filter>Juce Modules\juce_data_structures\values</Filter>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_data_structures\values\juce_ValueTree.cpp">
+      <Filter>Juce Modules\juce_data_structures\values</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\modules\juce_data_structures\values\juce_ValueTreeSynchroniser.cpp">
       <Filter>Juce Modules\juce_data_structures\values</Filter>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_data_structures\undomanager\juce_UndoManager.cpp">
@@ -1513,6 +1588,12 @@
     <ClCompile Include="..\..\JuceLibraryCode\BinaryData4.cpp">
       <Filter>Juce Library Code</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\BinaryData5.cpp">
+      <Filter>Juce Library Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\BinaryData6.cpp">
+      <Filter>Juce Library Code</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\modules\juce_audio_basics\juce_audio_basics.cpp">
       <Filter>Juce Library Code</Filter>
     </ClCompile>
@@ -1626,6 +1707,24 @@
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\buffers\juce_FloatVectorOperations.h">
       <Filter>Juce Modules\juce_audio_basics\buffers</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_Decibels.h">
+      <Filter>Juce Modules\juce_audio_basics\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_FFT.h">
+      <Filter>Juce Modules\juce_audio_basics\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_IIRFilter.h">
+      <Filter>Juce Modules\juce_audio_basics\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_LagrangeInterpolator.h">
+      <Filter>Juce Modules\juce_audio_basics\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_LinearSmoothedValue.h">
+      <Filter>Juce Modules\juce_audio_basics\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_Reverb.h">
+      <Filter>Juce Modules\juce_audio_basics\effects</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\midi\juce_MidiBuffer.h">
       <Filter>Juce Modules\juce_audio_basics\midi</Filter>
     </ClInclude>
@@ -1641,17 +1740,35 @@
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\midi\juce_MidiMessageSequence.h">
       <Filter>Juce Modules\juce_audio_basics\midi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_Decibels.h">
-      <Filter>Juce Modules\juce_audio_basics\effects</Filter>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\midi\juce_MidiRPN.h">
+      <Filter>Juce Modules\juce_audio_basics\midi</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_IIRFilter.h">
-      <Filter>Juce Modules\juce_audio_basics\effects</Filter>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPEInstrument.h">
+      <Filter>Juce Modules\juce_audio_basics\mpe</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_LagrangeInterpolator.h">
-      <Filter>Juce Modules\juce_audio_basics\effects</Filter>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPEMessages.h">
+      <Filter>Juce Modules\juce_audio_basics\mpe</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\effects\juce_Reverb.h">
-      <Filter>Juce Modules\juce_audio_basics\effects</Filter>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPENote.h">
+      <Filter>Juce Modules\juce_audio_basics\mpe</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPESynthesiser.h">
+      <Filter>Juce Modules\juce_audio_basics\mpe</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPESynthesiserBase.h">
+      <Filter>Juce Modules\juce_audio_basics\mpe</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPESynthesiserVoice.h">
+      <Filter>Juce Modules\juce_audio_basics\mpe</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPEValue.h">
+      <Filter>Juce Modules\juce_audio_basics\mpe</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPEZone.h">
+      <Filter>Juce Modules\juce_audio_basics\mpe</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\mpe\juce_MPEZoneLayout.h">
+      <Filter>Juce Modules\juce_audio_basics\mpe</Filter>
     </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_basics\sources\juce_AudioSource.h">
       <Filter>Juce Modules\juce_audio_basics\sources</Filter>
@@ -1782,6 +1899,9 @@
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_formats\juce_audio_formats.h">
       <Filter>Juce Modules\juce_audio_formats</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_processors\processors\juce_AudioChannelSet.h">
+      <Filter>Juce Modules\juce_audio_processors\processors</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_processors\processors\juce_AudioPlayHead.h">
       <Filter>Juce Modules\juce_audio_processors\processors</Filter>
     </ClInclude>
@@ -1845,6 +1965,24 @@
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_processors\scanning\juce_PluginListComponent.h">
       <Filter>Juce Modules\juce_audio_processors\scanning</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_processors\utilities\juce_AudioParameterBool.h">
+      <Filter>Juce Modules\juce_audio_processors\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_processors\utilities\juce_AudioParameterChoice.h">
+      <Filter>Juce Modules\juce_audio_processors\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_processors\utilities\juce_AudioParameterFloat.h">
+      <Filter>Juce Modules\juce_audio_processors\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_processors\utilities\juce_AudioParameterInt.h">
+      <Filter>Juce Modules\juce_audio_processors\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_processors\utilities\juce_AudioProcessorParameterWithID.h">
+      <Filter>Juce Modules\juce_audio_processors\utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_processors\utilities\juce_AudioProcessorValueTreeState.h">
+      <Filter>Juce Modules\juce_audio_processors\utilities</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_processors\juce_audio_processors.h">
       <Filter>Juce Modules\juce_audio_processors</Filter>
     </ClInclude>
@@ -1863,6 +2001,12 @@
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioThumbnailCache.h">
       <Filter>Juce Modules\juce_audio_utils\gui</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_AudioVisualiserComponent.h">
+      <Filter>Juce Modules\juce_audio_utils\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_BluetoothMidiDevicePairingDialogue.h">
+      <Filter>Juce Modules\juce_audio_utils\gui</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\gui\juce_MidiKeyboardComponent.h">
       <Filter>Juce Modules\juce_audio_utils\gui</Filter>
     </ClInclude>
@@ -1871,6 +2015,9 @@
     </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_audio_utils\juce_audio_utils.h">
       <Filter>Juce Modules\juce_audio_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\text\juce_Base64.h">
+      <Filter>Juce Modules\juce_core\text</Filter>
     </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\text\juce_CharacterFunctions.h">
       <Filter>Juce Modules\juce_core\text</Filter>
@@ -1990,6 +2137,9 @@
       <Filter>Juce Modules\juce_core\containers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\containers\juce_LinkedListPointer.h">
+      <Filter>Juce Modules\juce_core\containers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\containers\juce_ListenerList.h">
       <Filter>Juce Modules\juce_core\containers</Filter>
     </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\containers\juce_NamedValueSet.h">
@@ -2199,6 +2349,9 @@
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\native\juce_BasicNativeHeaders.h">
       <Filter>Juce Modules\juce_core\native</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\native\juce_mac_ClangBugWorkaround.h">
+      <Filter>Juce Modules\juce_core\native</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_core\native\juce_osx_ObjCHelpers.h">
       <Filter>Juce Modules\juce_core\native</Filter>
     </ClInclude>
@@ -2215,6 +2368,9 @@
       <Filter>Juce Modules\juce_data_structures\values</Filter>
     </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_data_structures\values\juce_ValueTree.h">
+      <Filter>Juce Modules\juce_data_structures\values</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_data_structures\values\juce_ValueTreeSynchroniser.h">
       <Filter>Juce Modules\juce_data_structures\values</Filter>
     </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_data_structures\undomanager\juce_UndoableAction.h">
@@ -2278,9 +2434,6 @@
       <Filter>Juce Modules\juce_events\broadcasters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_events\broadcasters\juce_ChangeListener.h">
-      <Filter>Juce Modules\juce_events\broadcasters</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\JuceLibraryCode\modules\juce_events\broadcasters\juce_ListenerList.h">
       <Filter>Juce Modules\juce_events\broadcasters</Filter>
     </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\modules\juce_events\interprocess\juce_ConnectedChildProcess.h">
@@ -2885,488 +3038,857 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_01.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_02.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_03.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_04.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_05.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_06.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_07.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_08.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_09.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_10.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_11.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_12.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_13.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_14.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_15.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_16.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_17.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_18.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_19.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_20.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_21.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_22.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_23.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat1.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat2.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat3.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat4.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat5.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat6.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat7.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat8.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat9.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat10.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat11.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat12.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat13.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat14.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat15.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat16.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat17.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat18.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat19.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat20.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat21.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat22.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat23.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Hihat</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_01.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_02.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_03.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_04.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_05.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_06.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_07.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_08.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_09.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_10.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_11.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_12.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_13.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_14.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_15.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_16.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_17.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_18.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_19.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_20.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_21.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_22.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_23.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick1.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick2.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick3.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick4.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick5.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick6.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick7.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick8.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick9.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick10.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick11.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick12.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick13.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick14.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick15.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick16.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick17.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick18.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick19.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick20.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick21.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick22.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick23.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Kick</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc1.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_01.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_02.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_03.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_04.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_05.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_06.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_07.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_08.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_09.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_10.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_11.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_12.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_13.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_14.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_15.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_16.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_17.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_18.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_19.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_20.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_21.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_22.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_23.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_24.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_25.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_26.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc2.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc3.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc4.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc5.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc6.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc7.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc8.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc9.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc10.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc11.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc12.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc13.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc14.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc15.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc16.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc17.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc18.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc19.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc20.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc21.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc22.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc23.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc24.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc25.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc26.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc27.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\Perc28.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_01.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_02.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_03.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_04.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_05.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_06.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_07.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_08.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_09.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_10.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_11.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_12.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_13.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_14.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_15.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_16.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_17.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_18.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_19.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_20.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_21.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_22.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_23.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_24.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_25.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_26.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_27.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_28.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_29.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc21.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc22.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc23.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc24.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc25.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc26.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc27.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc28.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc29.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc210.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc211.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc212.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc213.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc214.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc215.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc216.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc217.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc218.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc219.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc220.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc221.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc222.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc223.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc224.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc225.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\Perc226.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Perc2</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_01.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_02.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_03.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_04.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_05.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_06.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_07.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_08.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_09.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_10.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_11.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_12.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_13.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_14.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_15.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_16.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_17.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_18.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_19.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_20.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_21.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_22.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_23.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_24.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare1.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare2.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare3.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare4.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare5.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare6.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare7.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare8.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare9.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare10.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare11.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare12.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare13.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare14.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare15.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare16.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare17.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare18.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare19.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare20.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare21.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare22.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare23.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare24.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Snare</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_01.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_02.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_03.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_04.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_05.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_06.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_07.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_08.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_09.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_10.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_11.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_12.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_13.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_14.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_15.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_16.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_17.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_18.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_19.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_20.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_21.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_22.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_23.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_24.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_25.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_26.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_27.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_28.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_29.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_30.aif">
+      <Filter>SilverbirdApp\Resources\Samples\Tones</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Images\Background.png">
+      <Filter>SilverbirdApp\Resources\Images</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Images\Bird.png">
+      <Filter>SilverbirdApp\Resources\Images</Filter>
+    </None>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Images\Knob_Centered.png">
       <Filter>SilverbirdApp\Resources\Images</Filter>
     </None>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Images\Knob.png">
       <Filter>SilverbirdApp\Resources\Images</Filter>
     </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Images\Bird.png">
-      <Filter>SilverbirdApp\Resources\Images</Filter>
-    </None>
     <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Images\SB.png">
       <Filter>SilverbirdApp\Resources\Images</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Images\Background.png">
-      <Filter>SilverbirdApp\Resources\Images</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\sine.aif">
-      <Filter>SilverbirdApp\Resources\Sounds</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_01.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Hihat</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_02.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Hihat</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_03.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Hihat</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_04.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Hihat</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_05.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Hihat</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_06.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Hihat</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_07.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Hihat</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_08.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Hihat</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_09.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Hihat</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_10.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Hihat</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_11.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Hihat</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_12.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Hihat</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_13.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Hihat</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_14.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Hihat</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_15.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Hihat</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_16.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Hihat</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_17.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Hihat</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_18.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Hihat</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_19.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Hihat</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_20.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Hihat</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_21.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Hihat</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_22.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Hihat</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Hihat\hihat_23.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Hihat</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_01.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Kick</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_02.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Kick</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_03.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Kick</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_04.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Kick</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_05.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Kick</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_06.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Kick</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_07.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Kick</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_08.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Kick</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_09.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Kick</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_10.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Kick</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_11.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Kick</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_12.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Kick</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_13.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Kick</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_14.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Kick</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_15.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Kick</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_16.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Kick</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_17.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Kick</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_18.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Kick</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_19.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Kick</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_20.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Kick</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_21.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Kick</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_22.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Kick</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Kick\kick_23.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Kick</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_01.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_02.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_03.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_04.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_05.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_06.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_07.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_08.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_09.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_10.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_11.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_12.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_13.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_14.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_15.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_16.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_17.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_18.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_19.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_20.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_21.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_22.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_23.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_24.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_25.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc\perc1_26.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_01.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_02.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_03.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_04.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_05.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_06.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_07.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_08.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_09.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_10.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_11.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_12.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_13.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_14.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_15.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_16.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_17.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_18.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_19.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_20.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_21.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_22.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_23.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_24.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_25.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_26.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_27.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_28.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Perc2\perc2_29.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Perc2</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_01.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Snare</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_02.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Snare</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_03.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Snare</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_04.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Snare</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_05.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Snare</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_06.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Snare</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_07.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Snare</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_08.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Snare</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_09.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Snare</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_10.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Snare</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_11.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Snare</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_12.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Snare</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_13.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Snare</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_14.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Snare</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_15.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Snare</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_16.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Snare</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_17.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Snare</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_18.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Snare</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_19.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Snare</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_20.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Snare</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_21.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Snare</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_22.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Snare</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_23.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Snare</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Snare\snare_24.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Snare</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_01.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_02.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_03.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_04.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_05.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_06.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_07.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_08.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_09.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_10.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_11.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_12.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_13.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_14.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_15.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_16.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_17.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_18.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_19.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_20.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_21.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_22.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_23.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_24.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_25.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_26.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_27.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_28.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_29.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
-    </None>
-    <None Include="..\..\..\..\..\..\Dropbox\audiosalt\Silverbird\Samples\Tones\tones_30.aif">
-      <Filter>SilverbirdApp\Resources\Sounds\Tones</Filter>
     </None>
     <None Include="..\..\JuceLibraryCode\modules\juce_audio_basics\juce_module_info">
       <Filter>Juce Modules\juce_audio_basics</Filter>
@@ -3400,9 +3922,6 @@
     </None>
     <None Include="..\..\JuceLibraryCode\modules\juce_gui_extra\juce_module_info">
       <Filter>Juce Modules\juce_gui_extra</Filter>
-    </None>
-    <None Include=".\icon.ico">
-      <Filter>Juce Library Code</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -12,8 +12,8 @@
 
 
 Controller::Controller() : mixer(&parameters),
-                           clock(&parameters),
-                           sequencer(mixer)
+                           sequencer(mixer),
+                           clock(&parameters, mixer, sequencer)
 {
     int parameterId = 0;
     
@@ -33,7 +33,7 @@ Controller::Controller() : mixer(&parameters),
         }
     }
     
-    clock.addListener(&sequencer);
+    //clock.addListener(&sequencer); // sequencer should not be clocklistener anymore (new system tryout)
 }
 
 Controller::~Controller()
@@ -72,7 +72,6 @@ void Controller::prepareToPlay (double sampleRate, int samplesPerBlock)
 
 void Controller::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
 {
-
     // Getting the audio data from the mixer
     AudioSourceChannelInfo channelInfo (&buffer, 0, buffer.getNumSamples());
     mixer.getNextAudioBlock(channelInfo);
@@ -95,14 +94,14 @@ void Controller::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midiMessage
         int position;
         
         while (iterator.getNextEvent(result, position)) {
-            result.setTimeStamp(Time::getMillisecondCounter() / 1000.0);
             mixer.midiCollector.addMessageToQueue(result);
         }
     
     }
 
+    float shuffle = getParameter(getParameterId(Controller::params::shuffle));
     
-    clock.tick(getParameter(getParameterId(Controller::params::shuffle)));
+    clock.tick(shuffle, buffer, getSampleRate());
 }
 
 AudioProcessorEditor* Controller::createEditor()
