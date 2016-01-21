@@ -148,6 +148,7 @@
     <ClCompile Include="..\..\Source\Knob.cpp"/>
     <ClCompile Include="..\..\Source\CustomLook.cpp"/>
     <ClCompile Include="..\..\Source\Gui.cpp"/>
+    <ClCompile Include="..\..\Source\Gui2.cpp"/>
     <ClCompile Include="..\..\Source\Sequencer.cpp"/>
     <ClCompile Include="..\..\Source\ClockListener.cpp"/>
     <ClCompile Include="..\..\Source\Clock.cpp"/>
@@ -1297,6 +1298,7 @@
     <ClInclude Include="..\..\Source\Knob.h"/>
     <ClInclude Include="..\..\Source\CustomLook.h"/>
     <ClInclude Include="..\..\Source\Gui.h"/>
+    <ClInclude Include="..\..\Source\Gui2.h"/>
     <ClInclude Include="..\..\Source\Sequencer.h"/>
     <ClInclude Include="..\..\Source\ClockListener.h"/>
     <ClInclude Include="..\..\Source\Clock.h"/>

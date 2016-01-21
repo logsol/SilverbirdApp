@@ -7,12 +7,12 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Introjucer version: 3.1.1
+  Created with Introjucer version: 4.1.0
 
   ------------------------------------------------------------------------------
 
   The Introjucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright 2004-13 by Raw Material Software Ltd.
+  Copyright (c) 2015 - ROLI Ltd.
 
   ==============================================================================
 */
@@ -248,7 +248,7 @@ BEGIN_JUCER_METADATA
                  parentClasses="public Component, public ClockListener" constructorParams="Controller* controller, int trackId, bool isModulationTrack"
                  variableInitialisers="controller(controller),&#10;trackId(trackId),&#10;isModulationTrack(isModulationTrack)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
-                 fixedSize="1" initialWidth="400" initialHeight="60">
+                 fixedSize="0" initialWidth="400" initialHeight="60">
   <METHODS>
     <METHOD name="mouseDrag (const MouseEvent&amp; e)"/>
     <METHOD name="mouseDown (const MouseEvent&amp; e)"/>

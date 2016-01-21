@@ -382,6 +382,9 @@
     <ClCompile Include="..\..\Source\Gui.cpp">
       <Filter>SilverbirdApp\Source\View</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Gui2.cpp">
+      <Filter>SilverbirdApp\Source\View</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Sequencer.cpp">
       <Filter>SilverbirdApp\Source\Sequencer</Filter>
     </ClCompile>
@@ -1684,6 +1687,9 @@
       <Filter>SilverbirdApp\Source\View</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Gui.h">
+      <Filter>SilverbirdApp\Source\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Gui2.h">
       <Filter>SilverbirdApp\Source\View</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Sequencer.h">

@@ -20,6 +20,7 @@
 #include "Sequencer.h"
 #include "Knob.h"
 #include "Gui.h"
+#include "Gui2.h"
 
 class Controller : public SilverbirdAudioProcessor,
                    public Slider::Listener,

@@ -45,7 +45,7 @@ void Knob::paint(Graphics& g)
     }
 
     g.drawImage(knobImage,
-                0, 0, singleImageWidth, singleImageHeight,
+                (getWidth()-singleImageWidth), 0, singleImageWidth, singleImageHeight,
                 imageOffset, 0, singleImageWidth, singleImageHeight,
                 false);
     

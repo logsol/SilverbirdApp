@@ -7,12 +7,12 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Introjucer version: 3.1.1
+  Created with Introjucer version: 4.1.0
 
   ------------------------------------------------------------------------------
 
   The Introjucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright 2004-13 by Raw Material Software Ltd.
+  Copyright (c) 2015 - ROLI Ltd.
 
   ==============================================================================
 */
@@ -36,6 +36,9 @@ class Controller;
 Gui::Gui (Controller* controller)
     : AudioProcessorEditor (controller), controller(controller)
 {
+    //[Constructor_pre] You can add your own custom stuff here..
+    //[/Constructor_pre]
+
     setName ("Gui");
     addAndMakeVisible (label = new Label ("new label",
                                           TRANS("Master")));
@@ -290,7 +293,7 @@ Gui::Gui (Controller* controller)
     perc1MuteButton->setColour (TextButton::buttonOnColourId, Colour (0xffffeb86));
 
     addAndMakeVisible (transport = new Transport (controller));
-    cachedImage_background_png = ImageCache::getFromMemory (background_png, background_pngSize);
+    cachedImage_background_png_1 = ImageCache::getFromMemory (background_png, background_pngSize);
 
     //[UserPreSize]
     //[/UserPreSize]
@@ -389,7 +392,7 @@ Gui::Gui (Controller* controller)
     if(!JUCEApplication::isStandaloneApp()) {
         transport->setVisible(false);
     }
- 
+
     //[/Constructor]
 }
 
@@ -450,9 +453,9 @@ void Gui::paint (Graphics& g)
     g.fillAll (Colours::white);
 
     g.setColour (Colours::black);
-    g.drawImage (cachedImage_background_png,
+    g.drawImage (cachedImage_background_png_1,
                  0, 0, 1079, 639,
-                 0, 0, cachedImage_background_png.getWidth(), cachedImage_background_png.getHeight());
+                 0, 0, cachedImage_background_png_1.getWidth(), cachedImage_background_png_1.getHeight());
 
     //[UserPaint] Add your own custom painting code here..
     //[/UserPaint]
@@ -481,8 +484,8 @@ void Gui::resized()
     label4->setBounds (496, 200, 64, 16);
     distortSlider->setBounds (512, 296, 32, 32);
     label5->setBounds (496, 272, 64, 16);
-    cutoffSlider->setBounds (512, 368, 32, 32);
-    label6->setBounds (496, 344, 64, 16);
+    cutoffSlider->setBounds (440, 440, 32, 32);
+    label6->setBounds (424, 416, 64, 16);
     shuffleSlider->setBounds (507, 438, 40, 40);
     label10->setBounds (496, 416, 64, 16);
     perc1VolumeSlider->setBounds (264, 424, 20, 104);
@@ -498,7 +501,7 @@ void Gui::resized()
     perc2MuteButton->setBounds (310, 539, 24, 16);
     tonesMuteButton->setBounds (358, 539, 24, 16);
     perc1MuteButton->setBounds (262, 539, 24, 16);
-    transport->setBounds (816, 576, 224, 40);
+    transport->setBounds (400, 344, 224, 40);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -760,11 +763,11 @@ BEGIN_JUCER_METADATA
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
   <SLIDER name="Cutoff" id="b67410e0785de65c" memberName="cutoffSlider"
-          virtualName="Knob" explicitFocusOrder="0" pos="512 368 32 32"
+          virtualName="Knob" explicitFocusOrder="0" pos="440 440 32 32"
           min="0" max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="7d7b6cd7315776a8" memberName="label6" virtualName=""
-         explicitFocusOrder="0" pos="496 344 64 16" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="424 416 64 16" edTextCol="ff000000"
          edBkgCol="0" labelText="Cutoff" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="36"/>
@@ -837,7 +840,7 @@ BEGIN_JUCER_METADATA
               bgColOn="ffffeb86" buttonText="M" connectedEdges="0" needsCallback="1"
               radioGroupId="0"/>
   <JUCERCOMP name="" id="8ba4a7c2e5920bea" memberName="transport" virtualName=""
-             explicitFocusOrder="0" pos="816 576 224 40" sourceFile="Transport.cpp"
+             explicitFocusOrder="0" pos="400 344 224 40" sourceFile="Transport.cpp"
              constructorParams="controller"/>
 </JUCER_COMPONENT>
 

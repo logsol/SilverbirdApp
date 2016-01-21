@@ -7,12 +7,12 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Introjucer version: 3.1.1
+  Created with Introjucer version: 4.1.0
 
   ------------------------------------------------------------------------------
 
   The Introjucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright 2004-13 by Raw Material Software Ltd.
+  Copyright (c) 2015 - ROLI Ltd.
 
   ==============================================================================
 */
@@ -32,16 +32,19 @@
 Transport::Transport (Controller* controller)
     : controller(controller)
 {
-    addAndMakeVisible (bpmSlider = new BpmSlider (String::empty));
+    //[Constructor_pre] You can add your own custom stuff here..
+    //[/Constructor_pre]
+
+    addAndMakeVisible (bpmSlider = new BpmSlider (String()));
     bpmSlider->setRange (100, 180, 1);
     bpmSlider->setSliderStyle (Slider::LinearBar);
     bpmSlider->setTextBoxStyle (Slider::TextBoxLeft, false, 100, 20);
-    bpmSlider->setColour (Slider::backgroundColourId, Colour (0x30000000));
-    bpmSlider->setColour (Slider::thumbColourId, Colour (0xffcecece));
-    bpmSlider->setColour (Slider::trackColourId, Colour (0xffcecece));
+    bpmSlider->setColour (Slider::backgroundColourId, Colour (0x30141414));
+    bpmSlider->setColour (Slider::thumbColourId, Colour (0xff707070));
+    bpmSlider->setColour (Slider::trackColourId, Colour (0xff6a6a6a));
     bpmSlider->setColour (Slider::rotarySliderFillColourId, Colour (0x000000ff));
     bpmSlider->setColour (Slider::rotarySliderOutlineColourId, Colour (0x00000000));
-    bpmSlider->setColour (Slider::textBoxTextColourId, Colours::black);
+    bpmSlider->setColour (Slider::textBoxTextColourId, Colours::white);
     bpmSlider->setColour (Slider::textBoxHighlightColourId, Colour (0x001111ee));
     bpmSlider->addListener (this);
 
@@ -60,6 +63,7 @@ Transport::Transport (Controller* controller)
     label->setFont (Font (15.00f, Font::plain));
     label->setJustificationType (Justification::centredLeft);
     label->setEditable (false, false, false);
+    label->setColour (Label::textColourId, Colours::white);
     label->setColour (TextEditor::textColourId, Colours::black);
     label->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
@@ -173,9 +177,9 @@ BEGIN_JUCER_METADATA
                  initialWidth="230" initialHeight="40">
   <BACKGROUND backgroundColour="0"/>
   <SLIDER name="" id="3368eda71e194b82" memberName="bpmSlider" virtualName="BpmSlider"
-          explicitFocusOrder="0" pos="16 8 40 24" bkgcol="30000000" thumbcol="ffcecece"
-          trackcol="ffcecece" rotarysliderfill="ff" rotaryslideroutline="0"
-          textboxtext="ff000000" textboxhighlight="1111ee" min="100" max="180"
+          explicitFocusOrder="0" pos="16 8 40 24" bkgcol="30141414" thumbcol="ff707070"
+          trackcol="ff6a6a6a" rotarysliderfill="ff" rotaryslideroutline="0"
+          textboxtext="ffffffff" textboxhighlight="1111ee" min="100" max="180"
           int="1" style="LinearBar" textBoxPos="TextBoxLeft" textBoxEditable="1"
           textBoxWidth="100" textBoxHeight="20" skewFactor="1"/>
   <TEXTBUTTON name="play" id="e919a91fb78e40b3" memberName="playButton" virtualName=""
@@ -185,7 +189,7 @@ BEGIN_JUCER_METADATA
               explicitFocusOrder="0" pos="160 8 47 24" bgColOff="ffcecece"
               buttonText="Stop" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <LABEL name="new label" id="e5bd61ea8c7a90cf" memberName="label" virtualName=""
-         explicitFocusOrder="0" pos="61 8 40 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="61 8 40 24" textCol="ffffffff" edTextCol="ff000000"
          edBkgCol="0" labelText="BPM" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>

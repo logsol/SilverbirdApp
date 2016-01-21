@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="t5PU2z" name="SilverbirdApp" projectType="guiapp" version="1.0.0"
-              bundleIdentifier="com.audiosalt.SilverbirdApp" includeBinaryInAppConfig="1"
+              bundleIdentifier="com.karl-pannek.SilverbirdApp" includeBinaryInAppConfig="1"
               jucerVersion="4.1.0" companyName="Audiosalt" companyWebsite="audiosalt.com">
   <MAINGROUP id="P1u1H7" name="SilverbirdApp">
     <GROUP id="{40B58F17-2A50-FCFC-AC96-EA61BE3F32E2}" name="Source">
@@ -52,6 +52,8 @@
         <FILE id="JEosAb" name="CustomLook.h" compile="0" resource="0" file="Source/CustomLook.h"/>
         <FILE id="gYIfyT" name="Gui.cpp" compile="1" resource="0" file="Source/Gui.cpp"/>
         <FILE id="mkuCIT" name="Gui.h" compile="0" resource="0" file="Source/Gui.h"/>
+        <FILE id="LeI2Mr" name="Gui2.cpp" compile="1" resource="0" file="Source/Gui2.cpp"/>
+        <FILE id="IniKN1" name="Gui2.h" compile="0" resource="0" file="Source/Gui2.h"/>
       </GROUP>
       <GROUP id="{83064016-DD25-739D-D5D8-33E1E00341C3}" name="Sequencer">
         <FILE id="bmbbFr" name="Sequencer.cpp" compile="1" resource="0" file="Source/Sequencer.cpp"/>
@@ -437,6 +439,27 @@
         <MODULEPATH id="juce_audio_utils" path="../JUCE/modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
+    <XCODE_IPHONE targetFolder="Builds/iOS">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" iosCompatibility="7.1" isDebug="1" optimisation="1"
+                       targetName="SilverbirdApp"/>
+        <CONFIGURATION name="Release" iosCompatibility="default" isDebug="0" optimisation="3"
+                       targetName="SilverbirdApp"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_extra" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_IPHONE>
   </EXPORTFORMATS>
   <MODULES>
     <MODULES id="juce_audio_basics" showAllCode="1" useLocalCopy="1"/>

@@ -106,7 +106,7 @@ void Controller::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midiMessage
 
 AudioProcessorEditor* Controller::createEditor()
 {
-    return new Gui (this);
+    return new Gui2 (this);
 }
 
 float Controller::getParameter (int index)

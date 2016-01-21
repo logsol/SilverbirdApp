@@ -8,7 +8,7 @@
     <key>CFBundleIconFile</key>
     <string></string>
     <key>CFBundleIdentifier</key>
-    <string>com.audiosalt.SilverbirdApp</string>
+    <string>com.karl-pannek.SilverbirdApp</string>
     <key>CFBundleName</key>
     <string>SilverbirdApp</string>
     <key>CFBundlePackageType</key>

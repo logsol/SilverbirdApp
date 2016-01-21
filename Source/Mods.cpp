@@ -74,6 +74,7 @@ void Mods::paint (Graphics& g)
 void Mods::resized()
 {
     //[UserPreResize] Add your own custom resize code here..
+    /*
     //[/UserPreResize]
 
     decayStepper->setBounds (8, 152, 400, 60);
@@ -81,6 +82,14 @@ void Mods::resized()
     pitchStepper->setBounds (8, 80, 400, 60);
     filterStepper->setBounds (8, 224, 400, 60);
     //[UserResized] Add your own custom resize handling here..
+     */
+    int space = 2;
+    float h = (getHeight() - space * 2) / 4;
+    
+    decayStepper->setBounds (0, 0, getWidth(), h);
+    selectStepper->setBounds (0, (h+space)*1, getWidth(), h);
+    pitchStepper->setBounds (0, (h+space)*2, getWidth(), h);
+    filterStepper->setBounds (0, (h+space)*3, getWidth(), h);
     //[/UserResized]
 }
 

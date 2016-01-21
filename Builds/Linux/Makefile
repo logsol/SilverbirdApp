@@ -68,6 +68,7 @@ OBJECTS := \
   $(OBJDIR)/Knob_7a6e67ff.o \
   $(OBJDIR)/CustomLook_94c1e339.o \
   $(OBJDIR)/Gui_2b5c821c.o \
+  $(OBJDIR)/Gui2_4053d760.o \
   $(OBJDIR)/Sequencer_5ffb45b2.o \
   $(OBJDIR)/ClockListener_63c33543.o \
   $(OBJDIR)/Clock_6670f06f.o \
@@ -200,6 +201,11 @@ $(OBJDIR)/CustomLook_94c1e339.o: ../../Source/CustomLook.cpp
 $(OBJDIR)/Gui_2b5c821c.o: ../../Source/Gui.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling Gui.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/Gui2_4053d760.o: ../../Source/Gui2.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling Gui2.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/Sequencer_5ffb45b2.o: ../../Source/Sequencer.cpp
