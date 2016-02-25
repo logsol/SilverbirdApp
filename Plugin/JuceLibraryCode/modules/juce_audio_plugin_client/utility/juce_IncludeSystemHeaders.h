@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission is granted to use this software under the terms of either:
    a) the GPL v2 (or any later version)
@@ -50,16 +50,23 @@
   #define JUCE_SUPPORT_CARBON 1
  #endif
 
+ #define Point CarbonDummyPointName
+
  #if JUCE_SUPPORT_CARBON
-  #define Point CarbonDummyPointName
   #define Component CarbonDummyCompName
-  #include <Cocoa/Cocoa.h>
-  #include <Carbon/Carbon.h>
-  #undef Point
-  #undef Component
- #else
+ #endif
+
+ #ifdef __OBJC__
   #include <Cocoa/Cocoa.h>
  #endif
+
+ #if JUCE_SUPPORT_CARBON
+  #include <Carbon/Carbon.h>
+  #undef Component
+ #endif
+
+ #undef Point
+
  #include <objc/runtime.h>
  #include <objc/objc.h>
  #include <objc/message.h>

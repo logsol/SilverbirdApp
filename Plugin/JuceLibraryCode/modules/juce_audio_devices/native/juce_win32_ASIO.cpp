@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission is granted to use this software under the terms of either:
    a) the GPL v2 (or any later version)
@@ -67,7 +67,7 @@ namespace ASIODebugging
    #else
     static void dummyLog() {}
     #define JUCE_ASIO_LOG(msg)               ASIODebugging::dummyLog()
-    #define JUCE_ASIO_LOG_ERROR(msg, errNum) (void) errNum; ASIODebugging::dummyLog()
+    #define JUCE_ASIO_LOG_ERROR(msg, errNum) ignoreUnused (errNum); ASIODebugging::dummyLog()
    #endif
 }
 
@@ -438,8 +438,6 @@ public:
         currentBlockSizeSamples = bufferSizeSamples;
         currentChansOut.clear();
         currentChansIn.clear();
-        inBuffers.clear (totalNumInputChans + 1);
-        outBuffers.clear (totalNumOutputChans + 1);
 
         updateSampleRates();
 
@@ -457,6 +455,13 @@ public:
         buffersCreated = false;
 
         setSampleRate (sampleRate);
+
+        // (need to get this again in case a sample rate change affected the channel count)
+        err = asioObject->getChannels (&totalNumInputChans, &totalNumOutputChans);
+        jassert (err == ASE_OK);
+
+        inBuffers.calloc (totalNumInputChans + 8);
+        outBuffers.calloc (totalNumOutputChans + 8);
 
         if (needToReset)
         {
@@ -685,31 +690,24 @@ public:
         JUCE_ASIO_LOG ("showing control panel");
 
         bool done = false;
+        insideControlPanelModalLoop = true;
 
-        JUCE_TRY
+        const uint32 started = Time::getMillisecondCounter();
+
+        if (asioObject != nullptr)
         {
-            // are there are devices that need to be closed before showing their control panel?
-            // close();
-            insideControlPanelModalLoop = true;
+            asioObject->controlPanel();
 
-            const uint32 started = Time::getMillisecondCounter();
+            const int spent = (int) Time::getMillisecondCounter() - (int) started;
 
-            if (asioObject != nullptr)
+            JUCE_ASIO_LOG ("spent: " + String (spent));
+
+            if (spent > 300)
             {
-                asioObject->controlPanel();
-
-                const int spent = (int) Time::getMillisecondCounter() - (int) started;
-
-                JUCE_ASIO_LOG ("spent: " + String (spent));
-
-                if (spent > 300)
-                {
-                    shouldUsePreferredSize = true;
-                    done = true;
-                }
+                shouldUsePreferredSize = true;
+                done = true;
             }
         }
-        JUCE_CATCH_ALL
 
         insideControlPanelModalLoop = false;
         return done;
@@ -780,7 +778,7 @@ private:
     HeapBlock<ASIOSampleFormat> inputFormat, outputFormat;
 
     WaitableEvent event1;
-    HeapBlock <float> tempBuffer;
+    HeapBlock<float> tempBuffer;
     int volatile bufferIndex, numActiveInputChans, numActiveOutputChans;
 
     bool deviceIsOpen, isStarted, buffersCreated;
@@ -936,9 +934,7 @@ private:
         }
 
         bufferSizes.addIfNotAlreadyThere (preferredSize);
-
-        DefaultElementComparator <int> comparator;
-        bufferSizes.sort (comparator);
+        bufferSizes.sort();
     }
 
     double getSampleRate() const

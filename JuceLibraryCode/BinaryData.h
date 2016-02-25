@@ -846,6 +846,12 @@ namespace BinaryData
     extern const char*   tones_30_aif;
     const int            tones_30_aifSize = 146220;
 
+    extern const char*   iphoneretina2_png;
+    const int            iphoneretina2_pngSize = 205921;
+
+    extern const char*   Bird3_png;
+    const int            Bird3_pngSize = 137720;
+
     extern const char*   Background_png;
     const int            Background_pngSize = 430557;
 
@@ -865,7 +871,7 @@ namespace BinaryData
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 284;
+    const int namedResourceListSize = 286;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).

@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission is granted to use this software under the terms of either:
    a) the GPL v2 (or any later version)
@@ -53,14 +53,14 @@ public:
         startPlaying();
     }
 
-    ~StandalonePluginHolder()
+    virtual ~StandalonePluginHolder()
     {
         deletePlugin();
         shutDownAudioDevices();
     }
 
     //==============================================================================
-    void createPlugin()
+    virtual void createPlugin()
     {
         AudioProcessor::setTypeOfNextNewPlugin (AudioProcessor::wrapperType_Standalone);
         processor = createPluginFilter();
@@ -72,7 +72,7 @@ public:
                                          44100, 512);
     }
 
-    void deletePlugin()
+    virtual void deletePlugin()
     {
         stopPlaying();
         processor = nullptr;
@@ -90,6 +90,7 @@ public:
     //==============================================================================
     File getLastFile() const
     {
+        /*
         File f;
 
         if (settings != nullptr)
@@ -99,17 +100,21 @@ public:
             f = File::getSpecialLocation (File::userDocumentsDirectory);
 
         return f;
+         */
     }
 
     void setLastFile (const FileChooser& fc)
     {
+        /*
         if (settings != nullptr)
             settings->setValue ("lastStateFile", fc.getResult().getFullPathName());
+            */
     }
 
     /** Pops up a dialog letting the user save the processor's state to a file. */
     void askUserToSaveState (const String& fileSuffix = String())
     {
+        /*
         FileChooser fc (TRANS("Save current state"), getLastFile(), getFilePatterns (fileSuffix));
 
         if (fc.browseForFileToSave (true))
@@ -120,15 +125,17 @@ public:
             processor->getStateInformation (data);
 
             if (! fc.getResult().replaceWithData (data.getData(), data.getSize()))
-                AlertWindow::showMessageBox (AlertWindow::WarningIcon,
-                                             TRANS("Error whilst saving"),
-                                             TRANS("Couldn't write to the specified file!"));
+                AlertWindow::showMessageBoxAsync (AlertWindow::WarningIcon,
+                                                  TRANS("Error whilst saving"),
+                                                  TRANS("Couldn't write to the specified file!"));
         }
+         */
     }
 
     /** Pops up a dialog letting the user re-load the processor's state from a file. */
     void askUserToLoadState (const String& fileSuffix = String())
     {
+        /*
         FileChooser fc (TRANS("Load a saved state"), getLastFile(), getFilePatterns (fileSuffix));
 
         if (fc.browseForFileToOpen())
@@ -140,10 +147,11 @@ public:
             if (fc.getResult().loadFileAsData (data))
                 processor->setStateInformation (data.getData(), (int) data.getSize());
             else
-                AlertWindow::showMessageBox (AlertWindow::WarningIcon,
-                                             TRANS("Error whilst loading"),
-                                             TRANS("Couldn't read from the specified file!"));
+                AlertWindow::showMessageBoxAsync (AlertWindow::WarningIcon,
+                                                  TRANS("Error whilst loading"),
+                                                  TRANS("Couldn't read from the specified file!"));
         }
+         */
     }
 
     //==============================================================================
@@ -163,10 +171,10 @@ public:
     {
         DialogWindow::LaunchOptions o;
         o.content.setOwned (new AudioDeviceSelectorComponent (deviceManager,
-                                                              processor->getNumInputChannels(),
-                                                              processor->getNumInputChannels(),
-                                                              processor->getNumOutputChannels(),
-                                                              processor->getNumOutputChannels(),
+                                                              processor->getTotalNumInputChannels(),
+                                                              processor->getTotalNumInputChannels(),
+                                                              processor->getTotalNumOutputChannels(),
+                                                              processor->getTotalNumOutputChannels(),
                                                               true, false,
                                                               true, false));
         o.content->setSize (500, 450);
@@ -182,29 +190,34 @@ public:
 
     void saveAudioDeviceState()
     {
+        /*
         if (settings != nullptr)
         {
             ScopedPointer<XmlElement> xml (deviceManager.createStateXml());
             settings->setValue ("audioSetup", xml);
         }
+         */
     }
 
     void reloadAudioDeviceState()
     {
+        /*
         ScopedPointer<XmlElement> savedState;
 
         if (settings != nullptr)
             savedState = settings->getXmlValue ("audioSetup");
 
-        deviceManager.initialise (processor->getNumInputChannels(),
-                                  processor->getNumOutputChannels(),
+        deviceManager.initialise (processor->getTotalNumInputChannels(),
+                                  processor->getTotalNumOutputChannels(),
                                   savedState,
                                   true);
+                                  */
     }
 
     //==============================================================================
     void savePluginState()
     {
+        /*
         if (settings != nullptr && processor != nullptr)
         {
             MemoryBlock data;
@@ -212,10 +225,12 @@ public:
 
             settings->setValue ("filterState", data.toBase64Encoding());
         }
+         */
     }
 
     void reloadPluginState()
     {
+        /*
         if (settings != nullptr)
         {
             MemoryBlock data;
@@ -223,6 +238,7 @@ public:
             if (data.fromBase64Encoding (settings->getValue ("filterState")) && data.getSize() > 0)
                 processor->setStateInformation (data.getData(), (int) data.getSize());
         }
+         */
     }
 
     //==============================================================================
@@ -365,7 +381,13 @@ public:
         m.addSeparator();
         m.addItem (4, TRANS("Reset to default state"));
 
-        switch (m.showAt (&optionsButton))
+        m.showMenuAsync (PopupMenu::Options(),
+                         ModalCallbackFunction::forComponent (menuCallback, this));
+    }
+
+    void handleMenuResult (int result)
+    {
+        switch (result)
         {
             case 1:  pluginHolder->showAudioSettingsDialog(); break;
             case 2:  pluginHolder->askUserToSaveState(); break;
@@ -373,6 +395,12 @@ public:
             case 4:  resetToDefaultState(); break;
             default: break;
         }
+    }
+
+    static void menuCallback (int result, StandaloneFilterWindow* button)
+    {
+        if (button != nullptr && result != 0)
+            button->handleMenuResult (result);
     }
 
     void resized() override

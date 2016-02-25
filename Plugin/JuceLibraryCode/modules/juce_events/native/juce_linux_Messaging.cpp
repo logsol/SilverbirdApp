@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission is granted to use this software under the terms of either:
    a) the GPL v2 (or any later version)
@@ -49,7 +49,7 @@ public:
           totalEventCount (0)
     {
         int ret = ::socketpair (AF_LOCAL, SOCK_STREAM, 0, fd);
-        (void) ret; jassert (ret == 0);
+        ignoreUnused (ret); jassert (ret == 0);
     }
 
     ~InternalMessageQueue()
@@ -74,8 +74,8 @@ public:
 
             ScopedUnlock ul (lock);
             const unsigned char x = 0xff;
-            size_t bytesWritten = write (fd[0], &x, 1);
-            (void) bytesWritten;
+            ssize_t bytesWritten = write (fd[0], &x, 1);
+            ignoreUnused (bytesWritten);
         }
     }
 
@@ -186,8 +186,8 @@ private:
 
             const ScopedUnlock ul (lock);
             unsigned char x;
-            size_t numBytes = read (fd[1], &x, 1);
-            (void) numBytes;
+            ssize_t numBytes = read (fd[1], &x, 1);
+            ignoreUnused (numBytes);
         }
 
         return queue.removeAndReturn (0);
@@ -235,6 +235,8 @@ namespace LinuxErrorHandling
 
     int errorHandler (Display* display, XErrorEvent* event)
     {
+        ignoreUnused (display, event);
+
        #if JUCE_DEBUG_XERRORS
         char errorStr[64] = { 0 };
         char requestStr[64] = { 0 };

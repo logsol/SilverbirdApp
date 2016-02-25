@@ -2,7 +2,7 @@
   ==============================================================================
 
    This file is part of the JUCE library.
-   Copyright (c) 2013 - Raw Material Software Ltd.
+   Copyright (c) 2015 - ROLI Ltd.
 
    Permission is granted to use this software under the terms of either:
    a) the GPL v2 (or any later version)
@@ -91,9 +91,9 @@ class LowLevelGraphicsContext;
 #include "images/juce_ImageCache.h"
 #include "images/juce_ImageConvolutionKernel.h"
 #include "images/juce_ImageFileFormat.h"
-#include "fonts/juce_AttributedString.h"
 #include "fonts/juce_Typeface.h"
 #include "fonts/juce_Font.h"
+#include "fonts/juce_AttributedString.h"
 #include "fonts/juce_GlyphArrangement.h"
 #include "fonts/juce_TextLayout.h"
 #include "fonts/juce_CustomTypeface.h"
