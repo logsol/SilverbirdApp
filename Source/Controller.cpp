@@ -9,15 +9,15 @@
 */
 
 #include "Controller.h"
+#include "Portrait.h"
 
 
 Controller::Controller() : mixer(&parameters),
                            sequencer(mixer),
-                           clock(&parameters, mixer, sequencer)
+                           clock(&parameters, mixer, sequencer),
+                           document(String("document")) // sets document root name
 {
     int parameterId = 0;
-    
-    // FIXME: outsource into method
     
     for (int paramNameId = 0; paramNameId < Controller::params::max; ++paramNameId) {
         Parameter* p = new Parameter(parameterId, paramNameId);
@@ -33,7 +33,9 @@ Controller::Controller() : mixer(&parameters),
         }
     }
     
-    //clock.addListener(&sequencer); // sequencer should not be clocklistener anymore (new system tryout)
+    document.addListener(this);
+    
+    //createDocument();
 }
 
 Controller::~Controller()
@@ -50,9 +52,9 @@ void Controller::removeClockListener(ClockListener* listener)
     clock.removeListener(listener);
 }
 
-void Controller::togglePlayPause()
+bool Controller::togglePlayPause()
 {
-    clock.togglePlayPause();
+    return clock.togglePlayPause();
 }
 
 void Controller::setPlayPause(bool play)
@@ -63,6 +65,11 @@ void Controller::setPlayPause(bool play)
 void Controller::setBpm(float bpm)
 {
     clock.setBpm(bpm);
+}
+
+float Controller::getBpm()
+{
+    return clock.getBpm();
 }
 
 void Controller::prepareToPlay (double sampleRate, int samplesPerBlock)
@@ -106,7 +113,8 @@ void Controller::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midiMessage
 
 AudioProcessorEditor* Controller::createEditor()
 {
-    return new Gui2 (this);
+    gui = new Portrait (this);
+    return gui;
 }
 
 float Controller::getParameter (int index)
@@ -194,6 +202,175 @@ void Controller::onGuiParameterChange (Value& value)
     }
     std::cout << "Warn: Value in none of the parameters." << std::endl;
 }
+
+void Controller::setTrackFocus(int trackId)
+{
+    //gui->setTrackFocus(trackId);
+}
+
+
+void Controller::saveDocument()
+{
+    document.removeAllChildren(&undoManager);
+    
+    ValueTree meta(String("meta"));
+    document.addChild(meta, -1, &undoManager);
+    meta.setProperty(String("version"), ProjectInfo::versionString, &undoManager);
+    meta.setProperty(String("preset"), "", &undoManager);
+
+    
+    ValueTree global(String("global"));
+    document.addChild(global, -1, &undoManager);
+    
+    ValueTree parameters(String("parameters"));
+    global.addChild(parameters, -1, &undoManager);
+    
+    ValueTree parameter(String("parameter"));
+    parameters.addChild(parameter, -1, &undoManager);
+    parameter.setProperty("name", "Global Bpm", &undoManager);
+    parameter.setProperty("value", getBpm(), &undoManager);
+    
+    
+    
+    for (int j=0; j<this->parameters.size(); j++) {
+        
+        ValueTree parameter(String("parameter"));
+        parameters.addChild(parameter, -1, &undoManager);
+        
+        Parameter* p = this->parameters.getUnchecked(j);
+        
+        if (!p->isGlobal()) {
+            continue;
+        }
+        
+        parameter.setProperty("name", p->getName(), &undoManager);
+        parameter.setProperty("value", p->getValue(), &undoManager);
+    }
+    
+    ValueTree tracks(String("tracks"));
+    global.addChild(tracks, -1, &undoManager);
+    
+    for (int trackId=0; trackId < Mixer::tracks::max; trackId++) {
+        
+        ValueTree track(String("track"));
+        tracks.addChild(track, -1, &undoManager);
+        
+        ValueTree parameters(String("parameters"));
+        track.addChild(parameters, -1, &undoManager);
+    
+        String name = mixer.getNameByTrackId(trackId);
+        track.setProperty(String("id"), trackId, &undoManager);
+        track.setProperty(String("name"), name, &undoManager);
+        
+        for (int j=0; j<Controller::params::max; j++) {
+            
+            ValueTree parameter(String("parameter"));
+            parameters.addChild(parameter, -1, &undoManager);
+            
+            Parameter* p = this->parameters.getUnchecked(getParameterId(j, trackId));
+            
+            parameter.setProperty("name", p->getName(), &undoManager);
+            parameter.setProperty("value", p->getValue(), &undoManager);
+            
+            
+        }
+        
+        
+    }
+    
+    ValueTree sequencer(String("sequencer"));
+    document.addChild(sequencer, -1, &undoManager);
+    
+    ValueTree patterns(String("patterns"));
+    sequencer.addChild(patterns, -1, &undoManager);
+    
+    ValueTree pattern(String("pattern"));
+    patterns.addChild(pattern, -1, &undoManager);
+    pattern.setProperty(String("id"), "A", &undoManager);
+
+    
+    ValueTree velocities(String("velocities"));
+    pattern.addChild(velocities, -1, &undoManager);
+    
+    ValueTree tracks2(String("tracks"));
+    velocities.addChild(tracks2, -1, &undoManager);
+    
+    for (int trackId=0; trackId < Mixer::tracks::max; trackId++) {
+        ValueTree track(String("track"));
+        
+        String name = mixer.getNameByTrackId(trackId);
+        
+        track.setProperty(String("id"), trackId, &undoManager);
+        track.setProperty(String("name"), name, &undoManager);
+        
+        ValueTree cells(String("cells"));
+        track.addChild(cells, -1, &undoManager);
+        
+        for (int cellId=0; cellId < this->sequencer.getNumCells(); cellId++) {
+            ValueTree cell(String("cell"));
+            cell.setProperty(String("position"), cellId, &undoManager);
+            cell.setProperty(String("velocity"), this->sequencer.getCells(trackId).getUnchecked(cellId), &undoManager);
+            
+            cells.addChild(cell, -1, &undoManager);
+        }
+        
+        tracks2.addChild(track, -1, &undoManager);
+    }
+    
+    ValueTree modulations(String("modulations"));
+    pattern.addChild(modulations, -1, &undoManager);
+    
+    std::cout << "-------- -------- -------- -------- --------- --------" << std::endl;
+    //std::cout << document.toXmlString() << std::endl;
+    
+    bool isIos = (SystemStats::getOperatingSystemType() == SystemStats::OperatingSystemType::iOS);
+    
+    if (!isIos) {
+        std::cout << "save in non ios system not implemented yet";
+        return;
+    }
+
+    // begin ios save experiment
+
+    File home(getenv("HOME"));
+    File documents(home.getChildFile("Documents"));
+    File startup(documents.getChildFile("startup.xml"));
+
+    if(!startup.existsAsFile()) {
+        startup.create();
+    }
+    
+    DirectoryIterator di(documents, true, "*", File::TypesOfFileToFind::findFilesAndDirectories);
+    
+    startup.replaceWithText(document.toXmlString());
+}
+
+void Controller::loadDocument()
+{
+    File home(getenv("HOME"));
+    File documents(home.getChildFile("Documents"));
+    File startup(documents.getChildFile("startup.xml"));
+    
+    if (!startup.existsAsFile()) {
+        return;
+    }
+
+    XmlDocument myDocument (startup);
+    XmlElement xml (*myDocument.getDocumentElement());
+    document = document.fromXml(xml);
+}
+
+void Controller::createDocument()
+{
+    
+}
+
+void Controller::valueTreePropertyChanged (ValueTree& treeWhosePropertyHasChanged, const Identifier& property)
+{
+    std::cout << "valueTreePropertyChanged" << &property << std::endl;
+}
+
+
 //==============================================================================
 // This creates new instances of the plugin..
 

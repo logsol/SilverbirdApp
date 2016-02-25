@@ -11,9 +11,8 @@
 #include "../Plugin/JuceLibraryCode/AppConfig.h"
  
 #include "JuceHeader.h"
-#include "Gui.h"
+#include "StandaloneFilterWindow.h"
 
-#include "../Plugin/JuceLibraryCode/modules/juce_audio_plugin_client/Standalone/juce_StandaloneFilterWindow.h"
 
 
 class SilverbirdAppApplication  : public JUCEApplication

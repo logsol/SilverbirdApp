@@ -23,6 +23,16 @@ Knob::Knob(const String &name)
     setRange (0.0, 100.0, 0.1);
     setScrollWheelEnabled(false);
     setPopupMenuEnabled (false);
+
+    setColour(ColourIds::rotarySliderFillColourId, Colour(0xff, 0xeb, 0x86));
+    setColour(ColourIds::rotarySliderOutlineColourId, Colour(0x00, 0x00, 0x00).withAlpha(0.3f));
+
+    // linear style
+    setColour(ColourIds::thumbColourId, Colour(0xff, 0xeb, 0x86));
+    setColour(ColourIds::backgroundColourId, Colour(0x45, 0x45, 0x45).withAlpha(0.5f));
+
+    
+    //findColour(ColourIds::rotarySliderOutlineColourId));
 }
 
 Knob::~Knob()
@@ -30,6 +40,7 @@ Knob::~Knob()
     deleteAllChildren();
 }
 
+/*
 void Knob::paint(Graphics& g)
 {
     double range = getMaximum() - getMinimum();
@@ -50,8 +61,12 @@ void Knob::paint(Graphics& g)
                 false);
     
 }
+ */
 
 void Knob::setBaseCenter(bool isCentered) {
+    
+    this->isCentered = isCentered;
+    return;
     
     if (isCentered) {
         singleImageWidth = 37;
@@ -59,6 +74,11 @@ void Knob::setBaseCenter(bool isCentered) {
         
         useCenteredImage = true;
     }
+}
+
+bool Knob::getIsCentered()
+{
+    return isCentered;
 }
 
 void Knob::setStepSize(float stepSize)

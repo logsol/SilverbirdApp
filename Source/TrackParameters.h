@@ -47,9 +47,9 @@ public:
     //[UserMethods]     -- You can add your own custom methods in this section.
     //[/UserMethods]
 
-    void paint (Graphics& g) override;
-    void resized() override;
-    void sliderValueChanged (Slider* sliderThatWasMoved) override;
+    void paint (Graphics& g);
+    void resized();
+    void sliderValueChanged (Slider* sliderThatWasMoved);
 
 
 

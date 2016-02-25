@@ -22,9 +22,10 @@ public:
     Knob(const String &name);
     ~Knob();
     
-    void paint(Graphics& g) override;
+    //void paint(Graphics& g) override;
     void setBaseCenter(bool isCentered);
     void setStepSize(float stepSize);
+    bool getIsCentered();
     
 protected:
     //==============================================================================
@@ -32,6 +33,7 @@ protected:
     int singleImageWidth;
     int singleImageHeight;
     bool useCenteredImage = false;
+    bool isCentered = false;
 };
 
 

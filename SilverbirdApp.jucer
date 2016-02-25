@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="t5PU2z" name="SilverbirdApp" projectType="guiapp" version="1.0.0"
-              bundleIdentifier="com.karl-pannek.SilverbirdApp" includeBinaryInAppConfig="1"
+<JUCERPROJECT id="t5PU2z" name="SilverbirdApp" projectType="guiapp" version="0.1.0"
+              bundleIdentifier="com.audiosalt.SilverbirdApp" includeBinaryInAppConfig="1"
               jucerVersion="4.1.0" companyName="Audiosalt" companyWebsite="audiosalt.com">
   <MAINGROUP id="P1u1H7" name="SilverbirdApp">
+    <FILE id="DidWNp" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
     <GROUP id="{40B58F17-2A50-FCFC-AC96-EA61BE3F32E2}" name="Source">
       <GROUP id="{65D2481D-E290-269E-E2CF-FBF627AAB06A}" name="Engine">
         <FILE id="X8AzuF" name="Parameter.cpp" compile="1" resource="0" file="Source/Parameter.cpp"/>
@@ -26,11 +27,31 @@
         <FILE id="WzwTSt" name="Sound.h" compile="0" resource="0" file="Source/Sound.h"/>
       </GROUP>
       <GROUP id="{7910223D-4739-F887-8F7B-FD608B6F3A66}" name="View">
+        <GROUP id="{3FF9126C-0E80-B1DD-D6AF-DFACFBEA5EA9}" name="Views">
+          <FILE id="TOHxyy" name="Portrait.cpp" compile="1" resource="0" file="Source/Portrait.cpp"/>
+          <FILE id="P1qKz0" name="Portrait.h" compile="0" resource="0" file="Source/Portrait.h"/>
+          <FILE id="tdqqgv" name="SizeTest.cpp" compile="1" resource="0" file="Source/SizeTest.cpp"/>
+          <FILE id="CXM3qN" name="SizeTest.h" compile="0" resource="0" file="Source/SizeTest.h"/>
+          <FILE id="jWB7XH" name="View.cpp" compile="1" resource="0" file="Source/View.cpp"/>
+          <FILE id="A5Vd1m" name="View.h" compile="0" resource="0" file="Source/View.h"/>
+        </GROUP>
         <GROUP id="{05047D03-0942-0207-CD04-D6540CE92CE0}" name="Components">
-          <FILE id="xx7SeK" name="BpmSlider.cpp" compile="1" resource="0" file="Source/BpmSlider.cpp"/>
-          <FILE id="ejsgxR" name="BpmSlider.h" compile="0" resource="0" file="Source/BpmSlider.h"/>
           <FILE id="oGdy5I" name="Transport.cpp" compile="1" resource="0" file="Source/Transport.cpp"/>
           <FILE id="iXI0nd" name="Transport.h" compile="0" resource="0" file="Source/Transport.h"/>
+          <FILE id="xFeYs6" name="TrackParameters.cpp" compile="1" resource="0"
+                file="Source/TrackParameters.cpp"/>
+          <FILE id="AKJHZv" name="TrackParameters.h" compile="0" resource="0"
+                file="Source/TrackParameters.h"/>
+          <FILE id="I58Vfx" name="HistoryComponent.cpp" compile="1" resource="0"
+                file="Source/HistoryComponent.cpp"/>
+          <FILE id="QxNc3s" name="HistoryComponent.h" compile="0" resource="0"
+                file="Source/HistoryComponent.h"/>
+          <FILE id="XI39ZD" name="MixerComponent.cpp" compile="1" resource="0"
+                file="Source/MixerComponent.cpp"/>
+          <FILE id="SNetKs" name="MixerComponent.h" compile="0" resource="0"
+                file="Source/MixerComponent.h"/>
+          <FILE id="NtoRDd" name="MixerStrip.cpp" compile="1" resource="0" file="Source/MixerStrip.cpp"/>
+          <FILE id="db0h33" name="MixerStrip.h" compile="0" resource="0" file="Source/MixerStrip.h"/>
           <FILE id="ZnShZ9" name="Mods.cpp" compile="1" resource="0" file="Source/Mods.cpp"/>
           <FILE id="N4DGej" name="Mods.h" compile="0" resource="0" file="Source/Mods.h"/>
           <FILE id="n0iGwn" name="Drums.cpp" compile="1" resource="0" file="Source/Drums.cpp"/>
@@ -41,12 +62,10 @@
                 file="Source/BipolarStepper.cpp"/>
           <FILE id="PMOxCq" name="BipolarStepper.h" compile="0" resource="0"
                 file="Source/BipolarStepper.h"/>
-          <FILE id="xFeYs6" name="TrackParameters.cpp" compile="1" resource="0"
-                file="Source/TrackParameters.cpp"/>
-          <FILE id="AKJHZv" name="TrackParameters.h" compile="0" resource="0"
-                file="Source/TrackParameters.h"/>
           <FILE id="yX5x8g" name="Knob.cpp" compile="1" resource="0" file="Source/Knob.cpp"/>
           <FILE id="eQaVnz" name="Knob.h" compile="0" resource="0" file="Source/Knob.h"/>
+          <FILE id="xx7SeK" name="BpmSlider.cpp" compile="1" resource="0" file="Source/BpmSlider.cpp"/>
+          <FILE id="ejsgxR" name="BpmSlider.h" compile="0" resource="0" file="Source/BpmSlider.h"/>
         </GROUP>
         <FILE id="bgQCMx" name="CustomLook.cpp" compile="1" resource="0" file="Source/CustomLook.cpp"/>
         <FILE id="JEosAb" name="CustomLook.h" compile="0" resource="0" file="Source/CustomLook.h"/>
@@ -68,7 +87,10 @@
         <FILE id="TYWRAb" name="SequencerMessage.h" compile="0" resource="0"
               file="Source/SequencerMessage.h"/>
       </GROUP>
-      <FILE id="DidWNp" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+      <GROUP id="{D184D656-84D3-7730-7DC0-58DCD8B6F69C}" name="Extra">
+        <FILE id="y0PWPt" name="StandaloneFilterWindow.h" compile="0" resource="0"
+              file="Source/StandaloneFilterWindow.h"/>
+      </GROUP>
     </GROUP>
     <GROUP id="{ED3D9729-17B3-221F-DA8E-B7C677696983}" name="Resources">
       <GROUP id="{87255292-EFDC-C638-E0CF-F7F4CE654601}" name="Samples">
@@ -365,6 +387,9 @@
         </GROUP>
       </GROUP>
       <GROUP id="{77A2669D-49B1-41CB-A75D-710AF012B651}" name="Images">
+        <FILE id="ZVPfJQ" name="iphone-retina2.png" compile="0" resource="1"
+              file="../../../../Dropbox/audiosalt/Silverbird/Images/iphone-retina2.png"/>
+        <FILE id="KAoPru" name="Bird3.png" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Images/Bird3.png"/>
         <FILE id="z578EU" name="Background.png" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Images/Background.png"/>
         <FILE id="o9XE0B" name="Bird.png" compile="0" resource="1" file="../../../../Dropbox/audiosalt/Silverbird/Images/Bird.png"/>
         <FILE id="sbxj9i" name="Knob_Centered.png" compile="0" resource="1"
@@ -375,7 +400,8 @@
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
-    <XCODE_MAC targetFolder="Builds/MacOSX" smallIcon="fJGTOs" bigIcon="b5gehu">
+    <XCODE_MAC targetFolder="Builds/MacOSX" smallIcon="fJGTOs" bigIcon="b5gehu"
+               vstFolder="" vst3Folder="">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" osxSDK="10.11 SDK" osxCompatibility="10.11 SDK"
                        osxArchitecture="default" isDebug="1" optimisation="1" targetName="SilverbirdApp"
@@ -439,9 +465,12 @@
         <MODULEPATH id="juce_audio_utils" path="../JUCE/modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
-    <XCODE_IPHONE targetFolder="Builds/iOS">
+    <XCODE_IPHONE targetFolder="Builds/iOS" vstFolder="" vst3Folder="" smallIcon="KAoPru"
+                  bigIcon="KAoPru" prebuildCommand="cd SilverbirdApp/Images.xcassets/LaunchImage.launchimage/ \&#10;&amp;&amp; cp iphone-2x.png LaunchImage-iphone-2x.png \&#10;&amp;&amp; cp iphone-retina4.png LaunchImage-iphone-retina4.png \"
+                  postbuildCommand="" extraCompilerFlags="-x objective-c++" UIStatusBarHidden="0"
+                  customPList="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;&#10;&lt;plist version=&quot;1.0&quot;&gt;&#10;&lt;dict&gt;&#10;&#9;&lt;key&gt;UIRequiresFullScreen&lt;/key&gt;&#10;&#9;&lt;false/&gt;&#10;&#9;&lt;key&gt;UIStatusBarStyle&lt;/key&gt;&#10;&#9;&lt;string&gt;UIStatusBarStyleLightContent&lt;/string&gt;&#10;&#9;&lt;key&gt;UISupportedInterfaceOrientations&lt;/key&gt;&#10;&#9;&lt;array&gt;&#10;&#9;&#9;&lt;string&gt;UIInterfaceOrientationPortrait&lt;/string&gt;&#10;&#9;&lt;/array&gt;&#10;&lt;/dict&gt;&#10;&lt;/plist&gt;&#10;">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" iosCompatibility="7.1" isDebug="1" optimisation="1"
+        <CONFIGURATION name="Debug" iosCompatibility="7.0" isDebug="1" optimisation="1"
                        targetName="SilverbirdApp"/>
         <CONFIGURATION name="Release" iosCompatibility="default" isDebug="0" optimisation="3"
                        targetName="SilverbirdApp"/>
@@ -462,17 +491,17 @@
     </XCODE_IPHONE>
   </EXPORTFORMATS>
   <MODULES>
-    <MODULES id="juce_audio_basics" showAllCode="1" useLocalCopy="1"/>
-    <MODULES id="juce_audio_devices" showAllCode="1" useLocalCopy="1"/>
-    <MODULES id="juce_audio_formats" showAllCode="1" useLocalCopy="1"/>
-    <MODULES id="juce_audio_processors" showAllCode="1" useLocalCopy="1"/>
-    <MODULES id="juce_audio_utils" showAllCode="1" useLocalCopy="1"/>
-    <MODULES id="juce_core" showAllCode="1" useLocalCopy="1"/>
-    <MODULES id="juce_data_structures" showAllCode="1" useLocalCopy="1"/>
-    <MODULES id="juce_events" showAllCode="1" useLocalCopy="1"/>
-    <MODULES id="juce_graphics" showAllCode="1" useLocalCopy="1"/>
-    <MODULES id="juce_gui_basics" showAllCode="1" useLocalCopy="1"/>
-    <MODULES id="juce_gui_extra" showAllCode="1" useLocalCopy="1"/>
+    <MODULES id="juce_audio_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_audio_devices" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_audio_formats" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_audio_processors" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_audio_utils" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_core" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_data_structures" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_events" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_graphics" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_gui_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_gui_extra" showAllCode="1" useLocalCopy="0"/>
   </MODULES>
   <JUCEOPTIONS JUCE_ALSA="enabled" JUCE_JACK="enabled" JUCE_USE_CDREADER="disabled"
                JUCE_USE_CDBURNER="disabled" JUCE_USE_FLAC="disabled" JUCE_USE_OGGVORBIS="disabled"

@@ -7,12 +7,12 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Introjucer version: 3.1.1
+  Created with Introjucer version: 4.1.0
 
   ------------------------------------------------------------------------------
 
   The Introjucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright 2004-13 by Raw Material Software Ltd.
+  Copyright (c) 2015 - ROLI Ltd.
 
   ==============================================================================
 */
@@ -31,6 +31,9 @@
 Mods::Mods (Controller* controller)
     : controller(controller)
 {
+    //[Constructor_pre] You can add your own custom stuff here..
+    //[/Constructor_pre]
+
     addAndMakeVisible (decayStepper = new BipolarStepper (controller, Mixer::mods::decay, true));
     addAndMakeVisible (selectStepper = new BipolarStepper (controller, Mixer::mods::sample, true));
     addAndMakeVisible (pitchStepper = new BipolarStepper (controller, Mixer::mods::pitch, true));
@@ -85,7 +88,7 @@ void Mods::resized()
      */
     int space = 2;
     float h = (getHeight() - space * 2) / 4;
-    
+
     decayStepper->setBounds (0, 0, getWidth(), h);
     selectStepper->setBounds (0, (h+space)*1, getWidth(), h);
     pitchStepper->setBounds (0, (h+space)*2, getWidth(), h);

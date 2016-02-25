@@ -50,10 +50,10 @@ public:
     //[UserMethods]     -- You can add your own custom methods in this section.
     //[/UserMethods]
 
-    void paint (Graphics& g) override;
-    void resized() override;
-    void sliderValueChanged (Slider* sliderThatWasMoved) override;
-    void buttonClicked (Button* buttonThatWasClicked) override;
+    void paint (Graphics& g);
+    void resized();
+    void sliderValueChanged (Slider* sliderThatWasMoved);
+    void buttonClicked (Button* buttonThatWasClicked);
 
 
 
@@ -63,10 +63,11 @@ private:
     //[/UserVariables]
 
     //==============================================================================
-    ScopedPointer<BpmSlider> bpmSlider;
+    ScopedPointer<Knob> bpmSlider;
     ScopedPointer<TextButton> playButton;
-    ScopedPointer<TextButton> stopButton;
     ScopedPointer<Label> label;
+    ScopedPointer<Label> label10;
+    ScopedPointer<Knob> shuffleSlider;
 
 
     //==============================================================================

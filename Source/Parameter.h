@@ -22,7 +22,7 @@ public:
     
     int parameterId;
     int paramNameId;
-    bool isGlobal;
+    bool global;
     String name;
     int trackId;
     int numSoundsTrack;
@@ -33,8 +33,12 @@ public:
     
     static float scale(int paramNameId, bool isGlobal, float value, int numSoundsTrack = -1);
     
+    String getName();
+    bool isGlobal();
+    
 protected:
     String createName();
+    String getParamName();
 };
 
 #endif  // PARAMETER_H_INCLUDED

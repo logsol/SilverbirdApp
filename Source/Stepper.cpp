@@ -170,10 +170,6 @@ void Stepper::mouseDown (const MouseEvent& e)
 {
     //[UserCode_mouseDown] -- Add your code here...
 
-
-
-
-
     int numCells = controller->sequencer.getNumCells();
 
     float cellWidth = getWidth() / numCells;
@@ -185,7 +181,7 @@ void Stepper::mouseDown (const MouseEvent& e)
 
     repaint();
 
-
+    controller->setTrackFocus(trackId);
 
     //[/UserCode_mouseDown]
 }
@@ -195,6 +191,24 @@ void Stepper::mouseDrag (const MouseEvent& e)
     //[UserCode_mouseDrag] -- Add your code here...
     mouseDown(e);
     //[/UserCode_mouseDrag]
+}
+
+void Stepper::mouseDoubleClick (const MouseEvent& e)
+{
+    //[UserCode_mouseDoubleClick] -- Add your code here...
+    int numCells = controller->sequencer.getNumCells();
+    
+    float cellWidth = getWidth() / numCells;
+    int cellId = fmax(0, fmin(numCells, floor(e.getPosition().getX() / cellWidth)));
+    
+    float value = isBipolar() ? 0.5f : 0.0f;
+    
+    updateSequencer(cellId, value);
+    
+    repaint();
+    
+    controller->setTrackFocus(trackId);
+    //[/UserCode_mouseDoubleClick]
 }
 
 
@@ -252,6 +266,7 @@ BEGIN_JUCER_METADATA
   <METHODS>
     <METHOD name="mouseDrag (const MouseEvent&amp; e)"/>
     <METHOD name="mouseDown (const MouseEvent&amp; e)"/>
+    <METHOD name="mouseDoubleClick (const MouseEvent&amp; e)"/>
   </METHODS>
   <BACKGROUND backgroundColour="e5000000"/>
   <LABEL name="stepper" id="d5d914557b2ab44f" memberName="stepperLabel"

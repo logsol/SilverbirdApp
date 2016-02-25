@@ -3,14 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>application-identifier</key>
-	<string>7S2CM9F9JL.com.karl-pannek.SilverbirdApp</string>
+	<string>7S2CM9F9JL.com.audiosalt.SilverbirdApp</string>
 	<key>com.apple.developer.team-identifier</key>
 	<string>7S2CM9F9JL</string>
 	<key>get-task-allow</key>
 	<true/>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>7S2CM9F9JL.com.karl-pannek.SilverbirdApp</string>
+		<string>7S2CM9F9JL.com.audiosalt.SilverbirdApp</string>
 	</array>
 </dict>
 </plist>

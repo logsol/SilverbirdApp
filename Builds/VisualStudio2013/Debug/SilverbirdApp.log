@@ -1,64 +1,498 @@
-﻿Build started 20.02.2015 17:27:50.
-     1>Project "\\VBOXSVR\c++\SilverbirdApp\Builds\VisualStudio2013\SilverbirdApp.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\JuceLibraryCode /I..\..\JuceLibraryCode\modules /ZI /nologo /W4 /WX- /MP /Od /Oy- /D WIN32 /D _WINDOWS /D DEBUG /D _DEBUG /D JUCER_VS2013_78A5020=1 /D JUCE_APP_VERSION=1.0.0 /D JUCE_APP_VERSION_HEX=0x10000 /Gm- /EHsc /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Debug\\" /Fd"Debug\\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Source\Stepper.cpp
-         Stepper.cpp
-     1>\\vboxsvr\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
-                 \\vboxsvr\c++\silverbirdapp\jucelibrarycode\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
-     1>\\vboxsvr\c++\silverbirdapp\source\sampler.h(27): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
-                 \\vboxsvr\c++\silverbirdapp\jucelibrarycode\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(360) : see declaration of 'juce::Synthesiser::noteOn'
-     1>\\vboxsvr\c++\silverbirdapp\source\stepper.cpp(97): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-     1>\\vboxsvr\c++\silverbirdapp\source\stepper.cpp(101): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-     1>\\vboxsvr\c++\silverbirdapp\source\stepper.cpp(141): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>\\vboxsvr\c++\silverbirdapp\source\stepper.cpp(149): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>\\vboxsvr\c++\silverbirdapp\source\stepper.cpp(149): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>\\vboxsvr\c++\silverbirdapp\source\stepper.cpp(175): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
-     1>\\vboxsvr\c++\silverbirdapp\source\stepper.cpp(176): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
-     1>\\vboxsvr\c++\silverbirdapp\source\stepper.cpp(178): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
-     1>\\vboxsvr\c++\silverbirdapp\source\stepper.cpp(208): warning C4100: 'newID' : unreferenced formal parameter
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:".\Debug\\SilverbirdApp.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:libcmt.lib /NODEFAULTLIB:msvcrt.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"Debug\\SilverbirdApp.pdb" /SUBSYSTEM:WINDOWS /LARGEADDRESSAWARE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\Debug\SilverbirdApp.lib" /MACHINE:X86 /SAFESEH:NO Debug\resources.res
-         Debug\\Parameter.obj
-         Debug\\Controller.obj
-         Debug\\Processor.obj
-         Debug\\ADSR.obj
-         Debug\\Voice.obj
-         Debug\\Mixer.obj
-         Debug\\Sampler.obj
-         Debug\\Source.obj
-         Debug\\Sound.obj
-         Debug\\BpmSlider.obj
-         Debug\\Transport.obj
-         Debug\\Mods.obj
-         Debug\\Drums.obj
-         Debug\\Stepper.obj
-         Debug\\BipolarStepper.obj
-         Debug\\TrackParameters.obj
-         Debug\\Knob.obj
-         Debug\\CustomLook.obj
-         Debug\\Gui.obj
-         Debug\\Sequencer.obj
-         Debug\\ClockListener.obj
-         Debug\\Clock.obj
-         Debug\\Main.obj
-         Debug\\BinaryData.obj
-         Debug\\BinaryData2.obj
-         Debug\\BinaryData3.obj
-         Debug\\BinaryData4.obj
-         Debug\\juce_audio_basics.obj
-         Debug\\juce_audio_devices.obj
-         Debug\\juce_audio_formats.obj
-         Debug\\juce_audio_processors.obj
-         Debug\\juce_audio_utils.obj
-         Debug\\juce_core.obj
-         Debug\\juce_data_structures.obj
-         Debug\\juce_events.obj
-         Debug\\juce_graphics.obj
-         Debug\\juce_gui_basics.obj
-         Debug\\juce_gui_extra.obj
-         SilverbirdApp.vcxproj -> \\VBOXSVR\c++\SilverbirdApp\Builds\VisualStudio2013\.\Debug\SilverbirdApp.exe
-     1>Done Building Project "\\VBOXSVR\c++\SilverbirdApp\Builds\VisualStudio2013\SilverbirdApp.vcxproj" (Build target(s)).
+﻿Build started 09.02.2016 13:13:32.
+Project "\\VBOXSVR\projects\c++\SilverbirdApp\Builds\VisualStudio2013\SilverbirdApp.vcxproj" on node 2 (Build target(s)).
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\JuceLibraryCode /I..\..\..\JUCE\modules /ZI /nologo /W4 /WX- /MP /Od /Oy- /D _CRT_SECURE_NO_WARNINGS /D WIN32 /D _WINDOWS /D DEBUG /D _DEBUG /D JUCER_VS2013_78A5020=1 /D JUCE_APP_VERSION=0.1.0 /D JUCE_APP_VERSION_HEX=0x100 /Gm- /EHsc /MTd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"Debug\\" /Fd"Debug\\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\..\Source\Parameter.cpp ..\..\Source\Controller.cpp ..\..\Source\Processor.cpp ..\..\Source\ADSR.cpp ..\..\Source\Voice.cpp ..\..\Source\Mixer.cpp ..\..\Source\Sampler.cpp ..\..\Source\Source.cpp ..\..\Source\Sound.cpp ..\..\Source\BpmSlider.cpp ..\..\Source\Transport.cpp ..\..\Source\Mods.cpp ..\..\Source\Drums.cpp ..\..\Source\Stepper.cpp ..\..\Source\BipolarStepper.cpp ..\..\Source\TrackParameters.cpp ..\..\Source\Knob.cpp ..\..\Source\CustomLook.cpp ..\..\Source\Gui.cpp ..\..\Source\Gui2.cpp ..\..\Source\Sequencer.cpp ..\..\Source\ClockListener.cpp ..\..\Source\Clock.cpp ..\..\Source\Main.cpp ..\..\JuceLibraryCode\BinaryData.cpp ..\..\JuceLibraryCode\BinaryData2.cpp ..\..\JuceLibraryCode\BinaryData3.cpp ..\..\JuceLibraryCode\BinaryData4.cpp ..\..\JuceLibraryCode\BinaryData5.cpp ..\..\JuceLibraryCode\BinaryData6.cpp ..\..\..\JUCE\modules\juce_audio_basics\juce_audio_basics.cpp ..\..\..\JUCE\modules\juce_audio_devices\juce_audio_devices.cpp ..\..\..\JUCE\modules\juce_audio_formats\juce_audio_formats.cpp ..\..\..\JUCE\modules\juce_audio_processors\juce_audio_processors.cpp ..\..\..\JUCE\modules\juce_audio_utils\juce_audio_utils.cpp ..\..\..\JUCE\modules\juce_core\juce_core.cpp ..\..\..\JUCE\modules\juce_data_structures\juce_data_structures.cpp ..\..\..\JUCE\modules\juce_events\juce_events.cpp ..\..\..\JUCE\modules\juce_graphics\juce_graphics.cpp ..\..\..\JUCE\modules\juce_gui_basics\juce_gui_basics.cpp ..\..\..\JUCE\modules\juce_gui_extra\juce_gui_extra.cpp
+  Parameter.cpp
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getInputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(927) : see declaration of 'juce::AudioProcessor::getInputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getOutputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(928) : see declaration of 'juce::AudioProcessor::getOutputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isInputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(935) : see declaration of 'juce::AudioProcessor::isInputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isOutputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(936) : see declaration of 'juce::AudioProcessor::isOutputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\projects\c++\silverbirdapp\source\sampler.h(27): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(379) : see declaration of 'juce::Synthesiser::noteOn'
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(67): warning C4100: 'childWhichHasBeenAdded' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(67): warning C4100: 'parentTree' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'indexFromWhichChildWasRemoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'childWhichHasBeenRemoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'parentTree' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'newIndex' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'oldIndex' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'parentTreeWhoseChildrenHaveMoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(72): warning C4100: 'treeWhoseParentHasChanged' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\parameter.cpp(77): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\parameter.cpp(81): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\parameter.cpp(87): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\parameter.cpp(93): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\parameter.cpp(99): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\parameter.cpp(105): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\parameter.cpp(127): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\parameter.cpp(137): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\parameter.cpp(147): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\parameter.cpp(153): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\parameter.cpp(159): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\parameter.cpp(165): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+  Controller.cpp
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getInputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(927) : see declaration of 'juce::AudioProcessor::getInputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getOutputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(928) : see declaration of 'juce::AudioProcessor::getOutputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isInputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(935) : see declaration of 'juce::AudioProcessor::isInputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isOutputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(936) : see declaration of 'juce::AudioProcessor::isOutputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\projects\c++\silverbirdapp\source\sampler.h(27): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(379) : see declaration of 'juce::Synthesiser::noteOn'
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(67): warning C4100: 'childWhichHasBeenAdded' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(67): warning C4100: 'parentTree' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'indexFromWhichChildWasRemoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'childWhichHasBeenRemoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'parentTree' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'newIndex' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'oldIndex' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'parentTreeWhoseChildrenHaveMoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(72): warning C4100: 'treeWhoseParentHasChanged' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.cpp(93): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.cpp(173): warning C4100: 'destData' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.cpp(178): warning C4100: 'sizeInBytes' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.cpp(178): warning C4100: 'data' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.cpp(367): warning C4100: 'treeWhosePropertyHasChanged' : unreferenced formal parameter
+  Processor.cpp
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getInputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(927) : see declaration of 'juce::AudioProcessor::getInputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getOutputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(928) : see declaration of 'juce::AudioProcessor::getOutputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isInputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(935) : see declaration of 'juce::AudioProcessor::isInputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isOutputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(936) : see declaration of 'juce::AudioProcessor::isOutputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.cpp(34): warning C4100: 'index' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.cpp(39): warning C4100: 'newValue' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.cpp(39): warning C4100: 'index' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.cpp(43): warning C4100: 'index' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.cpp(48): warning C4100: 'index' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.cpp(63): warning C4100: 'index' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.cpp(68): warning C4100: 'index' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.cpp(112): warning C4100: 'index' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.cpp(116): warning C4100: 'index' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.cpp(121): warning C4100: 'newName' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.cpp(121): warning C4100: 'index' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.cpp(126): warning C4100: 'samplesPerBlock' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.cpp(126): warning C4100: 'sampleRate' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.cpp(138): warning C4100: 'midiMessages' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.cpp(138): warning C4100: 'buffer' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.cpp(152): warning C4100: 'destData' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.cpp(159): warning C4100: 'sizeInBytes' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.cpp(159): warning C4100: 'data' : unreferenced formal parameter
+  ADSR.cpp
+\\vboxsvr\projects\c++\silverbirdapp\source\adsr.cpp(29): warning C4305: 'argument' : truncation from 'double' to 'float'
+\\vboxsvr\projects\c++\silverbirdapp\source\adsr.cpp(30): warning C4305: 'argument' : truncation from 'double' to 'float'
+\\vboxsvr\projects\c++\silverbirdapp\source\adsr.cpp(39): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\adsr.cpp(45): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\adsr.cpp(51): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\adsr.cpp(55): warning C4244: 'return' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\adsr.cpp(60): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\adsr.cpp(65): warning C4305: '=' : truncation from 'double' to 'float'
+\\vboxsvr\projects\c++\silverbirdapp\source\adsr.cpp(67): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\adsr.cpp(72): warning C4305: '=' : truncation from 'double' to 'float'
+\\vboxsvr\projects\c++\silverbirdapp\source\adsr.cpp(74): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\adsr.cpp(75): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+  Voice.cpp
+\\vboxsvr\projects\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\projects\c++\silverbirdapp\source\voice.cpp(18): warning C4305: 'argument' : truncation from 'double' to 'float'
+\\vboxsvr\projects\c++\silverbirdapp\source\voice.cpp(19): warning C4305: 'argument' : truncation from 'double' to 'float'
+  Mixer.cpp
+\\vboxsvr\projects\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\projects\c++\silverbirdapp\source\sampler.h(27): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(379) : see declaration of 'juce::Synthesiser::noteOn'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getInputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(927) : see declaration of 'juce::AudioProcessor::getInputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getOutputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(928) : see declaration of 'juce::AudioProcessor::getOutputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isInputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(935) : see declaration of 'juce::AudioProcessor::isInputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isOutputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(936) : see declaration of 'juce::AudioProcessor::isOutputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(67): warning C4100: 'childWhichHasBeenAdded' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(67): warning C4100: 'parentTree' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'indexFromWhichChildWasRemoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'childWhichHasBeenRemoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'parentTree' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'newIndex' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'oldIndex' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'parentTreeWhoseChildrenHaveMoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(72): warning C4100: 'treeWhoseParentHasChanged' : unreferenced formal parameter
+  Sampler.cpp
+\\vboxsvr\projects\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\projects\c++\silverbirdapp\source\sampler.h(27): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(379) : see declaration of 'juce::Synthesiser::noteOn'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getInputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(927) : see declaration of 'juce::AudioProcessor::getInputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getOutputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(928) : see declaration of 'juce::AudioProcessor::getOutputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isInputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(935) : see declaration of 'juce::AudioProcessor::isInputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isOutputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(936) : see declaration of 'juce::AudioProcessor::isOutputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(67): warning C4100: 'childWhichHasBeenAdded' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(67): warning C4100: 'parentTree' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'indexFromWhichChildWasRemoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'childWhichHasBeenRemoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'parentTree' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'newIndex' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'oldIndex' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'parentTreeWhoseChildrenHaveMoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(72): warning C4100: 'treeWhoseParentHasChanged' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\sampler.cpp(37): warning C4305: 'initializing' : truncation from 'double' to 'float'
+\\vboxsvr\projects\c++\silverbirdapp\source\sampler.cpp(38): warning C4305: 'initializing' : truncation from 'double' to 'float'
+\\vboxsvr\projects\c++\silverbirdapp\source\sampler.cpp(56): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\sampler.cpp(59): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\sampler.cpp(60): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\sampler.cpp(79): warning C4100: 'allowTailOff' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\sampler.cpp(79): warning C4100: 'voice' : unreferenced formal parameter
+  Source.cpp
+\\vboxsvr\projects\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\projects\c++\silverbirdapp\source\sampler.h(27): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(379) : see declaration of 'juce::Synthesiser::noteOn'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getInputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(927) : see declaration of 'juce::AudioProcessor::getInputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getOutputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(928) : see declaration of 'juce::AudioProcessor::getOutputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isInputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(935) : see declaration of 'juce::AudioProcessor::isInputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isOutputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(936) : see declaration of 'juce::AudioProcessor::isOutputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(67): warning C4100: 'childWhichHasBeenAdded' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(67): warning C4100: 'parentTree' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'indexFromWhichChildWasRemoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'childWhichHasBeenRemoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'parentTree' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'newIndex' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'oldIndex' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'parentTreeWhoseChildrenHaveMoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(72): warning C4100: 'treeWhoseParentHasChanged' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\source.cpp(256): warning C4305: 'argument' : truncation from 'double' to 'float'
+\\vboxsvr\projects\c++\silverbirdapp\source\source.cpp(247): warning C4100: 'index' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\source.cpp(267): warning C4244: 'argument' : conversion from 'double' to 'int', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\source.cpp(264): warning C4100: 'samplesPerBlockExpected' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\source.cpp(290): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\source.cpp(292): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\source.cpp(293): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\source.cpp(313): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\source.cpp(314): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+  Sound.cpp
+\\vboxsvr\projects\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\projects\c++\silverbirdapp\source\sound.cpp(18): warning C4100: 'releaseTimeSecs' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\sound.cpp(17): warning C4100: 'attackTimeSecs' : unreferenced formal parameter
+  BpmSlider.cpp
+  Transport.cpp
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getInputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(927) : see declaration of 'juce::AudioProcessor::getInputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getOutputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(928) : see declaration of 'juce::AudioProcessor::getOutputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isInputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(935) : see declaration of 'juce::AudioProcessor::isInputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isOutputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(936) : see declaration of 'juce::AudioProcessor::isOutputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\projects\c++\silverbirdapp\source\sampler.h(27): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(379) : see declaration of 'juce::Synthesiser::noteOn'
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(67): warning C4100: 'childWhichHasBeenAdded' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(67): warning C4100: 'parentTree' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'indexFromWhichChildWasRemoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'childWhichHasBeenRemoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'parentTree' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'newIndex' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'oldIndex' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'parentTreeWhoseChildrenHaveMoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(72): warning C4100: 'treeWhoseParentHasChanged' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\transport.cpp(99): warning C4100: 'g' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\transport.cpp(129): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+  Mods.cpp
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getInputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(927) : see declaration of 'juce::AudioProcessor::getInputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getOutputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(928) : see declaration of 'juce::AudioProcessor::getOutputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isInputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(935) : see declaration of 'juce::AudioProcessor::isInputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isOutputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(936) : see declaration of 'juce::AudioProcessor::isOutputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\projects\c++\silverbirdapp\source\sampler.h(27): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(379) : see declaration of 'juce::Synthesiser::noteOn'
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(67): warning C4100: 'childWhichHasBeenAdded' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(67): warning C4100: 'parentTree' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'indexFromWhichChildWasRemoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'childWhichHasBeenRemoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'parentTree' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'newIndex' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'oldIndex' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'parentTreeWhoseChildrenHaveMoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(72): warning C4100: 'treeWhoseParentHasChanged' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\mods.cpp(65): warning C4100: 'g' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\mods.cpp(87): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\mods.cpp(89): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\mods.cpp(90): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\mods.cpp(91): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\mods.cpp(92): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+  Drums.cpp
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getInputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(927) : see declaration of 'juce::AudioProcessor::getInputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getOutputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(928) : see declaration of 'juce::AudioProcessor::getOutputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isInputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(935) : see declaration of 'juce::AudioProcessor::isInputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isOutputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(936) : see declaration of 'juce::AudioProcessor::isOutputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\projects\c++\silverbirdapp\source\sampler.h(27): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(379) : see declaration of 'juce::Synthesiser::noteOn'
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(67): warning C4100: 'childWhichHasBeenAdded' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(67): warning C4100: 'parentTree' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'indexFromWhichChildWasRemoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'childWhichHasBeenRemoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'parentTree' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'newIndex' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'oldIndex' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'parentTreeWhoseChildrenHaveMoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(72): warning C4100: 'treeWhoseParentHasChanged' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\drums.cpp(74): warning C4100: 'g' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\drums.cpp(98): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\drums.cpp(100): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\drums.cpp(101): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\drums.cpp(102): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\drums.cpp(103): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\drums.cpp(104): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\drums.cpp(105): warning C4244: 'argument' : conversion from 'float' to 'int', possible loss of data
+  Stepper.cpp
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getInputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(927) : see declaration of 'juce::AudioProcessor::getInputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getOutputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(928) : see declaration of 'juce::AudioProcessor::getOutputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isInputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(935) : see declaration of 'juce::AudioProcessor::isInputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isOutputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(936) : see declaration of 'juce::AudioProcessor::isOutputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\projects\c++\silverbirdapp\source\sampler.h(27): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(379) : see declaration of 'juce::Synthesiser::noteOn'
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(67): warning C4100: 'childWhichHasBeenAdded' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(67): warning C4100: 'parentTree' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'indexFromWhichChildWasRemoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'childWhichHasBeenRemoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'parentTree' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'newIndex' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'oldIndex' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'parentTreeWhoseChildrenHaveMoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(72): warning C4100: 'treeWhoseParentHasChanged' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\stepper.cpp(100): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\stepper.cpp(104): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\stepper.cpp(145): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\stepper.cpp(153): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\stepper.cpp(153): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\stepper.cpp(175): warning C4244: 'initializing' : conversion from 'int' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\stepper.cpp(176): warning C4244: 'initializing' : conversion from 'double' to 'int', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\stepper.cpp(178): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\stepper.cpp(208): warning C4100: 'newID' : unreferenced formal parameter
+  BipolarStepper.cpp
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getInputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(927) : see declaration of 'juce::AudioProcessor::getInputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getOutputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(928) : see declaration of 'juce::AudioProcessor::getOutputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isInputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(935) : see declaration of 'juce::AudioProcessor::isInputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isOutputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(936) : see declaration of 'juce::AudioProcessor::isOutputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\projects\c++\silverbirdapp\source\sampler.h(27): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(379) : see declaration of 'juce::Synthesiser::noteOn'
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(67): warning C4100: 'childWhichHasBeenAdded' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(67): warning C4100: 'parentTree' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'indexFromWhichChildWasRemoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'childWhichHasBeenRemoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'parentTree' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'newIndex' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'oldIndex' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'parentTreeWhoseChildrenHaveMoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(72): warning C4100: 'treeWhoseParentHasChanged' : unreferenced formal parameter
+  TrackParameters.cpp
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getInputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(927) : see declaration of 'juce::AudioProcessor::getInputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getOutputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(928) : see declaration of 'juce::AudioProcessor::getOutputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isInputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(935) : see declaration of 'juce::AudioProcessor::isInputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isOutputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(936) : see declaration of 'juce::AudioProcessor::isOutputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\projects\c++\silverbirdapp\source\sampler.h(27): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(379) : see declaration of 'juce::Synthesiser::noteOn'
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(67): warning C4100: 'childWhichHasBeenAdded' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(67): warning C4100: 'parentTree' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'indexFromWhichChildWasRemoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'childWhichHasBeenRemoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'parentTree' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'newIndex' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'oldIndex' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'parentTreeWhoseChildrenHaveMoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(72): warning C4100: 'treeWhoseParentHasChanged' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\trackparameters.cpp(170): warning C4305: 'argument' : truncation from 'double' to 'float'
+\\vboxsvr\projects\c++\silverbirdapp\source\trackparameters.cpp(174): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\trackparameters.cpp(185): warning C4305: 'argument' : truncation from 'double' to 'float'
+\\vboxsvr\projects\c++\silverbirdapp\source\trackparameters.cpp(186): warning C4305: 'argument' : truncation from 'double' to 'float'
+\\vboxsvr\projects\c++\silverbirdapp\source\trackparameters.cpp(216): warning C4100: 'g' : unreferenced formal parameter
+  Knob.cpp
+  CustomLook.cpp
+  Gui.cpp
+\\vboxsvr\projects\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\projects\c++\silverbirdapp\source\sampler.h(27): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(379) : see declaration of 'juce::Synthesiser::noteOn'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getInputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(927) : see declaration of 'juce::AudioProcessor::getInputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getOutputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(928) : see declaration of 'juce::AudioProcessor::getOutputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isInputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(935) : see declaration of 'juce::AudioProcessor::isInputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isOutputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(936) : see declaration of 'juce::AudioProcessor::isOutputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(67): warning C4100: 'childWhichHasBeenAdded' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(67): warning C4100: 'parentTree' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'indexFromWhichChildWasRemoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'childWhichHasBeenRemoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'parentTree' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'newIndex' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'oldIndex' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'parentTreeWhoseChildrenHaveMoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(72): warning C4100: 'treeWhoseParentHasChanged' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\gui.cpp(389): warning C4305: 'argument' : truncation from 'double' to 'float'
+\\vboxsvr\projects\c++\silverbirdapp\source\gui.cpp(390): warning C4305: 'argument' : truncation from 'double' to 'float'
+  Gui2.cpp
+\\vboxsvr\projects\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\projects\c++\silverbirdapp\source\sampler.h(27): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(379) : see declaration of 'juce::Synthesiser::noteOn'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getInputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(927) : see declaration of 'juce::AudioProcessor::getInputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::getOutputChannelName': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(928) : see declaration of 'juce::AudioProcessor::getOutputChannelName'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isInputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(935) : see declaration of 'juce::AudioProcessor::isInputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\processor.h(73): warning C4996: 'juce::AudioProcessor::isOutputChannelStereoPair': was declared deprecated
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_processors\processors\juce_audioprocessor.h(936) : see declaration of 'juce::AudioProcessor::isOutputChannelStereoPair'
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(67): warning C4100: 'childWhichHasBeenAdded' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(67): warning C4100: 'parentTree' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'indexFromWhichChildWasRemoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'childWhichHasBeenRemoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(70): warning C4100: 'parentTree' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'newIndex' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'oldIndex' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(71): warning C4100: 'parentTreeWhoseChildrenHaveMoved' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\controller.h(72): warning C4100: 'treeWhoseParentHasChanged' : unreferenced formal parameter
+  Generating Code...
+  Compiling...
+  Sequencer.cpp
+\\vboxsvr\projects\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\projects\c++\silverbirdapp\source\sampler.h(27): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(379) : see declaration of 'juce::Synthesiser::noteOn'
+  ClockListener.cpp
+  Clock.cpp
+\\vboxsvr\projects\c++\silverbirdapp\source\sound.h(44): warning C4373: 'Sound::appliesToNote': virtual function overrides 'juce::SamplerSound::appliesToNote', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_formats\sampler\juce_sampler.h(85) : see declaration of 'juce::SamplerSound::appliesToNote'
+\\vboxsvr\projects\c++\silverbirdapp\source\sampler.h(27): warning C4373: 'Sampler::noteOn': virtual function overrides 'juce::Synthesiser::noteOn', previous versions of the compiler did not override when parameters only differed by const/volatile qualifiers
+          \\vboxsvr\projects\c++\juce\modules\juce_audio_basics\synthesisers\juce_synthesiser.h(379) : see declaration of 'juce::Synthesiser::noteOn'
+\\vboxsvr\projects\c++\silverbirdapp\source\clock.cpp(39): warning C4100: 'message' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\clock.cpp(53): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+\\vboxsvr\projects\c++\silverbirdapp\source\clock.cpp(95): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+  Main.cpp
+\\vboxsvr\projects\c++\silverbirdapp\source\main.cpp(25): warning C4100: 'commandLine' : unreferenced formal parameter
+\\vboxsvr\projects\c++\silverbirdapp\source\main.cpp(49): warning C4100: 'commandLine' : unreferenced formal parameter
+  BinaryData.cpp
+  BinaryData2.cpp
+  BinaryData3.cpp
+  BinaryData4.cpp
+  BinaryData5.cpp
+  BinaryData6.cpp
+  juce_audio_basics.cpp
+  juce_audio_devices.cpp
+  juce_audio_formats.cpp
+  juce_audio_processors.cpp
+  juce_audio_utils.cpp
+  juce_core.cpp
+  juce_data_structures.cpp
+  juce_events.cpp
+  juce_graphics.cpp
+  juce_gui_basics.cpp
+  Generating Code...
+  Compiling...
+  juce_gui_extra.cpp
+  Generating Code...
+ResourceCompile:
+  C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D _DEBUG /l"0x0409" /nologo /fo"Debug\resources.res" .\resources.rc 
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"\\VBOXSVR\projects\c++\SilverbirdApp\Builds\VisualStudio2013\Debug\\SilverbirdApp.exe" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /NODEFAULTLIB:libcmt.lib /NODEFAULTLIB:msvcrt.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"Debug\\SilverbirdApp.pdb" /SUBSYSTEM:WINDOWS /LARGEADDRESSAWARE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"\\VBOXSVR\projects\c++\SilverbirdApp\Builds\VisualStudio2013\Debug\SilverbirdApp.lib" /MACHINE:X86 /SAFESEH:NO Debug\resources.res
+  Debug\\Parameter.obj
+  Debug\\Controller.obj
+  Debug\\Processor.obj
+  Debug\\ADSR.obj
+  Debug\\Voice.obj
+  Debug\\Mixer.obj
+  Debug\\Sampler.obj
+  Debug\\Source.obj
+  Debug\\Sound.obj
+  Debug\\BpmSlider.obj
+  Debug\\Transport.obj
+  Debug\\Mods.obj
+  Debug\\Drums.obj
+  Debug\\Stepper.obj
+  Debug\\BipolarStepper.obj
+  Debug\\TrackParameters.obj
+  Debug\\Knob.obj
+  Debug\\CustomLook.obj
+  Debug\\Gui.obj
+  Debug\\Gui2.obj
+  Debug\\Sequencer.obj
+  Debug\\ClockListener.obj
+  Debug\\Clock.obj
+  Debug\\Main.obj
+  Debug\\BinaryData.obj
+  Debug\\BinaryData2.obj
+  Debug\\BinaryData3.obj
+  Debug\\BinaryData4.obj
+  Debug\\BinaryData5.obj
+  Debug\\BinaryData6.obj
+  Debug\\juce_audio_basics.obj
+  Debug\\juce_audio_devices.obj
+  Debug\\juce_audio_formats.obj
+  Debug\\juce_audio_processors.obj
+  Debug\\juce_audio_utils.obj
+  Debug\\juce_core.obj
+  Debug\\juce_data_structures.obj
+  Debug\\juce_events.obj
+  Debug\\juce_graphics.obj
+  Debug\\juce_gui_basics.obj
+  Debug\\juce_gui_extra.obj
+  SilverbirdApp.vcxproj -> \\VBOXSVR\projects\c++\SilverbirdApp\Builds\VisualStudio2013\Debug\SilverbirdApp.exe
+Done Building Project "\\VBOXSVR\projects\c++\SilverbirdApp\Builds\VisualStudio2013\SilverbirdApp.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:06.06
+Time Elapsed 00:03:05.07

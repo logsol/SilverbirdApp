@@ -19,12 +19,13 @@
 #include "ClockListener.h"
 #include "Sequencer.h"
 #include "Knob.h"
-#include "Gui.h"
-#include "Gui2.h"
+class Portrait;
+
 
 class Controller : public SilverbirdAudioProcessor,
                    public Slider::Listener,
-                   public Button::Listener
+                   public Button::Listener,
+                   public ValueTree::Listener
 {
 public:
     Controller();
@@ -32,14 +33,15 @@ public:
     
     void addClockListener(ClockListener* listener);
     void removeClockListener(ClockListener* listener);
-    void togglePlayPause();
+    bool togglePlayPause();
     void setPlayPause(bool play);
     void setBpm(float bpm);
+    float getBpm();
     
     void processBlock (AudioSampleBuffer&, MidiBuffer&) override;
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
     
-    AudioProcessorEditor* createEditor();
+    AudioProcessorEditor* createEditor() override;
     float getParameter (int index) override;
     void setParameter (int index, float newValue) override;
     
@@ -55,12 +57,26 @@ public:
     void sliderValueChanged (Slider* slider) override;
     void buttonClicked (Button* button) override;
     void onGuiParameterChange (Value& value);
+    void setTrackFocus(int trackId);
+    
+    void saveDocument();
+    void loadDocument();
+    void createDocument();
+    
+    void valueTreePropertyChanged (ValueTree& treeWhosePropertyHasChanged, const Identifier& property) override;
+    void valueTreeChildAdded (ValueTree& parentTree, ValueTree& childWhichHasBeenAdded) override {
+        std::cout << "child added" << std::endl;
+    };
+    void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved, int indexFromWhichChildWasRemoved) override {};
+    void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved, int oldIndex, int newIndex) override {};
+    void valueTreeParentChanged (ValueTree& treeWhoseParentHasChanged) override {};
 
     OwnedArray<Parameter> parameters;
     
     Mixer mixer;
     Sequencer sequencer;
     Clock clock;
+    Portrait* gui;
     
     struct params {
         enum {
@@ -79,6 +95,9 @@ public:
     
 protected:
     AudioPlayHead::CurrentPositionInfo positionInfo;
+    
+    ValueTree document;
+    UndoManager undoManager;
 };
 
 #endif  // CONTROLLER_H_INCLUDED

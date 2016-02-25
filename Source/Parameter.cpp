@@ -19,7 +19,8 @@ Parameter::Parameter(int parameterId, int paramNameId, int trackId, int numSound
     numSoundsTrack(numSoundsTrack),
     cellId(cellId)
 {
-    isGlobal = trackId < 0;
+    // set trackid -1 to global true
+    global = trackId < 0;
     
     createName();
     
@@ -32,51 +33,9 @@ Parameter::~Parameter()
 
 String Parameter::createName()
 {
-    String paramName;
-    switch (paramNameId) {
-            
-        case Controller::params::shuffle:
-            paramName = "Shuffle";
-            break;
-            
-        case Controller::params::level:
-            paramName = "Level";
-            break;
-            
-        case Controller::params::mute:
-            paramName = "Mute";
-            break;
-            
-        case Controller::params::sample:
-            paramName = "Sample";
-            break;
-            
-        case Controller::params::pitch:
-            paramName = "Pitch";
-            break;
-            
-        case Controller::params::attack:
-            paramName = "Attack";
-            break;
-            
-        case Controller::params::decay:
-            paramName = "Decay";
-            break;
-            
-        case Controller::params::distort:
-            paramName = "Distort";
-            break;
-            
-        case Controller::params::cutoff:
-            paramName = "Cutoff";
-            break;
-            
-        default:
-            paramName = "<Unknown>";
-            break;
-    }
+    String paramName = getParamName();
     
-    if (isGlobal) {
+    if (global) {
         name = "Global " + paramName;
         return name;
     }
@@ -90,7 +49,7 @@ float Parameter::getScaledValue()
 {
     float value = getValue();
     
-    return Parameter::scale(paramNameId, isGlobal, value, numSoundsTrack);
+    return Parameter::scale(paramNameId, global, value, numSoundsTrack);
 }
 
 float Parameter::scale(int paramNameId, bool isGlobal, float value, int numSoundsTrack)
@@ -163,9 +122,9 @@ float Parameter::getDefaultValue()
             break;
             
         case Controller::params::level:
-            defaultValue = isGlobal
-                ? 0.83
-                : 0.8;
+            defaultValue = global
+                ? 1.0f
+                : 0.3f; // 0.25 for clipping free..
             break;
             
         case Controller::params::mute:
@@ -173,9 +132,9 @@ float Parameter::getDefaultValue()
             break;
             
         case Controller::params::sample:
-            defaultValue = isGlobal
+            defaultValue = global
             ? floor((Mixer::SelectAllOffset - 1) * 0.5) / (Mixer::SelectAllOffset - 1)
-            : floor((numSoundsTrack - 1) * 0.5) / (numSoundsTrack - 1);
+            : 0; //floor((numSoundsTrack - 1) * 0.5) / (numSoundsTrack - 1);
             break;
             
         case Controller::params::pitch:
@@ -183,25 +142,25 @@ float Parameter::getDefaultValue()
             break;
             
         case Controller::params::attack:
-            defaultValue = isGlobal
+            defaultValue = global
                 ? 0.5
                 : 0;
             break;
             
         case Controller::params::decay:
-            defaultValue = isGlobal
+            defaultValue = global
                 ? 0.5
                 : 1;
             break;
             
         case Controller::params::distort:
-            defaultValue = isGlobal
+            defaultValue = global
                 ? 0.5
                 : 0;
             break;
             
         case Controller::params::cutoff:
-            defaultValue = isGlobal
+            defaultValue = global
                 ? 0.5
                 : 1;
             break;
@@ -212,4 +171,63 @@ float Parameter::getDefaultValue()
     }
     
     return defaultValue;
+}
+
+String Parameter::getParamName()
+{
+    String paramName;
+    switch (paramNameId) {
+            
+        case Controller::params::shuffle:
+            paramName = "Shuffle";
+            break;
+            
+        case Controller::params::level:
+            paramName = "Level";
+            break;
+            
+        case Controller::params::mute:
+            paramName = "Mute";
+            break;
+            
+        case Controller::params::sample:
+            paramName = "Sample";
+            break;
+            
+        case Controller::params::pitch:
+            paramName = "Pitch";
+            break;
+            
+        case Controller::params::attack:
+            paramName = "Attack";
+            break;
+            
+        case Controller::params::decay:
+            paramName = "Decay";
+            break;
+            
+        case Controller::params::distort:
+            paramName = "Distort";
+            break;
+            
+        case Controller::params::cutoff:
+            paramName = "Cutoff";
+            break;
+            
+        default:
+            paramName = "<Unknown>";
+            break;
+    }
+    
+    return paramName;
+}
+
+String Parameter::getName()
+{
+    return name;
+}
+
+bool Parameter::isGlobal()
+{
+    return global;
 }

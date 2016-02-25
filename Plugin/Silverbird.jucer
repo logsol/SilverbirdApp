@@ -8,8 +8,8 @@
               pluginIsSynth="1" pluginWantsMidiIn="1" pluginProducesMidiOut="0"
               pluginSilenceInIsSilenceOut="0" pluginEditorRequiresKeys="0"
               pluginAUExportPrefix="SilverbirdAU" pluginRTASCategory="" aaxIdentifier="com.Audiosalt.Silverbird"
-              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="3.1.1"
-              companyName="Audiosalt" companyWebsite="audiosalt.com">
+              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="4.1.0"
+              companyName="Audiosalt" companyWebsite="audiosalt.com" pluginIsMidiEffectPlugin="0">
   <MAINGROUP id="b4xlPf" name="Silverbird">
     <GROUP id="{6F66B809-4718-D8FD-89EF-25CC00324E26}" name="Source">
       <FILE id="NdGHVO" name="Parameter.cpp" compile="1" resource="0" file="../Source/Parameter.cpp"/>

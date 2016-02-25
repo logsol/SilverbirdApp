@@ -35,26 +35,7 @@ void Clock::removeListener(ClockListener* listener)
     listeners.removeObject(listener, false);
 }
 
-//void Clock::timerCallback()
-/*
-void Clock::hiResTimerCallback()
-{
-    //cursor++;
-    //cursor = cursor % numCells;
-    
- 
-    // 1e&a 2e&a 3e&a 4e&a (all e/a hits)
-    if(cursor % 2) {
-        float shl = 1 / (bpm / 60 * 4) * 1000 * globalParams->shuffle / 5;
-        juce::Thread::sleep(shl);
-    }
- 
-    
-    //postMessage(new Message());
-}
-*/
-
-// handle asynchronous calls for gui
+// handle asynchronous calls - for gui only
 void Clock::handleMessage(const Message& message){
     
     for (int i = 0; i < listeners.size(); i++) {
@@ -62,10 +43,10 @@ void Clock::handleMessage(const Message& message){
     }
 }
 
-
-void Clock::togglePlayPause()
+bool Clock::togglePlayPause()
 {
     setPlayPause(!isPlaying);
+    return isPlaying;
 }
 
 void Clock::setPlayPause(bool play) {
@@ -85,6 +66,11 @@ void Clock::setBpm(float bpm)
     this->sixteenthTimeMs = 60000 / this->bpm / 4;
 }
 
+float Clock::getBpm()
+{
+    return bpm;
+}
+
 void Clock::tick(float shuffle, AudioSampleBuffer& buffer, double sampleRate)
 {
     if (!isPlaying) {
@@ -99,12 +85,13 @@ void Clock::tick(float shuffle, AudioSampleBuffer& buffer, double sampleRate)
     double endOfBlockTimeMs = now + (numSamples * singleSampleTimeMs);
     
     double shuffleTimeMs = cursor % 2
-      ? 0.0
-      : 1 / (bpm / 60 * 4) * 1000 * shuffle / 5;
+    ? 1 / (bpm / 60 * 4) * 1000 * shuffle / 3
+    : 0.0;
+
     
-    //nextStepTimeMs += shuffleTimeMs;
+    //std::cout << shuffleTimeMs << std::endl;
     
-    if (nextStepTimeMs <= endOfBlockTimeMs) {
+    if (nextStepTimeMs <= endOfBlockTimeMs + shuffleTimeMs) {
         
         lastClockStepTimeMs = nextStepTimeMs;
         cursor++;

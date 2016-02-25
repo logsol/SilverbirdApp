@@ -48,12 +48,13 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
+    void setTrackFocus(int trackId);
     //[/UserMethods]
 
-    void paint (Graphics& g) override;
-    void resized() override;
-    void sliderValueChanged (Slider* sliderThatWasMoved) override;
-    void buttonClicked (Button* buttonThatWasClicked) override;
+    void paint (Graphics& g);
+    void resized();
+    void sliderValueChanged (Slider* sliderThatWasMoved);
+    void buttonClicked (Button* buttonThatWasClicked);
 
 
 
@@ -63,31 +64,15 @@ private:
     //[/UserVariables]
 
     //==============================================================================
-    ScopedPointer<Slider> kickVolumeSlider;
-    ScopedPointer<Slider> snareVolumeSlider;
-    ScopedPointer<Slider> hihatVolumeSlider;
-    ScopedPointer<Label> label7;
-    ScopedPointer<Label> label8;
-    ScopedPointer<Label> label9;
-    ScopedPointer<TabbedComponent> trackTabs;
-    ScopedPointer<Slider> shuffleSlider;
-    ScopedPointer<Label> label10;
-    ScopedPointer<Slider> perc1VolumeSlider;
-    ScopedPointer<Slider> perc2VolumeSlider;
-    ScopedPointer<Slider> tonesVolumeSlider;
-    ScopedPointer<Label> label12;
-    ScopedPointer<Label> label13;
-    ScopedPointer<Label> label14;
-    ScopedPointer<TabbedComponent> sequencerTabs;
-    ScopedPointer<TextButton> kickMuteButton;
-    ScopedPointer<TextButton> snareMuteButton;
-    ScopedPointer<TextButton> hihatMuteButton;
-    ScopedPointer<TextButton> perc2MuteButton;
-    ScopedPointer<TextButton> tonesMuteButton;
-    ScopedPointer<TextButton> perc1MuteButton;
     ScopedPointer<Transport> transport;
+    ScopedPointer<TabbedComponent> trackTabs;
+    ScopedPointer<TabbedComponent> sequencerTabs;
     ScopedPointer<Slider> masterSlider;
     ScopedPointer<Label> label;
+    ScopedPointer<TextButton> save;
+    ScopedPointer<TextButton> load;
+    ScopedPointer<TextButton> redo;
+    ScopedPointer<TextButton> undo;
 
 
     //==============================================================================

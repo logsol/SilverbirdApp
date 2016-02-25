@@ -30,12 +30,12 @@ public:
     
     void handleMessage(const Message& message);
     
-    void togglePlayPause();
+    bool togglePlayPause();
     void setPlayPause(bool play);
     void setBpm(float bpm);
     
     void tick(float shuffle, AudioSampleBuffer& buffer, double sampleRate);
-
+    float getBpm();
     
 protected:
     bool isPlaying = false;

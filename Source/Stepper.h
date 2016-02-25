@@ -50,10 +50,11 @@ public:
 
     //[/UserMethods]
 
-    void paint (Graphics& g) override;
-    void resized() override;
-    void mouseDown (const MouseEvent& e) override;
-    void mouseDrag (const MouseEvent& e) override;
+    void paint (Graphics& g);
+    void resized();
+    void mouseDown (const MouseEvent& e);
+    void mouseDrag (const MouseEvent& e);
+    void mouseDoubleClick (const MouseEvent& e);
 
 
 
