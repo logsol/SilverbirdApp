@@ -1,1 +1,5 @@
 .DS_Store
+Builds/MacOSX/Build/Intermediates
+Builds/MacOSX/Build/Debug
+Builds/iOS/Build/Intermediates
+Builds/iOS/Build/Debug
