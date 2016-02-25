@@ -36,7 +36,7 @@ void CustomLook::drawRotarySlider (Graphics& g, int x, int y, int width, int hei
     const float angle = rotaryStartAngle + sliderPos * (rotaryEndAngle - rotaryStartAngle);
     const bool isMouseOver = slider.isMouseOverOrDragging() && slider.isEnabled();
     
-    if (radius > 12.0f)
+    if (true || radius > 12.0f) // added true
     {
         if (slider.isEnabled())
             g.setColour (slider.findColour (Slider::rotarySliderFillColourId).withAlpha (1.0f));
@@ -88,6 +88,8 @@ void CustomLook::drawRotarySlider (Graphics& g, int x, int y, int width, int hei
         outlineArc.closeSubPath();
         
         g.strokePath (outlineArc, PathStrokeType (slider.isEnabled() ? (1.0f) : 0.3f));
+        
+        
     }
     else
     {
@@ -104,7 +106,16 @@ void CustomLook::drawRotarySlider (Graphics& g, int x, int y, int width, int hei
         
         g.fillPath (p, AffineTransform::rotation (angle).translated (centreX, centreY));
     }
+
+    
+    if (Knob* knob = dynamic_cast<Knob*>(&slider)) {
+    
+        g.setColour (slider.findColour (Slider::rotarySliderFillColourId).withAlpha (0.6f));
+        g.setFont (11.0f);
+        g.drawText((String) knob->getParameter()->getDisplayValue(), 0, 0, width, height, Justification::centred);
+    }
 }
+
 
 void CustomLook::drawLinearSlider (Graphics& g, int x, int y, int width, int height,
                                        float sliderPos, float minSliderPos, float maxSliderPos,

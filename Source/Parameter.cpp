@@ -49,7 +49,7 @@ float Parameter::getScaledValue()
 {
     float value = getValue();
     
-    return Parameter::scale(paramNameId, global, value, numSoundsTrack);
+    return scale(paramNameId, global, value, numSoundsTrack);
 }
 
 float Parameter::scale(int paramNameId, bool isGlobal, float value, int numSoundsTrack)
@@ -73,7 +73,7 @@ float Parameter::scale(int paramNameId, bool isGlobal, float value, int numSound
                 std::cout << "Warn: calling scale() without numSounds!" << std::endl;
             }
             return isGlobal
-                ? floor(Mixer::SelectAllOffset * (value - 0.5))
+                ? floor(Mixer::SelectAllOffset * (value - 0.5))     
                 : floor(numSoundsTrack * value);
             break;
             
@@ -111,6 +111,67 @@ float Parameter::scale(int paramNameId, bool isGlobal, float value, int numSound
     }
 }
 
+float Parameter::getDisplayValue()
+{
+    float value = getValue();
+    
+    switch (paramNameId) {
+            
+        case Controller::params::shuffle:
+            return floor(value * 100);
+            break;
+            
+        case Controller::params::level:
+            return floor(value * 100);
+            break;
+            
+        case Controller::params::mute:
+            return round(value);
+            break;
+            
+        case Controller::params::sample:
+            if(!global && numSoundsTrack == -1) {
+                std::cout << "Warn: calling getDisplayValue() without numSounds!" << std::endl;
+            }
+            return global
+            ? floor(Mixer::SelectAllOffset * (value - 0.5))
+            : floor(numSoundsTrack * value);
+            break;
+            
+        case Controller::params::pitch:
+            return round((value-0.5) * 24.0) * 2;
+            break;
+            
+        case Controller::params::attack:
+            return global
+            ? floor((value - 0.5) * 100)
+            : floor(value * 100);
+            break;
+            
+        case Controller::params::decay:
+            return global
+            ? floor((value - 0.5) * 100)
+            : floor(value * 100);
+            break;
+            
+        case Controller::params::distort:
+            return global
+            ? floor((value - 0.5) * 100)
+            : floor(value * 100);
+            break;
+            
+        case Controller::params::cutoff:
+            return global
+            ? floor((value - 0.5) * 100)
+            : floor(value * 100);
+            break;
+            
+        default:
+            return value;
+            break;
+    }
+}
+
 float Parameter::getDefaultValue()
 {
     float defaultValue;
@@ -124,7 +185,7 @@ float Parameter::getDefaultValue()
         case Controller::params::level:
             defaultValue = global
                 ? 1.0f
-                : 0.3f; // 0.25 for clipping free..
+                : 0.7f; // 0.25 for clipping free..
             break;
             
         case Controller::params::mute:
@@ -134,7 +195,7 @@ float Parameter::getDefaultValue()
         case Controller::params::sample:
             defaultValue = global
             ? floor((Mixer::SelectAllOffset - 1) * 0.5) / (Mixer::SelectAllOffset - 1)
-            : 0; //floor((numSoundsTrack - 1) * 0.5) / (numSoundsTrack - 1);
+            : 0; //floor((numSoundsTrack - 1) * 0.5) / (numSoundsTrack - 1); //estimates center
             break;
             
         case Controller::params::pitch:

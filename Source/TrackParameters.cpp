@@ -132,6 +132,16 @@ TrackParameters::TrackParameters (Controller* controller, int trackId)
 
 
     //[Constructor] You can add your own custom stuff here..
+    
+    // Textbox stuff
+    /*
+    selectSlider->setTextBoxStyle(Slider::TextBoxAbove, true, 80, 20);
+    pitchSlider->setTextBoxStyle(Slider::TextBoxAbove, true, 80, 20);
+    attackSlider->setTextBoxStyle(Slider::TextBoxAbove, true, 80, 20);
+    decaySlider->setTextBoxStyle(Slider::TextBoxAbove, true, 80, 20);
+    distortSlider->setTextBoxStyle(Slider::TextBoxAbove, true, 80, 20);
+    cutoffSlider->setTextBoxStyle(Slider::TextBoxAbove, true, 80, 20);
+     */
 
     Parameter* p;
 
@@ -139,32 +149,37 @@ TrackParameters::TrackParameters (Controller* controller, int trackId)
     selectSlider->addListener(controller);
     selectSlider->getValueObject().referTo(*p);
     selectSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
+    selectSlider->setParameter(p);
 
     p = controller->getParameterByAttrs(Controller::params::pitch, trackId);
     pitchSlider->addListener(controller);
     pitchSlider->getValueObject().referTo(*p);
     pitchSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
+    pitchSlider->setParameter(p);
 
     p = controller->getParameterByAttrs(Controller::params::attack, trackId);
     attackSlider->addListener(controller);
     attackSlider->getValueObject().referTo(*p);
     attackSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
+    attackSlider->setParameter(p);
 
     p = controller->getParameterByAttrs(Controller::params::decay, trackId);
     decaySlider->addListener(controller);
     decaySlider->getValueObject().referTo(*p);
     decaySlider->setDoubleClickReturnValue(true, p->getDefaultValue());
+    decaySlider->setParameter(p);
 
     p = controller->getParameterByAttrs(Controller::params::distort, trackId);
     distortSlider->addListener(controller);
     distortSlider->getValueObject().referTo(*p);
     distortSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
+    distortSlider->setParameter(p);
 
     p = controller->getParameterByAttrs(Controller::params::cutoff, trackId);
     cutoffSlider->addListener(controller);
     cutoffSlider->getValueObject().referTo(*p);
     cutoffSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
-
+    cutoffSlider->setParameter(p);
 
     pitchSlider->setBaseCenter(true);
     pitchSlider->setStepSize(1.0 / 24);

@@ -30,38 +30,12 @@ Knob::Knob(const String &name)
     // linear style
     setColour(ColourIds::thumbColourId, Colour(0xff, 0xeb, 0x86));
     setColour(ColourIds::backgroundColourId, Colour(0x45, 0x45, 0x45).withAlpha(0.5f));
-
-    
-    //findColour(ColourIds::rotarySliderOutlineColourId));
 }
 
 Knob::~Knob()
 {
     deleteAllChildren();
 }
-
-/*
-void Knob::paint(Graphics& g)
-{
-    double range = getMaximum() - getMinimum();
-    
-    Image knobImage = ImageCache::getFromMemory (BinaryData::Knob_png, BinaryData::Knob_pngSize);
-    int numImagePics = knobImage.getWidth() / singleImageWidth;
-    int imageOffset = singleImageWidth * (int)((numImagePics-1) * getValue()/range);
-    
-    if (useCenteredImage) {
-        knobImage = ImageCache::getFromMemory (BinaryData::Knob_Centered_png, BinaryData::Knob_Centered_pngSize);
-        numImagePics = knobImage.getWidth() / singleImageWidth;
-        imageOffset = singleImageWidth * (int)((numImagePics) * (getValue() - getMinimum())/range);
-    }
-
-    g.drawImage(knobImage,
-                (getWidth()-singleImageWidth), 0, singleImageWidth, singleImageHeight,
-                imageOffset, 0, singleImageWidth, singleImageHeight,
-                false);
-    
-}
- */
 
 void Knob::setBaseCenter(bool isCentered) {
     
@@ -84,4 +58,14 @@ bool Knob::getIsCentered()
 void Knob::setStepSize(float stepSize)
 {
     setRange(getMinimum(), getMaximum(), stepSize);
+}
+
+void Knob::setParameter(Parameter* p)
+{
+    parameter = p;
+}
+
+Parameter* Knob::getParameter()
+{
+    return parameter;
 }

@@ -13,6 +13,7 @@
 
 
 #include "JuceHeader.h"
+#include "Parameter.h"
 
 class Knob
 : public Slider
@@ -26,9 +27,12 @@ public:
     void setBaseCenter(bool isCentered);
     void setStepSize(float stepSize);
     bool getIsCentered();
+    void setParameter(Parameter* p);
+    Parameter* getParameter();
     
 protected:
     //==============================================================================
+    Parameter* parameter;
     Image* image;
     int singleImageWidth;
     int singleImageHeight;
