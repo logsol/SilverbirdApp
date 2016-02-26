@@ -17,16 +17,17 @@
   ==============================================================================
 */
 
-#ifndef __JUCE_HEADER_CAE02453DB8909B0__
-#define __JUCE_HEADER_CAE02453DB8909B0__
+#ifndef __JUCE_HEADER_D29305A814__
+#define __JUCE_HEADER_D29305A814__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "JuceHeader.h"
-#include "Controller.h"
 #include "BaseComponent.h"
+#include "Controller.h"
+#include "CustomLook.h"
 //[/Headers]
 
-#include "MixerStrip.h"
+#include "Portrait.h"
 
 
 //==============================================================================
@@ -37,12 +38,13 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class MixerComponent  : public BaseComponent
+class Ui  : public AudioProcessorEditor,
+            public Timer
 {
 public:
     //==============================================================================
-    MixerComponent (Controller* controller);
-    ~MixerComponent();
+    Ui (Controller* controller);
+    ~Ui();
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
@@ -55,22 +57,22 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
+    Controller* controller;
+    CustomLook customLook;
+
+    int lastOrientation = Desktop::DisplayOrientation::upright;
+    void timerCallback();
     //[/UserVariables]
 
     //==============================================================================
-    ScopedPointer<MixerStrip> component;
-    ScopedPointer<MixerStrip> component2;
-    ScopedPointer<MixerStrip> component3;
-    ScopedPointer<MixerStrip> component4;
-    ScopedPointer<MixerStrip> component5;
-    ScopedPointer<MixerStrip> component6;
+    ScopedPointer<Portrait> portrait;
 
 
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MixerComponent)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Ui)
 };
 
 //[EndFile] You can add extra defines here...
 //[/EndFile]
 
-#endif   // __JUCE_HEADER_CAE02453DB8909B0__
+#endif   // __JUCE_HEADER_D29305A814__

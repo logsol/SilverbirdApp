@@ -23,6 +23,7 @@
 //[Headers]     -- You can add your own extra header files here --
 #include "JuceHeader.h"
 #include "Controller.h"
+#include "BaseComponent.h"
 //[/Headers]
 
 
@@ -35,7 +36,7 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class Stepper  : public Component,
+class Stepper  : public BaseComponent,
                  public ClockListener
 {
 public:
@@ -65,7 +66,6 @@ protected:
     virtual bool isBipolar();
     virtual void updateSequencer(int cellId, float value);
 
-    Controller* controller;
     int trackId;
     bool isModulationTrack;
     int cursor = -1;

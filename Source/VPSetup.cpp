@@ -20,63 +20,70 @@
 //[Headers] You can add your own extra header files here...
 //[/Headers]
 
-#include "BipolarStepper.h"
+#include "VPSetup.h"
 
 
 //[MiscUserDefs] You can add your own user definitions and misc code here...
 //[/MiscUserDefs]
 
 //==============================================================================
-BipolarStepper::BipolarStepper (Controller* controller, int trackId, bool isModulationTrack)
-    : Stepper(controller, trackId, isModulationTrack)
+VPSetup::VPSetup (Controller* controller)
+    : BaseComponent(controller)
 {
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
 
+    addAndMakeVisible (label = new Label ("new label",
+                                          TRANS("Setup")));
+    label->setFont (Font (15.00f, Font::plain));
+    label->setJustificationType (Justification::centred);
+    label->setEditable (false, false, false);
+    label->setColour (Label::textColourId, Colours::white);
+    label->setColour (TextEditor::textColourId, Colours::black);
+    label->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (history = new HistoryComponent (controller));
 
     //[UserPreSize]
     //[/UserPreSize]
 
-    setSize (400, 60);
+    setSize (320, 420);
 
 
     //[Constructor] You can add your own custom stuff here..
-
     //[/Constructor]
 }
 
-BipolarStepper::~BipolarStepper()
+VPSetup::~VPSetup()
 {
     //[Destructor_pre]. You can add your own custom destruction code here..
     //[/Destructor_pre]
 
+    label = nullptr;
+    history = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
-
-    // HINT: doesnt need to remove from clockListeners, because parent is taking care of it.
-
     //[/Destructor]
 }
 
 //==============================================================================
-void BipolarStepper::paint (Graphics& g)
+void VPSetup::paint (Graphics& g)
 {
     //[UserPrePaint] Add your own custom painting code here..
     //[/UserPrePaint]
 
-    g.fillAll (Colour (0xe51f1f1f));
-
     //[UserPaint] Add your own custom painting code here..
-    Stepper::paint(g);
     //[/UserPaint]
 }
 
-void BipolarStepper::resized()
+void VPSetup::resized()
 {
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
+    label->setBounds (80, 16, 150, 24);
+    history->setBounds (proportionOfWidth (0.1000f), proportionOfHeight (0.5476f) - 38, proportionOfWidth (0.8031f), 38);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -84,12 +91,6 @@ void BipolarStepper::resized()
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
-bool BipolarStepper::isBipolar()
-{
-    return true;
-}
-
-
 //[/MiscUserCode]
 
 
@@ -102,12 +103,20 @@ bool BipolarStepper::isBipolar()
 
 BEGIN_JUCER_METADATA
 
-<JUCER_COMPONENT documentType="Component" className="BipolarStepper" componentName=""
-                 parentClasses="public Stepper" constructorParams="Controller* controller, int trackId, bool isModulationTrack"
-                 variableInitialisers="Stepper(controller, trackId, isModulationTrack)"
-                 snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
-                 fixedSize="1" initialWidth="400" initialHeight="60">
-  <BACKGROUND backgroundColour="e51f1f1f"/>
+<JUCER_COMPONENT documentType="Component" className="VPSetup" componentName=""
+                 parentClasses="public BaseComponent" constructorParams="Controller* controller"
+                 variableInitialisers="BaseComponent(controller)" snapPixels="8"
+                 snapActive="1" snapShown="1" overlayOpacity="0.330" fixedSize="1"
+                 initialWidth="320" initialHeight="420">
+  <BACKGROUND backgroundColour="0"/>
+  <LABEL name="new label" id="2c03953cb1a8c8b4" memberName="label" virtualName=""
+         explicitFocusOrder="0" pos="80 16 150 24" textCol="ffffffff"
+         edTextCol="ff000000" edBkgCol="0" labelText="Setup" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="15" bold="0" italic="0" justification="36"/>
+  <JUCERCOMP name="" id="b82ece55084724b2" memberName="history" virtualName=""
+             explicitFocusOrder="0" pos="10% 54.762%r 80.312% 38" posRelativeX="309379987650ac71"
+             sourceFile="HistoryComponent.cpp" constructorParams="controller"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

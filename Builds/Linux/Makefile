@@ -59,21 +59,28 @@ OBJECTS := \
   $(OBJDIR)/Sampler_e764c69.o \
   $(OBJDIR)/Source_e71e0224.o \
   $(OBJDIR)/Sound_322374f0.o \
+  $(OBJDIR)/VPNavigate_2aee4634.o \
+  $(OBJDIR)/VPSetup_d106e2e4.o \
+  $(OBJDIR)/VPSequencer_236c7638.o \
+  $(OBJDIR)/VPMixer_af588e70.o \
   $(OBJDIR)/Portrait_7455b0a4.o \
   $(OBJDIR)/SizeTest_b89d993c.o \
-  $(OBJDIR)/View_d8b3a4ae.o \
-  $(OBJDIR)/Transport_32ccd00a.o \
-  $(OBJDIR)/TrackParameters_a021bf76.o \
-  $(OBJDIR)/HistoryComponent_4b30d8d2.o \
+  $(OBJDIR)/SlideView_36605657.o \
   $(OBJDIR)/MixerComponent_e3e89c7d.o \
   $(OBJDIR)/MixerStrip_442d5a98.o \
   $(OBJDIR)/Mods_6d413dba.o \
   $(OBJDIR)/Drums_b8e3026e.o \
   $(OBJDIR)/Stepper_615f26b2.o \
   $(OBJDIR)/BipolarStepper_94527603.o \
+  $(OBJDIR)/SbButton_890e0c6a.o \
   $(OBJDIR)/Knob_7a6e67ff.o \
   $(OBJDIR)/BpmSlider_53f58501.o \
+  $(OBJDIR)/BaseComponent_c1793a8d.o \
+  $(OBJDIR)/Transport_32ccd00a.o \
+  $(OBJDIR)/TrackParameters_a021bf76.o \
+  $(OBJDIR)/HistoryComponent_4b30d8d2.o \
   $(OBJDIR)/CustomLook_94c1e339.o \
+  $(OBJDIR)/Ui_5a974e1d.o \
   $(OBJDIR)/Gui_2b5c821c.o \
   $(OBJDIR)/Gui2_4053d760.o \
   $(OBJDIR)/Sequencer_5ffb45b2.o \
@@ -164,6 +171,26 @@ $(OBJDIR)/Sound_322374f0.o: ../../Source/Sound.cpp
 	@echo "Compiling Sound.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/VPNavigate_2aee4634.o: ../../Source/VPNavigate.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling VPNavigate.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/VPSetup_d106e2e4.o: ../../Source/VPSetup.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling VPSetup.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/VPSequencer_236c7638.o: ../../Source/VPSequencer.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling VPSequencer.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/VPMixer_af588e70.o: ../../Source/VPMixer.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling VPMixer.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/Portrait_7455b0a4.o: ../../Source/Portrait.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling Portrait.cpp"
@@ -174,24 +201,9 @@ $(OBJDIR)/SizeTest_b89d993c.o: ../../Source/SizeTest.cpp
 	@echo "Compiling SizeTest.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/View_d8b3a4ae.o: ../../Source/View.cpp
+$(OBJDIR)/SlideView_36605657.o: ../../Source/SlideView.cpp
 	-@mkdir -p $(OBJDIR)
-	@echo "Compiling View.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/Transport_32ccd00a.o: ../../Source/Transport.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling Transport.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/TrackParameters_a021bf76.o: ../../Source/TrackParameters.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling TrackParameters.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/HistoryComponent_4b30d8d2.o: ../../Source/HistoryComponent.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling HistoryComponent.cpp"
+	@echo "Compiling SlideView.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/MixerComponent_e3e89c7d.o: ../../Source/MixerComponent.cpp
@@ -224,6 +236,11 @@ $(OBJDIR)/BipolarStepper_94527603.o: ../../Source/BipolarStepper.cpp
 	@echo "Compiling BipolarStepper.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/SbButton_890e0c6a.o: ../../Source/SbButton.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling SbButton.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/Knob_7a6e67ff.o: ../../Source/Knob.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling Knob.cpp"
@@ -234,9 +251,34 @@ $(OBJDIR)/BpmSlider_53f58501.o: ../../Source/BpmSlider.cpp
 	@echo "Compiling BpmSlider.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/BaseComponent_c1793a8d.o: ../../Source/BaseComponent.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling BaseComponent.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/Transport_32ccd00a.o: ../../Source/Transport.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling Transport.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/TrackParameters_a021bf76.o: ../../Source/TrackParameters.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling TrackParameters.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/HistoryComponent_4b30d8d2.o: ../../Source/HistoryComponent.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling HistoryComponent.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/CustomLook_94c1e339.o: ../../Source/CustomLook.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling CustomLook.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/Ui_5a974e1d.o: ../../Source/Ui.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling Ui.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/Gui_2b5c821c.o: ../../Source/Gui.cpp

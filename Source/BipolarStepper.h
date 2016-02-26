@@ -54,8 +54,6 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-    Controller* controller;
-
 protected:
     bool isBipolar() override;
     //[/UserVariables]

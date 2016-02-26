@@ -25,6 +25,7 @@
 #include "Parameter.h"
 #include "Controller.h"
 #include "Knob.h"
+#include "BaseComponent.h"
 //[/Headers]
 
 
@@ -37,7 +38,7 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class MixerStrip  : public Component,
+class MixerStrip  : public BaseComponent,
                     public SliderListener,
                     public ButtonListener
 {
@@ -59,7 +60,6 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-    Controller* controller;
     int trackId;
     //[/UserVariables]
 

@@ -22,12 +22,14 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "JuceHeader.h"
-#include "View.h"
+#include "SlideView.h"
+#include "Controller.h"
+#include "VPMixer.h"
+#include "VPSetup.h"
 //[/Headers]
 
-#include "HistoryComponent.h"
-#include "MixerComponent.h"
-#include "Transport.h"
+#include "VPNavigate.h"
+#include "VPSequencer.h"
 
 
 //==============================================================================
@@ -38,7 +40,7 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class Portrait  : public View
+class Portrait  : public SlideView
 {
 public:
     //==============================================================================
@@ -56,14 +58,13 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
+    ScopedPointer<VPMixer> vpMixer;
+    ScopedPointer<VPSetup> vpSetup;
     //[/UserVariables]
 
     //==============================================================================
-    ScopedPointer<TabbedComponent> sequencerTabs;
-    ScopedPointer<HistoryComponent> component2;
-    ScopedPointer<TabbedComponent> trackTabs;
-    ScopedPointer<MixerComponent> component;
-    ScopedPointer<Transport> transport;
+    ScopedPointer<VPNavigate> transport;
+    ScopedPointer<VPSequencer> vpSequencer;
 
 
     //==============================================================================

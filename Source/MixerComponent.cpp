@@ -28,7 +28,7 @@
 
 //==============================================================================
 MixerComponent::MixerComponent (Controller* controller)
-    : controller(controller)
+    : BaseComponent(controller)
 {
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
@@ -82,12 +82,12 @@ void MixerComponent::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    component->setBounds (proportionOfWidth (0.0065f), proportionOfHeight (0.0000f), proportionOfWidth (0.1484f), proportionOfHeight (1.0000f));
-    component2->setBounds (proportionOfWidth (0.1774f), proportionOfHeight (0.0000f), proportionOfWidth (0.1484f), proportionOfHeight (1.0000f));
-    component3->setBounds (proportionOfWidth (0.3452f), proportionOfHeight (0.0000f), proportionOfWidth (0.1484f), proportionOfHeight (1.0000f));
-    component4->setBounds (proportionOfWidth (0.5097f), proportionOfHeight (0.0000f), proportionOfWidth (0.1484f), proportionOfHeight (1.0000f));
-    component5->setBounds (proportionOfWidth (0.6774f), proportionOfHeight (0.0000f), proportionOfWidth (0.1484f), proportionOfHeight (1.0000f));
-    component6->setBounds (proportionOfWidth (0.8452f), proportionOfHeight (0.0000f), proportionOfWidth (0.1484f), proportionOfHeight (1.0000f));
+    component->setBounds (proportionOfWidth (0.0081f), proportionOfHeight (0.0000f), proportionOfWidth (0.1473f), proportionOfHeight (1.0000f));
+    component2->setBounds (proportionOfWidth (0.1770f), proportionOfHeight (0.0000f), proportionOfWidth (0.1473f), proportionOfHeight (1.0000f));
+    component3->setBounds (proportionOfWidth (0.3446f), proportionOfHeight (0.0000f), proportionOfWidth (0.1473f), proportionOfHeight (1.0000f));
+    component4->setBounds (proportionOfWidth (0.5095f), proportionOfHeight (0.0000f), proportionOfWidth (0.1473f), proportionOfHeight (1.0000f));
+    component5->setBounds (proportionOfWidth (0.6770f), proportionOfHeight (0.0000f), proportionOfWidth (0.1473f), proportionOfHeight (1.0000f));
+    component6->setBounds (proportionOfWidth (0.8446f), proportionOfHeight (0.0000f), proportionOfWidth (0.1473f), proportionOfHeight (1.0000f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -108,8 +108,8 @@ void MixerComponent::resized()
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="MixerComponent" componentName=""
-                 parentClasses="public Component" constructorParams="Controller* controller"
-                 variableInitialisers="controller(controller)" snapPixels="8"
+                 parentClasses="public BaseComponent" constructorParams="Controller* controller"
+                 variableInitialisers="BaseComponent(controller)" snapPixels="8"
                  snapActive="1" snapShown="1" overlayOpacity="0.330" fixedSize="1"
                  initialWidth="400" initialHeight="150">
   <BACKGROUND backgroundColour="0"/>

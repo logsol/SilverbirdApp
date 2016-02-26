@@ -19,7 +19,7 @@
 #include "ClockListener.h"
 #include "Sequencer.h"
 #include "Knob.h"
-class Portrait;
+class Ui;
 
 
 class Controller : public SilverbirdAudioProcessor,
@@ -76,7 +76,7 @@ public:
     Mixer mixer;
     Sequencer sequencer;
     Clock clock;
-    Portrait* gui;
+    Ui* ui;
     
     struct params {
         enum {

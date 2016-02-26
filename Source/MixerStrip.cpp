@@ -29,7 +29,8 @@ class Controller;
 
 //==============================================================================
 MixerStrip::MixerStrip (Controller* controller, int trackId)
-    : controller(controller), trackId(trackId)
+    : BaseComponent(controller),
+      trackId(trackId)
 {
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
@@ -110,9 +111,9 @@ void MixerStrip::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    volumeSlider->setBounds (proportionOfWidth (0.0664f), proportionOfHeight (0.2096f), proportionOfWidth (0.8000f), proportionOfHeight (0.4903f));
-    striplabel->setBounds (0, proportionOfHeight (0.0400f), proportionOfWidth (1.0000f), proportionOfHeight (0.1300f));
-    muteButton->setBounds (proportionOfWidth (0.0664f), proportionOfHeight (0.7400f), proportionOfWidth (0.8000f), proportionOfHeight (0.2096f));
+    volumeSlider->setBounds (proportionOfWidth (0.0638f), proportionOfHeight (0.2331f), proportionOfWidth (0.8085f), proportionOfHeight (0.4962f));
+    striplabel->setBounds (0, proportionOfHeight (0.0602f), proportionOfWidth (1.0000f), proportionOfHeight (0.1353f));
+    muteButton->setBounds (proportionOfWidth (0.0638f), proportionOfHeight (0.7293f), proportionOfWidth (0.8085f), proportionOfHeight (0.2331f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -163,22 +164,22 @@ void MixerStrip::buttonClicked (Button* buttonThatWasClicked)
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="MixerStrip" componentName=""
-                 parentClasses="public Component" constructorParams="Controller* controller, int trackId"
-                 variableInitialisers="controller(controller), trackId(trackId)"
+                 parentClasses="public BaseComponent" constructorParams="Controller* controller, int trackId"
+                 variableInitialisers="BaseComponent(controller),&#10;trackId(trackId)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="1" initialWidth="60" initialHeight="100">
   <BACKGROUND backgroundColour="0"/>
   <SLIDER name="" id="caab896538cb75ff" memberName="volumeSlider" virtualName="Knob"
-          explicitFocusOrder="0" pos="6.667% 21% 80% 49%" thumbcol="ffffeb86"
+          explicitFocusOrder="0" pos="6.667% 23% 81.667% 50%" thumbcol="ffffeb86"
           min="0" max="1" int="0" style="LinearBar" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="" id="3c135fce2ca970bf" memberName="striplabel" virtualName=""
-         explicitFocusOrder="0" pos="0 4% 100% 13%" textCol="ffffffff"
+         explicitFocusOrder="0" pos="0 6% 100% 14%" textCol="ffffffff"
          edTextCol="ff000000" edBkgCol="0" labelText="Label" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15" bold="0" italic="0" justification="36"/>
   <TEXTBUTTON name="" id="77cd8f798e359cb1" memberName="muteButton" virtualName=""
-              explicitFocusOrder="0" pos="6.667% 74% 80% 21%" bgColOff="ffcecece"
+              explicitFocusOrder="0" pos="6.667% 73% 81.667% 23%" bgColOff="ffcecece"
               bgColOn="ffffeb86" buttonText="M" connectedEdges="0" needsCallback="1"
               radioGroupId="0"/>
 </JUCER_COMPONENT>

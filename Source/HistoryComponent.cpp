@@ -27,24 +27,25 @@
 //[/MiscUserDefs]
 
 //==============================================================================
-HistoryComponent::HistoryComponent ()
+HistoryComponent::HistoryComponent (Controller* controller)
+    : BaseComponent(controller)
 {
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
 
-    addAndMakeVisible (save = new TextButton ("save"));
+    addAndMakeVisible (save = new SbButton ("save"));
     save->setButtonText (TRANS("Save"));
     save->addListener (this);
 
-    addAndMakeVisible (load = new TextButton ("load"));
+    addAndMakeVisible (load = new SbButton ("load"));
     load->setButtonText (TRANS("Load"));
     load->addListener (this);
 
-    addAndMakeVisible (redo = new TextButton ("redo"));
+    addAndMakeVisible (redo = new SbButton ("redo"));
     redo->setButtonText (TRANS("Redo"));
     redo->addListener (this);
 
-    addAndMakeVisible (undo = new TextButton ("undo"));
+    addAndMakeVisible (undo = new SbButton ("undo"));
     undo->setButtonText (TRANS("Undo"));
     undo->addListener (this);
 
@@ -89,10 +90,10 @@ void HistoryComponent::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    save->setBounds (proportionOfWidth (0.2898f), proportionOfHeight (0.2303f), proportionOfWidth (0.1992f), proportionOfHeight (0.5770f));
-    load->setBounds (proportionOfWidth (0.0672f), proportionOfHeight (0.2303f), proportionOfWidth (0.1992f), proportionOfHeight (0.5770f));
-    redo->setBounds (proportionOfWidth (0.7375f), proportionOfHeight (0.2303f), proportionOfWidth (0.1992f), proportionOfHeight (0.5770f));
-    undo->setBounds (proportionOfWidth (0.5148f), proportionOfHeight (0.2303f), proportionOfWidth (0.1992f), proportionOfHeight (0.5770f));
+    save->setBounds (proportionOfWidth (0.2890f), proportionOfHeight (0.2308f), proportionOfWidth (0.2023f), proportionOfHeight (0.5769f));
+    load->setBounds (proportionOfWidth (0.0694f), proportionOfHeight (0.2308f), proportionOfWidth (0.2023f), proportionOfHeight (0.5769f));
+    redo->setBounds (proportionOfWidth (0.7399f), proportionOfHeight (0.2308f), proportionOfWidth (0.2023f), proportionOfHeight (0.5769f));
+    undo->setBounds (proportionOfWidth (0.5145f), proportionOfHeight (0.2308f), proportionOfWidth (0.2023f), proportionOfHeight (0.5769f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -143,22 +144,23 @@ void HistoryComponent::buttonClicked (Button* buttonThatWasClicked)
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="HistoryComponent" componentName=""
-                 parentClasses="public Component" constructorParams="" variableInitialisers=""
-                 snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
-                 fixedSize="1" initialWidth="300" initialHeight="40">
+                 parentClasses="public BaseComponent" constructorParams="Controller* controller"
+                 variableInitialisers="BaseComponent(controller)" snapPixels="8"
+                 snapActive="1" snapShown="1" overlayOpacity="0.330" fixedSize="1"
+                 initialWidth="300" initialHeight="40">
   <BACKGROUND backgroundColour="0"/>
-  <TEXTBUTTON name="save" id="ae6f6f001f0e0f94" memberName="save" virtualName=""
-              explicitFocusOrder="0" pos="29.05% 23.077% 20.112% 57.692%" buttonText="Save"
+  <TEXTBUTTON name="save" id="ae6f6f001f0e0f94" memberName="save" virtualName="SbButton"
+              explicitFocusOrder="0" pos="29% 22.5% 20.333% 57.5%" buttonText="Save"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
-  <TEXTBUTTON name="load" id="d073f4931f861d5b" memberName="load" virtualName=""
-              explicitFocusOrder="0" pos="6.704% 23.077% 20.112% 57.692%" buttonText="Load"
+  <TEXTBUTTON name="load" id="d073f4931f861d5b" memberName="load" virtualName="SbButton"
+              explicitFocusOrder="0" pos="7% 22.5% 20.333% 57.5%" buttonText="Load"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
-  <TEXTBUTTON name="redo" id="550f5d2f473463e8" memberName="redo" virtualName=""
-              explicitFocusOrder="0" pos="73.743% 23.077% 20.112% 57.692%"
-              buttonText="Redo" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
-  <TEXTBUTTON name="undo" id="734eb6d517ff5b27" memberName="undo" virtualName=""
-              explicitFocusOrder="0" pos="51.397% 23.077% 20.112% 57.692%"
-              buttonText="Undo" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+  <TEXTBUTTON name="redo" id="550f5d2f473463e8" memberName="redo" virtualName="SbButton"
+              explicitFocusOrder="0" pos="74% 22.5% 20.333% 57.5%" buttonText="Redo"
+              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+  <TEXTBUTTON name="undo" id="734eb6d517ff5b27" memberName="undo" virtualName="SbButton"
+              explicitFocusOrder="0" pos="51.333% 22.5% 20.333% 57.5%" buttonText="Undo"
+              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

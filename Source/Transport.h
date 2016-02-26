@@ -23,8 +23,8 @@
 //[Headers]     -- You can add your own extra header files here --
 #include "JuceHeader.h"
 #include "BpmSlider.h"
-
-class Controller;
+#include "BaseComponent.h"
+#include "Controller.h"
 //[/Headers]
 
 
@@ -37,7 +37,7 @@ class Controller;
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class Transport  : public Component,
+class Transport  : public BaseComponent,
                    public SliderListener,
                    public ButtonListener
 {
@@ -59,7 +59,6 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-    Controller* controller;
     //[/UserVariables]
 
     //==============================================================================

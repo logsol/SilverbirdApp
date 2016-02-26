@@ -23,6 +23,7 @@
 //[Headers]     -- You can add your own extra header files here --
 #include "JuceHeader.h"
 #include "Controller.h"
+#include "BaseComponent.h"
 //[/Headers]
 
 
@@ -35,7 +36,7 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class TrackParameters  : public Component,
+class TrackParameters  : public BaseComponent,
                          public SliderListener
 {
 public:
@@ -55,7 +56,6 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-    Controller* controller;
     int trackId;
     //[/UserVariables]
 

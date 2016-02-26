@@ -29,7 +29,7 @@
 
 //==============================================================================
 Mods::Mods (Controller* controller)
-    : controller(controller)
+    : BaseComponent(controller)
 {
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
@@ -111,8 +111,8 @@ void Mods::resized()
 
 BEGIN_JUCER_METADATA
 
-<JUCER_COMPONENT documentType="Component" className="Mods" componentName="" parentClasses="public Component"
-                 constructorParams="Controller* controller" variableInitialisers="controller(controller)"
+<JUCER_COMPONENT documentType="Component" className="Mods" componentName="" parentClasses="public BaseComponent"
+                 constructorParams="Controller* controller" variableInitialisers="BaseComponent(controller)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="0" initialWidth="600" initialHeight="400">
   <BACKGROUND backgroundColour="ffffff"/>

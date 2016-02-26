@@ -28,14 +28,57 @@
       </GROUP>
       <GROUP id="{7910223D-4739-F887-8F7B-FD608B6F3A66}" name="View">
         <GROUP id="{3FF9126C-0E80-B1DD-D6AF-DFACFBEA5EA9}" name="Views">
-          <FILE id="TOHxyy" name="Portrait.cpp" compile="1" resource="0" file="Source/Portrait.cpp"/>
-          <FILE id="P1qKz0" name="Portrait.h" compile="0" resource="0" file="Source/Portrait.h"/>
+          <GROUP id="{DB6FBDEF-4074-687F-AC43-2737775036FB}" name="Portrait">
+            <FILE id="NUWaOK" name="VPNavigate.cpp" compile="1" resource="0" file="Source/VPNavigate.cpp"/>
+            <FILE id="YsDxji" name="VPNavigate.h" compile="0" resource="0" file="Source/VPNavigate.h"/>
+            <FILE id="W74xMf" name="VPSetup.cpp" compile="1" resource="0" file="Source/VPSetup.cpp"/>
+            <FILE id="E5VP3K" name="VPSetup.h" compile="0" resource="0" file="Source/VPSetup.h"/>
+            <FILE id="TOHxyy" name="VPSequencer.cpp" compile="1" resource="0" file="Source/VPSequencer.cpp"/>
+            <FILE id="P1qKz0" name="VPSequencer.h" compile="0" resource="0" file="Source/VPSequencer.h"/>
+            <FILE id="olfF34" name="VPMixer.cpp" compile="1" resource="0" file="Source/VPMixer.cpp"/>
+            <FILE id="ZL2hQ7" name="VPMixer.h" compile="0" resource="0" file="Source/VPMixer.h"/>
+          </GROUP>
+          <FILE id="DsxDPd" name="Portrait.cpp" compile="1" resource="0" file="Source/Portrait.cpp"/>
+          <FILE id="kfNzu6" name="Portrait.h" compile="0" resource="0" file="Source/Portrait.h"/>
           <FILE id="tdqqgv" name="SizeTest.cpp" compile="1" resource="0" file="Source/SizeTest.cpp"/>
           <FILE id="CXM3qN" name="SizeTest.h" compile="0" resource="0" file="Source/SizeTest.h"/>
-          <FILE id="jWB7XH" name="View.cpp" compile="1" resource="0" file="Source/View.cpp"/>
-          <FILE id="A5Vd1m" name="View.h" compile="0" resource="0" file="Source/View.h"/>
+          <FILE id="qzpwMy" name="SlideView.cpp" compile="1" resource="0" file="Source/SlideView.cpp"/>
+          <FILE id="rPqUT7" name="SlideView.h" compile="0" resource="0" file="Source/SlideView.h"/>
         </GROUP>
         <GROUP id="{05047D03-0942-0207-CD04-D6540CE92CE0}" name="Components">
+          <GROUP id="{B5FCE741-FAE0-FBF8-9C0C-6AF8BC8ED703}" name="Mixer">
+            <FILE id="XI39ZD" name="MixerComponent.cpp" compile="1" resource="0"
+                  file="Source/MixerComponent.cpp"/>
+            <FILE id="SNetKs" name="MixerComponent.h" compile="0" resource="0"
+                  file="Source/MixerComponent.h"/>
+            <FILE id="NtoRDd" name="MixerStrip.cpp" compile="1" resource="0" file="Source/MixerStrip.cpp"/>
+            <FILE id="db0h33" name="MixerStrip.h" compile="0" resource="0" file="Source/MixerStrip.h"/>
+          </GROUP>
+          <GROUP id="{B90F1D2B-CBAC-CA41-9DB7-7011C0218FCB}" name="Sequencer">
+            <FILE id="ZnShZ9" name="Mods.cpp" compile="1" resource="0" file="Source/Mods.cpp"/>
+            <FILE id="N4DGej" name="Mods.h" compile="0" resource="0" file="Source/Mods.h"/>
+            <FILE id="n0iGwn" name="Drums.cpp" compile="1" resource="0" file="Source/Drums.cpp"/>
+            <FILE id="HpPtmn" name="Drums.h" compile="0" resource="0" file="Source/Drums.h"/>
+          </GROUP>
+          <GROUP id="{5B3D7F30-56A2-B31B-34F6-CCD6D1862E3F}" name="Stepper">
+            <FILE id="GLd4T6" name="Stepper.cpp" compile="1" resource="0" file="Source/Stepper.cpp"/>
+            <FILE id="MxFhRb" name="Stepper.h" compile="0" resource="0" file="Source/Stepper.h"/>
+            <FILE id="Dk706B" name="BipolarStepper.cpp" compile="1" resource="0"
+                  file="Source/BipolarStepper.cpp"/>
+            <FILE id="PMOxCq" name="BipolarStepper.h" compile="0" resource="0"
+                  file="Source/BipolarStepper.h"/>
+          </GROUP>
+          <GROUP id="{1768F4FF-42FD-7CA1-A4F4-842EFE5CB800}" name="Elements">
+            <FILE id="bX4M7v" name="SbButton.cpp" compile="1" resource="0" file="Source/SbButton.cpp"/>
+            <FILE id="WwX5n4" name="SbButton.h" compile="0" resource="0" file="Source/SbButton.h"/>
+            <FILE id="yX5x8g" name="Knob.cpp" compile="1" resource="0" file="Source/Knob.cpp"/>
+            <FILE id="eQaVnz" name="Knob.h" compile="0" resource="0" file="Source/Knob.h"/>
+            <FILE id="xx7SeK" name="BpmSlider.cpp" compile="1" resource="0" file="Source/BpmSlider.cpp"/>
+            <FILE id="ejsgxR" name="BpmSlider.h" compile="0" resource="0" file="Source/BpmSlider.h"/>
+          </GROUP>
+          <FILE id="t3c1AK" name="BaseComponent.cpp" compile="1" resource="0"
+                file="Source/BaseComponent.cpp"/>
+          <FILE id="B7enfL" name="BaseComponent.h" compile="0" resource="0" file="Source/BaseComponent.h"/>
           <FILE id="oGdy5I" name="Transport.cpp" compile="1" resource="0" file="Source/Transport.cpp"/>
           <FILE id="iXI0nd" name="Transport.h" compile="0" resource="0" file="Source/Transport.h"/>
           <FILE id="xFeYs6" name="TrackParameters.cpp" compile="1" resource="0"
@@ -46,29 +89,11 @@
                 file="Source/HistoryComponent.cpp"/>
           <FILE id="QxNc3s" name="HistoryComponent.h" compile="0" resource="0"
                 file="Source/HistoryComponent.h"/>
-          <FILE id="XI39ZD" name="MixerComponent.cpp" compile="1" resource="0"
-                file="Source/MixerComponent.cpp"/>
-          <FILE id="SNetKs" name="MixerComponent.h" compile="0" resource="0"
-                file="Source/MixerComponent.h"/>
-          <FILE id="NtoRDd" name="MixerStrip.cpp" compile="1" resource="0" file="Source/MixerStrip.cpp"/>
-          <FILE id="db0h33" name="MixerStrip.h" compile="0" resource="0" file="Source/MixerStrip.h"/>
-          <FILE id="ZnShZ9" name="Mods.cpp" compile="1" resource="0" file="Source/Mods.cpp"/>
-          <FILE id="N4DGej" name="Mods.h" compile="0" resource="0" file="Source/Mods.h"/>
-          <FILE id="n0iGwn" name="Drums.cpp" compile="1" resource="0" file="Source/Drums.cpp"/>
-          <FILE id="HpPtmn" name="Drums.h" compile="0" resource="0" file="Source/Drums.h"/>
-          <FILE id="GLd4T6" name="Stepper.cpp" compile="1" resource="0" file="Source/Stepper.cpp"/>
-          <FILE id="MxFhRb" name="Stepper.h" compile="0" resource="0" file="Source/Stepper.h"/>
-          <FILE id="Dk706B" name="BipolarStepper.cpp" compile="1" resource="0"
-                file="Source/BipolarStepper.cpp"/>
-          <FILE id="PMOxCq" name="BipolarStepper.h" compile="0" resource="0"
-                file="Source/BipolarStepper.h"/>
-          <FILE id="yX5x8g" name="Knob.cpp" compile="1" resource="0" file="Source/Knob.cpp"/>
-          <FILE id="eQaVnz" name="Knob.h" compile="0" resource="0" file="Source/Knob.h"/>
-          <FILE id="xx7SeK" name="BpmSlider.cpp" compile="1" resource="0" file="Source/BpmSlider.cpp"/>
-          <FILE id="ejsgxR" name="BpmSlider.h" compile="0" resource="0" file="Source/BpmSlider.h"/>
         </GROUP>
         <FILE id="bgQCMx" name="CustomLook.cpp" compile="1" resource="0" file="Source/CustomLook.cpp"/>
         <FILE id="JEosAb" name="CustomLook.h" compile="0" resource="0" file="Source/CustomLook.h"/>
+        <FILE id="rNROiY" name="Ui.cpp" compile="1" resource="0" file="Source/Ui.cpp"/>
+        <FILE id="dBkG5K" name="Ui.h" compile="0" resource="0" file="Source/Ui.h"/>
         <FILE id="gYIfyT" name="Gui.cpp" compile="1" resource="0" file="Source/Gui.cpp"/>
         <FILE id="mkuCIT" name="Gui.h" compile="0" resource="0" file="Source/Gui.h"/>
         <FILE id="LeI2Mr" name="Gui2.cpp" compile="1" resource="0" file="Source/Gui2.cpp"/>

@@ -17,8 +17,23 @@
     <Filter Include="SilverbirdApp\Source\View\Views">
       <UniqueIdentifier>{89AAD2EC-5EBA-4550-B336-78970F90C2D3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SilverbirdApp\Source\View\Views\Portrait">
+      <UniqueIdentifier>{6A26A391-DBB9-D223-E5C6-739F78E266B6}</UniqueIdentifier>
+    </Filter>
     <Filter Include="SilverbirdApp\Source\View\Components">
       <UniqueIdentifier>{927CAB09-A9BD-4A0C-ED08-0F91F5B274E0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SilverbirdApp\Source\View\Components\Mixer">
+      <UniqueIdentifier>{AF6B4B2A-B6E0-0DA9-7263-2B24C78CE697}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SilverbirdApp\Source\View\Components\Sequencer">
+      <UniqueIdentifier>{BF04F364-71C9-3581-0373-371547166B2C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SilverbirdApp\Source\View\Components\Stepper">
+      <UniqueIdentifier>{5ECD5A99-828E-1B04-E1FF-D6969CFF73D2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SilverbirdApp\Source\View\Components\Elements">
+      <UniqueIdentifier>{530C8B6E-8234-0423-B705-7AFB07904D24}</UniqueIdentifier>
     </Filter>
     <Filter Include="SilverbirdApp\Source\Sequencer">
       <UniqueIdentifier>{66938094-53F3-68B5-470A-85BDEC935D88}</UniqueIdentifier>
@@ -361,14 +376,56 @@
     <ClCompile Include="..\..\Source\Sound.cpp">
       <Filter>SilverbirdApp\Source\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\VPNavigate.cpp">
+      <Filter>SilverbirdApp\Source\View\Views\Portrait</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\VPSetup.cpp">
+      <Filter>SilverbirdApp\Source\View\Views\Portrait</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\VPSequencer.cpp">
+      <Filter>SilverbirdApp\Source\View\Views\Portrait</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\VPMixer.cpp">
+      <Filter>SilverbirdApp\Source\View\Views\Portrait</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Portrait.cpp">
       <Filter>SilverbirdApp\Source\View\Views</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\SizeTest.cpp">
       <Filter>SilverbirdApp\Source\View\Views</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\View.cpp">
+    <ClCompile Include="..\..\Source\SlideView.cpp">
       <Filter>SilverbirdApp\Source\View\Views</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MixerComponent.cpp">
+      <Filter>SilverbirdApp\Source\View\Components\Mixer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MixerStrip.cpp">
+      <Filter>SilverbirdApp\Source\View\Components\Mixer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Mods.cpp">
+      <Filter>SilverbirdApp\Source\View\Components\Sequencer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Drums.cpp">
+      <Filter>SilverbirdApp\Source\View\Components\Sequencer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Stepper.cpp">
+      <Filter>SilverbirdApp\Source\View\Components\Stepper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BipolarStepper.cpp">
+      <Filter>SilverbirdApp\Source\View\Components\Stepper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\SbButton.cpp">
+      <Filter>SilverbirdApp\Source\View\Components\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Knob.cpp">
+      <Filter>SilverbirdApp\Source\View\Components\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BpmSlider.cpp">
+      <Filter>SilverbirdApp\Source\View\Components\Elements</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\BaseComponent.cpp">
+      <Filter>SilverbirdApp\Source\View\Components</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Transport.cpp">
       <Filter>SilverbirdApp\Source\View\Components</Filter>
@@ -379,31 +436,10 @@
     <ClCompile Include="..\..\Source\HistoryComponent.cpp">
       <Filter>SilverbirdApp\Source\View\Components</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\MixerComponent.cpp">
-      <Filter>SilverbirdApp\Source\View\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\MixerStrip.cpp">
-      <Filter>SilverbirdApp\Source\View\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Mods.cpp">
-      <Filter>SilverbirdApp\Source\View\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Drums.cpp">
-      <Filter>SilverbirdApp\Source\View\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Stepper.cpp">
-      <Filter>SilverbirdApp\Source\View\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\BipolarStepper.cpp">
-      <Filter>SilverbirdApp\Source\View\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Knob.cpp">
-      <Filter>SilverbirdApp\Source\View\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\BpmSlider.cpp">
-      <Filter>SilverbirdApp\Source\View\Components</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\CustomLook.cpp">
+      <Filter>SilverbirdApp\Source\View</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Ui.cpp">
       <Filter>SilverbirdApp\Source\View</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Gui.cpp">
@@ -1683,14 +1719,56 @@
     <ClInclude Include="..\..\Source\Sound.h">
       <Filter>SilverbirdApp\Source\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\VPNavigate.h">
+      <Filter>SilverbirdApp\Source\View\Views\Portrait</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\VPSetup.h">
+      <Filter>SilverbirdApp\Source\View\Views\Portrait</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\VPSequencer.h">
+      <Filter>SilverbirdApp\Source\View\Views\Portrait</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\VPMixer.h">
+      <Filter>SilverbirdApp\Source\View\Views\Portrait</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Portrait.h">
       <Filter>SilverbirdApp\Source\View\Views</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\SizeTest.h">
       <Filter>SilverbirdApp\Source\View\Views</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\View.h">
+    <ClInclude Include="..\..\Source\SlideView.h">
       <Filter>SilverbirdApp\Source\View\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MixerComponent.h">
+      <Filter>SilverbirdApp\Source\View\Components\Mixer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MixerStrip.h">
+      <Filter>SilverbirdApp\Source\View\Components\Mixer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Mods.h">
+      <Filter>SilverbirdApp\Source\View\Components\Sequencer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Drums.h">
+      <Filter>SilverbirdApp\Source\View\Components\Sequencer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Stepper.h">
+      <Filter>SilverbirdApp\Source\View\Components\Stepper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BipolarStepper.h">
+      <Filter>SilverbirdApp\Source\View\Components\Stepper</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\SbButton.h">
+      <Filter>SilverbirdApp\Source\View\Components\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Knob.h">
+      <Filter>SilverbirdApp\Source\View\Components\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BpmSlider.h">
+      <Filter>SilverbirdApp\Source\View\Components\Elements</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\BaseComponent.h">
+      <Filter>SilverbirdApp\Source\View\Components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Transport.h">
       <Filter>SilverbirdApp\Source\View\Components</Filter>
@@ -1701,31 +1779,10 @@
     <ClInclude Include="..\..\Source\HistoryComponent.h">
       <Filter>SilverbirdApp\Source\View\Components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\MixerComponent.h">
-      <Filter>SilverbirdApp\Source\View\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\MixerStrip.h">
-      <Filter>SilverbirdApp\Source\View\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Mods.h">
-      <Filter>SilverbirdApp\Source\View\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Drums.h">
-      <Filter>SilverbirdApp\Source\View\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Stepper.h">
-      <Filter>SilverbirdApp\Source\View\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\BipolarStepper.h">
-      <Filter>SilverbirdApp\Source\View\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Knob.h">
-      <Filter>SilverbirdApp\Source\View\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\BpmSlider.h">
-      <Filter>SilverbirdApp\Source\View\Components</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\CustomLook.h">
+      <Filter>SilverbirdApp\Source\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Ui.h">
       <Filter>SilverbirdApp\Source\View</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Gui.h">

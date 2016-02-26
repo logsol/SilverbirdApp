@@ -17,16 +17,15 @@
   ==============================================================================
 */
 
-#ifndef __JUCE_HEADER_CAE02453DB8909B0__
-#define __JUCE_HEADER_CAE02453DB8909B0__
+#ifndef __JUCE_HEADER_AB4A72724DC5615A__
+#define __JUCE_HEADER_AB4A72724DC5615A__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "JuceHeader.h"
-#include "Controller.h"
 #include "BaseComponent.h"
 //[/Headers]
 
-#include "MixerStrip.h"
+#include "HistoryComponent.h"
 
 
 //==============================================================================
@@ -37,12 +36,12 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class MixerComponent  : public BaseComponent
+class VPSetup  : public BaseComponent
 {
 public:
     //==============================================================================
-    MixerComponent (Controller* controller);
-    ~MixerComponent();
+    VPSetup (Controller* controller);
+    ~VPSetup();
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
@@ -58,19 +57,15 @@ private:
     //[/UserVariables]
 
     //==============================================================================
-    ScopedPointer<MixerStrip> component;
-    ScopedPointer<MixerStrip> component2;
-    ScopedPointer<MixerStrip> component3;
-    ScopedPointer<MixerStrip> component4;
-    ScopedPointer<MixerStrip> component5;
-    ScopedPointer<MixerStrip> component6;
+    ScopedPointer<Label> label;
+    ScopedPointer<HistoryComponent> history;
 
 
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MixerComponent)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (VPSetup)
 };
 
 //[EndFile] You can add extra defines here...
 //[/EndFile]
 
-#endif   // __JUCE_HEADER_CAE02453DB8909B0__
+#endif   // __JUCE_HEADER_AB4A72724DC5615A__

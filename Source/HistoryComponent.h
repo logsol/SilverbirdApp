@@ -22,6 +22,8 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "JuceHeader.h"
+#include "BaseComponent.h"
+#include "SbButton.h"
 //[/Headers]
 
 
@@ -34,12 +36,12 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class HistoryComponent  : public Component,
+class HistoryComponent  : public BaseComponent,
                           public ButtonListener
 {
 public:
     //==============================================================================
-    HistoryComponent ();
+    HistoryComponent (Controller* controller);
     ~HistoryComponent();
 
     //==============================================================================
@@ -57,10 +59,10 @@ private:
     //[/UserVariables]
 
     //==============================================================================
-    ScopedPointer<TextButton> save;
-    ScopedPointer<TextButton> load;
-    ScopedPointer<TextButton> redo;
-    ScopedPointer<TextButton> undo;
+    ScopedPointer<SbButton> save;
+    ScopedPointer<SbButton> load;
+    ScopedPointer<SbButton> redo;
+    ScopedPointer<SbButton> undo;
 
 
     //==============================================================================

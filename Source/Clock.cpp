@@ -63,7 +63,8 @@ void Clock::setPlayPause(bool play) {
 void Clock::setBpm(float bpm)
 {
     this->bpm = bpm;
-    this->sixteenthTimeMs = 60000 / this->bpm / 4;
+    this->sixteenthTimeMs = 60000.0 / this->bpm / 4.0;
+//    std::cout << "16th ms: " << this->sixteenthTimeMs << std::endl;
 }
 
 float Clock::getBpm()
@@ -81,24 +82,24 @@ void Clock::tick(float shuffle, AudioSampleBuffer& buffer, double sampleRate)
     double nextStepTimeMs = lastClockStepTimeMs + sixteenthTimeMs;
     
     int numSamples = buffer.getNumSamples();
-    double singleSampleTimeMs = 1000/sampleRate;
+    double singleSampleTimeMs = 1000.0/sampleRate;
+    
+
     double endOfBlockTimeMs = now + (numSamples * singleSampleTimeMs);
     
-    double shuffleTimeMs = cursor % 2
-    ? 1 / (bpm / 60 * 4) * 1000 * shuffle / 3
-    : 0.0;
+    double shuffleTimeMs =  cursor % 2
+    ? 0.0
+    : 1 / (bpm / 60.0 * 4.0) * 1000.0 * shuffle / 3.0;
 
+    if (nextStepTimeMs+shuffleTimeMs <= endOfBlockTimeMs) {
     
-    //std::cout << shuffleTimeMs << std::endl;
-    
-    if (nextStepTimeMs <= endOfBlockTimeMs + shuffleTimeMs) {
-        
-        lastClockStepTimeMs = nextStepTimeMs;
         cursor++;
         cursor = cursor % numCells;
         
-        sequencer.clockStep(cursor, nextStepTimeMs);
+        sequencer.clockStep(cursor, nextStepTimeMs + shuffleTimeMs);
         
         postMessage(new Message());
+        
+        lastClockStepTimeMs = nextStepTimeMs;
     }
 }

@@ -21,9 +21,6 @@
 //[/Headers]
 
 #include "Portrait.h"
-#include "Drums.h"
-#include "Mods.h"
-#include "TrackParameters.h"
 
 
 //[MiscUserDefs] You can add your own user definitions and misc code here...
@@ -31,31 +28,13 @@
 
 //==============================================================================
 Portrait::Portrait (Controller* controller)
-    : View (controller)
+    : SlideView(controller)
 {
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
 
-    addAndMakeVisible (sequencerTabs = new TabbedComponent (TabbedButtonBar::TabsAtBottom));
-    sequencerTabs->setTabBarDepth (25);
-    sequencerTabs->addTab (TRANS("Drums"), Colour (0xf1383838), new Drums (controller), true);
-    sequencerTabs->addTab (TRANS("Mods"), Colour (0xf1383838), new Mods (controller), true);
-    sequencerTabs->setCurrentTabIndex (0);
-
-    addAndMakeVisible (component2 = new HistoryComponent());
-    addAndMakeVisible (trackTabs = new TabbedComponent (TabbedButtonBar::TabsAtTop));
-    trackTabs->setTabBarDepth (26);
-    trackTabs->addTab (TRANS("Kick"), Colour (0xf1383838), new TrackParameters (controller, 0), true);
-    trackTabs->addTab (TRANS("Snare"), Colour (0xf1383838), new TrackParameters (controller, 1), true);
-    trackTabs->addTab (TRANS("Hihat"), Colour (0xf1383838), new TrackParameters (controller, 2), true);
-    trackTabs->addTab (TRANS("Perc1"), Colour (0xf1383838), new TrackParameters (controller, 3), true);
-    trackTabs->addTab (TRANS("Perc2"), Colour (0xf1383838), new TrackParameters (controller, 4), true);
-    trackTabs->addTab (TRANS("Tones"), Colour (0xf1383838), new TrackParameters (controller, 5), true);
-    trackTabs->addTab (TRANS("Global"), Colour (0xff454545), new TrackParameters (controller, -1), true);
-    trackTabs->setCurrentTabIndex (0);
-
-    addAndMakeVisible (component = new MixerComponent (controller));
-    addAndMakeVisible (transport = new Transport (controller));
+    addAndMakeVisible (transport = new VPNavigate (controller));
+    addAndMakeVisible (vpSequencer = new VPSequencer (controller));
 
     //[UserPreSize]
     //[/UserPreSize]
@@ -64,9 +43,25 @@ Portrait::Portrait (Controller* controller)
 
 
     //[Constructor] You can add your own custom stuff here..
-//    setSize (320, 480);
-    Rectangle<int> area = getParentMonitorArea();
-    setSize (area.getWidth(), area.getHeight());
+    vpSetup = new VPSetup (controller);
+    vpMixer = new VPMixer(controller);
+
+    vpSetup->setBounds(vpSequencer->getBounds());
+    vpMixer->setBounds(vpSequencer->getBounds());
+
+    // slide order
+    slides.add(vpSetup);
+    slides.add(vpSequencer);
+    slides.add(vpMixer);
+
+    current = slides.indexOf(vpSequencer);
+
+    if(animationTimeMs == 0) {
+        vpSetup->setVisible(false);
+        vpMixer->setVisible(false);
+    }
+    addChildComponent(vpSetup);
+    addChildComponent(vpMixer);
     //[/Constructor]
 }
 
@@ -75,11 +70,8 @@ Portrait::~Portrait()
     //[Destructor_pre]. You can add your own custom destruction code here..
     //[/Destructor_pre]
 
-    sequencerTabs = nullptr;
-    component2 = nullptr;
-    trackTabs = nullptr;
-    component = nullptr;
     transport = nullptr;
+    vpSequencer = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -92,8 +84,6 @@ void Portrait::paint (Graphics& g)
     //[UserPrePaint] Add your own custom painting code here..
     //[/UserPrePaint]
 
-    g.fillAll (Colour (0xff262626));
-
     //[UserPaint] Add your own custom painting code here..
     //[/UserPaint]
 }
@@ -103,11 +93,8 @@ void Portrait::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    sequencerTabs->setBounds (5, proportionOfHeight (0.2063f), getWidth() - 10, proportionOfHeight (0.5146f));
-    component2->setBounds (5 + roundFloatToInt ((getWidth() - 10) * 0.4516f), proportionOfHeight (0.7229f) - 26, proportionOfWidth (0.5594f), 26);
-    trackTabs->setBounds (5, 20, getWidth() - 10, proportionOfHeight (0.1604f));
-    component->setBounds (5, proportionOfHeight (0.7229f), getWidth() - 10, proportionOfHeight (0.1854f));
-    transport->setBounds (5, getHeight() - 5 - proportionOfHeight (0.0729f), proportionOfWidth (0.9750f), proportionOfHeight (0.0729f));
+    transport->setBounds (5, getHeight() - 5 - proportionOfHeight (0.0789f), getWidth() - 10, proportionOfHeight (0.0789f));
+    vpSequencer->setBounds (5, 20, getWidth() - 10, proportionOfHeight (0.8469f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -128,45 +115,16 @@ void Portrait::resized()
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="Portrait" componentName=""
-                 parentClasses="public View" constructorParams="Controller* controller"
-                 variableInitialisers="View (controller)" snapPixels="8" snapActive="1"
+                 parentClasses="public SlideView" constructorParams="Controller* controller"
+                 variableInitialisers="SlideView(controller)" snapPixels="8" snapActive="1"
                  snapShown="1" overlayOpacity="0.330" fixedSize="1" initialWidth="320"
                  initialHeight="480">
-  <BACKGROUND backgroundColour="ff262626"/>
-  <TABBEDCOMPONENT name="seqtabs" id="24d28c4cbe1b57cb" memberName="sequencerTabs"
-                   virtualName="" explicitFocusOrder="0" pos="5 20.625% 10M 51.458%"
-                   orientation="bottom" tabBarDepth="25" initialTab="0">
-    <TAB name="Drums" colour="f1383838" useJucerComp="1" contentClassName=""
-         constructorParams="controller" jucerComponentFile="Drums.cpp"/>
-    <TAB name="Mods" colour="f1383838" useJucerComp="1" contentClassName=""
-         constructorParams="controller" jucerComponentFile="Mods.cpp"/>
-  </TABBEDCOMPONENT>
-  <JUCERCOMP name="" id="b82ece55084724b2" memberName="component2" virtualName=""
-             explicitFocusOrder="0" pos="45.161% 72.292%r 55.937% 26" posRelativeX="309379987650ac71"
-             sourceFile="HistoryComponent.cpp" constructorParams=""/>
-  <TABBEDCOMPONENT name="new tabbed component" id="299c842daf4e2362" memberName="trackTabs"
-                   virtualName="" explicitFocusOrder="0" pos="5 20 10M 16.042%"
-                   orientation="top" tabBarDepth="26" initialTab="0">
-    <TAB name="Kick" colour="f1383838" useJucerComp="1" contentClassName="TrackParameters"
-         constructorParams="controller, 0" jucerComponentFile="TrackParameters.cpp"/>
-    <TAB name="Snare" colour="f1383838" useJucerComp="1" contentClassName="TrackParameters"
-         constructorParams="controller, 1" jucerComponentFile="TrackParameters.cpp"/>
-    <TAB name="Hihat" colour="f1383838" useJucerComp="1" contentClassName="TrackParameters"
-         constructorParams="controller, 2" jucerComponentFile="TrackParameters.cpp"/>
-    <TAB name="Perc1" colour="f1383838" useJucerComp="1" contentClassName=""
-         constructorParams="controller, 3" jucerComponentFile="TrackParameters.cpp"/>
-    <TAB name="Perc2" colour="f1383838" useJucerComp="1" contentClassName=""
-         constructorParams="controller, 4" jucerComponentFile="TrackParameters.cpp"/>
-    <TAB name="Tones" colour="f1383838" useJucerComp="1" contentClassName=""
-         constructorParams="controller, 5" jucerComponentFile="TrackParameters.cpp"/>
-    <TAB name="Global" colour="ff454545" useJucerComp="1" contentClassName=""
-         constructorParams="controller, -1" jucerComponentFile="TrackParameters.cpp"/>
-  </TABBEDCOMPONENT>
-  <JUCERCOMP name="" id="309379987650ac71" memberName="component" virtualName=""
-             explicitFocusOrder="0" pos="5 72.292% 10M 18.542%" sourceFile="MixerComponent.cpp"
-             constructorParams="controller"/>
+  <BACKGROUND backgroundColour="0"/>
   <JUCERCOMP name="" id="8ba4a7c2e5920bea" memberName="transport" virtualName=""
-             explicitFocusOrder="0" pos="5 5Rr 97.5% 7.292%" sourceFile="Transport.cpp"
+             explicitFocusOrder="0" pos="5 5Rr 10M 7.917%" sourceFile="VPNavigate.cpp"
+             constructorParams="controller"/>
+  <JUCERCOMP name="" id="63321eff4af9bbe1" memberName="vpSequencer" virtualName=""
+             explicitFocusOrder="0" pos="5 20 10M 84.792%" sourceFile="VPSequencer.cpp"
              constructorParams="controller"/>
 </JUCER_COMPONENT>
 

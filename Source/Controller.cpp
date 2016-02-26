@@ -9,7 +9,7 @@
 */
 
 #include "Controller.h"
-#include "Portrait.h"
+#include "Ui.h"
 
 
 Controller::Controller() : mixer(&parameters),
@@ -113,8 +113,8 @@ void Controller::processBlock(AudioSampleBuffer& buffer, MidiBuffer& midiMessage
 
 AudioProcessorEditor* Controller::createEditor()
 {
-    gui = new Portrait (this);
-    return gui;
+    ui = new Ui (this);
+    return ui;
 }
 
 float Controller::getParameter (int index)

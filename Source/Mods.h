@@ -22,6 +22,7 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "JuceHeader.h"
+#include "BaseComponent.h"
 //[/Headers]
 
 #include "BipolarStepper.h"
@@ -35,7 +36,7 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class Mods  : public Component
+class Mods  : public BaseComponent
 {
 public:
     //==============================================================================
@@ -53,7 +54,6 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-    Controller* controller;
     //[/UserVariables]
 
     //==============================================================================

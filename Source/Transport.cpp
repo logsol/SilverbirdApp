@@ -20,6 +20,7 @@
 //[Headers] You can add your own extra header files here...
 #include "Knob.h"
 #include "Controller.h"
+#include "BaseComponent.h"
 //[/Headers]
 
 #include "Transport.h"
@@ -30,15 +31,15 @@
 
 //==============================================================================
 Transport::Transport (Controller* controller)
-    : controller(controller)
+    : BaseComponent(controller)
 {
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
 
     addAndMakeVisible (bpmSlider = new Knob (String()));
-    bpmSlider->setRange (100, 180, 1);
+    bpmSlider->setRange (100, 220, 1);
     bpmSlider->setSliderStyle (Slider::LinearBar);
-    bpmSlider->setTextBoxStyle (Slider::TextBoxLeft, false, 100, 20);
+    bpmSlider->setTextBoxStyle (Slider::TextBoxLeft, true, 100, 20);
     bpmSlider->setColour (Slider::thumbColourId, Colour (0xff656565));
     bpmSlider->setColour (Slider::textBoxTextColourId, Colours::white);
     bpmSlider->addListener (this);
@@ -69,7 +70,7 @@ Transport::Transport (Controller* controller)
     addAndMakeVisible (shuffleSlider = new Knob ("Shuffle"));
     shuffleSlider->setRange (0, 1, 0.01);
     shuffleSlider->setSliderStyle (Slider::LinearBar);
-    shuffleSlider->setTextBoxStyle (Slider::TextBoxLeft, false, 80, 20);
+    shuffleSlider->setTextBoxStyle (Slider::TextBoxLeft, true, 80, 20);
     shuffleSlider->setColour (Slider::thumbColourId, Colour (0xff656565));
     shuffleSlider->setColour (Slider::textBoxTextColourId, Colours::white);
     shuffleSlider->addListener (this);
@@ -83,7 +84,7 @@ Transport::Transport (Controller* controller)
 
     //[Constructor] You can add your own custom stuff here..
     bpmSlider->setValue(controller->clock.getBpm());
-    
+
     Parameter* p;
     p = controller->getParameterByAttrs(Controller::params::shuffle);
     shuffleSlider->addListener(controller);
@@ -123,11 +124,11 @@ void Transport::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    bpmSlider->setBounds (proportionOfWidth (0.3750f), proportionOfHeight (0.0286f), proportionOfWidth (0.3013f), proportionOfHeight (0.6571f));
-    playButton->setBounds (proportionOfWidth (0.7219f), proportionOfHeight (0.0250f), proportionOfWidth (0.2500f), proportionOfHeight (0.6500f));
-    label->setBounds (proportionOfWidth (0.4776f), proportionOfHeight (0.7429f), proportionOfWidth (0.1026f), proportionOfHeight (0.2286f));
-    label10->setBounds (proportionOfWidth (0.0906f), proportionOfHeight (0.7500f), proportionOfWidth (0.1563f), proportionOfHeight (0.2250f));
-    shuffleSlider->setBounds (proportionOfWidth (0.0219f), proportionOfHeight (0.0250f), proportionOfWidth (0.3000f), proportionOfHeight (0.6500f));
+    bpmSlider->setBounds (proportionOfWidth (0.3719f), proportionOfHeight (0.0000f), proportionOfWidth (0.3063f), proportionOfHeight (0.6500f));
+    playButton->setBounds (proportionOfWidth (0.7281f), proportionOfHeight (0.0000f), proportionOfWidth (0.2531f), proportionOfHeight (0.6500f));
+    label->setBounds (proportionOfWidth (0.4719f), proportionOfHeight (0.8000f), proportionOfWidth (0.1031f), proportionOfHeight (0.2000f));
+    label10->setBounds (proportionOfWidth (0.1094f), proportionOfHeight (0.8000f), proportionOfWidth (0.1563f), proportionOfHeight (0.2000f));
+    shuffleSlider->setBounds (proportionOfWidth (0.0313f), proportionOfHeight (0.0000f), proportionOfWidth (0.3063f), proportionOfHeight (0.6500f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -186,33 +187,33 @@ void Transport::buttonClicked (Button* buttonThatWasClicked)
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="Transport" componentName=""
-                 parentClasses="public Component" constructorParams="Controller* controller"
-                 variableInitialisers="controller(controller)" snapPixels="8"
+                 parentClasses="public BaseComponent" constructorParams="Controller* controller"
+                 variableInitialisers="BaseComponent(controller)" snapPixels="8"
                  snapActive="1" snapShown="1" overlayOpacity="0.330" fixedSize="1"
                  initialWidth="320" initialHeight="40">
   <BACKGROUND backgroundColour="0"/>
   <SLIDER name="" id="3368eda71e194b82" memberName="bpmSlider" virtualName="Knob"
-          explicitFocusOrder="0" pos="37.5% 2.5% 30% 65%" thumbcol="ff656565"
-          textboxtext="ffffffff" min="100" max="180" int="1" style="LinearBar"
-          textBoxPos="TextBoxLeft" textBoxEditable="1" textBoxWidth="100"
+          explicitFocusOrder="0" pos="37.188% 0% 30.625% 65%" thumbcol="ff656565"
+          textboxtext="ffffffff" min="100" max="220" int="1" style="LinearBar"
+          textBoxPos="TextBoxLeft" textBoxEditable="0" textBoxWidth="100"
           textBoxHeight="20" skewFactor="1"/>
   <TEXTBUTTON name="play" id="e919a91fb78e40b3" memberName="playButton" virtualName=""
-              explicitFocusOrder="0" pos="72.188% 2.5% 25% 65%" bgColOff="ffcecece"
+              explicitFocusOrder="0" pos="72.812% 0% 25.312% 65%" bgColOff="ffcecece"
               buttonText="Play" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <LABEL name="new label" id="e5bd61ea8c7a90cf" memberName="label" virtualName=""
-         explicitFocusOrder="0" pos="47.812% 75% 10.312% 22.5%" textCol="ffffffff"
+         explicitFocusOrder="0" pos="47.188% 80% 10.312% 20%" textCol="ffffffff"
          edTextCol="ff000000" edBkgCol="0" labelText="BPM" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="11" bold="0" italic="0" justification="33"/>
   <LABEL name="new label" id="cfbf1f6cb7801bfe" memberName="label10" virtualName=""
-         explicitFocusOrder="0" pos="9.062% 75% 15.625% 22.5%" textCol="fff3f3f3"
+         explicitFocusOrder="0" pos="10.938% 80% 15.625% 20%" textCol="fff3f3f3"
          edTextCol="ff000000" edBkgCol="0" labelText="Shuffle&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="11" bold="0" italic="0" justification="36"/>
   <SLIDER name="Shuffle" id="f2d61c4a72ddf897" memberName="shuffleSlider"
-          virtualName="Knob" explicitFocusOrder="0" pos="2.188% 2.5% 30% 65%"
+          virtualName="Knob" explicitFocusOrder="0" pos="3.125% 0% 30.625% 65%"
           thumbcol="ff656565" textboxtext="ffffffff" min="0" max="1" int="0.010000000000000000208"
-          style="LinearBar" textBoxPos="TextBoxLeft" textBoxEditable="1"
+          style="LinearBar" textBoxPos="TextBoxLeft" textBoxEditable="0"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
 </JUCER_COMPONENT>
 

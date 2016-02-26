@@ -23,6 +23,7 @@
 //[Headers]     -- You can add your own extra header files here --
 #include "JuceHeader.h"
 #include "Controller.h"
+#include "BaseComponent.h"
 //[/Headers]
 
 #include "Stepper.h"
@@ -36,7 +37,7 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class Drums  : public Component
+class Drums  : public BaseComponent
 {
 public:
     //==============================================================================
@@ -54,7 +55,6 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-    Controller* controller;
     //[/UserVariables]
 
     //==============================================================================

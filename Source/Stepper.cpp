@@ -28,7 +28,7 @@
 
 //==============================================================================
 Stepper::Stepper (Controller* controller, int trackId, bool isModulationTrack)
-    : controller(controller),
+    : BaseComponent(controller),
       trackId(trackId),
       isModulationTrack(isModulationTrack)
 {
@@ -197,16 +197,16 @@ void Stepper::mouseDoubleClick (const MouseEvent& e)
 {
     //[UserCode_mouseDoubleClick] -- Add your code here...
     int numCells = controller->sequencer.getNumCells();
-    
+
     float cellWidth = getWidth() / numCells;
     int cellId = fmax(0, fmin(numCells, floor(e.getPosition().getX() / cellWidth)));
-    
+
     float value = isBipolar() ? 0.5f : 0.0f;
-    
+
     updateSequencer(cellId, value);
-    
+
     repaint();
-    
+
     controller->setTrackFocus(trackId);
     //[/UserCode_mouseDoubleClick]
 }
@@ -259,8 +259,8 @@ void Stepper::updateSequencer(int cellId, float value)
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="Stepper" componentName=""
-                 parentClasses="public Component, public ClockListener" constructorParams="Controller* controller, int trackId, bool isModulationTrack"
-                 variableInitialisers="controller(controller),&#10;trackId(trackId),&#10;isModulationTrack(isModulationTrack)"
+                 parentClasses="public BaseComponent, public ClockListener" constructorParams="Controller* controller, int trackId, bool isModulationTrack"
+                 variableInitialisers="BaseComponent(controller),&#10;trackId(trackId),&#10;isModulationTrack(isModulationTrack)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="0" initialWidth="400" initialHeight="60">
   <METHODS>
