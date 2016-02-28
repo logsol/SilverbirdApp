@@ -26,6 +26,7 @@
 //[/Headers]
 
 #include "HistoryComponent.h"
+#include "Transport.h"
 
 
 //==============================================================================
@@ -59,6 +60,7 @@ private:
     //==============================================================================
     ScopedPointer<Label> label;
     ScopedPointer<HistoryComponent> history;
+    ScopedPointer<Transport> component;
 
 
     //==============================================================================

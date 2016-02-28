@@ -44,11 +44,6 @@ Transport::Transport (Controller* controller)
     bpmSlider->setColour (Slider::textBoxTextColourId, Colours::white);
     bpmSlider->addListener (this);
 
-    addAndMakeVisible (playButton = new TextButton ("play"));
-    playButton->setButtonText (TRANS("Play"));
-    playButton->addListener (this);
-    playButton->setColour (TextButton::buttonColourId, Colour (0xffcecece));
-
     addAndMakeVisible (label = new Label ("new label",
                                           TRANS("BPM")));
     label->setFont (Font (11.00f, Font::plain));
@@ -79,7 +74,7 @@ Transport::Transport (Controller* controller)
     //[UserPreSize]
     //[/UserPreSize]
 
-    setSize (320, 40);
+    setSize (320, 100);
 
 
     //[Constructor] You can add your own custom stuff here..
@@ -99,7 +94,6 @@ Transport::~Transport()
     //[/Destructor_pre]
 
     bpmSlider = nullptr;
-    playButton = nullptr;
     label = nullptr;
     label10 = nullptr;
     shuffleSlider = nullptr;
@@ -124,11 +118,10 @@ void Transport::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    bpmSlider->setBounds (proportionOfWidth (0.3719f), proportionOfHeight (0.0000f), proportionOfWidth (0.3063f), proportionOfHeight (0.6500f));
-    playButton->setBounds (proportionOfWidth (0.7281f), proportionOfHeight (0.0000f), proportionOfWidth (0.2531f), proportionOfHeight (0.6500f));
-    label->setBounds (proportionOfWidth (0.4719f), proportionOfHeight (0.8000f), proportionOfWidth (0.1031f), proportionOfHeight (0.2000f));
-    label10->setBounds (proportionOfWidth (0.1094f), proportionOfHeight (0.8000f), proportionOfWidth (0.1563f), proportionOfHeight (0.2000f));
-    shuffleSlider->setBounds (proportionOfWidth (0.0313f), proportionOfHeight (0.0000f), proportionOfWidth (0.3063f), proportionOfHeight (0.6500f));
+    bpmSlider->setBounds (proportionOfWidth (0.0000f), proportionOfHeight (0.0000f), proportionOfWidth (0.8000f), proportionOfHeight (0.4000f));
+    label->setBounds (proportionOfWidth (0.8250f), proportionOfHeight (0.1600f), proportionOfWidth (0.1031f), proportionOfHeight (0.2000f));
+    label10->setBounds (proportionOfWidth (0.8250f), proportionOfHeight (0.6400f), proportionOfWidth (0.1563f), proportionOfHeight (0.2000f));
+    shuffleSlider->setBounds (proportionOfWidth (0.0000f), proportionOfHeight (0.5600f), proportionOfWidth (0.8000f), proportionOfHeight (0.4000f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -154,23 +147,6 @@ void Transport::sliderValueChanged (Slider* sliderThatWasMoved)
     //[/UsersliderValueChanged_Post]
 }
 
-void Transport::buttonClicked (Button* buttonThatWasClicked)
-{
-    //[UserbuttonClicked_Pre]
-    //[/UserbuttonClicked_Pre]
-
-    if (buttonThatWasClicked == playButton)
-    {
-        //[UserButtonCode_playButton] -- add your button handler code here..
-        bool isPlaying = controller->togglePlayPause();
-        playButton->setButtonText (TRANS(isPlaying ? "Stop" : "Play"));
-        //[/UserButtonCode_playButton]
-    }
-
-    //[UserbuttonClicked_Post]
-    //[/UserbuttonClicked_Post]
-}
-
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
@@ -190,28 +166,25 @@ BEGIN_JUCER_METADATA
                  parentClasses="public BaseComponent" constructorParams="Controller* controller"
                  variableInitialisers="BaseComponent(controller)" snapPixels="8"
                  snapActive="1" snapShown="1" overlayOpacity="0.330" fixedSize="1"
-                 initialWidth="320" initialHeight="40">
+                 initialWidth="320" initialHeight="100">
   <BACKGROUND backgroundColour="0"/>
   <SLIDER name="" id="3368eda71e194b82" memberName="bpmSlider" virtualName="Knob"
-          explicitFocusOrder="0" pos="37.188% 0% 30.625% 65%" thumbcol="ff656565"
+          explicitFocusOrder="0" pos="0% 0% 80% 40%" thumbcol="ff656565"
           textboxtext="ffffffff" min="100" max="220" int="1" style="LinearBar"
           textBoxPos="TextBoxLeft" textBoxEditable="0" textBoxWidth="100"
           textBoxHeight="20" skewFactor="1"/>
-  <TEXTBUTTON name="play" id="e919a91fb78e40b3" memberName="playButton" virtualName=""
-              explicitFocusOrder="0" pos="72.812% 0% 25.312% 65%" bgColOff="ffcecece"
-              buttonText="Play" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <LABEL name="new label" id="e5bd61ea8c7a90cf" memberName="label" virtualName=""
-         explicitFocusOrder="0" pos="47.188% 80% 10.312% 20%" textCol="ffffffff"
+         explicitFocusOrder="0" pos="82.5% 16% 10.312% 20%" textCol="ffffffff"
          edTextCol="ff000000" edBkgCol="0" labelText="BPM" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="11" bold="0" italic="0" justification="33"/>
   <LABEL name="new label" id="cfbf1f6cb7801bfe" memberName="label10" virtualName=""
-         explicitFocusOrder="0" pos="10.938% 80% 15.625% 20%" textCol="fff3f3f3"
+         explicitFocusOrder="0" pos="82.5% 64% 15.625% 20%" textCol="fff3f3f3"
          edTextCol="ff000000" edBkgCol="0" labelText="Shuffle&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="11" bold="0" italic="0" justification="36"/>
   <SLIDER name="Shuffle" id="f2d61c4a72ddf897" memberName="shuffleSlider"
-          virtualName="Knob" explicitFocusOrder="0" pos="3.125% 0% 30.625% 65%"
+          virtualName="Knob" explicitFocusOrder="0" pos="0% 56% 80% 40%"
           thumbcol="ff656565" textboxtext="ffffffff" min="0" max="1" int="0.010000000000000000208"
           style="LinearBar" textBoxPos="TextBoxLeft" textBoxEditable="0"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>

@@ -38,8 +38,7 @@
                                                                     //[/Comments]
 */
 class Transport  : public BaseComponent,
-                   public SliderListener,
-                   public ButtonListener
+                   public SliderListener
 {
 public:
     //==============================================================================
@@ -53,7 +52,6 @@ public:
     void paint (Graphics& g);
     void resized();
     void sliderValueChanged (Slider* sliderThatWasMoved);
-    void buttonClicked (Button* buttonThatWasClicked);
 
 
 
@@ -63,7 +61,6 @@ private:
 
     //==============================================================================
     ScopedPointer<Knob> bpmSlider;
-    ScopedPointer<TextButton> playButton;
     ScopedPointer<Label> label;
     ScopedPointer<Label> label10;
     ScopedPointer<Knob> shuffleSlider;

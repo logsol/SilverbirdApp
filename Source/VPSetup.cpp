@@ -43,6 +43,7 @@ VPSetup::VPSetup (Controller* controller)
     label->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (history = new HistoryComponent (controller));
+    addAndMakeVisible (component = new Transport (controller));
 
     //[UserPreSize]
     //[/UserPreSize]
@@ -61,6 +62,7 @@ VPSetup::~VPSetup()
 
     label = nullptr;
     history = nullptr;
+    component = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -82,8 +84,9 @@ void VPSetup::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    label->setBounds (80, 16, 150, 24);
-    history->setBounds (proportionOfWidth (0.1000f), proportionOfHeight (0.5476f) - 38, proportionOfWidth (0.8031f), 38);
+    label->setBounds (proportionOfWidth (0.2500f), proportionOfHeight (0.0381f), proportionOfWidth (0.4688f), proportionOfHeight (0.0571f));
+    history->setBounds (proportionOfWidth (0.0000f), proportionOfHeight (1.0000f) - 62, proportionOfWidth (1.0000f), 62);
+    component->setBounds (proportionOfWidth (0.0000f), proportionOfHeight (0.1333f), proportionOfWidth (1.0000f), proportionOfHeight (0.1905f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -110,13 +113,16 @@ BEGIN_JUCER_METADATA
                  initialWidth="320" initialHeight="420">
   <BACKGROUND backgroundColour="0"/>
   <LABEL name="new label" id="2c03953cb1a8c8b4" memberName="label" virtualName=""
-         explicitFocusOrder="0" pos="80 16 150 24" textCol="ffffffff"
+         explicitFocusOrder="0" pos="25% 3.81% 46.875% 5.714%" textCol="ffffffff"
          edTextCol="ff000000" edBkgCol="0" labelText="Setup" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15" bold="0" italic="0" justification="36"/>
   <JUCERCOMP name="" id="b82ece55084724b2" memberName="history" virtualName=""
-             explicitFocusOrder="0" pos="10% 54.762%r 80.312% 38" posRelativeX="309379987650ac71"
+             explicitFocusOrder="0" pos="0% 100%r 100% 62" posRelativeX="309379987650ac71"
              sourceFile="HistoryComponent.cpp" constructorParams="controller"/>
+  <JUCERCOMP name="" id="5e01859b6589b66f" memberName="component" virtualName=""
+             explicitFocusOrder="0" pos="0% 13.333% 100% 19.048%" sourceFile="Transport.cpp"
+             constructorParams="controller"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
