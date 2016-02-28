@@ -18,7 +18,7 @@
     <key>CFBundleExecutable</key>
     <string>${EXECUTABLE_NAME}</string>
     <key>CFBundleIdentifier</key>
-    <string>com.audiosalt.SilverbirdApp</string>
+    <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
     <key>CFBundleName</key>
     <string>SilverbirdApp</string>
     <key>CFBundlePackageType</key>

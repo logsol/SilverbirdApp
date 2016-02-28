@@ -25,6 +25,8 @@
 #ifndef JUCE_STANDALONEFILTERWINDOW_H_INCLUDED
 #define JUCE_STANDALONEFILTERWINDOW_H_INCLUDED
 
+#include "JuceHeader.h"
+
 extern AudioProcessor* JUCE_CALLTYPE createPluginFilter();
 
 //==============================================================================
@@ -113,15 +115,18 @@ public:
         return f;
     }
 
+    /*
     void setLastFile (const FileChooser& fc)
     {
         if (settings != nullptr)
             settings->setValue ("lastStateFile", fc.getResult().getFullPathName());
     }
+     */
 
     /** Pops up a dialog letting the user save the processor's state to a file. */
     void askUserToSaveState (const String& fileSuffix = String())
     {
+        /*
         FileChooser fc (TRANS("Save current state"), getLastFile(), getFilePatterns (fileSuffix));
 
         if (fc.browseForFileToSave (true))
@@ -136,11 +141,13 @@ public:
                                                   TRANS("Error whilst saving"),
                                                   TRANS("Couldn't write to the specified file!"));
         }
+         */
     }
 
     /** Pops up a dialog letting the user re-load the processor's state from a file. */
     void askUserToLoadState (const String& fileSuffix = String())
     {
+        /*
         FileChooser fc (TRANS("Load a saved state"), getLastFile(), getFilePatterns (fileSuffix));
 
         if (fc.browseForFileToOpen())
@@ -156,6 +163,7 @@ public:
                                                   TRANS("Error whilst loading"),
                                                   TRANS("Couldn't read from the specified file!"));
         }
+         */
     }
 
     //==============================================================================

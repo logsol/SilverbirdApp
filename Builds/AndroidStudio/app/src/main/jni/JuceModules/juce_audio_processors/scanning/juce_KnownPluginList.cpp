@@ -1,0 +1,1 @@
+/Users/logsol/Work/projects/c++/JUCE/modules/juce_audio_processors/scanning/juce_KnownPluginList.cpp

@@ -1,0 +1,193 @@
+apply plugin: 'com.android.model.application'
+
+model {
+    android {
+        compileSdkVersion = 23
+        buildToolsVersion = "23.0.1"
+        defaultConfig.with {
+            applicationId = "com.audiosalt.silverbirdapp"
+            minSdkVersion.apiLevel = 23
+            targetSdkVersion.apiLevel = 23
+        }
+    }
+
+    android.ndk {
+        moduleName = "juce_jni"
+        stl = "c++_static"
+        toolchain = "clang"
+        toolchainVersion = 3.6
+        ext {
+            juceRootDir = "${project.rootDir}/../../../../".toString()
+            juceModuleDir = "${juceRootDir}/modules".toString()
+        }
+        cppFlags.add("-fsigned-char")
+        cppFlags.add("-fexceptions")
+        cppFlags.add("-frtti")
+        cppFlags.add("-std=c++11")
+        cppFlags.add("-I${project.rootDir}/app".toString())
+        cppFlags.add("-I${ext.juceRootDir}".toString())
+        cppFlags.add("-I${ext.juceModuleDir}".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/Source".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../../../../Dropbox/audiosalt/Silverbird/Samples/Hihat".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../../../../Dropbox/audiosalt/Silverbird/Samples/Kick".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../../../../Dropbox/audiosalt/Silverbird/Samples/Perc".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../../../../Dropbox/audiosalt/Silverbird/Samples/Perc2".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../../../../Dropbox/audiosalt/Silverbird/Samples/Snare".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../../../../Dropbox/audiosalt/Silverbird/Samples/Tones".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../../../../Dropbox/audiosalt/Silverbird/Images".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_audio_basics/buffers".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_audio_basics/effects".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_audio_basics/midi".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_audio_basics/mpe".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_audio_basics/sources".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_audio_basics/synthesisers".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_audio_basics".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_audio_devices/audio_io".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_audio_devices/midi_io".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_audio_devices/sources".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_audio_devices/audio_cd".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_audio_devices/native".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_audio_devices".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_audio_formats/format".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_audio_formats/codecs".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_audio_formats/sampler".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_audio_formats".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_audio_processors/processors".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_audio_processors/format".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_audio_processors/format_types".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_audio_processors/scanning".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_audio_processors/utilities".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_audio_processors".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_audio_utils/gui".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_audio_utils/players".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_audio_utils/native".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_audio_utils".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_core/text".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_core/maths".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_core/memory".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_core/containers".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_core/threads".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_core/time".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_core/files".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_core/network".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_core/streams".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_core/logging".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_core/system".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_core/xml".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_core/javascript".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_core/zip".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_core/unit_tests".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_core/misc".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_core/native".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_core".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_data_structures/values".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_data_structures/undomanager".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_data_structures/app_properties".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_data_structures".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_events/messages".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_events/timers".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_events/broadcasters".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_events/interprocess".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_events/native".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_events".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_graphics/colour".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_graphics/contexts".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_graphics/images".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_graphics/image_formats".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_graphics/geometry".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_graphics/placement".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_graphics/fonts".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_graphics/effects".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_graphics/native".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_graphics".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_gui_basics/components".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_gui_basics/mouse".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_gui_basics/keyboard".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_gui_basics/widgets".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_gui_basics/windows".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_gui_basics/menus".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_gui_basics/layout".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_gui_basics/buttons".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_gui_basics/positioning".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_gui_basics/drawables".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_gui_basics/properties".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_gui_basics/lookandfeel".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_gui_basics/filebrowser".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_gui_basics/commands".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_gui_basics/misc".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_gui_basics/application".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_gui_basics/native".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_gui_basics".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_gui_extra/code_editor".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_gui_extra/documents".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_gui_extra/embedding".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_gui_extra/misc".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_gui_extra/native".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_gui_extra".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/JuceLibraryCode".toString())
+        ldLibs.addAll("android", "EGL", "GLESv2", "log")
+    }
+
+    android.sources {
+        main {
+            jni {
+                source {
+                    exclude "**/JuceModules/"
+                }
+            }
+        }
+    }
+
+    android.buildTypes {
+        debug {
+            ndk.with {
+                debuggable = true
+                cppFlags.add("-g")
+                cppFlags.add("-DDEBUG=1")
+                cppFlags.add("-D_DEBUG=1")
+                cppFlags.add("-DJUCE_ANDROID=1")
+                cppFlags.add("-DJUCE_ANDROID_API_VERSION=23")
+                cppFlags.add("-DJUCE_ANDROID_ACTIVITY_CLASSNAME=com_audiosalt_silverbirdapp_SilverbirdApp")
+                cppFlags.add("-DJUCE_ANDROID_ACTIVITY_CLASSPATH=\"com/audiosalt/silverbirdapp/SilverbirdApp\"")
+                cppFlags.add("-O0")
+            }
+        }
+        release {
+            signingConfig = $("android.signingConfigs.releaseConfig")
+            ndk.with {
+                cppFlags.add("-DNDEBUG=1")
+                cppFlags.add("-DJUCE_ANDROID=1")
+                cppFlags.add("-DJUCE_ANDROID_API_VERSION=23")
+                cppFlags.add("-DJUCE_ANDROID_ACTIVITY_CLASSNAME=com_audiosalt_silverbirdapp_SilverbirdApp")
+                cppFlags.add("-DJUCE_ANDROID_ACTIVITY_CLASSPATH=\"com/audiosalt/silverbirdapp/SilverbirdApp\"")
+                cppFlags.add("-O3")
+            }
+        }
+    }
+
+    android.signingConfigs {
+        create("releaseConfig") {
+            storeFile = new File("/Users/logsol/.android/debug.keystore")
+            storePassword = "android"
+            keyAlias = "androiddebugkey"
+            keyPassword = "android"
+            storeType = "jks"
+        }
+    }
+
+    android.productFlavors {
+        create("armeabi") {
+            ndk.abiFilters.add("armeabi")
+        }
+        create("armeabi-v7a") {
+            ndk.abiFilters.add("armeabi-v7a")
+        }
+        create("x86") {
+            ndk.abiFilters.add("x86")
+        }
+    }
+}
+
+dependencies {
+    compile "com.android.support:support-v4:+"
+}

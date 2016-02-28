@@ -28,7 +28,7 @@ public:
         
         pluginWindow->setTitleBarButtonsRequired (DocumentWindow::allButtons, false);
         pluginWindow->setVisible (true);
-        pluginWindow->setUsingNativeTitleBar(true); // comment out to get to the application (options) button ;)
+        //pluginWindow->setUsingNativeTitleBar(true); // comment out to get to the application (options) button ;)
         
         pluginWindow->setResizable (false, false);
         pluginWindow->centreWithSize(pluginWindow->getWidth(), pluginWindow->getHeight());

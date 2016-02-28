@@ -1,0 +1,1 @@
+/Users/logsol/Work/projects/c++/JUCE/modules/juce_core/logging/juce_FileLogger.h
