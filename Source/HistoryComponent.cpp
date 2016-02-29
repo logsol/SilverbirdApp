@@ -90,10 +90,10 @@ void HistoryComponent::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    save->setBounds (proportionOfWidth (0.2890f), proportionOfHeight (0.2308f), proportionOfWidth (0.2023f), proportionOfHeight (0.5769f));
-    load->setBounds (proportionOfWidth (0.0694f), proportionOfHeight (0.2308f), proportionOfWidth (0.2023f), proportionOfHeight (0.5769f));
-    redo->setBounds (proportionOfWidth (0.7399f), proportionOfHeight (0.2308f), proportionOfWidth (0.2023f), proportionOfHeight (0.5769f));
-    undo->setBounds (proportionOfWidth (0.5145f), proportionOfHeight (0.2308f), proportionOfWidth (0.2023f), proportionOfHeight (0.5769f));
+    save->setBounds (proportionOfWidth (0.2900f), proportionOfHeight (0.2250f), proportionOfWidth (0.2033f), proportionOfHeight (0.5750f));
+    load->setBounds (proportionOfWidth (0.0700f), proportionOfHeight (0.2250f), proportionOfWidth (0.2033f), proportionOfHeight (0.5750f));
+    redo->setBounds (proportionOfWidth (0.7400f), proportionOfHeight (0.2250f), proportionOfWidth (0.2033f), proportionOfHeight (0.5750f));
+    undo->setBounds (proportionOfWidth (0.5133f), proportionOfHeight (0.2250f), proportionOfWidth (0.2033f), proportionOfHeight (0.5750f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -150,16 +150,16 @@ BEGIN_JUCER_METADATA
                  initialWidth="300" initialHeight="40">
   <BACKGROUND backgroundColour="0"/>
   <TEXTBUTTON name="save" id="ae6f6f001f0e0f94" memberName="save" virtualName="SbButton"
-              explicitFocusOrder="0" pos="29% 22.5% 20.333% 57.5%" buttonText="Save"
-              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+              explicitFocusOrder="0" pos="29.063% 22.581% 20.312% 58.065%"
+              buttonText="Save" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="load" id="d073f4931f861d5b" memberName="load" virtualName="SbButton"
-              explicitFocusOrder="0" pos="7% 22.5% 20.333% 57.5%" buttonText="Load"
+              explicitFocusOrder="0" pos="6.875% 22.581% 20.312% 58.065%" buttonText="Load"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="redo" id="550f5d2f473463e8" memberName="redo" virtualName="SbButton"
-              explicitFocusOrder="0" pos="74% 22.5% 20.333% 57.5%" buttonText="Redo"
-              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+              explicitFocusOrder="0" pos="74.062% 22.581% 20.312% 58.065%"
+              buttonText="Redo" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="undo" id="734eb6d517ff5b27" memberName="undo" virtualName="SbButton"
-              explicitFocusOrder="0" pos="51.333% 22.5% 20.333% 57.5%" buttonText="Undo"
+              explicitFocusOrder="0" pos="51.25% 22.581% 20.312% 58.065%" buttonText="Undo"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
 </JUCER_COMPONENT>
 

@@ -29,7 +29,7 @@ public:
     virtual SynthesiserVoice* findFreeVoice (SynthesiserSound* soundToPlay,
                                              int midiChannel,
                                              int midiNoteNumber,
-                                             bool stealIfNoneAvailable) const;
+                                             bool stealIfNoneAvailable) const override;
     
     int getNumberOfSounds();
     void setModulations(Array<float>* currentModulations);

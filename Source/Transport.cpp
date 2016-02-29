@@ -174,17 +174,17 @@ BEGIN_JUCER_METADATA
           textBoxPos="TextBoxLeft" textBoxEditable="0" textBoxWidth="100"
           textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="e5bd61ea8c7a90cf" memberName="label" virtualName=""
-         explicitFocusOrder="0" pos="82.5% 16% 10.312% 20%" textCol="ffffffff"
+         explicitFocusOrder="0" pos="82.5% 16.25% 10.312% 20%" textCol="ffffffff"
          edTextCol="ff000000" edBkgCol="0" labelText="BPM" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="11" bold="0" italic="0" justification="33"/>
   <LABEL name="new label" id="cfbf1f6cb7801bfe" memberName="label10" virtualName=""
-         explicitFocusOrder="0" pos="82.5% 64% 15.625% 20%" textCol="fff3f3f3"
+         explicitFocusOrder="0" pos="82.5% 63.75% 15.625% 20%" textCol="fff3f3f3"
          edTextCol="ff000000" edBkgCol="0" labelText="Shuffle&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="11" bold="0" italic="0" justification="36"/>
   <SLIDER name="Shuffle" id="f2d61c4a72ddf897" memberName="shuffleSlider"
-          virtualName="Knob" explicitFocusOrder="0" pos="0% 56% 80% 40%"
+          virtualName="Knob" explicitFocusOrder="0" pos="0% 56.25% 80% 40%"
           thumbcol="ff656565" textboxtext="ffffffff" min="0" max="1" int="0.010000000000000000208"
           style="LinearBar" textBoxPos="TextBoxLeft" textBoxEditable="0"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
