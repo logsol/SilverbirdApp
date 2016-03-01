@@ -139,6 +139,11 @@
     <ClCompile Include="..\..\Source\Sampler.cpp"/>
     <ClCompile Include="..\..\Source\Source.cpp"/>
     <ClCompile Include="..\..\Source\Sound.cpp"/>
+    <ClCompile Include="..\..\Source\ModulationSequencer.cpp"/>
+    <ClCompile Include="..\..\Source\MidiSequencer.cpp"/>
+    <ClCompile Include="..\..\Source\Sequencer.cpp"/>
+    <ClCompile Include="..\..\Source\ClockListener.cpp"/>
+    <ClCompile Include="..\..\Source\Clock.cpp"/>
     <ClCompile Include="..\..\Source\VPNavigate.cpp"/>
     <ClCompile Include="..\..\Source\VPSetup.cpp"/>
     <ClCompile Include="..\..\Source\VPSequencer.cpp"/>
@@ -150,6 +155,7 @@
     <ClCompile Include="..\..\Source\MixerStrip.cpp"/>
     <ClCompile Include="..\..\Source\Mods.cpp"/>
     <ClCompile Include="..\..\Source\Drums.cpp"/>
+    <ClCompile Include="..\..\Source\TargetStepper.cpp"/>
     <ClCompile Include="..\..\Source\Stepper.cpp"/>
     <ClCompile Include="..\..\Source\BipolarStepper.cpp"/>
     <ClCompile Include="..\..\Source\SbButton.cpp"/>
@@ -163,9 +169,6 @@
     <ClCompile Include="..\..\Source\Ui.cpp"/>
     <ClCompile Include="..\..\Source\Gui.cpp"/>
     <ClCompile Include="..\..\Source\Gui2.cpp"/>
-    <ClCompile Include="..\..\Source\Sequencer.cpp"/>
-    <ClCompile Include="..\..\Source\ClockListener.cpp"/>
-    <ClCompile Include="..\..\Source\Clock.cpp"/>
     <ClCompile Include="..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1307,6 +1310,11 @@
     <ClInclude Include="..\..\Source\Sampler.h"/>
     <ClInclude Include="..\..\Source\Source.h"/>
     <ClInclude Include="..\..\Source\Sound.h"/>
+    <ClInclude Include="..\..\Source\ModulationSequencer.h"/>
+    <ClInclude Include="..\..\Source\MidiSequencer.h"/>
+    <ClInclude Include="..\..\Source\Sequencer.h"/>
+    <ClInclude Include="..\..\Source\ClockListener.h"/>
+    <ClInclude Include="..\..\Source\Clock.h"/>
     <ClInclude Include="..\..\Source\VPNavigate.h"/>
     <ClInclude Include="..\..\Source\VPSetup.h"/>
     <ClInclude Include="..\..\Source\VPSequencer.h"/>
@@ -1318,6 +1326,7 @@
     <ClInclude Include="..\..\Source\MixerStrip.h"/>
     <ClInclude Include="..\..\Source\Mods.h"/>
     <ClInclude Include="..\..\Source\Drums.h"/>
+    <ClInclude Include="..\..\Source\TargetStepper.h"/>
     <ClInclude Include="..\..\Source\Stepper.h"/>
     <ClInclude Include="..\..\Source\BipolarStepper.h"/>
     <ClInclude Include="..\..\Source\SbButton.h"/>
@@ -1331,9 +1340,6 @@
     <ClInclude Include="..\..\Source\Ui.h"/>
     <ClInclude Include="..\..\Source\Gui.h"/>
     <ClInclude Include="..\..\Source\Gui2.h"/>
-    <ClInclude Include="..\..\Source\Sequencer.h"/>
-    <ClInclude Include="..\..\Source\ClockListener.h"/>
-    <ClInclude Include="..\..\Source\Clock.h"/>
     <ClInclude Include="..\..\Source\SequencerMessage.h"/>
     <ClInclude Include="..\..\Source\StandaloneFilterWindow.h"/>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>

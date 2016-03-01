@@ -82,12 +82,12 @@ void MixerComponent::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    component->setBounds (proportionOfWidth (0.0081f), proportionOfHeight (0.0000f), proportionOfWidth (0.1473f), proportionOfHeight (1.0000f));
-    component2->setBounds (proportionOfWidth (0.1770f), proportionOfHeight (0.0000f), proportionOfWidth (0.1473f), proportionOfHeight (1.0000f));
-    component3->setBounds (proportionOfWidth (0.3446f), proportionOfHeight (0.0000f), proportionOfWidth (0.1473f), proportionOfHeight (1.0000f));
-    component4->setBounds (proportionOfWidth (0.5095f), proportionOfHeight (0.0000f), proportionOfWidth (0.1473f), proportionOfHeight (1.0000f));
-    component5->setBounds (proportionOfWidth (0.6770f), proportionOfHeight (0.0000f), proportionOfWidth (0.1473f), proportionOfHeight (1.0000f));
-    component6->setBounds (proportionOfWidth (0.8446f), proportionOfHeight (0.0000f), proportionOfWidth (0.1473f), proportionOfHeight (1.0000f));
+    component->setBounds (proportionOfWidth (0.0075f), proportionOfHeight (0.0000f), proportionOfWidth (0.1475f), proportionOfHeight (1.0000f));
+    component2->setBounds (proportionOfWidth (0.1775f), proportionOfHeight (0.0000f), proportionOfWidth (0.1475f), proportionOfHeight (1.0000f));
+    component3->setBounds (proportionOfWidth (0.3450f), proportionOfHeight (0.0000f), proportionOfWidth (0.1475f), proportionOfHeight (1.0000f));
+    component4->setBounds (proportionOfWidth (0.5100f), proportionOfHeight (0.0000f), proportionOfWidth (0.1475f), proportionOfHeight (1.0000f));
+    component5->setBounds (proportionOfWidth (0.6775f), proportionOfHeight (0.0000f), proportionOfWidth (0.1475f), proportionOfHeight (1.0000f));
+    component6->setBounds (proportionOfWidth (0.8450f), proportionOfHeight (0.0000f), proportionOfWidth (0.1475f), proportionOfHeight (1.0000f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }

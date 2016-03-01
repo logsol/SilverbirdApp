@@ -111,9 +111,9 @@ void MixerStrip::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    volumeSlider->setBounds (proportionOfWidth (0.0638f), proportionOfHeight (0.2331f), proportionOfWidth (0.8085f), proportionOfHeight (0.4962f));
-    striplabel->setBounds (0, proportionOfHeight (0.0602f), proportionOfWidth (1.0000f), proportionOfHeight (0.1353f));
-    muteButton->setBounds (proportionOfWidth (0.0638f), proportionOfHeight (0.7293f), proportionOfWidth (0.8085f), proportionOfHeight (0.2331f));
+    volumeSlider->setBounds (proportionOfWidth (0.0667f), proportionOfHeight (0.2300f), proportionOfWidth (0.8167f), proportionOfHeight (0.5000f));
+    striplabel->setBounds (0, proportionOfHeight (0.0600f), proportionOfWidth (1.0000f), proportionOfHeight (0.1400f));
+    muteButton->setBounds (proportionOfWidth (0.0667f), proportionOfHeight (0.7300f), proportionOfWidth (0.8167f), proportionOfHeight (0.2300f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -170,7 +170,7 @@ BEGIN_JUCER_METADATA
                  fixedSize="1" initialWidth="60" initialHeight="100">
   <BACKGROUND backgroundColour="0"/>
   <SLIDER name="" id="caab896538cb75ff" memberName="volumeSlider" virtualName="Knob"
-          explicitFocusOrder="0" pos="6.667% 23% 81.667% 50%" thumbcol="ffffeb86"
+          explicitFocusOrder="0" pos="6.78% 22.667% 81.356% 50%" thumbcol="ffffeb86"
           min="0" max="1" int="0" style="LinearBar" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="" id="3c135fce2ca970bf" memberName="striplabel" virtualName=""
@@ -179,7 +179,7 @@ BEGIN_JUCER_METADATA
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15" bold="0" italic="0" justification="36"/>
   <TEXTBUTTON name="" id="77cd8f798e359cb1" memberName="muteButton" virtualName=""
-              explicitFocusOrder="0" pos="6.667% 73% 81.667% 23%" bgColOff="ffcecece"
+              explicitFocusOrder="0" pos="6.78% 73.333% 81.356% 22.667%" bgColOff="ffcecece"
               bgColOn="ffffeb86" buttonText="M" connectedEdges="0" needsCallback="1"
               radioGroupId="0"/>
 </JUCER_COMPONENT>

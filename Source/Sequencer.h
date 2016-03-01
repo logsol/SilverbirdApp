@@ -19,27 +19,31 @@
 class Sequencer
 {
 public:
-    Sequencer(Mixer& mixer);
-    ~Sequencer();
+    Sequencer(Controller* controller);
+    virtual ~Sequencer();
     
     int getNumCells();
     Array<float> getCells(int trackId);
-    Array<float> getModulationCells(int trackId);
     void setCell(int trackId, int cellId, float value);
-    void setModulationCell(int trackId, int cellId, float value);
-    void clockStep(int counter, double nextStepTimeMs);
+    virtual void clockStep(int counter);
     
+    //void setModulationCell(int trackId, int cellId, float value);
+    Array<float> getModulationCells(int trackId);
+    int getCursorPosition();
+    void resetCursor();
     
 protected:
-    Mixer& mixer;
+    Controller* controller;
     int numCells = 16;
-    OwnedArray<Array<float>> matrix;
-    OwnedArray<Array<float>> modulationMatrix;
-    Array<float> columnModulations;
+    int numPatterns = 16;
     
-    int notes[Mixer::tracks::max];
+    OwnedArray<Array<float>> matrix; // first dimension = pattern
+    
     SequencerMessage* sequencerMessage; // gotta be on the heap.
-     
+    
+    float playbackSpeed = 1.0;
+    int length = numCells;
+    int cursor = 0;
 };
 
 

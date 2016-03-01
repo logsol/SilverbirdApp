@@ -11,25 +11,19 @@
 #include "Sequencer.h"
 
 
-Sequencer::Sequencer(Mixer& mixer) : mixer(mixer)
+Sequencer::Sequencer(Controller* controller) : controller(controller)
 {
-    notes[0] = 36;
-    notes[1] = 38;
-    notes[2] = 42;
-    notes[3] = 45;
-    notes[4] = 48;
-    notes[5] = 52;
     
     // setting up matrix
-    
-    for (int i = 0; i < Mixer::tracks::max; i++) {
+    for (int i = 0; i < numPatterns; i++) {
         matrix.add(new Array<float>);
         
         for (int j = 0; j < numCells; j++) {
-            matrix[i]->insert(j, 0);
+            matrix[i]->insert(j, 0.5);
         }
     }
     
+    /*
     for (int i = 0; i < Mixer::mods::max; i++) {
         modulationMatrix.add(new Array<float>);
         
@@ -37,6 +31,7 @@ Sequencer::Sequencer(Mixer& mixer) : mixer(mixer)
             modulationMatrix[i]->insert(j, 0.5);
         }
     }
+     */
 }
 
 Sequencer::~Sequencer()
@@ -48,32 +43,47 @@ int Sequencer::getNumCells()
     return numCells;
 }
 
-Array<float> Sequencer::getCells(int trackId)
+Array<float> Sequencer::getCells(int patternId)
 {
-    return *matrix.getUnchecked(trackId);
+    return *matrix.getUnchecked(patternId);
 }
 
-Array<float> Sequencer::getModulationCells(int trackId)
+
+
+
+int Sequencer::getCursorPosition()
 {
-    return *modulationMatrix.getUnchecked(trackId);
+    return cursor;
 }
 
-void Sequencer::setCell(int trackId, int cellId, float value)
+
+void Sequencer::setCell(int patternId, int cellId, float value)
 {
-    matrix.getUnchecked(trackId)->set(cellId, value);
+    matrix.getUnchecked(patternId)->set(cellId, value);
 }
 
+/*
 void Sequencer::setModulationCell(int trackId, int cellId, float value)
 {
     modulationMatrix.getUnchecked(trackId)->set(cellId, value);
 }
+*/
 
-void Sequencer::clockStep(int cursorPosition, double nextStepTimeMs)
+void Sequencer::clockStep(int cursorPosition)
 {
     if (cursorPosition == -1) {
         return;
     }
+    
+    cursor++;
+    
+    if (cursor >= length) {
+        cursor = 0;
+    }
+    
 
+
+    /*
     for (int i = 0; i < Mixer::mods::max; i++) {
         float value = modulationMatrix.getUnchecked(i)->getUnchecked(cursorPosition);
         columnModulations.insert(i, value);
@@ -87,4 +97,10 @@ void Sequencer::clockStep(int cursorPosition, double nextStepTimeMs)
         m.setTimeStamp(nextStepTimeMs / 1000.0);
         mixer.midiCollector.addMessageToQueue(m);
     }
+     */
+}
+
+void Sequencer::resetCursor()
+{
+    cursor = -1;
 }

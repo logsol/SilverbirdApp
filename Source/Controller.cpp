@@ -12,10 +12,9 @@
 #include "Ui.h"
 
 
-Controller::Controller() : mixer(&parameters),
-                           sequencer(mixer),
-                           clock(&parameters, mixer, sequencer),
-                           document(String("document")) // sets document root name
+Controller::Controller() : mixer(this),
+                           clock(this)//,
+                           //document(String("document")) // sets document root name
 {
     int parameterId = 0;
     
@@ -33,7 +32,7 @@ Controller::Controller() : mixer(&parameters),
         }
     }
     
-    document.addListener(this);
+    //document.addListener(this);
     
     //createDocument();
 }
@@ -208,9 +207,19 @@ void Controller::setTrackFocus(int trackId)
     //gui->setTrackFocus(trackId);
 }
 
+Sequencer* Controller::getMidiSequencerByTrackId(int trackId)
+{
+    return clock.getMidiSequencerByTrackId(trackId);
+}
+
+Sequencer* Controller::getModulationSequencerByTrackId(int trackId)
+{
+    return clock.getModulationSequencerByTrackId(trackId);
+}
 
 void Controller::saveDocument()
 {
+    /*
     document.removeAllChildren(&undoManager);
     
     ValueTree meta(String("meta"));
@@ -343,6 +352,7 @@ void Controller::saveDocument()
     DirectoryIterator di(documents, true, "*", File::TypesOfFileToFind::findFilesAndDirectories);
     
     startup.replaceWithText(document.toXmlString());
+     */
 }
 
 void Controller::loadDocument()
@@ -365,10 +375,32 @@ void Controller::createDocument()
     
 }
 
+float Controller::getParameterValue(int paramNameId, int trackId)
+{
+    return parameters.getUnchecked(getParameterId(paramNameId, trackId))->getValue();
+}
+
+float Controller::getParameterValueScaled(int paramNameId, int trackId)
+{
+    return parameters.getUnchecked(getParameterId(paramNameId, trackId))->getScaledValue();
+}
+
+void Controller::resetStepModulations()
+{
+    mixer.resetStepModulations();
+}
+
+void Controller::addStepModulationValue(int paramId, float value, int trackId)
+{
+    mixer.addStepModulationValue(paramId, value, trackId);
+}
+
+/*
 void Controller::valueTreePropertyChanged (ValueTree& treeWhosePropertyHasChanged, const Identifier& property)
 {
     std::cout << "valueTreePropertyChanged" << &property << std::endl;
 }
+ */
 
 
 //==============================================================================

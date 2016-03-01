@@ -24,12 +24,12 @@ class Ui;
 
 class Controller : public SilverbirdAudioProcessor,
                    public Slider::Listener,
-                   public Button::Listener,
-                   public ValueTree::Listener
+                   public Button::Listener
+                   //,public ValueTree::Listener
 {
 public:
     Controller();
-    virtual ~Controller();
+    ~Controller();
     
     void addClockListener(ClockListener* listener);
     void removeClockListener(ClockListener* listener);
@@ -59,22 +59,32 @@ public:
     void onGuiParameterChange (Value& value);
     void setTrackFocus(int trackId);
     
+    Sequencer* getMidiSequencerByTrackId(int trackId);
+    Sequencer* getModulationSequencerByTrackId(int trackId);
+
+    
     void saveDocument();
     void loadDocument();
     void createDocument();
     
-    void valueTreePropertyChanged (ValueTree& treeWhosePropertyHasChanged, const Identifier& property) override;
-    void valueTreeChildAdded (ValueTree& parentTree, ValueTree& childWhichHasBeenAdded) override {
-        std::cout << "child added" << std::endl;
-    };
-    void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved, int indexFromWhichChildWasRemoved) override {};
-    void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved, int oldIndex, int newIndex) override {};
-    void valueTreeParentChanged (ValueTree& treeWhoseParentHasChanged) override {};
+    float getParameterValue(int paramNameId, int trackId = -1);
+    float getParameterValueScaled(int paramNameId, int trackId = -1);
+    
+    void resetStepModulations();
+    void addStepModulationValue(int paramId, float value, int trackId);
+    
+    //void valueTreePropertyChanged (ValueTree& treeWhosePropertyHasChanged, const Identifier& property) override;
+    //void valueTreeChildAdded (ValueTree& parentTree, ValueTree& childWhichHasBeenAdded) override {
+    //    std::cout << "child added" << std::endl;
+    //};
+    //void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved, int indexFromWhichChildWasRemoved) override {};
+    //void valueTreeChildOrderChanged (ValueTree& parentTreeWhoseChildrenHaveMoved, int oldIndex, int newIndex) override {};
+    //void valueTreeParentChanged (ValueTree& treeWhoseParentHasChanged) override {};
 
     OwnedArray<Parameter> parameters;
     
     Mixer mixer;
-    Sequencer sequencer;
+    
     Clock clock;
     Ui* ui;
     

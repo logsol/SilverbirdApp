@@ -57,7 +57,11 @@ Stepper::Stepper (Controller* controller, int trackId, bool isModulationTrack)
 
     stepperLabel->setText(controller->mixer.getNameByTrackId(trackId, isModulationTrack), dontSendNotification);
     stepperLabel->setInterceptsMouseClicks(false, false);
-
+    
+    sequencer = isModulationTrack
+     ? controller->getModulationSequencerByTrackId(trackId)
+     : controller->getMidiSequencerByTrackId(trackId);
+    
     //[/Constructor]
 }
 
@@ -84,11 +88,9 @@ void Stepper::paint (Graphics& g)
 
     //[UserPaint] Add your own custom painting code here..
 
-    int numCells = controller->sequencer.getNumCells();
+    int numCells = sequencer->getNumCells();
 
-    Array<float> cells = isModulationTrack
-        ? controller->sequencer.getModulationCells(trackId)
-        : controller->sequencer.getCells(trackId);
+    Array<float> cells = sequencer->getCells(1); // todo use real patternId
 
     float cellWidth = (float) getWidth() / (float) numCells;
 
@@ -170,7 +172,7 @@ void Stepper::mouseDown (const MouseEvent& e)
 {
     //[UserCode_mouseDown] -- Add your code here...
 
-    int numCells = controller->sequencer.getNumCells();
+    int numCells = sequencer->getNumCells();
 
     float cellWidth = getWidth() / numCells;
     int cellId = fmax(0, fmin(numCells, floor(e.getPosition().getX() / cellWidth)));
@@ -196,7 +198,7 @@ void Stepper::mouseDrag (const MouseEvent& e)
 void Stepper::mouseDoubleClick (const MouseEvent& e)
 {
     //[UserCode_mouseDoubleClick] -- Add your code here...
-    int numCells = controller->sequencer.getNumCells();
+    int numCells = sequencer->getNumCells();
 
     float cellWidth = getWidth() / numCells;
     int cellId = fmax(0, fmin(numCells, floor(e.getPosition().getX() / cellWidth)));
@@ -214,9 +216,9 @@ void Stepper::mouseDoubleClick (const MouseEvent& e)
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
-void Stepper::clockStep(int cursor)
+void Stepper::clockStep()
 {
-    this->cursor = cursor;
+    this->cursor = sequencer->getCursorPosition();
 
     const MessageManagerLock l;
 
@@ -238,11 +240,7 @@ bool Stepper::isBipolar()
 
 void Stepper::updateSequencer(int cellId, float value)
 {
-    if (isModulationTrack) {
-        controller->sequencer.setModulationCell(trackId, cellId, value);
-    } else {
-        controller->sequencer.setCell(trackId, cellId, value);
-    }
+    sequencer->setCell(1, cellId, value); // todo set real patternid
 }
 
 // FIXME: it might be better to use some sort of ValueListener here similar to ButtonListener as its a component change

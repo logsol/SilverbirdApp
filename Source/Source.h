@@ -15,13 +15,15 @@
 #include "JuceHeader.h"
 #include "Sound.h"
 #include "Sampler.h"
-#include "Parameter.h"
+class Controller;
 
 class Source : public AudioSource
 {
     
+    friend class Sampler;
+    
 public:
-    Source(int trackId, String name, MidiMessageCollector& midiCollector, OwnedArray<Parameter>* parameters);
+    Source(int trackId, String name, MidiMessageCollector& midiCollector, Controller* controller);
     ~Source();
     
     void updateSampleRate(int sampleRate);
@@ -38,7 +40,9 @@ public:
     MidiBuffer incomingMidi;
 
     int getNumberOfSounds();
-    void setModulations(Array<float>* currentModulations);
+    
+    void resetStepModulations();
+    void addStepModulationValue(int paramId, float value);
     
 protected:
     
@@ -52,7 +56,9 @@ protected:
     float lastLevel = 1;
 
     Sampler sampler;
-    OwnedArray<Parameter>* parameters;
+    Controller* controller;
+    
+    Array<float> modulations;
 };
 
 

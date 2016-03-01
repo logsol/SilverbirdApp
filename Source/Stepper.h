@@ -24,6 +24,7 @@
 #include "JuceHeader.h"
 #include "Controller.h"
 #include "BaseComponent.h"
+#include "Sequencer.h"
 //[/Headers]
 
 
@@ -46,7 +47,7 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
-    void clockStep(int cursor) override;
+    void clockStep() override;
     void setComponentID (const String& newID);
 
     //[/UserMethods]
@@ -69,6 +70,8 @@ protected:
     int trackId;
     bool isModulationTrack;
     int cursor = -1;
+
+    ScopedPointer<Sequencer> sequencer;
     //[/UserVariables]
 
     //==============================================================================

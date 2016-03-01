@@ -26,6 +26,22 @@
         <FILE id="HsA647" name="Sound.cpp" compile="1" resource="0" file="Source/Sound.cpp"/>
         <FILE id="WzwTSt" name="Sound.h" compile="0" resource="0" file="Source/Sound.h"/>
       </GROUP>
+      <GROUP id="{83064016-DD25-739D-D5D8-33E1E00341C3}" name="Sequencer">
+        <FILE id="sIfQg3" name="ModulationSequencer.cpp" compile="1" resource="0"
+              file="Source/ModulationSequencer.cpp"/>
+        <FILE id="gl6qEA" name="ModulationSequencer.h" compile="0" resource="0"
+              file="Source/ModulationSequencer.h"/>
+        <FILE id="bOmYbj" name="MidiSequencer.cpp" compile="1" resource="0"
+              file="Source/MidiSequencer.cpp"/>
+        <FILE id="xh0g4z" name="MidiSequencer.h" compile="0" resource="0" file="Source/MidiSequencer.h"/>
+        <FILE id="bmbbFr" name="Sequencer.cpp" compile="1" resource="0" file="Source/Sequencer.cpp"/>
+        <FILE id="kwOZBF" name="Sequencer.h" compile="0" resource="0" file="Source/Sequencer.h"/>
+        <FILE id="ccYcul" name="ClockListener.cpp" compile="1" resource="0"
+              file="Source/ClockListener.cpp"/>
+        <FILE id="Cau9CO" name="ClockListener.h" compile="0" resource="0" file="Source/ClockListener.h"/>
+        <FILE id="k1GNBn" name="Clock.cpp" compile="1" resource="0" file="Source/Clock.cpp"/>
+        <FILE id="I7gAhn" name="Clock.h" compile="0" resource="0" file="Source/Clock.h"/>
+      </GROUP>
       <GROUP id="{7910223D-4739-F887-8F7B-FD608B6F3A66}" name="View">
         <GROUP id="{3FF9126C-0E80-B1DD-D6AF-DFACFBEA5EA9}" name="Views">
           <GROUP id="{DB6FBDEF-4074-687F-AC43-2737775036FB}" name="Portrait">
@@ -61,6 +77,9 @@
             <FILE id="HpPtmn" name="Drums.h" compile="0" resource="0" file="Source/Drums.h"/>
           </GROUP>
           <GROUP id="{5B3D7F30-56A2-B31B-34F6-CCD6D1862E3F}" name="Stepper">
+            <FILE id="BEiijb" name="TargetStepper.cpp" compile="1" resource="0"
+                  file="Source/TargetStepper.cpp"/>
+            <FILE id="gb0tNq" name="TargetStepper.h" compile="0" resource="0" file="Source/TargetStepper.h"/>
             <FILE id="GLd4T6" name="Stepper.cpp" compile="1" resource="0" file="Source/Stepper.cpp"/>
             <FILE id="MxFhRb" name="Stepper.h" compile="0" resource="0" file="Source/Stepper.h"/>
             <FILE id="Dk706B" name="BipolarStepper.cpp" compile="1" resource="0"
@@ -98,15 +117,6 @@
         <FILE id="mkuCIT" name="Gui.h" compile="0" resource="0" file="Source/Gui.h"/>
         <FILE id="LeI2Mr" name="Gui2.cpp" compile="1" resource="0" file="Source/Gui2.cpp"/>
         <FILE id="IniKN1" name="Gui2.h" compile="0" resource="0" file="Source/Gui2.h"/>
-      </GROUP>
-      <GROUP id="{83064016-DD25-739D-D5D8-33E1E00341C3}" name="Sequencer">
-        <FILE id="bmbbFr" name="Sequencer.cpp" compile="1" resource="0" file="Source/Sequencer.cpp"/>
-        <FILE id="kwOZBF" name="Sequencer.h" compile="0" resource="0" file="Source/Sequencer.h"/>
-        <FILE id="ccYcul" name="ClockListener.cpp" compile="1" resource="0"
-              file="Source/ClockListener.cpp"/>
-        <FILE id="Cau9CO" name="ClockListener.h" compile="0" resource="0" file="Source/ClockListener.h"/>
-        <FILE id="k1GNBn" name="Clock.cpp" compile="1" resource="0" file="Source/Clock.cpp"/>
-        <FILE id="I7gAhn" name="Clock.h" compile="0" resource="0" file="Source/Clock.h"/>
       </GROUP>
       <GROUP id="{A3777E05-86BF-E467-8360-5B2722BA9453}" name="Messages">
         <FILE id="TYWRAb" name="SequencerMessage.h" compile="0" resource="0"
@@ -490,30 +500,6 @@
         <MODULEPATH id="juce_audio_utils" path="../JUCE/modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
-    <XCODE_IPHONE targetFolder="Builds/iOS" vstFolder="" vst3Folder="" smallIcon="KAoPru"
-                  bigIcon="KAoPru" prebuildCommand="cd SilverbirdApp/Images.xcassets/LaunchImage.launchimage/ \&#10;&amp;&amp; cp iphone-2x.png LaunchImage-iphone-2x.png \&#10;&amp;&amp; cp iphone-retina4.png LaunchImage-iphone-retina4.png \"
-                  postbuildCommand="" extraCompilerFlags="-x objective-c++" UIStatusBarHidden="0"
-                  customPList="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;&#10;&lt;plist version=&quot;1.0&quot;&gt;&#10;&lt;dict&gt;&#10;&#9;&lt;key&gt;UIRequiresFullScreen&lt;/key&gt;&#10;&#9;&lt;false/&gt;&#10;&#9;&lt;key&gt;UIStatusBarStyle&lt;/key&gt;&#10;&#9;&lt;string&gt;UIStatusBarStyleLightContent&lt;/string&gt;&#10;&#9;&lt;key&gt;UISupportedInterfaceOrientations&lt;/key&gt;&#10;&#9;&lt;array&gt;&#10;&#9;&#9;&lt;string&gt;UIInterfaceOrientationPortrait&lt;/string&gt;&#10;&#9;&lt;/array&gt;&#10;&lt;/dict&gt;&#10;&lt;/plist&gt;&#10;">
-      <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" iosCompatibility="7.0" isDebug="1" optimisation="1"
-                       targetName="SilverbirdApp"/>
-        <CONFIGURATION name="Release" iosCompatibility="default" isDebug="0" optimisation="3"
-                       targetName="SilverbirdApp"/>
-      </CONFIGURATIONS>
-      <MODULEPATHS>
-        <MODULEPATH id="juce_gui_extra" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_graphics" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_events" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_data_structures" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_core" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_audio_utils" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_audio_processors" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_audio_formats" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_audio_devices" path="../JUCE/modules"/>
-        <MODULEPATH id="juce_audio_basics" path="../JUCE/modules"/>
-      </MODULEPATHS>
-    </XCODE_IPHONE>
     <ANDROIDSTUDIO androidVersionCode="1" androidActivityClass="com.audiosalt.silverbirdapp.SilverbirdApp"
                    androidMinimumSDK="23" androidInternetNeeded="1" androidBluetoothNeeded="1"
                    androidKeyStore="${user.home}/.android/debug.keystore" androidKeyStorePass="android"
@@ -540,6 +526,30 @@
         <MODULEPATH id="juce_audio_basics" path="../JUCE/modules"/>
       </MODULEPATHS>
     </ANDROIDSTUDIO>
+    <XCODE_IPHONE targetFolder="Builds/iOS" vstFolder="" vst3Folder="" smallIcon="KAoPru"
+                  bigIcon="KAoPru" prebuildCommand="cd SilverbirdApp/Images.xcassets/LaunchImage.launchimage/ \&#10;&amp;&amp; cp iphone-2x.png LaunchImage-iphone-2x.png \&#10;&amp;&amp; cp iphone-retina4.png LaunchImage-iphone-retina4.png \"
+                  postbuildCommand="" extraCompilerFlags="-x objective-c++" UIStatusBarHidden="0"
+                  customPList="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;&#10;&lt;plist version=&quot;1.0&quot;&gt;&#10;&lt;dict&gt;&#10;&#9;&lt;key&gt;UIRequiresFullScreen&lt;/key&gt;&#10;&#9;&lt;false/&gt;&#10;&#9;&lt;key&gt;UIStatusBarStyle&lt;/key&gt;&#10;&#9;&lt;string&gt;UIStatusBarStyleLightContent&lt;/string&gt;&#10;&#9;&lt;key&gt;UISupportedInterfaceOrientations&lt;/key&gt;&#10;&#9;&lt;array&gt;&#10;&#9;&#9;&lt;string&gt;UIInterfaceOrientationPortrait&lt;/string&gt;&#10;&#9;&lt;/array&gt;&#10;&lt;/dict&gt;&#10;&lt;/plist&gt;&#10;">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" iosCompatibility="7.0" isDebug="1" optimisation="1"
+                       targetName="SilverbirdApp"/>
+        <CONFIGURATION name="Release" iosCompatibility="default" isDebug="0" optimisation="3"
+                       targetName="SilverbirdApp"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_extra" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_IPHONE>
   </EXPORTFORMATS>
   <MODULES>
     <MODULES id="juce_audio_basics" showAllCode="1" useLocalCopy="0"/>

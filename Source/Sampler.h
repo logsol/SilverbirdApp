@@ -13,12 +13,13 @@
 
 #include "JuceHeader.h"
 #include "Sound.h"
-#include "Parameter.h"
+class Source;
+class Controller;
 
 class Sampler : public Synthesiser {
 public:
     
-    Sampler(int trackId, OwnedArray<Parameter>* parameters);
+    Sampler(int trackId, Source* source, Controller* controller);
     ~Sampler();
     
     void setSelection(int selection);
@@ -32,12 +33,12 @@ public:
                                              bool stealIfNoneAvailable) const override;
     
     int getNumberOfSounds();
-    void setModulations(Array<float>* currentModulations);
-    Array<float>* currentModulations = nullptr;
+
     
 protected:
     int trackId;
-    OwnedArray<Parameter>* parameters;
+    Controller* controller;
+    Source* source;
 };
 
 

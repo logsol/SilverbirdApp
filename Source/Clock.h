@@ -14,13 +14,14 @@
 #include "JuceHeader.h"
 #include "ClockListener.h"
 #include "Parameter.h"
-#include "Mixer.h"
-#include "Sequencer.h"
+#include "ModulationSequencer.h"
+#include "MidiSequencer.h"
+class Controller;
 
 class Clock : public MessageListener
 {
 public:
-    Clock(OwnedArray<Parameter>* parameters, Mixer& mixer, Sequencer& sequencer);
+    Clock(Controller* controller);
     ~Clock();
     
     void addListener(ClockListener* listener);
@@ -37,6 +38,9 @@ public:
     void tick(float shuffle, AudioSampleBuffer& buffer, double sampleRate);
     float getBpm();
     
+    Sequencer* getMidiSequencerByTrackId(int trackId);
+    Sequencer* getModulationSequencerByTrackId(int trackId);
+    
 protected:
     bool isPlaying = false;
     double bpm = 120.0;
@@ -45,9 +49,12 @@ protected:
     double sixteenthTimeMs = 60000.0 / bpm / 4.0;
     double lastClockStepTimeMs = 0;
     OwnedArray<ClockListener> listeners;
-    OwnedArray<Parameter>* parameters;
-    Mixer& mixer;
-    Sequencer& sequencer;
+    Controller* controller;
+    
+    // TODO add counter: int cycles = 0;
+    
+    OwnedArray<MidiSequencer> midiSequencers;
+    OwnedArray<ModulationSequencer> modulationSequencers;
 };
 
 #endif  // CLOCK_H_INCLUDED

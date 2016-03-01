@@ -37,7 +37,7 @@ Transport::Transport (Controller* controller)
     //[/Constructor_pre]
 
     addAndMakeVisible (bpmSlider = new Knob (String()));
-    bpmSlider->setRange (100, 220, 1);
+    bpmSlider->setRange (10, 220, 1);
     bpmSlider->setSliderStyle (Slider::LinearBar);
     bpmSlider->setTextBoxStyle (Slider::TextBoxLeft, true, 100, 20);
     bpmSlider->setColour (Slider::thumbColourId, Colour (0xff656565));
@@ -119,9 +119,9 @@ void Transport::resized()
     //[/UserPreResize]
 
     bpmSlider->setBounds (proportionOfWidth (0.0000f), proportionOfHeight (0.0000f), proportionOfWidth (0.8000f), proportionOfHeight (0.4000f));
-    label->setBounds (proportionOfWidth (0.8250f), proportionOfHeight (0.1600f), proportionOfWidth (0.1031f), proportionOfHeight (0.2000f));
-    label10->setBounds (proportionOfWidth (0.8250f), proportionOfHeight (0.6400f), proportionOfWidth (0.1563f), proportionOfHeight (0.2000f));
-    shuffleSlider->setBounds (proportionOfWidth (0.0000f), proportionOfHeight (0.5600f), proportionOfWidth (0.8000f), proportionOfHeight (0.4000f));
+    label->setBounds (proportionOfWidth (0.8250f), proportionOfHeight (0.1625f), proportionOfWidth (0.1031f), proportionOfHeight (0.2000f));
+    label10->setBounds (proportionOfWidth (0.8250f), proportionOfHeight (0.6375f), proportionOfWidth (0.1563f), proportionOfHeight (0.2000f));
+    shuffleSlider->setBounds (proportionOfWidth (0.0000f), proportionOfHeight (0.5625f), proportionOfWidth (0.8000f), proportionOfHeight (0.4000f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -170,21 +170,21 @@ BEGIN_JUCER_METADATA
   <BACKGROUND backgroundColour="0"/>
   <SLIDER name="" id="3368eda71e194b82" memberName="bpmSlider" virtualName="Knob"
           explicitFocusOrder="0" pos="0% 0% 80% 40%" thumbcol="ff656565"
-          textboxtext="ffffffff" min="100" max="220" int="1" style="LinearBar"
+          textboxtext="ffffffff" min="10" max="220" int="1" style="LinearBar"
           textBoxPos="TextBoxLeft" textBoxEditable="0" textBoxWidth="100"
           textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="e5bd61ea8c7a90cf" memberName="label" virtualName=""
-         explicitFocusOrder="0" pos="82.5% 16.25% 10.312% 20%" textCol="ffffffff"
+         explicitFocusOrder="0" pos="82.5% 16% 10.312% 20%" textCol="ffffffff"
          edTextCol="ff000000" edBkgCol="0" labelText="BPM" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="11" bold="0" italic="0" justification="33"/>
   <LABEL name="new label" id="cfbf1f6cb7801bfe" memberName="label10" virtualName=""
-         explicitFocusOrder="0" pos="82.5% 63.75% 15.625% 20%" textCol="fff3f3f3"
+         explicitFocusOrder="0" pos="82.5% 64% 15.625% 20%" textCol="fff3f3f3"
          edTextCol="ff000000" edBkgCol="0" labelText="Shuffle&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="11" bold="0" italic="0" justification="36"/>
   <SLIDER name="Shuffle" id="f2d61c4a72ddf897" memberName="shuffleSlider"
-          virtualName="Knob" explicitFocusOrder="0" pos="0% 56.25% 80% 40%"
+          virtualName="Knob" explicitFocusOrder="0" pos="0% 56% 80% 40%"
           thumbcol="ff656565" textboxtext="ffffffff" min="0" max="1" int="0.010000000000000000208"
           style="LinearBar" textBoxPos="TextBoxLeft" textBoxEditable="0"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>

@@ -15,9 +15,11 @@
 #include "Controller.h"
 #include "Parameter.h"
 #include "Mixer.h"
+#include "Source.h"
 
-Sampler::Sampler(int trackId, OwnedArray<Parameter>* parameters) : trackId(trackId),
-                                                               parameters(parameters)
+Sampler::Sampler(int trackId, Source* source, Controller* controller) : trackId(trackId),
+                                                                        controller(controller),
+                                                                        source(source)
 {
     for (int i = 0; i < 16; i++)
     {
@@ -37,18 +39,24 @@ void Sampler::noteOn (const int midiChannel, const int midiNoteNumber, const flo
     float attack = 0.01;
     float decay = 0.99;
     
-    float trackSample = parameters->getUnchecked(Controller::getParameterId(Controller::params::sample, trackId))->getScaledValue();
-    float trackPitch = parameters->getUnchecked(Controller::getParameterId(Controller::params::pitch, trackId))->getScaledValue();
-    float trackAttack = parameters->getUnchecked(Controller::getParameterId(Controller::params::attack, trackId))->getScaledValue();
-    float trackDecay = parameters->getUnchecked(Controller::getParameterId(Controller::params::decay, trackId))->getScaledValue();
+    float trackSample = controller->getParameterValueScaled(Controller::params::sample, trackId);
+    float trackPitch = controller->getParameterValueScaled(Controller::params::pitch, trackId);
+    float trackAttack = controller->getParameterValueScaled(Controller::params::attack, trackId);
+    float trackDecay = controller->getParameterValueScaled(Controller::params::decay, trackId);
     
-    float globalSample = parameters->getUnchecked(Controller::getParameterId(Controller::params::sample))->getScaledValue();
-    float globalPitch = parameters->getUnchecked(Controller::getParameterId(Controller::params::pitch))->getScaledValue();
-    float globalDecay = parameters->getUnchecked(Controller::getParameterId(Controller::params::decay))->getScaledValue();
+    float globalSample = controller->getParameterValueScaled(Controller::params::sample);
+    float globalPitch = controller->getParameterValueScaled(Controller::params::pitch);
+    float globalDecay = controller->getParameterValueScaled(Controller::params::decay);
     
+    /*
     float modulationSample = Parameter::scale(Controller::params::sample, true, currentModulations->getUnchecked(Mixer::mods::sample));
     float modulationPitch = Parameter::scale(Controller::params::pitch, true, currentModulations->getUnchecked(Mixer::mods::pitch));
     float modulationDecay = Parameter::scale(Controller::params::decay, true, currentModulations->getUnchecked(Mixer::mods::decay));
+     */
+    
+    float modulationSample = Parameter::scale(Controller::params::sample, true, source->modulations[Mixer::mods::sample]);
+    float modulationPitch = Parameter::scale(Controller::params::pitch, true, source->modulations[Mixer::mods::pitch]);
+    float modulationDecay = Parameter::scale(Controller::params::decay, true, source->modulations[Mixer::mods::decay]);
 
     
     // +getNumberOfSounds to shift into positive range
@@ -107,7 +115,5 @@ int Sampler::getNumberOfSounds()
     return sounds.size();
 }
 
-void Sampler::setModulations(Array<float> *currentModulations)
-{
-    this->currentModulations = currentModulations;
-}
+
+

@@ -13,11 +13,11 @@
 
 #include "JuceHeader.h"
 #include "Source.h"
-#include "Parameter.h"
+class Controller;
 
 class Mixer : public MixerAudioSource {
 public:
-    Mixer(OwnedArray<Parameter>* parameters);
+    Mixer(Controller* controller);
     ~Mixer();
     
     // FIXME : create struct and refactor project accordingly
@@ -53,11 +53,12 @@ public:
     
     int getNumberOfSoundsByTrack(int track);
     
-    void setColumnModulations(Array<float>* currentModulations);
+    void resetStepModulations();
+    void addStepModulationValue(int modTrackId, float value, int targetTrackId);
     
     OwnedArray<Source> sources;
     MidiMessageCollector midiCollector;
-    OwnedArray<Parameter>* parameters;
+    Controller* controller;
     
 protected:
     

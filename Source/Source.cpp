@@ -10,19 +10,24 @@
 
 #include "Source.h"
 #include "Sound.h"
-#include "Mixer.h"
-#include "BinaryData.h"
 #include "Controller.h"
-#include "Parameter.h"
+#include "BinaryData.h"
 
-Source::Source(int trackId, String name, MidiMessageCollector& midiCollector, OwnedArray<Parameter>* parameters) :
+Source::Source(int trackId, String name, MidiMessageCollector& midiCollector, Controller* controller) :
     midiCollector (midiCollector),
     name (name),
     trackId (trackId),
-    sampler(trackId, parameters),
-    parameters(parameters)
+    sampler(trackId, this, controller),
+    controller(controller)
 {
     configure(trackId);
+    
+    
+    for (int modTrackId=0; modTrackId < Mixer::mods::max; modTrackId++) {
+        modulations.add(0.5);
+    }
+    
+    jassert(modulations.size() == Mixer::mods::max);
 }
 
 Source::~Source() {
@@ -272,22 +277,18 @@ void Source::releaseResources()
 {
 }
 
-
-
 void Source::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
 {
     // calculations
-    float trackCutoff = parameters->getUnchecked(Controller::getParameterId(Controller::params::cutoff, trackId))->getScaledValue();
-    float trackDistort = parameters->getUnchecked(Controller::getParameterId(Controller::params::distort, trackId))->getScaledValue();
-    float trackLevel   = parameters->getUnchecked(Controller::getParameterId(Controller::params::level, trackId))->getScaledValue();
-    float trackMute    = parameters->getUnchecked(Controller::getParameterId(Controller::params::mute, trackId))->getScaledValue();
+    float trackCutoff  = controller->getParameterValueScaled(Controller::params::cutoff, trackId);
+    float trackDistort = controller->getParameterValueScaled(Controller::params::distort, trackId);
+    float trackLevel   = controller->getParameterValueScaled(Controller::params::level, trackId);
+    float trackMute    = controller->getParameterValueScaled(Controller::params::mute, trackId);
     
-    float globalCutoff = parameters->getUnchecked(Controller::getParameterId(Controller::params::cutoff))->getScaledValue();
-    float globalDistort = parameters->getUnchecked(Controller::getParameterId(Controller::params::distort))->getScaledValue();
+    float globalCutoff = controller->getParameterValueScaled(Controller::params::cutoff);
+    float globalDistort = controller->getParameterValueScaled(Controller::params::distort);
     
-    float modulationCutoff = sampler.currentModulations != nullptr
-        ? Parameter::scale(Controller::params::cutoff, true, sampler.currentModulations->getUnchecked(Mixer::mods::cutoff))
-        : 0.0;
+    float modulationCutoff = Parameter::scale(Controller::params::cutoff, true, modulations[Mixer::mods::cutoff]);
     
     float cutoff = fmax(0, fmin(1, trackCutoff + globalCutoff + modulationCutoff));
     float distort = 1 - fmax(0, fmin(0.93, trackDistort + globalDistort));
@@ -337,13 +338,23 @@ float Source::foldback(float in, float threshold)
     return in;
 }
 
-
 int Source::getNumberOfSounds()
 {
     return sampler.getNumberOfSounds();
 }
 
-void Source::setModulations(Array<float>* currentModulations)
+void Source::resetStepModulations()
 {
-    this->sampler.setModulations(currentModulations);
+    for (int i=0; i<modulations.size(); i++) {
+        modulations.set(i, 0.5);
+    }
+}
+
+void Source::addStepModulationValue(int modTrackId, float value)
+{
+    jassert(isPositiveAndBelow(modTrackId, modulations.size()));
+    
+    float cache = modulations[modTrackId];
+    
+    modulations.set(modTrackId, cache + value - 0.5);
 }

@@ -12,7 +12,7 @@
 #include "Controller.h"
 #include "Parameter.h"
 
-Mixer::Mixer(OwnedArray<Parameter>* parameters) : parameters(parameters)
+Mixer::Mixer(Controller* controller) : controller(controller)
 {
     for (int i = 0; i < Mixer::tracks::max; i++) {
         createAndAddTrack(i);
@@ -59,7 +59,7 @@ String Mixer::getNameByTrackId(int trackId, bool isModulationTrack)
 
 void Mixer::createAndAddTrack(int trackId)
 {
-    Source* source = new Source(trackId, String("track") + String(trackId), midiCollector, parameters);
+    Source* source = new Source(trackId, String("track") + String(trackId), midiCollector, controller);
     
     addInputSource(source, false);
     
@@ -93,7 +93,7 @@ void Mixer::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
     
     MixerAudioSource::getNextAudioBlock(bufferToFill);
 
-    float level = parameters->getUnchecked(Controller::getParameterId(Controller::params::level))->getValue();
+    float level = controller->getParameterValue(Controller::params::level);
     bufferToFill.buffer->applyGainRamp(0, bufferToFill.numSamples, lastLevel, level);
     lastLevel = level;
 }
@@ -108,10 +108,18 @@ int Mixer::getNumberOfSoundsByTrack(int track)
     return sources.getUnchecked(track)->getNumberOfSounds();
 }
 
-void Mixer::setColumnModulations(Array<float>* currentModulations)
+void Mixer::resetStepModulations()
 {
-    // setting all sources with modulation so far. (no target selection yet)
-    for (int i=0; i<sources.size(); i++) {
-        sources[i]->setModulations(currentModulations);
+    jassert(Mixer::tracks::max == sources.size());
+    
+    for (int i = 0; i < Mixer::tracks::max; i++) {
+        sources[i]->resetStepModulations();
     }
+}
+
+void Mixer::addStepModulationValue(int modTrackId, float value, int targetTrackId)
+{
+    jassert(isPositiveAndBelow(targetTrackId, sources.size()));
+    
+    sources[targetTrackId]->addStepModulationValue(modTrackId, value);
 }

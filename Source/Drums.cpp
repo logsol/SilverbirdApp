@@ -87,11 +87,11 @@ void Drums::resized()
     //[/UserPreResize]
 
     kickStepper->setBounds (0, 0, proportionOfWidth (1.0000f), proportionOfHeight (0.1450f));
-    snareStepper->setBounds (0, proportionOfHeight (0.1615f), proportionOfWidth (1.0000f), proportionOfHeight (0.1450f));
-    hihatStepper->setBounds (0, proportionOfHeight (0.3541f), proportionOfWidth (1.0000f), proportionOfHeight (0.1450f));
-    perc1Stepper->setBounds (0, proportionOfHeight (0.5211f), proportionOfWidth (1.0000f), proportionOfHeight (0.1450f));
-    perc2Stepper->setBounds (0, proportionOfHeight (0.6826f), proportionOfWidth (1.0000f), proportionOfHeight (0.1450f));
-    tonesStepper->setBounds (0, proportionOfHeight (0.8551f), proportionOfWidth (1.0000f), proportionOfHeight (0.1450f));
+    snareStepper->setBounds (0, proportionOfHeight (0.1625f), proportionOfWidth (1.0000f), proportionOfHeight (0.1450f));
+    hihatStepper->setBounds (0, proportionOfHeight (0.3275f), proportionOfWidth (1.0000f), proportionOfHeight (0.1450f));
+    perc1Stepper->setBounds (0, proportionOfHeight (0.4925f), proportionOfWidth (1.0000f), proportionOfHeight (0.1450f));
+    perc2Stepper->setBounds (0, proportionOfHeight (0.6550f), proportionOfWidth (1.0000f), proportionOfHeight (0.1450f));
+    tonesStepper->setBounds (0, proportionOfHeight (0.8225f), proportionOfWidth (1.0000f), proportionOfHeight (0.1450f));
     //[UserResized] Add your own custom resize handling here..
     */
     int space = 2;
@@ -134,16 +134,16 @@ BEGIN_JUCER_METADATA
              virtualName="" explicitFocusOrder="0" pos="0 16.25% 100% 14.5%"
              sourceFile="Stepper.cpp" constructorParams="controller, Mixer::tracks::snare, false"/>
   <JUCERCOMP name="kick" id="c34ad782f2a5f719" memberName="hihatStepper" virtualName=""
-             explicitFocusOrder="0" pos="0 35.5% 100% 14.5%" sourceFile="Stepper.cpp"
+             explicitFocusOrder="0" pos="0 32.75% 100% 14.5%" sourceFile="Stepper.cpp"
              constructorParams="controller, Mixer::tracks::hihat, false"/>
   <JUCERCOMP name="perc1" id="f899291c5652d18a" memberName="perc1Stepper"
-             virtualName="" explicitFocusOrder="0" pos="0 52% 100% 14.5%"
+             virtualName="" explicitFocusOrder="0" pos="0 49.25% 100% 14.5%"
              sourceFile="Stepper.cpp" constructorParams="controller, Mixer::tracks::perc1, false"/>
   <JUCERCOMP name="perc2" id="7e3f2afb02bd829e" memberName="perc2Stepper"
-             virtualName="" explicitFocusOrder="0" pos="0 68.25% 100% 14.5%"
+             virtualName="" explicitFocusOrder="0" pos="0 65.5% 100% 14.5%"
              sourceFile="Stepper.cpp" constructorParams="controller, Mixer::tracks::perc2, false"/>
   <JUCERCOMP name="tones" id="2356b855f087cee0" memberName="tonesStepper"
-             virtualName="" explicitFocusOrder="0" pos="0 85.5% 100% 14.5%"
+             virtualName="" explicitFocusOrder="0" pos="0 82.25% 100% 14.5%"
              sourceFile="Stepper.cpp" constructorParams="controller, Mixer::tracks::tones, false"/>
 </JUCER_COMPONENT>
 

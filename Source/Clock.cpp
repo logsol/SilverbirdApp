@@ -9,14 +9,20 @@
 */
 
 #include "Clock.h"
+#include "Controller.h"
 
-
-Clock::Clock(OwnedArray<Parameter>* parameters, Mixer& mixer, Sequencer& sequencer)
-    : parameters(parameters),
-      mixer(mixer),
-      sequencer(sequencer) 
+Clock::Clock(Controller* controller)
+    : controller(controller)
 {
     listeners.clear(true);
+    
+    for (int trackId=0; trackId < Mixer::tracks::max; trackId++) {
+        midiSequencers.add(new MidiSequencer(controller, trackId));
+    }
+    
+    for (int modTrackId=0; modTrackId < Mixer::mods::max; modTrackId++) {
+        modulationSequencers.add(new ModulationSequencer(controller, modTrackId));
+    }
 }
 
 Clock::~Clock()
@@ -38,8 +44,14 @@ void Clock::removeListener(ClockListener* listener)
 // handle asynchronous calls - for gui only
 void Clock::handleMessage(const Message& message){
     
+    controller->resetStepModulations();
+    
+    for (int i=0 ; i<modulationSequencers.size(); i++) {
+        modulationSequencers[i]->clockStep(cursor);
+    }
+    
     for (int i = 0; i < listeners.size(); i++) {
-        listeners[i]->clockStep(cursor);
+        listeners[i]->clockStep();
     }
 }
 
@@ -54,6 +66,12 @@ void Clock::setPlayPause(bool play) {
         lastClockStepTimeMs = Time::getMillisecondCounterHiRes() - sixteenthTimeMs;
     } else {
         cursor = -1;
+        for (int i=0 ; i<midiSequencers.size(); i++) {
+            midiSequencers[i]->resetCursor();
+        }
+        for (int i=0 ; i<modulationSequencers.size(); i++) {
+            modulationSequencers[i]->resetCursor();
+        }
         postMessage(new Message());
     }
     
@@ -70,6 +88,16 @@ void Clock::setBpm(float bpm)
 float Clock::getBpm()
 {
     return bpm;
+}
+
+Sequencer* Clock::getMidiSequencerByTrackId(int trackId)
+{
+    return midiSequencers[trackId]; // todo its a bit too simple
+}
+
+Sequencer* Clock::getModulationSequencerByTrackId(int trackId)
+{
+    return modulationSequencers[trackId]; // todo its a bit too simple
 }
 
 void Clock::tick(float shuffle, AudioSampleBuffer& buffer, double sampleRate)
@@ -96,8 +124,10 @@ void Clock::tick(float shuffle, AudioSampleBuffer& buffer, double sampleRate)
         cursor++;
         cursor = cursor % numCells;
         
-        sequencer.clockStep(cursor, nextStepTimeMs + shuffleTimeMs);
-        
+        for (int i=0 ; i<midiSequencers.size(); i++) {
+            midiSequencers[i]->clockStep(cursor, nextStepTimeMs + shuffleTimeMs);
+        }
+    
         postMessage(new Message());
         
         lastClockStepTimeMs = nextStepTimeMs;

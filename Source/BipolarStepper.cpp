@@ -27,7 +27,7 @@
 //[/MiscUserDefs]
 
 //==============================================================================
-BipolarStepper::BipolarStepper (Controller* controller, int trackId, bool isModulationTrack)
+BipolarStepper::BipolarStepper (Controller* controller, int trackId, bool isModulationTrack )
     : Stepper(controller, trackId, isModulationTrack)
 {
     //[Constructor_pre] You can add your own custom stuff here..
@@ -103,7 +103,7 @@ bool BipolarStepper::isBipolar()
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="BipolarStepper" componentName=""
-                 parentClasses="public Stepper" constructorParams="Controller* controller, int trackId, bool isModulationTrack"
+                 parentClasses="public Stepper" constructorParams="Controller* controller, int trackId, bool isModulationTrack "
                  variableInitialisers="Stepper(controller, trackId, isModulationTrack)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="1" initialWidth="400" initialHeight="60">

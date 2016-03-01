@@ -34,15 +34,15 @@ Mods::Mods (Controller* controller)
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
 
-    addAndMakeVisible (decayStepper = new BipolarStepper (controller, Mixer::mods::decay, true));
-    addAndMakeVisible (selectStepper = new BipolarStepper (controller, Mixer::mods::sample, true));
-    addAndMakeVisible (pitchStepper = new BipolarStepper (controller, Mixer::mods::pitch, true));
-    addAndMakeVisible (filterStepper = new BipolarStepper (controller, Mixer::mods::cutoff, true));
+    addAndMakeVisible (decayStepper = new TargetStepper (controller, Mixer::mods::decay, true));
+    addAndMakeVisible (selectStepper = new TargetStepper (controller, Mixer::mods::sample, true));
+    addAndMakeVisible (pitchStepper = new TargetStepper (controller, Mixer::mods::pitch, true));
+    addAndMakeVisible (filterStepper = new TargetStepper (controller, Mixer::mods::cutoff, true));
 
     //[UserPreSize]
     //[/UserPreSize]
 
-    setSize (600, 400);
+    setSize (400, 400);
 
 
     //[Constructor] You can add your own custom stuff here..
@@ -80,10 +80,10 @@ void Mods::resized()
     /*
     //[/UserPreResize]
 
-    decayStepper->setBounds (8, 152, 400, 60);
-    selectStepper->setBounds (8, 8, 400, 60);
-    pitchStepper->setBounds (8, 80, 400, 60);
-    filterStepper->setBounds (8, 224, 400, 60);
+    decayStepper->setBounds (0, 200, 400, 94);
+    selectStepper->setBounds (0, 0, 400, 94);
+    pitchStepper->setBounds (0, 100, 400, 94);
+    filterStepper->setBounds (0, 300, 400, 95);
     //[UserResized] Add your own custom resize handling here..
      */
     int space = 2;
@@ -114,19 +114,19 @@ BEGIN_JUCER_METADATA
 <JUCER_COMPONENT documentType="Component" className="Mods" componentName="" parentClasses="public BaseComponent"
                  constructorParams="Controller* controller" variableInitialisers="BaseComponent(controller)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
-                 fixedSize="0" initialWidth="600" initialHeight="400">
+                 fixedSize="1" initialWidth="400" initialHeight="400">
   <BACKGROUND backgroundColour="ffffff"/>
   <JUCERCOMP name="decay" id="edaf762d44b011e1" memberName="decayStepper"
-             virtualName="" explicitFocusOrder="0" pos="8 152 400 60" sourceFile="BipolarStepper.cpp"
+             virtualName="" explicitFocusOrder="0" pos="0 200 400 94" sourceFile="TargetStepper.cpp"
              constructorParams="controller, Mixer::mods::decay, true"/>
   <JUCERCOMP name="select" id="12b261afd0a6481d" memberName="selectStepper"
-             virtualName="" explicitFocusOrder="0" pos="8 8 400 60" sourceFile="BipolarStepper.cpp"
+             virtualName="" explicitFocusOrder="0" pos="0 0 400 94" sourceFile="TargetStepper.cpp"
              constructorParams="controller, Mixer::mods::sample, true"/>
   <JUCERCOMP name="pitch" id="ce8ced319e6c7204" memberName="pitchStepper"
-             virtualName="" explicitFocusOrder="0" pos="8 80 400 60" sourceFile="BipolarStepper.cpp"
+             virtualName="" explicitFocusOrder="0" pos="0 100 400 94" sourceFile="TargetStepper.cpp"
              constructorParams="controller, Mixer::mods::pitch, true"/>
   <JUCERCOMP name="filter" id="abd63af6b458b15e" memberName="filterStepper"
-             virtualName="" explicitFocusOrder="0" pos="8 224 400 60" sourceFile="BipolarStepper.cpp"
+             virtualName="" explicitFocusOrder="0" pos="0 300 400 95" sourceFile="TargetStepper.cpp"
              constructorParams="controller, Mixer::mods::cutoff, true"/>
 </JUCER_COMPONENT>
 

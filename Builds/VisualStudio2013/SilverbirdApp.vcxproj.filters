@@ -11,6 +11,9 @@
     <Filter Include="SilverbirdApp\Source\Engine">
       <UniqueIdentifier>{935BB31F-6FDD-41A4-5C00-C57EFC37A1C6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SilverbirdApp\Source\Sequencer">
+      <UniqueIdentifier>{66938094-53F3-68B5-470A-85BDEC935D88}</UniqueIdentifier>
+    </Filter>
     <Filter Include="SilverbirdApp\Source\View">
       <UniqueIdentifier>{DDDA1522-37C0-8DBF-015D-380450766837}</UniqueIdentifier>
     </Filter>
@@ -34,9 +37,6 @@
     </Filter>
     <Filter Include="SilverbirdApp\Source\View\Components\Elements">
       <UniqueIdentifier>{530C8B6E-8234-0423-B705-7AFB07904D24}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SilverbirdApp\Source\Sequencer">
-      <UniqueIdentifier>{66938094-53F3-68B5-470A-85BDEC935D88}</UniqueIdentifier>
     </Filter>
     <Filter Include="SilverbirdApp\Source\Messages">
       <UniqueIdentifier>{26C4E60C-18F9-883A-756C-D079FEC7462A}</UniqueIdentifier>
@@ -376,6 +376,21 @@
     <ClCompile Include="..\..\Source\Sound.cpp">
       <Filter>SilverbirdApp\Source\Engine</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\ModulationSequencer.cpp">
+      <Filter>SilverbirdApp\Source\Sequencer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\MidiSequencer.cpp">
+      <Filter>SilverbirdApp\Source\Sequencer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Sequencer.cpp">
+      <Filter>SilverbirdApp\Source\Sequencer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ClockListener.cpp">
+      <Filter>SilverbirdApp\Source\Sequencer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Clock.cpp">
+      <Filter>SilverbirdApp\Source\Sequencer</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\VPNavigate.cpp">
       <Filter>SilverbirdApp\Source\View\Views\Portrait</Filter>
     </ClCompile>
@@ -408,6 +423,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\Drums.cpp">
       <Filter>SilverbirdApp\Source\View\Components\Sequencer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TargetStepper.cpp">
+      <Filter>SilverbirdApp\Source\View\Components\Stepper</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Stepper.cpp">
       <Filter>SilverbirdApp\Source\View\Components\Stepper</Filter>
@@ -447,15 +465,6 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\Gui2.cpp">
       <Filter>SilverbirdApp\Source\View</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Sequencer.cpp">
-      <Filter>SilverbirdApp\Source\Sequencer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\ClockListener.cpp">
-      <Filter>SilverbirdApp\Source\Sequencer</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Clock.cpp">
-      <Filter>SilverbirdApp\Source\Sequencer</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
       <Filter>Juce Modules\juce_audio_basics\buffers</Filter>
@@ -1725,6 +1734,21 @@
     <ClInclude Include="..\..\Source\Sound.h">
       <Filter>SilverbirdApp\Source\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\ModulationSequencer.h">
+      <Filter>SilverbirdApp\Source\Sequencer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\MidiSequencer.h">
+      <Filter>SilverbirdApp\Source\Sequencer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Sequencer.h">
+      <Filter>SilverbirdApp\Source\Sequencer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ClockListener.h">
+      <Filter>SilverbirdApp\Source\Sequencer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Clock.h">
+      <Filter>SilverbirdApp\Source\Sequencer</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\VPNavigate.h">
       <Filter>SilverbirdApp\Source\View\Views\Portrait</Filter>
     </ClInclude>
@@ -1757,6 +1781,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Drums.h">
       <Filter>SilverbirdApp\Source\View\Components\Sequencer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TargetStepper.h">
+      <Filter>SilverbirdApp\Source\View\Components\Stepper</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Stepper.h">
       <Filter>SilverbirdApp\Source\View\Components\Stepper</Filter>
@@ -1796,15 +1823,6 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Gui2.h">
       <Filter>SilverbirdApp\Source\View</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Sequencer.h">
-      <Filter>SilverbirdApp\Source\Sequencer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\ClockListener.h">
-      <Filter>SilverbirdApp\Source\Sequencer</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Clock.h">
-      <Filter>SilverbirdApp\Source\Sequencer</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\SequencerMessage.h">
       <Filter>SilverbirdApp\Source\Messages</Filter>

@@ -20,7 +20,7 @@ public:
     ClockListener();
     virtual ~ClockListener();
     
-    virtual void clockStep (int cursor) = 0;
+    virtual void clockStep () = 0;
 
 protected:
 };

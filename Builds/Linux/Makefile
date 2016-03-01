@@ -59,6 +59,11 @@ OBJECTS := \
   $(OBJDIR)/Sampler_e764c69.o \
   $(OBJDIR)/Source_e71e0224.o \
   $(OBJDIR)/Sound_322374f0.o \
+  $(OBJDIR)/ModulationSequencer_248b5296.o \
+  $(OBJDIR)/MidiSequencer_f941fa11.o \
+  $(OBJDIR)/Sequencer_5ffb45b2.o \
+  $(OBJDIR)/ClockListener_63c33543.o \
+  $(OBJDIR)/Clock_6670f06f.o \
   $(OBJDIR)/VPNavigate_2aee4634.o \
   $(OBJDIR)/VPSetup_d106e2e4.o \
   $(OBJDIR)/VPSequencer_236c7638.o \
@@ -70,6 +75,7 @@ OBJECTS := \
   $(OBJDIR)/MixerStrip_442d5a98.o \
   $(OBJDIR)/Mods_6d413dba.o \
   $(OBJDIR)/Drums_b8e3026e.o \
+  $(OBJDIR)/TargetStepper_98987761.o \
   $(OBJDIR)/Stepper_615f26b2.o \
   $(OBJDIR)/BipolarStepper_94527603.o \
   $(OBJDIR)/SbButton_890e0c6a.o \
@@ -83,9 +89,6 @@ OBJECTS := \
   $(OBJDIR)/Ui_5a974e1d.o \
   $(OBJDIR)/Gui_2b5c821c.o \
   $(OBJDIR)/Gui2_4053d760.o \
-  $(OBJDIR)/Sequencer_5ffb45b2.o \
-  $(OBJDIR)/ClockListener_63c33543.o \
-  $(OBJDIR)/Clock_6670f06f.o \
   $(OBJDIR)/BinaryData_ce4232d4.o \
   $(OBJDIR)/BinaryData2_fa243da8.o \
   $(OBJDIR)/BinaryData3_fa325529.o \
@@ -171,6 +174,31 @@ $(OBJDIR)/Sound_322374f0.o: ../../Source/Sound.cpp
 	@echo "Compiling Sound.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
+$(OBJDIR)/ModulationSequencer_248b5296.o: ../../Source/ModulationSequencer.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling ModulationSequencer.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/MidiSequencer_f941fa11.o: ../../Source/MidiSequencer.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling MidiSequencer.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/Sequencer_5ffb45b2.o: ../../Source/Sequencer.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling Sequencer.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/ClockListener_63c33543.o: ../../Source/ClockListener.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling ClockListener.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/Clock_6670f06f.o: ../../Source/Clock.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling Clock.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/VPNavigate_2aee4634.o: ../../Source/VPNavigate.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling VPNavigate.cpp"
@@ -224,6 +252,11 @@ $(OBJDIR)/Mods_6d413dba.o: ../../Source/Mods.cpp
 $(OBJDIR)/Drums_b8e3026e.o: ../../Source/Drums.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling Drums.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/TargetStepper_98987761.o: ../../Source/TargetStepper.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling TargetStepper.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/Stepper_615f26b2.o: ../../Source/Stepper.cpp
@@ -289,21 +322,6 @@ $(OBJDIR)/Gui_2b5c821c.o: ../../Source/Gui.cpp
 $(OBJDIR)/Gui2_4053d760.o: ../../Source/Gui2.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling Gui2.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/Sequencer_5ffb45b2.o: ../../Source/Sequencer.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling Sequencer.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/ClockListener_63c33543.o: ../../Source/ClockListener.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling ClockListener.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/Clock_6670f06f.o: ../../Source/Clock.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling Clock.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/BinaryData_ce4232d4.o: ../../JuceLibraryCode/BinaryData.cpp

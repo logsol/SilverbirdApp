@@ -135,11 +135,11 @@ float Parameter::getDisplayValue()
             }
             return global
             ? floor(Mixer::SelectAllOffset * (value - 0.5))
-            : floor(numSoundsTrack * value);
+            : round(numSoundsTrack * value);
             break;
             
         case Controller::params::pitch:
-            return round((value-0.5) * 24.0) * 2;
+            return round((value-0.5) * 24.0);
             break;
             
         case Controller::params::attack:
