@@ -151,6 +151,8 @@
     <ClCompile Include="..\..\Source\Portrait.cpp"/>
     <ClCompile Include="..\..\Source\SizeTest.cpp"/>
     <ClCompile Include="..\..\Source\SlideView.cpp"/>
+    <ClCompile Include="..\..\Source\DelayComponent.cpp"/>
+    <ClCompile Include="..\..\Source\ReverbComponent.cpp"/>
     <ClCompile Include="..\..\Source\MixerComponent.cpp"/>
     <ClCompile Include="..\..\Source\MixerStrip.cpp"/>
     <ClCompile Include="..\..\Source\Mods.cpp"/>
@@ -1322,6 +1324,8 @@
     <ClInclude Include="..\..\Source\Portrait.h"/>
     <ClInclude Include="..\..\Source\SizeTest.h"/>
     <ClInclude Include="..\..\Source\SlideView.h"/>
+    <ClInclude Include="..\..\Source\DelayComponent.h"/>
+    <ClInclude Include="..\..\Source\ReverbComponent.h"/>
     <ClInclude Include="..\..\Source\MixerComponent.h"/>
     <ClInclude Include="..\..\Source\MixerStrip.h"/>
     <ClInclude Include="..\..\Source\Mods.h"/>

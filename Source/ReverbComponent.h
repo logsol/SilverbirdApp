@@ -17,15 +17,13 @@
   ==============================================================================
 */
 
-#ifndef __JUCE_HEADER_364C7858D0B96BB2__
-#define __JUCE_HEADER_364C7858D0B96BB2__
+#ifndef __JUCE_HEADER_F31C8E96463616E__
+#define __JUCE_HEADER_F31C8E96463616E__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "JuceHeader.h"
-#include "BaseComponent.h"
 //[/Headers]
 
-#include "MixerComponent.h"
 
 
 //==============================================================================
@@ -36,12 +34,12 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class VPMixer  : public BaseComponent
+class ReverbComponent  : public BaseComponent
 {
 public:
     //==============================================================================
-    VPMixer (Controller* controller);
-    ~VPMixer();
+    ReverbComponent (Controller* controller);
+    ~ReverbComponent();
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
@@ -57,15 +55,13 @@ private:
     //[/UserVariables]
 
     //==============================================================================
-    ScopedPointer<MixerComponent> component;
-    ScopedPointer<TabbedComponent> tabbedComponent;
 
 
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (VPMixer)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ReverbComponent)
 };
 
 //[EndFile] You can add extra defines here...
 //[/EndFile]
 
-#endif   // __JUCE_HEADER_364C7858D0B96BB2__
+#endif   // __JUCE_HEADER_F31C8E96463616E__

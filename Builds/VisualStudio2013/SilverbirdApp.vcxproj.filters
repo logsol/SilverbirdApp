@@ -26,6 +26,9 @@
     <Filter Include="SilverbirdApp\Source\View\Components">
       <UniqueIdentifier>{927CAB09-A9BD-4A0C-ED08-0F91F5B274E0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="SilverbirdApp\Source\View\Components\Fx">
+      <UniqueIdentifier>{00A89220-9EAB-1B08-6064-4848E6C6F4F6}</UniqueIdentifier>
+    </Filter>
     <Filter Include="SilverbirdApp\Source\View\Components\Mixer">
       <UniqueIdentifier>{AF6B4B2A-B6E0-0DA9-7263-2B24C78CE697}</UniqueIdentifier>
     </Filter>
@@ -411,6 +414,12 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\SlideView.cpp">
       <Filter>SilverbirdApp\Source\View\Views</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\DelayComponent.cpp">
+      <Filter>SilverbirdApp\Source\View\Components\Fx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ReverbComponent.cpp">
+      <Filter>SilverbirdApp\Source\View\Components\Fx</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\MixerComponent.cpp">
       <Filter>SilverbirdApp\Source\View\Components\Mixer</Filter>
@@ -1769,6 +1778,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\SlideView.h">
       <Filter>SilverbirdApp\Source\View\Views</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\DelayComponent.h">
+      <Filter>SilverbirdApp\Source\View\Components\Fx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ReverbComponent.h">
+      <Filter>SilverbirdApp\Source\View\Components\Fx</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\MixerComponent.h">
       <Filter>SilverbirdApp\Source\View\Components\Mixer</Filter>

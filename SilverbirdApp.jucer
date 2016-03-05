@@ -62,6 +62,16 @@
           <FILE id="rPqUT7" name="SlideView.h" compile="0" resource="0" file="Source/SlideView.h"/>
         </GROUP>
         <GROUP id="{05047D03-0942-0207-CD04-D6540CE92CE0}" name="Components">
+          <GROUP id="{B107D9C4-51FB-26E2-E469-4D9262818FE1}" name="Fx">
+            <FILE id="PSxbm7" name="DelayComponent.cpp" compile="1" resource="0"
+                  file="Source/DelayComponent.cpp"/>
+            <FILE id="OzQyjj" name="DelayComponent.h" compile="0" resource="0"
+                  file="Source/DelayComponent.h"/>
+            <FILE id="zPVBG0" name="ReverbComponent.cpp" compile="1" resource="0"
+                  file="Source/ReverbComponent.cpp"/>
+            <FILE id="IK9wYf" name="ReverbComponent.h" compile="0" resource="0"
+                  file="Source/ReverbComponent.h"/>
+          </GROUP>
           <GROUP id="{B5FCE741-FAE0-FBF8-9C0C-6AF8BC8ED703}" name="Mixer">
             <FILE id="XI39ZD" name="MixerComponent.cpp" compile="1" resource="0"
                   file="Source/MixerComponent.cpp"/>

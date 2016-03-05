@@ -44,7 +44,7 @@ VPSequencer::VPSequencer (Controller* controller)
     sequencerTabs->setCurrentTabIndex (0);
 
     addAndMakeVisible (trackTabs = new TabbedComponent (TabbedButtonBar::TabsAtTop));
-    trackTabs->setTabBarDepth (26);
+    trackTabs->setTabBarDepth (28);
     trackTabs->addTab (TRANS("Kick"), Colour (0xf1383838), new TrackParameters (controller, 0), true);
     trackTabs->addTab (TRANS("Snare"), Colour (0xf1383838), new TrackParameters (controller, 1), true);
     trackTabs->addTab (TRANS("Hihat"), Colour (0xf1383838), new TrackParameters (controller, 2), true);
@@ -95,8 +95,8 @@ void VPSequencer::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    sequencerTabs->setBounds (0, proportionOfHeight (1.0000f) - proportionOfHeight (0.7789f), getWidth() - 0, proportionOfHeight (0.7789f));
-    trackTabs->setBounds (0, 0, getWidth() - 0, proportionOfHeight (0.2211f));
+    sequencerTabs->setBounds (0, proportionOfHeight (1.0000f) - proportionOfHeight (0.7786f), getWidth() - 0, proportionOfHeight (0.7786f));
+    trackTabs->setBounds (0, 0, getWidth() - 0, proportionOfHeight (0.2214f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -132,7 +132,7 @@ BEGIN_JUCER_METADATA
   </TABBEDCOMPONENT>
   <TABBEDCOMPONENT name="new tabbed component" id="299c842daf4e2362" memberName="trackTabs"
                    virtualName="" explicitFocusOrder="0" pos="0 0 0M 22.143%" orientation="top"
-                   tabBarDepth="26" initialTab="0">
+                   tabBarDepth="28" initialTab="0">
     <TAB name="Kick" colour="f1383838" useJucerComp="1" contentClassName="TrackParameters"
          constructorParams="controller, 0" jucerComponentFile="TrackParameters.cpp"/>
     <TAB name="Snare" colour="f1383838" useJucerComp="1" contentClassName="TrackParameters"

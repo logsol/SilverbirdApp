@@ -283,6 +283,7 @@ void Source::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
     float trackCutoff  = controller->getParameterValueScaled(Controller::params::cutoff, trackId);
     float trackDistort = controller->getParameterValueScaled(Controller::params::distort, trackId);
     float trackLevel   = controller->getParameterValueScaled(Controller::params::level, trackId);
+    float trackPan     = controller->getParameterValueScaled(Controller::params::pan, trackId);
     float trackMute    = controller->getParameterValueScaled(Controller::params::mute, trackId);
     
     float globalCutoff = controller->getParameterValueScaled(Controller::params::cutoff);
@@ -301,24 +302,44 @@ void Source::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
     // render sampler
     sampler.renderNextBlock(*bufferToFill.buffer, incomingMidi, 0, bufferToFill.numSamples);
     
-    // dsp: distortion
     float* outL = bufferToFill.buffer->getWritePointer (0, 0);
     float* outR = bufferToFill.buffer->getWritePointer (1, 0);
-
-    for (int i=bufferToFill.numSamples; i>=0; --i) {
-        outL[i] = foldback(outL[i], distort);
-        outR[i] = foldback(outR[i], distort);
+    
+    {
+        // dsp: distortion
+        for (int i=bufferToFill.numSamples; i>=0; --i) {
+            outL[i] = foldback(outL[i], distort);
+            outR[i] = foldback(outR[i], distort);
+        }
     }
 
-    // dsp: filter
-    filterL.setCoefficients(IIRCoefficients::makeLowPass(sampleRate, MidiMessage::getMidiNoteInHertz(cutoff * 128)));
-    filterR.setCoefficients(IIRCoefficients::makeLowPass(sampleRate, MidiMessage::getMidiNoteInHertz(cutoff * 128)));
-    filterL.processSamples(bufferToFill.buffer->getWritePointer(0), bufferToFill.buffer->getNumSamples());
-    filterR.processSamples(bufferToFill.buffer->getWritePointer(1), bufferToFill.buffer->getNumSamples());
-                               
+    {
+        // dsp: filter
+        filterL.setCoefficients(IIRCoefficients::makeLowPass(sampleRate, MidiMessage::getMidiNoteInHertz(cutoff * 128)));
+        filterR.setCoefficients(IIRCoefficients::makeLowPass(sampleRate, MidiMessage::getMidiNoteInHertz(cutoff * 128)));
+        filterL.processSamples(bufferToFill.buffer->getWritePointer(0), bufferToFill.buffer->getNumSamples());
+        filterR.processSamples(bufferToFill.buffer->getWritePointer(1), bufferToFill.buffer->getNumSamples());
+    }
+    
+    {
+        // dsp: pan
+        float scaling = 2.0 - 4.0 * powf(10,-3.0/20.0);
+        float panL = 1-trackPan, panR = trackPan;
+        float gainL = scaling * panL*panL + (1.0 - scaling) * panL;
+        float gainR = scaling * panR*panR + (1.0 - scaling) * panR;
+        
+        for (int i=bufferToFill.numSamples; i>=0; --i) {
+            outL[i] = outL[i] * gainL;
+            outR[i] = outR[i] * gainR;
+        }
+    }
+
+    
     // dsp: level
-    bufferToFill.buffer->applyGainRamp(0, bufferToFill.numSamples, lastLevel, level);
-    lastLevel = level;
+    {
+        bufferToFill.buffer->applyGainRamp(0, bufferToFill.numSamples, lastLevel, level);
+        lastLevel = level;
+    }
 }
 
 /*

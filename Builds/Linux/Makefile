@@ -71,6 +71,8 @@ OBJECTS := \
   $(OBJDIR)/Portrait_7455b0a4.o \
   $(OBJDIR)/SizeTest_b89d993c.o \
   $(OBJDIR)/SlideView_36605657.o \
+  $(OBJDIR)/DelayComponent_eaeca543.o \
+  $(OBJDIR)/ReverbComponent_e2d4862c.o \
   $(OBJDIR)/MixerComponent_e3e89c7d.o \
   $(OBJDIR)/MixerStrip_442d5a98.o \
   $(OBJDIR)/Mods_6d413dba.o \
@@ -232,6 +234,16 @@ $(OBJDIR)/SizeTest_b89d993c.o: ../../Source/SizeTest.cpp
 $(OBJDIR)/SlideView_36605657.o: ../../Source/SlideView.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling SlideView.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/DelayComponent_eaeca543.o: ../../Source/DelayComponent.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling DelayComponent.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/ReverbComponent_e2d4862c.o: ../../Source/ReverbComponent.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling ReverbComponent.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/MixerComponent_e3e89c7d.o: ../../Source/MixerComponent.cpp
