@@ -32,7 +32,7 @@ public:
     
 protected:
     //==============================================================================
-    Parameter* parameter;
+    Parameter* parameter = nullptr;
     Image* image;
     int singleImageWidth;
     int singleImageHeight;

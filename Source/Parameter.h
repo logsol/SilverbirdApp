@@ -29,7 +29,7 @@ public:
     int cellId;
     
     float getScaledValue();
-    float getDisplayValue();
+    std::string getDisplayValue();
     float getDefaultValue();
     
     static float scale(int paramNameId, bool isGlobal, float value, int numSoundsTrack = -1);

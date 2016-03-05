@@ -64,8 +64,21 @@ float Parameter::scale(int paramNameId, bool isGlobal, float value, int numSound
             return value;
             break;
             
+        case Controller::params::pan:
+            return value;
+            break;
+            
         case Controller::params::mute:
             return round(value);
+            break;
+            
+        case Controller::params::reverb:
+            return value;
+            break;
+            
+            
+        case Controller::params::delay:
+            return value;
             break;
             
         case Controller::params::sample:
@@ -111,64 +124,77 @@ float Parameter::scale(int paramNameId, bool isGlobal, float value, int numSound
     }
 }
 
-float Parameter::getDisplayValue()
+std::string Parameter::getDisplayValue()
 {
     float value = getValue();
     
     switch (paramNameId) {
             
-        case Controller::params::shuffle:
-            return floor(value * 100);
-            break;
+        case Controller::params::shuffle: {
+            return std::to_string((int) floor(value * 100));
+        }
             
-        case Controller::params::level:
-            return floor(value * 100);
-            break;
+        case Controller::params::level: {
+            return std::to_string((int) floor(value * 100));
+        }
             
-        case Controller::params::mute:
-            return round(value);
-            break;
+        case Controller::params::pan: {
+            int panning = 50 - floor(value * 100);
+            return panning == 0 ? "C" : std::to_string(abs(panning)) + (panning > 0 ? "L" : "R");
+        }
             
-        case Controller::params::sample:
+        case Controller::params::mute: {
+            return std::to_string((int) round(value));
+        }
+            
+        case Controller::params::reverb: {
+            return std::to_string((int) floor(value * 100));
+        }
+            
+        case Controller::params::delay: {
+            return std::to_string((int) floor(value * 100));
+        }
+            
+        case Controller::params::sample: {
             if(!global && numSoundsTrack == -1) {
                 std::cout << "Warn: calling getDisplayValue() without numSounds!" << std::endl;
             }
-            return global
-            ? floor(Mixer::SelectAllOffset * (value - 0.5))
-            : round(numSoundsTrack * value);
-            break;
+            return std::to_string(global
+            ? (int) floor(Mixer::SelectAllOffset * (value - 0.5))
+            : (int) round(numSoundsTrack * value));
+        }
             
-        case Controller::params::pitch:
-            return round((value-0.5) * 24.0);
-            break;
+        case Controller::params::pitch: {
+            return std::to_string((int) round((value-0.5) * 24.0));
+        }
             
-        case Controller::params::attack:
-            return global
-            ? floor((value - 0.5) * 100)
-            : floor(value * 100);
-            break;
+        case Controller::params::attack: {
+            return std::to_string(global
+            ? (int) floor((value - 0.5) * 100)
+            : (int) floor(value * 100));
+        }
             
-        case Controller::params::decay:
-            return global
-            ? floor((value - 0.5) * 100)
-            : floor(value * 100);
-            break;
+        case Controller::params::decay: {
+            return std::to_string(global
+            ? (int) floor((value - 0.5) * 100)
+            : (int) floor(value * 100));
+        }
             
-        case Controller::params::distort:
-            return global
-            ? floor((value - 0.5) * 100)
-            : floor(value * 100);
-            break;
+        case Controller::params::distort: {
+            return std::to_string(global
+            ? (int) floor((value - 0.5) * 100)
+            : (int) floor(value * 100));
+        }
             
-        case Controller::params::cutoff:
-            return global
-            ? floor((value - 0.5) * 100)
-            : floor(value * 100);
-            break;
+        case Controller::params::cutoff: {
+            return std::to_string(global
+            ? (int) floor((value - 0.5) * 100)
+            : (int) floor(value * 100));
+        }
             
-        default:
-            return value;
-            break;
+        default: {
+            return std::to_string(value);
+        }
     }
 }
 
@@ -188,7 +214,19 @@ float Parameter::getDefaultValue()
                 : 0.7f; // 0.25 for clipping free..
             break;
             
+        case Controller::params::pan:
+            defaultValue = 0.5;
+            break;
+            
         case Controller::params::mute:
+            defaultValue = 0.0;
+            break;
+            
+        case Controller::params::reverb:
+            defaultValue = 0.0;
+            break;
+            
+        case Controller::params::delay:
             defaultValue = 0.0;
             break;
             
@@ -247,8 +285,20 @@ String Parameter::getParamName()
             paramName = "Level";
             break;
             
+        case Controller::params::pan:
+            paramName = "Pan";
+            break;
+            
         case Controller::params::mute:
             paramName = "Mute";
+            break;
+            
+        case Controller::params::reverb:
+            paramName = "Reverb";
+            break;
+            
+        case Controller::params::delay:
+            paramName = "Delay";
             break;
             
         case Controller::params::sample:

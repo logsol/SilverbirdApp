@@ -20,7 +20,7 @@
 class BaseComponent    : public Component
 {
 public:
-    BaseComponent(Controller* controller);
+    BaseComponent(Controller* controller, String componentId = "");
     ~BaseComponent();
 
 protected:

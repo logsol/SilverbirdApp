@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Introjucer version: 4.1.0
+  Created with Introjucer version: 3.2.0
 
   ------------------------------------------------------------------------------
 
@@ -36,7 +36,7 @@ Transport::Transport (Controller* controller)
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
 
-    addAndMakeVisible (bpmSlider = new Knob (String()));
+    addAndMakeVisible (bpmSlider = new Knob (String::empty));
     bpmSlider->setRange (10, 220, 1);
     bpmSlider->setSliderStyle (Slider::LinearBar);
     bpmSlider->setTextBoxStyle (Slider::TextBoxLeft, true, 100, 20);
@@ -119,9 +119,9 @@ void Transport::resized()
     //[/UserPreResize]
 
     bpmSlider->setBounds (proportionOfWidth (0.0000f), proportionOfHeight (0.0000f), proportionOfWidth (0.8000f), proportionOfHeight (0.4000f));
-    label->setBounds (proportionOfWidth (0.8250f), proportionOfHeight (0.1625f), proportionOfWidth (0.1031f), proportionOfHeight (0.2000f));
-    label10->setBounds (proportionOfWidth (0.8250f), proportionOfHeight (0.6375f), proportionOfWidth (0.1563f), proportionOfHeight (0.2000f));
-    shuffleSlider->setBounds (proportionOfWidth (0.0000f), proportionOfHeight (0.5625f), proportionOfWidth (0.8000f), proportionOfHeight (0.4000f));
+    label->setBounds (proportionOfWidth (0.8250f), proportionOfHeight (0.1600f), proportionOfWidth (0.1031f), proportionOfHeight (0.2000f));
+    label10->setBounds (proportionOfWidth (0.8250f), proportionOfHeight (0.6400f), proportionOfWidth (0.1563f), proportionOfHeight (0.2000f));
+    shuffleSlider->setBounds (proportionOfWidth (0.0000f), proportionOfHeight (0.5600f), proportionOfWidth (0.8000f), proportionOfHeight (0.4000f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }

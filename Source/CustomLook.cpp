@@ -112,6 +112,10 @@ void CustomLook::drawRotarySlider (Graphics& g, int x, int y, int width, int hei
     
         g.setColour (slider.findColour (Slider::rotarySliderFillColourId).withAlpha (0.6f));
         g.setFont (11.0f);
+        if (knob->getParameter() == nullptr) {
+            std::cout << "Cannot render slider value for " << slider.getName() << ", because it has no parameter set." << std::endl;
+            return;
+        }
         g.drawText((String) knob->getParameter()->getDisplayValue(), 0, 0, width, height, Justification::centred);
     }
 }

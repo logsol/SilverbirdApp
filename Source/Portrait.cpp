@@ -62,6 +62,7 @@ Portrait::Portrait (Controller* controller)
     }
     addChildComponent(vpSetup);
     addChildComponent(vpMixer);
+    
     //[/Constructor]
 }
 
@@ -93,8 +94,8 @@ void Portrait::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    transport->setBounds (5, getHeight() - 5 - proportionOfHeight (0.0789f), getWidth() - 10, proportionOfHeight (0.0789f));
-    vpSequencer->setBounds (5, 20, getWidth() - 10, proportionOfHeight (0.8469f));
+    transport->setBounds (5, getHeight() - 5 - proportionOfHeight (0.0792f), getWidth() - 10, proportionOfHeight (0.0792f));
+    vpSequencer->setBounds (5, 20, getWidth() - 10, proportionOfHeight (0.8479f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }

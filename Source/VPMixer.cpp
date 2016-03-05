@@ -72,7 +72,7 @@ void VPMixer::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    component->setBounds (0, proportionOfHeight (1.0000f) - proportionOfHeight (0.3167f), proportionOfWidth (1.0000f), proportionOfHeight (0.3167f));
+    component->setBounds (0, proportionOfHeight (1.0000f) - proportionOfHeight (0.5500f), proportionOfWidth (1.0000f), proportionOfHeight (0.5500f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -99,7 +99,7 @@ BEGIN_JUCER_METADATA
                  initialWidth="320" initialHeight="420">
   <BACKGROUND backgroundColour="0"/>
   <JUCERCOMP name="" id="309379987650ac71" memberName="component" virtualName=""
-             explicitFocusOrder="0" pos="0 100%r 100% 31.667%" sourceFile="MixerComponent.cpp"
+             explicitFocusOrder="0" pos="0 100%r 100% 55%" sourceFile="MixerComponent.cpp"
              constructorParams="controller"/>
 </JUCER_COMPONENT>
 

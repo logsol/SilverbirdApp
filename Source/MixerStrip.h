@@ -60,6 +60,8 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
+    friend class MixerComponent;
+
     int trackId;
     //[/UserVariables]
 
@@ -67,6 +69,9 @@ private:
     ScopedPointer<Knob> volumeSlider;
     ScopedPointer<Label> striplabel;
     ScopedPointer<TextButton> muteButton;
+    ScopedPointer<Knob> panSlider;
+    ScopedPointer<Knob> delaySlider;
+    ScopedPointer<Knob> reverbSlider;
 
 
     //==============================================================================

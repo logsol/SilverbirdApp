@@ -92,7 +92,10 @@ public:
         enum {
             shuffle,
             level,
+            pan,
             mute,
+            reverb,
+            delay,
             sample,
             pitch,
             attack,

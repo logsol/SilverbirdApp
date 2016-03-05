@@ -79,7 +79,7 @@ TargetStepper::TargetStepper (Controller* controller, int trackId, bool isModula
     buttons.add(target4);
     buttons.add(target5);
     buttons.add(target6);
-    
+
     jassert(buttons.size() == Mixer::tracks::max);
 
     for (int i=0; i<Mixer::tracks::max; i++) {
@@ -128,13 +128,13 @@ void TargetStepper::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    component->setBounds (0, 0, proportionOfWidth (1.0000f), proportionOfHeight (0.6000f));
-    target1->setBounds (proportionOfWidth (0.0650f), 60, proportionOfWidth (0.1500f), proportionOfHeight (0.2200f));
-    target2->setBounds (proportionOfWidth (0.2100f), 60 + 0, proportionOfWidth (0.1500f), proportionOfHeight (0.2200f));
-    target3->setBounds (proportionOfWidth (0.3550f), 60 + 0, proportionOfWidth (0.1500f), proportionOfHeight (0.2200f));
-    target4->setBounds (proportionOfWidth (0.5000f), 60 + 0, proportionOfWidth (0.1500f), proportionOfHeight (0.2200f));
-    target5->setBounds (proportionOfWidth (0.6450f), 60 + 0, proportionOfWidth (0.1500f), proportionOfHeight (0.2200f));
-    target6->setBounds (proportionOfWidth (0.7900f), 60 + 0, proportionOfWidth (0.1500f), proportionOfHeight (0.2200f));
+    component->setBounds (0, 0, proportionOfWidth (1.0000f), proportionOfHeight (0.6003f));
+    target1->setBounds (proportionOfWidth (0.0648f), 60, proportionOfWidth (0.1500f), proportionOfHeight (0.2212f));
+    target2->setBounds (proportionOfWidth (0.2102f), 60 + 0, proportionOfWidth (0.1500f), proportionOfHeight (0.2212f));
+    target3->setBounds (proportionOfWidth (0.3547f), 60 + 0, proportionOfWidth (0.1500f), proportionOfHeight (0.2212f));
+    target4->setBounds (proportionOfWidth (0.5000f), 60 + 0, proportionOfWidth (0.1500f), proportionOfHeight (0.2212f));
+    target5->setBounds (proportionOfWidth (0.6453f), 60 + 0, proportionOfWidth (0.1500f), proportionOfHeight (0.2212f));
+    target6->setBounds (proportionOfWidth (0.7898f), 60 + 0, proportionOfWidth (0.1500f), proportionOfHeight (0.2212f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -143,25 +143,25 @@ void TargetStepper::buttonClicked (Button* buttonThatWasClicked)
 {
     //[UserbuttonClicked_Pre]
     ModulationSequencer* modSequencer = dynamic_cast<ModulationSequencer*>(sequencer);
-    
+
     if (modSequencer == nullptr) {
         std::cout << "Could not cast modSequencer" << std::endl;
         return;
     }
-    
+
     for (int i=0; i<Mixer::tracks::max; i++) {
         modSequencer->setModulationTargetEnabled(i, buttons[i]->getToggleState());
     }
 
-    
+
     //[/UserbuttonClicked_Pre]
 
     if (buttonThatWasClicked == target1)
     {
         //[UserButtonCode_target1] -- add your button handler code here..
-        
+
         // @see beginning of this method
-        
+
         //[/UserButtonCode_target1]
     }
     else if (buttonThatWasClicked == target2)
@@ -216,29 +216,29 @@ BEGIN_JUCER_METADATA
                  initialWidth="400" initialHeight="100">
   <BACKGROUND backgroundColour="ffffff"/>
   <JUCERCOMP name="" id="15249f1dc21a48d1" memberName="component" virtualName=""
-             explicitFocusOrder="0" pos="0 0 100% 60%" sourceFile="BipolarStepper.cpp"
+             explicitFocusOrder="0" pos="0 0 100% 60.026%" sourceFile="BipolarStepper.cpp"
              constructorParams="controller, trackId, isModulationTrack"/>
   <TEXTBUTTON name="new button" id="5a08c1874ed5e265" memberName="target1"
-              virtualName="SbButton" explicitFocusOrder="0" pos="6.5% 60 15% 22%"
+              virtualName="SbButton" explicitFocusOrder="0" pos="6.484% 60 15% 22.122%"
               buttonText="label" connectedEdges="2" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="new button" id="94b31ccaf44bc2aa" memberName="target2"
-              virtualName="SbButton" explicitFocusOrder="0" pos="21% 0 15% 22%"
+              virtualName="SbButton" explicitFocusOrder="0" pos="21.016% 0 15% 22.122%"
               posRelativeY="5a08c1874ed5e265" buttonText="label" connectedEdges="3"
               needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="new button" id="45b2e4ea8069edbb" memberName="target3"
-              virtualName="SbButton" explicitFocusOrder="0" pos="35.5% 0 15% 22%"
+              virtualName="SbButton" explicitFocusOrder="0" pos="35.469% 0 15% 22.122%"
               posRelativeY="5a08c1874ed5e265" buttonText="label" connectedEdges="3"
               needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="new button" id="770148221ece5a24" memberName="target4"
-              virtualName="SbButton" explicitFocusOrder="0" pos="50% 0 15% 22%"
+              virtualName="SbButton" explicitFocusOrder="0" pos="50% 0 15% 22.122%"
               posRelativeY="5a08c1874ed5e265" buttonText="label" connectedEdges="3"
               needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="new button" id="cf8ad7693fd3f376" memberName="target5"
-              virtualName="SbButton" explicitFocusOrder="0" pos="64.5% 0 15% 22%"
+              virtualName="SbButton" explicitFocusOrder="0" pos="64.531% 0 15% 22.122%"
               posRelativeY="5a08c1874ed5e265" buttonText="label" connectedEdges="3"
               needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="new button" id="71c93bd00f569780" memberName="target6"
-              virtualName="SbButton" explicitFocusOrder="0" pos="79% 0 15% 22%"
+              virtualName="SbButton" explicitFocusOrder="0" pos="78.984% 0 15% 22.122%"
               posRelativeY="5a08c1874ed5e265" buttonText="label" connectedEdges="1"
               needsCallback="1" radioGroupId="0"/>
 </JUCER_COMPONENT>

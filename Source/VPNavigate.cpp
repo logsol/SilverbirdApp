@@ -73,6 +73,8 @@ VPNavigate::VPNavigate (Controller* controller)
     mixer->setClickingTogglesState(true);
 
     sequencer->setToggleState(true, dontSendNotification);
+    
+    mixer->triggerClick();
 
     //[/Constructor]
 }
@@ -174,18 +176,18 @@ BEGIN_JUCER_METADATA
                  initialWidth="320" initialHeight="38">
   <BACKGROUND backgroundColour="0"/>
   <TEXTBUTTON name="" id="7de12c148a506af0" memberName="sequencer" virtualName="SbButton"
-              explicitFocusOrder="0" pos="98.571% 0% 30.312% 100%" posRelativeX="e3472dc8542a2fb4"
+              explicitFocusOrder="0" pos="98.529% 0% 30.323% 100%" posRelativeX="e3472dc8542a2fb4"
               bgColOff="ffcecece" buttonText="Sequencer" connectedEdges="3"
               needsCallback="1" radioGroupId="6937"/>
   <TEXTBUTTON name="" id="e3472dc8542a2fb4" memberName="setup" virtualName="SbButton"
-              explicitFocusOrder="0" pos="0% 0% 21.875% 100%" bgColOff="ffcecece"
+              explicitFocusOrder="0" pos="0% 0% 21.935% 100%" bgColOff="ffcecece"
               buttonText="Setup" connectedEdges="2" needsCallback="1" radioGroupId="6937"/>
   <TEXTBUTTON name="" id="b9d502978143d2ff" memberName="mixer" virtualName="SbButton"
-              explicitFocusOrder="0" pos="97.938% 0% 21.875% 100%" posRelativeX="7de12c148a506af0"
+              explicitFocusOrder="0" pos="97.872% 0% 21.935% 100%" posRelativeX="7de12c148a506af0"
               bgColOff="ffcecece" buttonText="Mixer" connectedEdges="1" needsCallback="1"
               radioGroupId="6937"/>
   <TEXTBUTTON name="" id="e919a91fb78e40b3" memberName="playButton" virtualName="SbButton"
-              explicitFocusOrder="0" pos="75.938% 0% 24.062% 100%" bgColOff="ffcecece"
+              explicitFocusOrder="0" pos="75.806% 0% 24.194% 100%" bgColOff="ffcecece"
               buttonText="Play" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
 </JUCER_COMPONENT>
 

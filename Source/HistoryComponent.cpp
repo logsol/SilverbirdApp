@@ -90,10 +90,10 @@ void HistoryComponent::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    save->setBounds (proportionOfWidth (0.2900f), proportionOfHeight (0.2250f), proportionOfWidth (0.2033f), proportionOfHeight (0.5750f));
-    load->setBounds (proportionOfWidth (0.0700f), proportionOfHeight (0.2250f), proportionOfWidth (0.2033f), proportionOfHeight (0.5750f));
-    redo->setBounds (proportionOfWidth (0.7400f), proportionOfHeight (0.2250f), proportionOfWidth (0.2033f), proportionOfHeight (0.5750f));
-    undo->setBounds (proportionOfWidth (0.5133f), proportionOfHeight (0.2250f), proportionOfWidth (0.2033f), proportionOfHeight (0.5750f));
+    save->setBounds (proportionOfWidth (0.2906f), proportionOfHeight (0.2258f), proportionOfWidth (0.2031f), proportionOfHeight (0.5807f));
+    load->setBounds (proportionOfWidth (0.0688f), proportionOfHeight (0.2258f), proportionOfWidth (0.2031f), proportionOfHeight (0.5807f));
+    redo->setBounds (proportionOfWidth (0.7406f), proportionOfHeight (0.2258f), proportionOfWidth (0.2031f), proportionOfHeight (0.5807f));
+    undo->setBounds (proportionOfWidth (0.5125f), proportionOfHeight (0.2258f), proportionOfWidth (0.2031f), proportionOfHeight (0.5807f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }

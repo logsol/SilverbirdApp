@@ -46,6 +46,7 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
+    void positionLabels(MixerStrip* referenceMixerStripComponent);
     //[/UserMethods]
 
     void paint (Graphics& g) override;
@@ -55,15 +56,24 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
+    void setLabelTransform(ScopedPointer<Label>);
+    AffineTransform myTransform;
+    Array<Label*> labels;
+    Array<MixerStrip*> channelStrips;
     //[/UserVariables]
 
     //==============================================================================
-    ScopedPointer<MixerStrip> component;
-    ScopedPointer<MixerStrip> component2;
-    ScopedPointer<MixerStrip> component3;
-    ScopedPointer<MixerStrip> component4;
-    ScopedPointer<MixerStrip> component5;
-    ScopedPointer<MixerStrip> component6;
+    ScopedPointer<MixerStrip> ch2;
+    ScopedPointer<MixerStrip> ch3;
+    ScopedPointer<MixerStrip> ch4;
+    ScopedPointer<MixerStrip> ch5;
+    ScopedPointer<MixerStrip> ch6;
+    ScopedPointer<MixerStrip> ch1;
+    ScopedPointer<Label> muteLabel;
+    ScopedPointer<Label> levelLabel;
+    ScopedPointer<Label> reverbLabel;
+    ScopedPointer<Label> delayLabel;
+    ScopedPointer<Label> panLabel;
 
 
     //==============================================================================

@@ -57,11 +57,11 @@ Stepper::Stepper (Controller* controller, int trackId, bool isModulationTrack)
 
     stepperLabel->setText(controller->mixer.getNameByTrackId(trackId, isModulationTrack), dontSendNotification);
     stepperLabel->setInterceptsMouseClicks(false, false);
-    
+
     sequencer = isModulationTrack
      ? controller->getModulationSequencerByTrackId(trackId)
      : controller->getMidiSequencerByTrackId(trackId);
-    
+
     //[/Constructor]
 }
 

@@ -95,8 +95,8 @@ void VPSequencer::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    sequencerTabs->setBounds (0, proportionOfHeight (1.0000f) - proportionOfHeight (0.7786f), getWidth() - 0, proportionOfHeight (0.7786f));
-    trackTabs->setBounds (0, 0, getWidth() - 0, proportionOfHeight (0.2214f));
+    sequencerTabs->setBounds (0, proportionOfHeight (1.0000f) - proportionOfHeight (0.7789f), getWidth() - 0, proportionOfHeight (0.7789f));
+    trackTabs->setBounds (0, 0, getWidth() - 0, proportionOfHeight (0.2211f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }

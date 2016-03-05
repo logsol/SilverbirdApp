@@ -12,10 +12,9 @@
 #include "BaseComponent.h"
 
 //==============================================================================
-BaseComponent::BaseComponent(Controller* controller) : controller(controller)
+BaseComponent::BaseComponent(Controller* controller, String componentId) : controller(controller)
 {
-    // In your constructor, you should add any child components, and
-    // initialise any special settings that your component needs.
+    setComponentID(componentId);
 }
 
 BaseComponent::~BaseComponent()
