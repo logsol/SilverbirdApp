@@ -13,6 +13,7 @@
 
 #include "JuceHeader.h"
 #include "Source.h"
+
 class Controller;
 
 class Mixer : public MixerAudioSource {
@@ -61,6 +62,10 @@ public:
     Controller* controller;
     
 protected:
+    MixerAudioSource reverbBus;
+    MixerAudioSource delayBus;
+    
+    ScopedPointer<ReverbAudioSource> reverb;
     
     void createAndAddTrack(int trackId);
     

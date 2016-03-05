@@ -285,7 +285,8 @@ void Source::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
     float trackLevel   = controller->getParameterValueScaled(Controller::params::level, trackId);
     float trackPan     = controller->getParameterValueScaled(Controller::params::pan, trackId);
     float trackMute    = controller->getParameterValueScaled(Controller::params::mute, trackId);
-    
+    float trackReverb = controller->getParameterValueScaled(Controller::params::reverb, trackId);
+
     float globalCutoff = controller->getParameterValueScaled(Controller::params::cutoff);
     float globalDistort = controller->getParameterValueScaled(Controller::params::distort);
     
@@ -323,6 +324,8 @@ void Source::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
     
     {
         // dsp: pan
+        // source: http://music.columbia.edu/pipermail/music-dsp/2002-September/050872.html
+        
         float scaling = 2.0 - 4.0 * powf(10,-3.0/20.0);
         float panL = 1-trackPan, panR = trackPan;
         float gainL = scaling * panL*panL + (1.0 - scaling) * panL;
@@ -334,12 +337,15 @@ void Source::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
         }
     }
 
-    
-    // dsp: level
     {
+        // dsp: level
+    
         bufferToFill.buffer->applyGainRamp(0, bufferToFill.numSamples, lastLevel, level);
         lastLevel = level;
     }
+    
+    reverbBus.setGain(trackReverb);
+    reverbBus.copyChannelInfoToBus(bufferToFill);
 }
 
 /*
@@ -378,4 +384,9 @@ void Source::addStepModulationValue(int modTrackId, float value)
     float cache = modulations[modTrackId];
     
     modulations.set(modTrackId, cache + value - 0.5);
+}
+
+FxBus* Source::getReverbSend()
+{
+    return &reverbBus;
 }

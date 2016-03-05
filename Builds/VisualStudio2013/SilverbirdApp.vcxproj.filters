@@ -352,6 +352,9 @@
     <ClCompile Include="..\..\Source\Main.cpp">
       <Filter>SilverbirdApp</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\FxBus.cpp">
+      <Filter>SilverbirdApp\Source\Engine</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Parameter.cpp">
       <Filter>SilverbirdApp\Source\Engine</Filter>
     </ClCompile>
@@ -1716,6 +1719,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\FxBus.h">
+      <Filter>SilverbirdApp\Source\Engine</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Parameter.h">
       <Filter>SilverbirdApp\Source\Engine</Filter>
     </ClInclude>

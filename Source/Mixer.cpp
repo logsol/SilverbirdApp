@@ -16,7 +16,12 @@ Mixer::Mixer(Controller* controller) : controller(controller)
 {
     for (int i = 0; i < Mixer::tracks::max; i++) {
         createAndAddTrack(i);
+        reverbBus.addInputSource(sources[i]->getReverbSend(), false);
     }
+    
+    reverb = new ReverbAudioSource(&reverbBus, false);
+    
+    addInputSource(reverb, false);
 }
 
 Mixer::~Mixer() {

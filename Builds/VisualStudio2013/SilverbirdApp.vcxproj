@@ -130,6 +130,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\Main.cpp"/>
+    <ClCompile Include="..\..\Source\FxBus.cpp"/>
     <ClCompile Include="..\..\Source\Parameter.cpp"/>
     <ClCompile Include="..\..\Source\Controller.cpp"/>
     <ClCompile Include="..\..\Source\Processor.cpp"/>
@@ -1303,6 +1304,7 @@
     <ClCompile Include="..\..\..\JUCE\modules\juce_gui_extra\juce_gui_extra.cpp"/>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\FxBus.h"/>
     <ClInclude Include="..\..\Source\Parameter.h"/>
     <ClInclude Include="..\..\Source\Controller.h"/>
     <ClInclude Include="..\..\Source\Processor.h"/>

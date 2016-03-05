@@ -15,6 +15,7 @@
 #include "JuceHeader.h"
 #include "Sound.h"
 #include "Sampler.h"
+#include "FxBus.h"
 class Controller;
 
 class Source : public AudioSource
@@ -44,6 +45,8 @@ public:
     void resetStepModulations();
     void addStepModulationValue(int paramId, float value);
     
+    FxBus* getReverbSend();
+    
 protected:
     
     void configure(int trackId);
@@ -53,12 +56,15 @@ protected:
     IIRFilter filterR;
 
     double sampleRate;
-    float lastLevel = 1;
+    float lastLevel = 1.0;
 
     Sampler sampler;
     Controller* controller;
     
     Array<float> modulations;
+    
+    FxBus reverbBus;
+    FxBus delayBus;
 };
 
 

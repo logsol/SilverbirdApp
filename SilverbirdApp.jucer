@@ -7,6 +7,8 @@
     <FILE id="DidWNp" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
     <GROUP id="{40B58F17-2A50-FCFC-AC96-EA61BE3F32E2}" name="Source">
       <GROUP id="{65D2481D-E290-269E-E2CF-FBF627AAB06A}" name="Engine">
+        <FILE id="TtZhUD" name="FxBus.cpp" compile="1" resource="0" file="Source/FxBus.cpp"/>
+        <FILE id="YcKRZI" name="FxBus.h" compile="0" resource="0" file="Source/FxBus.h"/>
         <FILE id="X8AzuF" name="Parameter.cpp" compile="1" resource="0" file="Source/Parameter.cpp"/>
         <FILE id="a9f3nK" name="Parameter.h" compile="0" resource="0" file="Source/Parameter.h"/>
         <FILE id="WM42kq" name="Controller.cpp" compile="1" resource="0" file="Source/Controller.cpp"/>

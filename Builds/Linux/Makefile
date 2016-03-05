@@ -50,6 +50,7 @@ endif
 
 OBJECTS := \
   $(OBJDIR)/Main_90ebc5c2.o \
+  $(OBJDIR)/FxBus_d47be4af.o \
   $(OBJDIR)/Parameter_73564c8a.o \
   $(OBJDIR)/Controller_2961cb25.o \
   $(OBJDIR)/Processor_85e48f3.o \
@@ -129,6 +130,11 @@ strip:
 $(OBJDIR)/Main_90ebc5c2.o: ../../Source/Main.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling Main.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/FxBus_d47be4af.o: ../../Source/FxBus.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling FxBus.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/Parameter_73564c8a.o: ../../Source/Parameter.cpp
