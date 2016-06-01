@@ -23,8 +23,18 @@ public:
     void initialise (const String& commandLine)
     {
         //ApplicationProperties::setStorageParameters (T("SilverbirdApp"), String::empty, T("SilverbirdApp"), 400, PropertiesFile::storeAsXML);
-        
+
         pluginWindow = new StandaloneFilterWindow (ProjectInfo::projectName, Colours::black, NULL, false);
+        
+        int biggestBufferSize = pluginWindow->pluginHolder->deviceManager.getCurrentAudioDevice()->getAvailableBufferSizes().getLast();
+        
+        audioSetup.sampleRate = 32000;
+        audioSetup.bufferSize = biggestBufferSize;
+        audioSetup.inputChannels = 0;
+        audioSetup.outputChannels = 2;
+        
+        pluginWindow->pluginHolder->reloadAudioDeviceState(String(), &audioSetup);
+
         
         pluginWindow->setTitleBarButtonsRequired (DocumentWindow::allButtons, false);
         pluginWindow->setVisible (true);
@@ -32,10 +42,21 @@ public:
         
         pluginWindow->setResizable (false, false);
         pluginWindow->centreWithSize(pluginWindow->getWidth(), pluginWindow->getHeight());
+        
+        //pluginWindow->pluginHolder->showAudioSettingsDialog();
+        
+        #if JUCE_ANDROID
+        Desktop::getInstance().setScreenSaverEnabled (false);
+        glContext.attachTo (*pluginWindow);
+        std::cout << "is Android" << std::endl;
+        #endif
     }
     
     void shutdown()
     {
+        #if JUCE_ANDROID
+        glContext.detach();
+        #endif
         pluginWindow = nullptr; // (deletes our window)
     }
     
@@ -62,9 +83,14 @@ public:
     bool moreThanOneInstanceAllowed() {
         return true;
     }
+    
+    AudioDeviceManager::AudioDeviceSetup audioSetup;
  
 private:
     ScopedPointer<StandaloneFilterWindow> pluginWindow;
+    #if JUCE_ANDROID
+    OpenGLContext glContext;
+    #endif
 };
 
 

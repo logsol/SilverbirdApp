@@ -18,7 +18,9 @@ Source::Source(int trackId, String name, MidiMessageCollector& midiCollector, Co
     name (name),
     trackId (trackId),
     sampler(trackId, this, controller),
-    controller(controller)
+    controller(controller),
+    reverbBus(trackId),
+    delayBus(trackId)
 {
     configure(trackId);
     
@@ -285,7 +287,8 @@ void Source::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
     float trackLevel   = controller->getParameterValueScaled(Controller::params::level, trackId);
     float trackPan     = controller->getParameterValueScaled(Controller::params::pan, trackId);
     float trackMute    = controller->getParameterValueScaled(Controller::params::mute, trackId);
-    float trackReverb = controller->getParameterValueScaled(Controller::params::reverb, trackId);
+    float trackReverb  = controller->getParameterValueScaled(Controller::params::reverb, trackId);
+    float trackDelay   = controller->getParameterValueScaled(Controller::params::delay, trackId);
 
     float globalCutoff = controller->getParameterValueScaled(Controller::params::cutoff);
     float globalDistort = controller->getParameterValueScaled(Controller::params::distort);
@@ -344,8 +347,15 @@ void Source::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
         lastLevel = level;
     }
     
-    reverbBus.setGain(trackReverb);
-    reverbBus.copyChannelInfoToBus(bufferToFill);
+    if (trackReverb > 0.0) {
+        reverbBus.setGain(trackReverb);
+        reverbBus.copyChannelInfoToBus(bufferToFill);
+    }
+    
+    if (trackDelay > 0.0) {
+        delayBus.setGain(trackDelay);
+        delayBus.copyChannelInfoToBus(bufferToFill);
+    }
 }
 
 /*
@@ -386,7 +396,12 @@ void Source::addStepModulationValue(int modTrackId, float value)
     modulations.set(modTrackId, cache + value - 0.5);
 }
 
-FxBus* Source::getReverbSend()
+FxBus* Source::getReverbBus()
 {
     return &reverbBus;
+}
+
+FxBus* Source::getDelayBus()
+{
+    return &delayBus;
 }

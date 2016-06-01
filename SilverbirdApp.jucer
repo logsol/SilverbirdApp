@@ -138,6 +138,12 @@
         <FILE id="y0PWPt" name="StandaloneFilterWindow.h" compile="0" resource="0"
               file="Source/StandaloneFilterWindow.h"/>
       </GROUP>
+      <GROUP id="{00072E99-D17E-628D-64ED-AA9005D4D77D}" name="Fx">
+        <FILE id="Q9AMFC" name="DelayAudioSource.cpp" compile="0" resource="0"
+              file="Source/DelayAudioSource.cpp" xcodeResource="0"/>
+        <FILE id="OpCOxU" name="ReverberationAudioSource.cpp" compile="0" resource="0"
+              file="Source/ReverberationAudioSource.cpp"/>
+      </GROUP>
     </GROUP>
     <GROUP id="{ED3D9729-17B3-221F-DA8E-B7C677696983}" name="Resources">
       <GROUP id="{87255292-EFDC-C638-E0CF-F7F4CE654601}" name="Samples">
@@ -468,6 +474,7 @@
         <MODULEPATH id="juce_audio_devices" path="../JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../JUCE/modules"/>
         <MODULEPATH id="juce_audio_utils" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="../JUCE/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <VS2013 targetFolder="Builds/VisualStudio2013" smallIcon="cW5Db3" bigIcon="Mg3RT0">
@@ -489,6 +496,7 @@
         <MODULEPATH id="juce_audio_devices" path="../JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../JUCE/modules"/>
         <MODULEPATH id="juce_audio_utils" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="../JUCE/modules"/>
       </MODULEPATHS>
     </VS2013>
     <LINUX_MAKE targetFolder="Builds/Linux" smallIcon="fJGTOs" bigIcon="b5gehu">
@@ -510,17 +518,18 @@
         <MODULEPATH id="juce_audio_devices" path="../JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../JUCE/modules"/>
         <MODULEPATH id="juce_audio_utils" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="../JUCE/modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
     <ANDROIDSTUDIO androidVersionCode="1" androidActivityClass="com.audiosalt.silverbirdapp.SilverbirdApp"
-                   androidMinimumSDK="23" androidInternetNeeded="1" androidBluetoothNeeded="1"
+                   androidMinimumSDK="21" androidInternetNeeded="0" androidBluetoothNeeded="0"
                    androidKeyStore="${user.home}/.android/debug.keystore" androidKeyStorePass="android"
                    androidKeyAlias="androiddebugkey" androidKeyAliasPass="android"
                    androidCpp11="1" androidScreenOrientation="unspecified" targetFolder="Builds/AndroidStudio"
                    androidSDKPath="" androidNDKPath="" smallIcon="KAoPru" bigIcon="KAoPru">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" androidArchitectures="armeabi armeabi-v7a x86" isDebug="1"
-                       optimisation="1" targetName="SilverbirdApp"/>
+                       optimisation="3" targetName="SilverbirdApp"/>
         <CONFIGURATION name="Release" androidArchitectures="armeabi armeabi-v7a x86"
                        isDebug="0" optimisation="3" targetName="SilverbirdApp"/>
       </CONFIGURATIONS>
@@ -536,6 +545,7 @@
         <MODULEPATH id="juce_audio_formats" path="../JUCE/modules"/>
         <MODULEPATH id="juce_audio_devices" path="../JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="../JUCE/modules"/>
       </MODULEPATHS>
     </ANDROIDSTUDIO>
     <XCODE_IPHONE targetFolder="Builds/iOS" vstFolder="" vst3Folder="" smallIcon="KAoPru"
@@ -543,9 +553,9 @@
                   postbuildCommand="" extraCompilerFlags="-x objective-c++" UIStatusBarHidden="0"
                   customPList="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#10;&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;&#10;&lt;plist version=&quot;1.0&quot;&gt;&#10;&lt;dict&gt;&#10;&#9;&lt;key&gt;UIRequiresFullScreen&lt;/key&gt;&#10;&#9;&lt;false/&gt;&#10;&#9;&lt;key&gt;UIStatusBarStyle&lt;/key&gt;&#10;&#9;&lt;string&gt;UIStatusBarStyleLightContent&lt;/string&gt;&#10;&#9;&lt;key&gt;UISupportedInterfaceOrientations&lt;/key&gt;&#10;&#9;&lt;array&gt;&#10;&#9;&#9;&lt;string&gt;UIInterfaceOrientationPortrait&lt;/string&gt;&#10;&#9;&lt;/array&gt;&#10;&lt;/dict&gt;&#10;&lt;/plist&gt;&#10;">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" iosCompatibility="9.2" isDebug="1" optimisation="1"
-                       targetName="SilverbirdApp"/>
-        <CONFIGURATION name="Release" iosCompatibility="default" isDebug="0" optimisation="3"
+        <CONFIGURATION name="Debug" iosCompatibility="7.1" isDebug="1" optimisation="1"
+                       targetName="SilverbirdApp" linkTimeOptimisation="0"/>
+        <CONFIGURATION name="Release" iosCompatibility="7.1" isDebug="0" optimisation="3"
                        targetName="SilverbirdApp"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
@@ -560,6 +570,7 @@
         <MODULEPATH id="juce_audio_formats" path="../JUCE/modules"/>
         <MODULEPATH id="juce_audio_devices" path="../JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="../JUCE/modules"/>
       </MODULEPATHS>
     </XCODE_IPHONE>
   </EXPORTFORMATS>
@@ -575,6 +586,7 @@
     <MODULES id="juce_graphics" showAllCode="1" useLocalCopy="0"/>
     <MODULES id="juce_gui_basics" showAllCode="1" useLocalCopy="0"/>
     <MODULES id="juce_gui_extra" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0"/>
   </MODULES>
   <JUCEOPTIONS JUCE_ALSA="enabled" JUCE_JACK="enabled" JUCE_USE_CDREADER="disabled"
                JUCE_USE_CDBURNER="disabled" JUCE_USE_FLAC="disabled" JUCE_USE_OGGVORBIS="disabled"

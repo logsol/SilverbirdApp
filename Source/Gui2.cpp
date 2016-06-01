@@ -111,21 +111,20 @@ Gui2::Gui2 (Controller* controller)
     customLook.setDefaultSansSerifTypefaceName("Arial");
     LookAndFeel::setDefaultLookAndFeel(&customLook);
 
-    Parameter* p;
-
-    p = controller->getParameterByAttrs(Controller::params::shuffle);
     /*
+    Parameter* p;
+    p = controller->getParameterByAttrs(Controller::params::shuffle);
+
     shuffleSlider->addListener(controller);
     shuffleSlider->getValueObject().referTo(*p);
     shuffleSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
-*/
+
     p = controller->getParameterByAttrs(Controller::params::level);
     masterSlider->addListener(controller);
     masterSlider->getValueObject().referTo(*p);
     masterSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
     masterSlider->setSliderStyle(Slider::LinearBarVertical);
 
-/*
     Slider* volumeSliders [Mixer::tracks::max] = {
         kickVolumeSlider,
         snareVolumeSlider,
@@ -134,8 +133,7 @@ Gui2::Gui2 (Controller* controller)
         perc2VolumeSlider,
         tonesVolumeSlider
     };
- */
-/*
+
     Button* muteButtons [Mixer::tracks::max] = {
         kickMuteButton,
         snareMuteButton,
@@ -144,11 +142,11 @@ Gui2::Gui2 (Controller* controller)
         perc2MuteButton,
         tonesMuteButton
     };
- */
+
 
     for (int i = 0; i < Mixer::tracks::max; i++) {
         p = controller->getParameterByAttrs(Controller::params::level, i);
-        /*
+        
         volumeSliders[i]->addListener(controller);
         volumeSliders[i]->getValueObject().referTo(*p);
         volumeSliders[i]->setDoubleClickReturnValue(true, p->getDefaultValue());
@@ -159,9 +157,9 @@ Gui2::Gui2 (Controller* controller)
         muteButtons[i]->addListener(controller);
         muteButtons[i]->getToggleStateValue().referTo(*p);
         muteButtons[i]->setClickingTogglesState(true);
-         */
+         
     }
-
+*/
     if(!JUCEApplication::isStandaloneApp()) {
         transport->setVisible(false);
     }

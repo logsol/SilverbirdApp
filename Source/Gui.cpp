@@ -348,7 +348,9 @@ Gui::Gui (Controller* controller)
     masterSlider->getValueObject().referTo(*p);
     masterSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
 
-
+/*
+    // comment back in for gui to properly work
+ 
     Slider* volumeSliders [Mixer::tracks::max] = {
          kickVolumeSlider,
          snareVolumeSlider,
@@ -379,7 +381,7 @@ Gui::Gui (Controller* controller)
         muteButtons[i]->getToggleStateValue().referTo(*p);
         muteButtons[i]->setClickingTogglesState(true);
     }
-
+*/
     sampleAllSlider->setBaseCenter(true);
     pitchSlider->setBaseCenter(true);
     decaySlider->setBaseCenter(true);

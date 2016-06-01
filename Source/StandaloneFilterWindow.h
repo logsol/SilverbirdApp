@@ -194,7 +194,7 @@ public:
         o.dialogTitle                   = TRANS("Audio Settings");
         o.dialogBackgroundColour        = Colour (0xfff0f0f0);
         o.escapeKeyTriggersCloseButton  = true;
-        o.useNativeTitleBar             = true;
+        o.useNativeTitleBar             = false;
         o.resizable                     = false;
 
         o.launchAsync();
@@ -217,7 +217,7 @@ public:
         if (settings != nullptr)
             savedState = settings->getXmlValue ("audioSetup");
 
-        deviceManager.initialise (processor->getTotalNumInputChannels(),
+        std::cout << deviceManager.initialise (processor->getTotalNumInputChannels(),
                                   processor->getTotalNumOutputChannels(),
                                   savedState,
                                   true,

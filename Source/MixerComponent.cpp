@@ -106,6 +106,9 @@ MixerComponent::MixerComponent (Controller* controller)
     channelStrips.add(ch4);
     channelStrips.add(ch5);
     channelStrips.add(ch6);
+
+    jassert(channelStrips.size() == Mixer::tracks::max);
+
     //[/Constructor]
 }
 
@@ -183,17 +186,17 @@ void MixerComponent::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    ch2->setBounds (83, proportionOfHeight (0.0000f), proportionOfWidth (0.1425f), proportionOfHeight (1.0000f));
-    ch3->setBounds (142, proportionOfHeight (0.0000f), proportionOfWidth (0.1475f), proportionOfHeight (1.0000f));
-    ch4->setBounds (203, proportionOfHeight (0.0000f), proportionOfWidth (0.1475f), proportionOfHeight (1.0000f));
-    ch5->setBounds (264, proportionOfHeight (0.0000f), proportionOfWidth (0.1475f), proportionOfHeight (1.0000f));
-    ch6->setBounds (325, proportionOfHeight (0.0000f), proportionOfWidth (0.1475f), proportionOfHeight (1.0000f));
-    ch1->setBounds (22, proportionOfHeight (0.0000f), proportionOfWidth (0.1475f), proportionOfHeight (1.0000f));
-    muteLabel->setBounds (-24, proportionOfHeight (0.7091f), 53, 16);
-    levelLabel->setBounds (-32, proportionOfHeight (0.0318f), 62, 16);
-    reverbLabel->setBounds (-32, proportionOfHeight (0.1500f), 62, 16);
-    delayLabel->setBounds (-32, proportionOfHeight (0.3136f), 53, 16);
-    panLabel->setBounds (-32, proportionOfHeight (0.4864f), 53, 16);
+    ch2->setBounds (83, proportionOfHeight (0.0000f), proportionOfWidth (0.1438f), proportionOfHeight (1.0000f));
+    ch3->setBounds (142, proportionOfHeight (0.0000f), proportionOfWidth (0.1469f), proportionOfHeight (1.0000f));
+    ch4->setBounds (203, proportionOfHeight (0.0000f), proportionOfWidth (0.1469f), proportionOfHeight (1.0000f));
+    ch5->setBounds (264, proportionOfHeight (0.0000f), proportionOfWidth (0.1469f), proportionOfHeight (1.0000f));
+    ch6->setBounds (325, proportionOfHeight (0.0000f), proportionOfWidth (0.1469f), proportionOfHeight (1.0000f));
+    ch1->setBounds (22, proportionOfHeight (0.0000f), proportionOfWidth (0.1469f), proportionOfHeight (1.0000f));
+    muteLabel->setBounds (-24, proportionOfHeight (0.7100f), 53, 16);
+    levelLabel->setBounds (-32, proportionOfHeight (0.0303f), 62, 16);
+    reverbLabel->setBounds (-32, proportionOfHeight (0.1515f), 62, 16);
+    delayLabel->setBounds (-32, proportionOfHeight (0.3117f), 53, 16);
+    panLabel->setBounds (-32, proportionOfHeight (0.4849f), 53, 16);
     //[UserResized] Add your own custom resize handling here..
 
     int padding = 1;

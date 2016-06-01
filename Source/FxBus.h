@@ -16,20 +16,21 @@
 class FxBus : public AudioSource {
 public:
     
-    FxBus();
+    FxBus(int trackId);
     
     void getNextAudioBlock (const AudioSourceChannelInfo&) override;
     void prepareToPlay (int samplesPerBlockExpected, double sampleRate) override;
     void releaseResources() override;
     
     void setGain(float gain);
-    void copyChannelInfoToBus(AudioSourceChannelInfo sourceInfo);
+    void copyChannelInfoToBus(const AudioSourceChannelInfo& sourceInfo);
     
 protected:
     float gain = 1.0;
-    AudioBuffer<float> buffer;
-    AudioSourceChannelInfo busInfo;
+    AudioBuffer<float> fxBuffer;
+    AudioSourceChannelInfo input;
     float lastLevel = 1.0;
+    int trackId = -99;
 };
 
 

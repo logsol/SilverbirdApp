@@ -45,7 +45,8 @@ public:
     void resetStepModulations();
     void addStepModulationValue(int paramId, float value);
     
-    FxBus* getReverbSend();
+    FxBus* getReverbBus();
+    FxBus* getDelayBus();
     
 protected:
     

@@ -47,6 +47,7 @@ Ui::Ui (Controller* controller)
     LookAndFeel::setDefaultLookAndFeel(&customLook);
     Rectangle<int> area = getParentMonitorArea();
     setSize (area.getWidth(), area.getHeight());
+    lastSize = area;
 
     startTimer(200);
 
@@ -94,10 +95,10 @@ void Ui::timerCallback()
 {
     int currentOrientation = Desktop::getInstance().getCurrentOrientation();
 
-    if(currentOrientation != lastOrientation) {
+    Rectangle<int> area = getParentMonitorArea();
+    
+    if(currentOrientation != lastOrientation || lastSize != area) {
         lastOrientation = currentOrientation;
-
-        Rectangle<int> area = getParentMonitorArea();
         setSize (area.getWidth(), area.getHeight());
         getParentComponent()->setBounds(0, 0, area.getWidth(), area.getHeight());
     }

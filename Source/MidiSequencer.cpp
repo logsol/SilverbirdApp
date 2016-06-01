@@ -26,7 +26,11 @@ MidiSequencer::MidiSequencer(Controller* controller, int trackId) : Sequencer(co
         matrix.add(new Array<float>);
         
         for (int j = 0; j < numCells; j++) {
-            matrix[i]->insert(j, 0.0);
+            float value = 0.0;
+            if (trackId == Mixer::tracks::kick && !((j-0)%4)) value = 0.8;
+            if (trackId == Mixer::tracks::snare && !((j-4)%8)) value = 0.8;
+            if (trackId == Mixer::tracks::hihat && !((j-2)%4)) value = 0.8;
+            matrix[i]->insert(j, value);
         }
     }
     

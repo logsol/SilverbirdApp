@@ -33,7 +33,6 @@ Controller::Controller() : mixer(this),
     }
     
     //document.addListener(this);
-    
     //createDocument();
 }
 

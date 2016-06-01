@@ -11,20 +11,28 @@
 #include "Mixer.h"
 #include "Controller.h"
 #include "Parameter.h"
+#include "DelayAudioSource.cpp"
+#include "ReverberationAudioSource.cpp"
+
 
 Mixer::Mixer(Controller* controller) : controller(controller)
 {
+    const bool deleteOnRemove = true;
+    
+    delayAudioSource = new DelayAudioSource();
+    
     for (int i = 0; i < Mixer::tracks::max; i++) {
-        createAndAddTrack(i);
-        reverbBus.addInputSource(sources[i]->getReverbSend(), false);
+        createAndAddTrack(i, deleteOnRemove);
+        delayAudioSource->addInputSource(sources[i]->getDelayBus(), deleteOnRemove);
+        //reverbAudioSource->addInputSource(sources[i]->getReverbBus(), deleteOnRemove);
     }
     
-    reverb = new ReverbAudioSource(&reverbBus, false);
-    
-    addInputSource(reverb, false);
+    addInputSource(delayAudioSource, deleteOnRemove);
+    addInputSource(reverbAudioSource, deleteOnRemove);
 }
 
 Mixer::~Mixer() {
+    //faustDelay = nullptr;
 }
 
 String Mixer::getNameByTrackId(int trackId, bool isModulationTrack)
@@ -62,11 +70,11 @@ String Mixer::getNameByTrackId(int trackId, bool isModulationTrack)
     return "<Undefined> Track";
 }
 
-void Mixer::createAndAddTrack(int trackId)
+void Mixer::createAndAddTrack(int trackId, const bool deleteWhenRemoved)
 {
     Source* source = new Source(trackId, String("track") + String(trackId), midiCollector, controller);
     
-    addInputSource(source, false);
+    addInputSource(source, deleteWhenRemoved);
     
     sources.insert(trackId, source);
 }
@@ -101,6 +109,9 @@ void Mixer::getNextAudioBlock (const AudioSourceChannelInfo& bufferToFill)
     float level = controller->getParameterValue(Controller::params::level);
     bufferToFill.buffer->applyGainRamp(0, bufferToFill.numSamples, lastLevel, level);
     lastLevel = level;
+    
+    //const float* buf = bufferToFill.buffer->getReadPointer(0);
+    //std::cout << round(*buf * 1000)/1000.0 << std::endl;
 }
 
 void Mixer::playNote(int note, float velocity)

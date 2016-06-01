@@ -14,7 +14,10 @@
 #include "JuceHeader.h"
 #include "Source.h"
 
+class DelayAudioSource;
+class ReverberationAudioSource;
 class Controller;
+
 
 class Mixer : public MixerAudioSource {
 public:
@@ -22,6 +25,7 @@ public:
     ~Mixer();
     
     // FIXME : create struct and refactor project accordingly
+
     struct tracks {
         enum {
             kick,
@@ -62,12 +66,11 @@ public:
     Controller* controller;
     
 protected:
-    MixerAudioSource reverbBus;
-    MixerAudioSource delayBus;
+
+    ScopedPointer<DelayAudioSource> delayAudioSource;
+    ScopedPointer<ReverberationAudioSource> reverbAudioSource;
     
-    ScopedPointer<ReverbAudioSource> reverb;
-    
-    void createAndAddTrack(int trackId);
+    void createAndAddTrack(int trackId, const bool deleteWhenRemoved);
     
     Source* getTrackById(int trackId);
     

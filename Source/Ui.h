@@ -61,6 +61,7 @@ private:
     CustomLook customLook;
 
     int lastOrientation = Desktop::DisplayOrientation::upright;
+    Rectangle<int> lastSize;
     void timerCallback();
     //[/UserVariables]
 

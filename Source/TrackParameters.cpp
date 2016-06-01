@@ -32,6 +32,9 @@ TrackParameters::TrackParameters (Controller* controller, int trackId)
     : BaseComponent(controller), trackId(trackId)
 {
     //[Constructor_pre] You can add your own custom stuff here..
+    if (trackId >= Mixer::tracks::max) {
+        return;
+    }
     //[/Constructor_pre]
 
     addAndMakeVisible (selectSlider = new Knob ("Select"));
@@ -146,40 +149,52 @@ TrackParameters::TrackParameters (Controller* controller, int trackId)
     Parameter* p;
 
     p = controller->getParameterByAttrs(Controller::params::sample, trackId);
-    selectSlider->addListener(controller);
-    selectSlider->getValueObject().referTo(*p);
-    selectSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
-    selectSlider->setParameter(p);
-
+    if(p != nullptr) {
+        selectSlider->addListener(controller);
+        selectSlider->getValueObject().referTo(*p);
+        selectSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
+        selectSlider->setParameter(p);
+    }
+    
     p = controller->getParameterByAttrs(Controller::params::pitch, trackId);
-    pitchSlider->addListener(controller);
-    pitchSlider->getValueObject().referTo(*p);
-    pitchSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
-    pitchSlider->setParameter(p);
-
+    if(p != nullptr) {
+        pitchSlider->addListener(controller);
+        pitchSlider->getValueObject().referTo(*p);
+        pitchSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
+        pitchSlider->setParameter(p);
+    }
+    
     p = controller->getParameterByAttrs(Controller::params::attack, trackId);
-    attackSlider->addListener(controller);
-    attackSlider->getValueObject().referTo(*p);
-    attackSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
-    attackSlider->setParameter(p);
-
+    if(p != nullptr) {
+        attackSlider->addListener(controller);
+        attackSlider->getValueObject().referTo(*p);
+        attackSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
+        attackSlider->setParameter(p);
+    }
+    
     p = controller->getParameterByAttrs(Controller::params::decay, trackId);
-    decaySlider->addListener(controller);
-    decaySlider->getValueObject().referTo(*p);
-    decaySlider->setDoubleClickReturnValue(true, p->getDefaultValue());
-    decaySlider->setParameter(p);
-
+    if(p != nullptr) {
+        decaySlider->addListener(controller);
+        decaySlider->getValueObject().referTo(*p);
+        decaySlider->setDoubleClickReturnValue(true, p->getDefaultValue());
+        decaySlider->setParameter(p);
+    }
+    
     p = controller->getParameterByAttrs(Controller::params::distort, trackId);
-    distortSlider->addListener(controller);
-    distortSlider->getValueObject().referTo(*p);
-    distortSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
-    distortSlider->setParameter(p);
-
+    if(p != nullptr) {
+        distortSlider->addListener(controller);
+        distortSlider->getValueObject().referTo(*p);
+        distortSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
+        distortSlider->setParameter(p);
+    }
+    
     p = controller->getParameterByAttrs(Controller::params::cutoff, trackId);
-    cutoffSlider->addListener(controller);
-    cutoffSlider->getValueObject().referTo(*p);
-    cutoffSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
-    cutoffSlider->setParameter(p);
+    if(p != nullptr) {
+        cutoffSlider->addListener(controller);
+        cutoffSlider->getValueObject().referTo(*p);
+        cutoffSlider->setDoubleClickReturnValue(true, p->getDefaultValue());
+        cutoffSlider->setParameter(p);
+    }
 
     pitchSlider->setBaseCenter(true);
     pitchSlider->setStepSize(1.0 / 24);
@@ -242,18 +257,18 @@ void TrackParameters::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    selectSlider->setBounds (0, proportionOfHeight (0.3810f), proportionOfWidth (0.1623f), proportionOfHeight (0.6191f));
-    label2->setBounds (0, proportionOfHeight (0.1111f), proportionOfWidth (0.1623f), 13);
-    attackSlider->setBounds (proportionOfWidth (0.3279f), proportionOfHeight (0.3810f), proportionOfWidth (0.1623f), proportionOfHeight (0.6191f));
-    label4->setBounds (proportionOfWidth (0.3279f), proportionOfHeight (0.1111f), proportionOfWidth (0.1623f), 13);
-    decaySlider->setBounds (proportionOfWidth (0.4903f), proportionOfHeight (0.3810f), proportionOfWidth (0.1623f), proportionOfHeight (0.6191f));
-    label5->setBounds (proportionOfWidth (0.4903f), proportionOfHeight (0.1111f), proportionOfWidth (0.1623f), 13);
-    pitchSlider->setBounds (proportionOfWidth (0.1623f), proportionOfHeight (0.3810f), proportionOfWidth (0.1623f), proportionOfHeight (0.6191f));
-    label6->setBounds (proportionOfWidth (0.1623f), proportionOfHeight (0.1111f), proportionOfWidth (0.1623f), 13);
-    cutoffSlider->setBounds (proportionOfWidth (0.8377f), proportionOfHeight (0.3810f), proportionOfWidth (0.1623f), proportionOfHeight (0.6191f));
-    label10->setBounds (proportionOfWidth (0.8377f), proportionOfHeight (0.1111f), proportionOfWidth (0.1623f), 13);
-    distortSlider->setBounds (proportionOfWidth (0.6721f), proportionOfHeight (0.3810f), proportionOfWidth (0.1623f), proportionOfHeight (0.6191f));
-    label3->setBounds (proportionOfWidth (0.6721f), proportionOfHeight (0.1111f), proportionOfWidth (0.1623f), 13);
+    selectSlider->setBounds (0, proportionOfHeight (0.3750f), proportionOfWidth (0.1635f), proportionOfHeight (0.6250f));
+    label2->setBounds (0, proportionOfHeight (0.1094f), proportionOfWidth (0.1635f), 13);
+    attackSlider->setBounds (proportionOfWidth (0.3302f), proportionOfHeight (0.3750f), proportionOfWidth (0.1635f), proportionOfHeight (0.6250f));
+    label4->setBounds (proportionOfWidth (0.3302f), proportionOfHeight (0.1094f), proportionOfWidth (0.1635f), 13);
+    decaySlider->setBounds (proportionOfWidth (0.4906f), proportionOfHeight (0.3750f), proportionOfWidth (0.1635f), proportionOfHeight (0.6250f));
+    label5->setBounds (proportionOfWidth (0.4906f), proportionOfHeight (0.1094f), proportionOfWidth (0.1635f), 13);
+    pitchSlider->setBounds (proportionOfWidth (0.1635f), proportionOfHeight (0.3750f), proportionOfWidth (0.1635f), proportionOfHeight (0.6250f));
+    label6->setBounds (proportionOfWidth (0.1635f), proportionOfHeight (0.1094f), proportionOfWidth (0.1635f), 13);
+    cutoffSlider->setBounds (proportionOfWidth (0.8365f), proportionOfHeight (0.3750f), proportionOfWidth (0.1635f), proportionOfHeight (0.6250f));
+    label10->setBounds (proportionOfWidth (0.8365f), proportionOfHeight (0.1094f), proportionOfWidth (0.1635f), 13);
+    distortSlider->setBounds (proportionOfWidth (0.6698f), proportionOfHeight (0.3750f), proportionOfWidth (0.1635f), proportionOfHeight (0.6250f));
+    label3->setBounds (proportionOfWidth (0.6698f), proportionOfHeight (0.1094f), proportionOfWidth (0.1635f), 13);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -320,56 +335,56 @@ BEGIN_JUCER_METADATA
                  fixedSize="1" initialWidth="307" initialHeight="60">
   <BACKGROUND backgroundColour="ffffff"/>
   <SLIDER name="Select" id="ae2904d9e602bae7" memberName="selectSlider"
-          virtualName="Knob" explicitFocusOrder="0" pos="0 37.879% 16.352% 62.121%"
+          virtualName="Knob" explicitFocusOrder="0" pos="0 36.667% 16.287% 63.333%"
           min="0" max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="9b95e80f4bba0ec3" memberName="label2" virtualName=""
-         explicitFocusOrder="0" pos="0 10.606% 16.352% 13" textCol="ffffffff"
+         explicitFocusOrder="0" pos="0 11.667% 16.287% 13" textCol="ffffffff"
          edTextCol="ff000000" edBkgCol="0" labelText="Select" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="13" bold="0" italic="0" justification="36"/>
   <SLIDER name="Attack" id="dcf2dbaf52d14406" memberName="attackSlider"
-          virtualName="Knob" explicitFocusOrder="0" pos="32.704% 37.879% 16.352% 62.121%"
+          virtualName="Knob" explicitFocusOrder="0" pos="32.899% 36.667% 16.287% 63.333%"
           min="0" max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="600acbb5e03c4485" memberName="label4" virtualName=""
-         explicitFocusOrder="0" pos="32.704% 10.606% 16.352% 13" textCol="ffffffff"
+         explicitFocusOrder="0" pos="32.899% 11.667% 16.287% 13" textCol="ffffffff"
          edTextCol="ff000000" edBkgCol="0" labelText="Attack&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="13" bold="0" italic="0" justification="36"/>
   <SLIDER name="Decay" id="9c5da3b543af0acd" memberName="decaySlider" virtualName="Knob"
-          explicitFocusOrder="0" pos="49.057% 37.879% 16.352% 62.121%"
+          explicitFocusOrder="0" pos="49.186% 36.667% 16.287% 63.333%"
           min="0" max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="6d80791f4a659e3" memberName="label5" virtualName=""
-         explicitFocusOrder="0" pos="49.057% 10.606% 16.352% 13" textCol="ffffffff"
+         explicitFocusOrder="0" pos="49.186% 11.667% 16.287% 13" textCol="ffffffff"
          edTextCol="ff000000" edBkgCol="0" labelText="Decay" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="13" bold="0" italic="0" justification="36"/>
   <SLIDER name="Pitch" id="a0bcc16014a81d26" memberName="pitchSlider" virtualName="Knob"
-          explicitFocusOrder="0" pos="16.352% 37.879% 16.352% 62.121%"
+          explicitFocusOrder="0" pos="16.287% 36.667% 16.287% 63.333%"
           min="0" max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="1f974eb41a59cc16" memberName="label6" virtualName=""
-         explicitFocusOrder="0" pos="16.352% 10.606% 16.352% 13" textCol="ffffffff"
+         explicitFocusOrder="0" pos="16.287% 11.667% 16.287% 13" textCol="ffffffff"
          edTextCol="ff000000" edBkgCol="0" labelText="Pitch" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="13" bold="0" italic="0" justification="36"/>
   <SLIDER name="Pitch" id="ec9ceab9e8f418ea" memberName="cutoffSlider"
-          virtualName="Knob" explicitFocusOrder="0" pos="83.648% 37.879% 16.352% 62.121%"
+          virtualName="Knob" explicitFocusOrder="0" pos="83.713% 36.667% 16.287% 63.333%"
           min="0" max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="c2f8b942c21a3df3" memberName="label10" virtualName=""
-         explicitFocusOrder="0" pos="83.648% 10.606% 16.352% 13" textCol="ffffffff"
+         explicitFocusOrder="0" pos="83.713% 11.667% 16.287% 13" textCol="ffffffff"
          edTextCol="ff000000" edBkgCol="0" labelText="Cutoff" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="13" bold="0" italic="0" justification="36"/>
   <SLIDER name="Distort" id="43b059df97ad4e4a" memberName="distortSlider"
-          virtualName="Knob" explicitFocusOrder="0" pos="67.296% 37.879% 16.352% 62.121%"
+          virtualName="Knob" explicitFocusOrder="0" pos="67.101% 36.667% 16.287% 63.333%"
           min="0" max="1" int="0" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="new label" id="d9e5fba9bb477192" memberName="label3" virtualName=""
-         explicitFocusOrder="0" pos="67.296% 10.606% 16.352% 13" textCol="ffffffff"
+         explicitFocusOrder="0" pos="67.101% 11.667% 16.287% 13" textCol="ffffffff"
          edTextCol="ff000000" edBkgCol="0" labelText="Distort" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="13" bold="0" italic="0" justification="36"/>

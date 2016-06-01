@@ -156,12 +156,12 @@ void MixerStrip::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    volumeSlider->setBounds (proportionOfWidth (0.1063f), proportionOfHeight (0.6261f), proportionOfWidth (0.7875f), proportionOfHeight (0.2626f));
-    striplabel->setBounds (0, proportionOfHeight (0.0200f), proportionOfWidth (1.0000f), proportionOfHeight (0.0727f));
-    muteButton->setBounds (proportionOfWidth (0.1063f), proportionOfHeight (0.9069f), proportionOfWidth (0.7875f), proportionOfHeight (0.0737f));
-    panSlider->setBounds (proportionOfWidth (0.1063f), proportionOfHeight (0.4334f), proportionOfWidth (0.7875f), proportionOfHeight (0.1966f));
-    delaySlider->setBounds (proportionOfWidth (0.1063f), proportionOfHeight (0.2665f), proportionOfWidth (0.7875f), proportionOfHeight (0.1966f));
-    reverbSlider->setBounds (proportionOfWidth (0.1063f), proportionOfHeight (0.0996f), proportionOfWidth (0.7875f), proportionOfHeight (0.1966f));
+    volumeSlider->setBounds (proportionOfWidth (0.1016f), proportionOfHeight (0.6274f), proportionOfWidth (0.7797f), proportionOfHeight (0.2639f));
+    striplabel->setBounds (0, proportionOfHeight (0.0181f), proportionOfWidth (1.0000f), proportionOfHeight (0.0725f));
+    muteButton->setBounds (proportionOfWidth (0.1016f), proportionOfHeight (0.9094f), proportionOfWidth (0.7797f), proportionOfHeight (0.0725f));
+    panSlider->setBounds (proportionOfWidth (0.1016f), proportionOfHeight (0.4321f), proportionOfWidth (0.7797f), proportionOfHeight (0.1953f));
+    delaySlider->setBounds (proportionOfWidth (0.1016f), proportionOfHeight (0.2678f), proportionOfWidth (0.7797f), proportionOfHeight (0.1953f));
+    reverbSlider->setBounds (proportionOfWidth (0.1016f), proportionOfHeight (0.0996f), proportionOfWidth (0.7797f), proportionOfHeight (0.1953f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }

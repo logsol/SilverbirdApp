@@ -62,7 +62,7 @@ Portrait::Portrait (Controller* controller)
     }
     addChildComponent(vpSetup);
     addChildComponent(vpMixer);
-    
+
     //[/Constructor]
 }
 
@@ -94,8 +94,8 @@ void Portrait::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    transport->setBounds (5, getHeight() - 5 - proportionOfHeight (0.0792f), getWidth() - 10, proportionOfHeight (0.0792f));
-    vpSequencer->setBounds (5, 20, getWidth() - 10, proportionOfHeight (0.8479f));
+    transport->setBounds (5, getHeight() - 5 - proportionOfHeight (0.0795f), getWidth() - 10, proportionOfHeight (0.0795f));
+    vpSequencer->setBounds (5, 20, getWidth() - 10, proportionOfHeight (0.8486f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -122,10 +122,10 @@ BEGIN_JUCER_METADATA
                  initialHeight="480">
   <BACKGROUND backgroundColour="0"/>
   <JUCERCOMP name="" id="8ba4a7c2e5920bea" memberName="transport" virtualName=""
-             explicitFocusOrder="0" pos="5 5Rr 10M 7.917%" sourceFile="VPNavigate.cpp"
+             explicitFocusOrder="0" pos="5 5Rr 10M 7.891%" sourceFile="VPNavigate.cpp"
              constructorParams="controller"/>
   <JUCERCOMP name="" id="63321eff4af9bbe1" memberName="vpSequencer" virtualName=""
-             explicitFocusOrder="0" pos="5 20 10M 84.792%" sourceFile="VPSequencer.cpp"
+             explicitFocusOrder="0" pos="5 20 10M 84.864%" sourceFile="VPSequencer.cpp"
              constructorParams="controller"/>
 </JUCER_COMPONENT>
 

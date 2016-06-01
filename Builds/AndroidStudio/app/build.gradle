@@ -2,12 +2,12 @@ apply plugin: 'com.android.model.application'
 
 model {
     android {
-        compileSdkVersion = 23
+        compileSdkVersion = 21
         buildToolsVersion = "23.0.1"
         defaultConfig.with {
             applicationId = "com.audiosalt.silverbirdapp"
-            minSdkVersion.apiLevel = 23
-            targetSdkVersion.apiLevel = 23
+            minSdkVersion.apiLevel = 21
+            targetSdkVersion.apiLevel = 21
         }
     }
 
@@ -124,6 +124,11 @@ model {
         cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_gui_extra/misc".toString())
         cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_gui_extra/native".toString())
         cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_gui_extra".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_opengl/opengl".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_opengl/geometry".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_opengl/utils".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_opengl/native".toString())
+        cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/../JUCE/modules/juce_opengl".toString())
         cppFlags.add("-I/Users/logsol/Work/projects/c++/SilverbirdApp/JuceLibraryCode".toString())
         ldLibs.addAll("android", "EGL", "GLESv2", "log")
     }
@@ -146,10 +151,10 @@ model {
                 cppFlags.add("-DDEBUG=1")
                 cppFlags.add("-D_DEBUG=1")
                 cppFlags.add("-DJUCE_ANDROID=1")
-                cppFlags.add("-DJUCE_ANDROID_API_VERSION=23")
+                cppFlags.add("-DJUCE_ANDROID_API_VERSION=21")
                 cppFlags.add("-DJUCE_ANDROID_ACTIVITY_CLASSNAME=com_audiosalt_silverbirdapp_SilverbirdApp")
                 cppFlags.add("-DJUCE_ANDROID_ACTIVITY_CLASSPATH=\"com/audiosalt/silverbirdapp/SilverbirdApp\"")
-                cppFlags.add("-O0")
+                cppFlags.add("-O3")
             }
         }
         release {
@@ -157,7 +162,7 @@ model {
             ndk.with {
                 cppFlags.add("-DNDEBUG=1")
                 cppFlags.add("-DJUCE_ANDROID=1")
-                cppFlags.add("-DJUCE_ANDROID_API_VERSION=23")
+                cppFlags.add("-DJUCE_ANDROID_API_VERSION=21")
                 cppFlags.add("-DJUCE_ANDROID_ACTIVITY_CLASSNAME=com_audiosalt_silverbirdapp_SilverbirdApp")
                 cppFlags.add("-DJUCE_ANDROID_ACTIVITY_CLASSPATH=\"com/audiosalt/silverbirdapp/SilverbirdApp\"")
                 cppFlags.add("-O3")

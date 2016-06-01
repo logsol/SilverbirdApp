@@ -73,8 +73,8 @@ VPNavigate::VPNavigate (Controller* controller)
     mixer->setClickingTogglesState(true);
 
     sequencer->setToggleState(true, dontSendNotification);
-    
-    mixer->triggerClick();
+
+    //mixer->triggerClick();
 
     //[/Constructor]
 }
@@ -109,10 +109,10 @@ void VPNavigate::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    sequencer->setBounds (proportionOfWidth (0.0000f) + roundFloatToInt (proportionOfWidth (0.2188f) * 0.9857f), proportionOfHeight (0.0000f), proportionOfWidth (0.3031f), proportionOfHeight (1.0000f));
-    setup->setBounds (proportionOfWidth (0.0000f), proportionOfHeight (0.0000f), proportionOfWidth (0.2188f), proportionOfHeight (1.0000f));
-    mixer->setBounds ((proportionOfWidth (0.0000f) + roundFloatToInt (proportionOfWidth (0.2188f) * 0.9857f)) + roundFloatToInt (proportionOfWidth (0.3031f) * 0.9794f), proportionOfHeight (0.0000f), proportionOfWidth (0.2188f), proportionOfHeight (1.0000f));
-    playButton->setBounds (proportionOfWidth (0.7594f), proportionOfHeight (0.0000f), proportionOfWidth (0.2406f), proportionOfHeight (1.0000f));
+    sequencer->setBounds (proportionOfWidth (0.0000f) + roundFloatToInt (proportionOfWidth (0.2194f) * 0.9853f), proportionOfHeight (0.0000f), proportionOfWidth (0.3032f), proportionOfHeight (1.0000f));
+    setup->setBounds (proportionOfWidth (0.0000f), proportionOfHeight (0.0000f), proportionOfWidth (0.2194f), proportionOfHeight (1.0000f));
+    mixer->setBounds ((proportionOfWidth (0.0000f) + roundFloatToInt (proportionOfWidth (0.2194f) * 0.9853f)) + roundFloatToInt (proportionOfWidth (0.3032f) * 0.9787f), proportionOfHeight (0.0000f), proportionOfWidth (0.2194f), proportionOfHeight (1.0000f));
+    playButton->setBounds (proportionOfWidth (0.7581f), proportionOfHeight (0.0000f), proportionOfWidth (0.2419f), proportionOfHeight (1.0000f));
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -176,18 +176,18 @@ BEGIN_JUCER_METADATA
                  initialWidth="320" initialHeight="38">
   <BACKGROUND backgroundColour="0"/>
   <TEXTBUTTON name="" id="7de12c148a506af0" memberName="sequencer" virtualName="SbButton"
-              explicitFocusOrder="0" pos="98.529% 0% 30.323% 100%" posRelativeX="e3472dc8542a2fb4"
+              explicitFocusOrder="0" pos="98.571% 0% 30.312% 100%" posRelativeX="e3472dc8542a2fb4"
               bgColOff="ffcecece" buttonText="Sequencer" connectedEdges="3"
               needsCallback="1" radioGroupId="6937"/>
   <TEXTBUTTON name="" id="e3472dc8542a2fb4" memberName="setup" virtualName="SbButton"
-              explicitFocusOrder="0" pos="0% 0% 21.935% 100%" bgColOff="ffcecece"
+              explicitFocusOrder="0" pos="0% 0% 21.875% 100%" bgColOff="ffcecece"
               buttonText="Setup" connectedEdges="2" needsCallback="1" radioGroupId="6937"/>
   <TEXTBUTTON name="" id="b9d502978143d2ff" memberName="mixer" virtualName="SbButton"
-              explicitFocusOrder="0" pos="97.872% 0% 21.935% 100%" posRelativeX="7de12c148a506af0"
+              explicitFocusOrder="0" pos="97.938% 0% 21.875% 100%" posRelativeX="7de12c148a506af0"
               bgColOff="ffcecece" buttonText="Mixer" connectedEdges="1" needsCallback="1"
               radioGroupId="6937"/>
   <TEXTBUTTON name="" id="e919a91fb78e40b3" memberName="playButton" virtualName="SbButton"
-              explicitFocusOrder="0" pos="75.806% 0% 24.194% 100%" bgColOff="ffcecece"
+              explicitFocusOrder="0" pos="75.938% 0% 24.062% 100%" bgColOff="ffcecece"
               buttonText="Play" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
 </JUCER_COMPONENT>
 
