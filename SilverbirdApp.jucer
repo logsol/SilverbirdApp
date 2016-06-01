@@ -141,6 +141,8 @@
       <GROUP id="{00072E99-D17E-628D-64ED-AA9005D4D77D}" name="Fx">
         <FILE id="Q9AMFC" name="DelayAudioSource.cpp" compile="0" resource="0"
               file="Source/DelayAudioSource.cpp" xcodeResource="0"/>
+        <FILE id="qEAcG3" name="FaustDependencies.h" compile="0" resource="0"
+              file="Source/FaustDependencies.h"/>
         <FILE id="OpCOxU" name="ReverberationAudioSource.cpp" compile="0" resource="0"
               file="Source/ReverberationAudioSource.cpp"/>
       </GROUP>

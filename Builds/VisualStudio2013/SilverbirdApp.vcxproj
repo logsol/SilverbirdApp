@@ -1382,6 +1382,7 @@
     <ClInclude Include="..\..\Source\Gui2.h"/>
     <ClInclude Include="..\..\Source\SequencerMessage.h"/>
     <ClInclude Include="..\..\Source\StandaloneFilterWindow.h"/>
+    <ClInclude Include="..\..\Source\FaustDependencies.h"/>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioSampleBuffer.h"/>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_FloatVectorOperations.h"/>

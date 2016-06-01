@@ -17,14 +17,15 @@
 
 Mixer::Mixer(Controller* controller) : controller(controller)
 {
-    const bool deleteOnRemove = true;
+    const bool deleteOnRemove = false;
     
     delayAudioSource = new DelayAudioSource();
+    reverbAudioSource = new ReverberationAudioSource();
     
     for (int i = 0; i < Mixer::tracks::max; i++) {
         createAndAddTrack(i, deleteOnRemove);
+        reverbAudioSource->addInputSource(sources[i]->getReverbBus(), deleteOnRemove);
         delayAudioSource->addInputSource(sources[i]->getDelayBus(), deleteOnRemove);
-        //reverbAudioSource->addInputSource(sources[i]->getReverbBus(), deleteOnRemove);
     }
     
     addInputSource(delayAudioSource, deleteOnRemove);

@@ -58,13 +58,16 @@ with{
 	visualizer = hbargraph("[1]Compressor Level [unit:dB]",-50,10);
 };
 
+send = *(0.5), *(0.5);
+
 pan = *(0.4),*(0.6); 
 gain = *(0.5), *(0.5);
 channelStrip = gain : pan;
 
 process = _,_,_,_, _,_,_,_, _,_,_,_ : distortions : filters 
 		  <: 
-		  ((_,_,_,_, _,_,_,_, _,_,_,_) :> fxReverb,fxReverb : channelStrip), 
-		  ((_,_,_,_, _,_,_,_, _,_,_,_) :> fxDelay,fxDelay : channelStrip), 
-		  (_,_,_,_, _,_,_,_, _,_,_,_ : channelStrip,channelStrip,channelStrip,channelStrip,channelStrip,channelStrip)
+		  (send,send,send,send,send,send :> fxReverb,fxReverb : channelStrip), 
+		  (send,send,send,send,send,send :> fxDelay,fxDelay : channelStrip), 
+		  (channelStrip,channelStrip,channelStrip,channelStrip,channelStrip,channelStrip)
 		  :> _,_ : compressor,compressor;
+
